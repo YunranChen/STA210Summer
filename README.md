@@ -1,6 +1,6 @@
 # Website for STA 210 at Duke University (Summer 2022)
 
-🔗 https://sta210-s22.github.io/website/
+🔗 https://yunranchen.github.io/STA210Summer/
 
 ## Colors
 
