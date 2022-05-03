@@ -1,4 +1,4 @@
-# Website for STA 210 at Duke University (Spring 2022)
+# Website for STA 210 at Duke University (Summer 2022)
 
 🔗 https://sta210-s22.github.io/website/
 
@@ -9,7 +9,7 @@
 
 ## Attribution
 
-Much of the content is based on [STA 210 - Fall 2021](https://github.com/sta210-fa21/) by Dr. Maria Tackett.
+Much of the content is based on [STA 210 - Spring 2022](https://sta210-s22.github.io/website/) by Dr. Mine Çetinkaya-Rundel and [STA 210 - Fall 2021](https://github.com/sta210-fa21/) by Dr. Maria Tackett.
 
 <hr> 
 
