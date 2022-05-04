@@ -121,7 +121,6 @@ You are expected to use the team's GitHub repository on the course's GitHub orga
 Commits to this repository will be used as a metric of each team member's relative contribution for each lab, and there will be periodic peer evaluation on the team collaboration.
 Lab assignments will be completed using Quarto, correspond to an appropriate GitHub repository, and submitted for grading in Gradescope.
 
-*The lowest lab grade will be dropped at the end of the semester.*
 
 ### Homework
 
@@ -133,7 +132,6 @@ One homework assignment will be dedicated to a *statistics experience*.
 The statistics experience is an opportunity to engage with statistics and data science outside of the classroom through podcasts, books, seminars, data analysis competitions, and other activities.
 As you complete these experiences, the goal is to consider how the material you're learning in the course connects with society more broadly.
 
-*The lowest homework grade will be dropped at the end of the semester.*
 
 ### Exams
 
@@ -181,17 +179,7 @@ The final letter grade will be determined based on the following thresholds:
 | D-           | 60 - 62.99         |
 | F            | \< 60              |
 
-## Five tips for success
 
-Your success on this course depends very much on you and the effort you put into it.
-The course has been organized so that the burden of learning is on you.
-Your TAs and I will help you be providing you with materials and answering questions and setting a pace, but for this to work you must do the following:
-
-1.  Complete all the preparation work before class.
-2.  Ask questions. As often as you can. In class, out of class. Ask me, ask the TAs, ask your friends, ask the person sitting next to you. This will help you more than anything else. If you get a question wrong on an assessment, ask us why. If you're not sure about the homework, ask. If you hear something on the news that sounds related to what we discussed, ask. If the reading is confusing, ask.
-3.  Do the readings.
-4.  Do the homework and lab.The earlier you start, the better. It's not enough to just mechanically plow through the exercises. You should ask yourself how these exercises relate to earlier material, and imagine how they might be changed (to make questions for an exam, for example.)
-5.  Don't procrastinate. If something is confusing to you in Week 2, Week 3 will become more confusing, Week 4 even worse, and eventually you won't know where to begin asking questions. Don't let the week end with unanswered questions. But if you find yourself falling behind and not knowing where to begin asking, come to office hours, and let me help you identify a good (re)starting point.
 
 ## Course policies
 
@@ -243,14 +231,6 @@ Note that the lowest homework and lab assignment will be dropped to accommodate 
 
 -   The late work policy for the project will be provided with the project instructions.
 
-### Waiver for extenuating circumstances
-
-If there are circumstances that prevent you from completing a lab or homework assignment by the stated due date, you may email [me](mailto:yunran.chen@duke.edu) **and** our TA [Rick Presman](mailto:rick.presman@duke.edu) before the deadline to waive the late penalty.
-In your email, you have to provide explanation.
-This waiver may only be used for once in the semester, so only use it for a truly extenuating circumstance.
-
-If there are circumstances that are having a longer-term impact on your academic performance, please let your academic dean know, as they can be a resource.
-Please let me know if you need help contacting your academic dean.
 
 ### Regrade request policy
 
@@ -289,24 +269,6 @@ Please reach out to me and your academic dean as soon as possible if you need to
 In the event of inclement weather or other connectivity-related events that prohibit class attendance, I will notify you how we will make up missed course content and work.
 This might entail holding the class on Zoom synchronously or watching a recording of the class.
 
-### Policy on video recording course content
-
-All lectures held on zoom will be recorded and available on [Panopto](https://duke.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%22d6c1d58a-cb6d-4732-9d4b-ae0c011bf767%22), so students should not need to create their own recordings of lectures.
-If you feel that you need record the lectures yourself, you must get permission from me ahead of time and these recordings should be used for personal study only, no for distribution.
-The full policy on recording of lectures falls under the Duke University Policy on Intellectual Property Rights, available at [provost.duke.edu/sites/default/files/FHB_App_P.pdf](https://provost.duke.edu/sites/default/files/FHB_App_P.pdf).
-Unauthorized distribution is a cause for disciplinary action by the Judicial Board.
-
-## **Learning during a pandemic**
-
-I want to make sure that you learn everything you were hoping to learn from this class.
-If this requires flexibility, please don't hesitate to ask.
-
--   You *never* owe me personal information about your health (mental or physical) but you're always welcome to talk to me.
-    If I can't help, I likely know someone who can.
-
--   I want you to learn lots of things from this class, but I primarily want you to stay healthy, balanced, and grounded during this crisis.
-
-*Note:* If you've read this far in the syllabus, email me a picture of your pet if you have one or your favourite poem/song!
 
 ## Important dates
 
