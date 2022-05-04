@@ -6,12 +6,11 @@ title: "Syllabus"
 
 ## Course info
 
-|           | Day       | Time              | Location                       |
-|-----------|-----------|-------------------|--------------------------------|
-| Lectures  | Tue & Thu | 1:45 pm - 3:00 pm | Reuben-Cooke Building 130      |
-| Section 1 | Mon       | 1:45 pm - 3:00 pm | Perkins LINK 087 (Classroom 3) |
-| Section 2 | Mon       | 3:30 pm - 4:45 pm | Old Chemistry 003              |
-| Section 3 | Mon       | 5:15 pm - 6:30 pm | Social Sciences 311            |
+|           | Day        | Time                | Location                       |
+|-----------|------------|---------------------|--------------------------------|
+| Lectures  | Weekdays   | 11:00 am - 12:15 pm | Old Chemistry 101              |
+| Labs      | Mon and Wed|  2:00 pm -  3:15 pm | Old Chemistry 101              | 
+
 
 ## Learning objectives
 
@@ -53,20 +52,13 @@ If there is any portion of the course that is not accessible to you due to chall
 The [Student Disability Access Office (SDAO)](https://access.duke.edu/students) is available to ensure that students are able to engage with their courses and related assignments.
 Students should be in touch with the Student Disability Access Office to [request or update accommodations](https://access.duke.edu/requests) under these circumstances.
 
-### Communication
-
-All lecture notes, assignment instructions, an up-to-date schedule, and other course materials may be found on the course website at [sta210-s22.github.io/website](https://sta210-s22.github.io/website).
-
-I will regularly send course announcements via email and Sakai, make sure to check one or the other of these regularly.
-If an announcement is sent Monday through Thursday, I will assume that you have read the announcement by the next day.
-If an announcement is sent on a Friday or over the weekend, I will assume that you have read it by Monday.
 
 ### Where to get help
 
 -   If you have a question during lecture or lab, feel free to ask it! There are likely other students with the same question, so by asking you will create a learning opportunity for everyone.
 -   The teaching team is here to help you be successful in the course. You are encouraged to attend office hours to ask questions about the course content and assignments. Many questions are most effectively answered as you discuss them with others, so office hours are a valuable resource. Please use them!
 -   Outside of class and office hours, any general questions about course content or assignments should be posted on the course forum [Conversations](https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/tool/13b6446a-a6c6-4222-8cfb-c36d1f70802b). There is a chance another student has already asked a similar question, so please check the other posts in Conversations before adding a new question. If you know the answer to a question posted in the discussion forum, I encourage you to respond!
--   Emails should be reserved for questions not appropriate for the public forum. **If you email me, please include "STA 210" in the subject line.** Barring extenuating circumstances, I will respond to STA 210 emails within 48 hours Monday - Friday. Response time may be slower for emails sent Friday evening - Sunday.
+-   Emails should be reserved for questions not appropriate for the public forum. **If you email me, please include "STA 210" in the subject line.** Barring extenuating circumstances, I will respond to STA 210 emails within 48 hours Monday - Friday. Emails sent Friday evening - Sunday may be answered on Monday.
 
 Check out the [Support](/course-support.html) page for more resources.
 
@@ -99,7 +91,7 @@ More information on loaner laptops can be found [here](https://keeplearning.duke
 
 ## Teams
 
-You will be assigned to a team at the beginning of the semester.
+You will be assigned to a team at the beginning of each week.
 You are encouraged to sit with your teammates in lecture and you will also work with them in the lab sessions.
 All team members are expected to contribute equally to the completion of the labs and project and you will be asked to evaluate your team members throughout the semester.
 Failure to adequately contribute to an assignment will result in a penalty to your mark relative to the team's overall mark.
@@ -115,8 +107,8 @@ Assessment for the course is comprised of six components: application exercises,
 
 Parts of some lectures will be dedicated to working on Application Exercises (AEs).
 These exercises which give you an opportunity to practice apply the statistical concepts and code introduced in the readings and lectures.
-These AEs are due within three days of the corresponding lecture period.
-Specifically, AEs from Tuesday lectures are due Friday by 11:59 pm ET, and AEs from Thursday lectures are due Sunday by 11:59 pm ET.
+These AEs are released on Monday, Wednesday and Friday. They are due within two days of the corresponding lecture period.
+Specifically, AEs from Monday and Wednesday lectures are due Wednesday and Friday by 11:59 pm ET respectively. AEs from Friday lectures are due Sunday by 11:59 pm ET.
 
 Because these AEs are for practice, they will be graded based on completion, i.e., a good-faith effort has been made in attempting all parts.
 Successful on-time completion of at least 80% of AEs will result in full credit for AEs in the final course grade.
@@ -149,12 +141,12 @@ There will be three, take-home, open-note exams.
 Through these exams you have the opportunity to demonstrate what you've learned in the course thus far.
 The exams will focus on the conceptual understanding of the content, and they may also include small analysis and computational tasks.
 The content of the exam will be related to the content in the prepare, practice, and perform assignments.
-More detail about the exams will be given during the semester.
+More details about the exams will be given during the semester.
 
 ### Project
 
 The purpose of the [project](/project-description/) is to apply what you've learned throughout the semester to analyze an interesting, data-driven research question.
-The project will be completed with your lab teams, and each team will present their work in video and in writing during the final exam period.
+The project will be completed with your teams, and each team will present their work in class and in writing during the final exam period.
 More information about the project will be provided during the semester.
 
 ## Grading
@@ -166,11 +158,11 @@ The final course grade will be calculated as follows:
 | Application exercises | 3%              |
 | Homework              | 35% (7% x 5)    |
 | Project               | 15%             |
-| Lab                   | 14% (2.33% x 6) |
+| Lab                   | 14% (2.5% x 6)  |
 | Exam 01               | 10%             |
 | Exam 02               | 10%             |
 | Exam 03               | 10%             |
-| Teamwork              | 3%              |
+| Teamwork              | 2%              |
 
 The final letter grade will be determined based on the following thresholds:
 
@@ -242,8 +234,8 @@ The due dates for assignments are there to help you keep up with the course mate
 We understand that things come up periodically that could make it difficult to submit an assignment by the deadline.
 Note that the lowest homework and lab assignment will be dropped to accommodate such circumstances.
 
--   Homework and labs may be submitted up to 3 days late.
-    There will be a 5% deduction for each 24-hour period the assignment is late.
+-   Homework and labs may be submitted up to 1 day late.
+    There will be a 5% deduction for each 6-hour period the assignment is late.
 
 -   There is no late work accepted for application exercises, since these are designed to help you prepare for labs and homework.
 
@@ -253,16 +245,16 @@ Note that the lowest homework and lab assignment will be dropped to accommodate 
 
 ### Waiver for extenuating circumstances
 
-If there are circumstances that prevent you from completing a lab or homework assignment by the stated due date, you may email [Dr. Çetinkaya-Rundel](mailto:mc301@duke.edu) **and** our head TA [Rick Presman](mailto:rick.presman@duke.edu) before the deadline to waive the late penalty.
-In your email, you only need to request the waiver; you do not need to provide explanation.
+If there are circumstances that prevent you from completing a lab or homework assignment by the stated due date, you may email [me](mailto:yunran.chen@duke.edu) **and** our TA [Rick Presman](mailto:rick.presman@duke.edu) before the deadline to waive the late penalty.
+In your email, you have to provide explanation.
 This waiver may only be used for once in the semester, so only use it for a truly extenuating circumstance.
 
 If there are circumstances that are having a longer-term impact on your academic performance, please let your academic dean know, as they can be a resource.
-Please let Dr. Çetinkaya-Rundel know if you need help contacting your academic dean.
+Please let me know if you need help contacting your academic dean.
 
 ### Regrade request policy
 
-Regrade requests must be submitted on Gradescope within a week of when an assignment is returned.
+Regrade requests must be submitted on Gradescope within 24 hours of when an assignment is returned.
 Regrade requests will be considered if there was an error in the grade calculation or if you feel a correct answer was mistakenly marked as incorrect.
 Requests to dispute the number of points deducted for an incorrect response will not be considered.
 Note that by submitting a regrade request, the entire question will be graded which could potentially result in losing points.
@@ -275,9 +267,8 @@ Responsibility for class attendance rests with individual students.
 Since regular and punctual class attendance is expected, students must accept the consequences of failure to attend.
 More details on Trinity attendance policies are available [here](https://trinity.duke.edu/undergraduate/academic-policies/class-attendance-and-missed-work).
 
-However, there may be many reasons why you cannot be in class on a given day, particularly with possible extra personal and academic stress and health concerns this semester.
-All course lectures will be recorded and available to enrolled students after class.
-If you miss a lecture, make sure to watch the recording and review the material before the next class session.
+However, there may be many reasons why you cannot be in class on a given day, particularly with possible extra personal and academic stress and health concerns.
+If you miss a lecture, make sure to review the material before the next class session.
 Lab time is dedicated to working on your lab assignments and collaborating with your teammates on your project.
 If you miss a lab session, make sure to communicate with your team about how you can make up your contribution.
 Given the technologies we use in the course, this is straightforward to do asynchronously.
@@ -286,7 +277,7 @@ Overall these policies are put in place to ensure communication between team mem
 
 ### Attendance policy related to COVID symptoms, exposure, or infection
 
-Student health, safety, and well-being are the university's top priorities.
+Student health, safety, and well-being are the university's top priorities. Please wear a mask when attending the class.
 To help ensure your well-being and the well-being of those around you, please do not come to class if you have symptoms related to COVID-19, have had a known exposure to COVID-19, or have tested positive for COVID-19.
 If any of these situations apply to you, you must follow university guidance related to the ongoing COVID-19 pandemic and current health and safety protocols.
 If you are experiencing any COVID-19 symptoms, contact student health at 919-681-9355.
@@ -300,7 +291,7 @@ This might entail holding the class on Zoom synchronously or watching a recordin
 
 ### Policy on video recording course content
 
-All lectures will be recorded and available on [Panopto](https://duke.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%22d6c1d58a-cb6d-4732-9d4b-ae0c011bf767%22), so students should not need to create their own recordings of lectures.
+All lectures held on zoom will be recorded and available on [Panopto](https://duke.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%22d6c1d58a-cb6d-4732-9d4b-ae0c011bf767%22), so students should not need to create their own recordings of lectures.
 If you feel that you need record the lectures yourself, you must get permission from me ahead of time and these recordings should be used for personal study only, no for distribution.
 The full policy on recording of lectures falls under the Duke University Policy on Intellectual Property Rights, available at [provost.duke.edu/sites/default/files/FHB_App_P.pdf](https://provost.duke.edu/sites/default/files/FHB_App_P.pdf).
 Unauthorized distribution is a cause for disciplinary action by the Judicial Board.
@@ -315,18 +306,19 @@ If this requires flexibility, please don't hesitate to ask.
 
 -   I want you to learn lots of things from this class, but I primarily want you to stay healthy, balanced, and grounded during this crisis.
 
-*Note:* If you've read this far in the syllabus, email me a picture of your pet if you have one or your favourite meme!
+*Note:* If you've read this far in the syllabus, email me a picture of your pet if you have one or your favourite poem/song!
 
 ## Important dates
 
--   **January 5:** Classes begin (Monday meeting schedule)
--   **January 6:** Regular class meeting schedule begins
--   **January 17:** Martin Luther King, Jr. Day holiday, no classes are held
--   **January 19:** Drop/add ends
--   **March 7-11:** Spring recess, no classes are held
--   **March 23**: Last day to withdraw with W
--   **April 20**: Classes end
--   **April 21-24**: Reading period
--   **April 25-30**: Final exams
+-   **May 11:** Classes begin (Monday meeting schedule).
+-   **May 12:** Regular class meeting schedule begins.
+-   **May 13:** Drop/add for term 1 ends.
+-   **May 30:** Memorial Day holiday. No classes are held.
+-   **June 8**: Last day to withdraw with W.
+-   **June 15**: Last lab.
+-   **June 17**: Classes end.
+-   **June 20**: Juneteenth holiday. No classes/office hour are held.
+-   **June 21**: Reading period.
+-   **June 22**: Final project presentation. Due date for final project report.
 
-Click [here](https://registrar.duke.edu/spring-2022-academic-calendar) for the full Duke academic calendar.
+Click [here](https://registrar.duke.edu/summer-2022-academic-calendar) for the full Duke academic calendar.
