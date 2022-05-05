@@ -1,8 +1,8 @@
 ---
 title: "SLR: Model fitting in R with tidymodels"
-subtitle: "STA 210 - Spring 2022"
-author: "Dr. Mine Çetinkaya-Rundel"
-footer:  "[sta210-s22.github.io/website](https://sta210-s22.github.io/website/)"
+subtitle: "STA 210 - Summer 2022"
+author: "Yunran Chen"
+footer:  "[yunranchen.github.io/STA210Summer/](https://yunranchen.github.io/STA210Summer/)"
 logo: "images/logo.png"
 format: 
   revealjs: 
@@ -14,6 +14,13 @@ editor: visual
 execute:
   freeze: auto
 ---
+
+<style>
+slides > slide {
+  overflow-x: auto !important;
+  overflow-y: auto !important;
+}
+</style>
 
 ```{r setup}
 #| include: false
@@ -30,8 +37,8 @@ knitr::opts_chunk$set(
 
 ## Announcements
 
--   If you're just joining the class, welcome! Go to the [course website](https://sta210-s22.github.io/website) and review content you've missed, read the syllabus, and complete the *Getting to know you* survey.
--   Lab 1 is due Friday, at 5pm, on Gradescope.
+-   If you're just joining the class, welcome! Go to the [course website](https://yunranchen.github.io/STA210Summer/) and review content you've missed, read the syllabus, and complete the [*Getting to know you*](https://duke.qualtrics.com/jfe/form/SV_a2XjEYFcPneNm6y) survey.
+-   Lab 1 is due Friday, at 11:59pm, on Gradescope.
 
 ## Recap of last lecture {.smaller}
 
@@ -212,7 +219,7 @@ predict(movie_fit, new_movie)
 # Application exercise
 
 ::: appex
-📋 [github.com/sta210-s22/ae-1-dcbikeshare](https://github.com/sta210-s22/ae-1-dcbikeshare)
+📋 [github.com/STA210-Summer22/ae-1-dcbikeshare](https://github.com/STA210-Summer22/ae-1-dcbikeshare)
 :::
 
 followed by a demo of exporting your work and uploading to GradeScope

@@ -1,8 +1,8 @@
 ---
 title: "Simple Linear Regression"
-subtitle: "STA 210 - Spring 2022"
-author: "Dr. Mine Çetinkaya-Rundel"
-footer:  "[sta210-s22.github.io/website](https://sta210-s22.github.io/website/)"
+subtitle: "STA 210 - Summer 2022"
+author: "Yunran Chen"
+footer:  "[yunranchen.github.io/STA210Summer/](https://yunranchen.github.io/STA210Summer/)"
 logo: "images/logo.png"
 format: 
   revealjs: 
@@ -30,12 +30,9 @@ knitr::opts_chunk$set(
 
 ## Announcements
 
--   If you're just joining the class, welcome! Go to the [course website](https://sta210-s22.github.io/website) and review content you've missed, read the syllabus, and complete the *Getting to know you* survey.
--   Lab 1 is due Friday, at 5pm, on Gradescope.
+-   If you're just joining the class, welcome! Go to the [course website](https://yunranchen.github.io/STA210Summer/) and review content you've missed, read the syllabus, and complete the [*Getting to know you*](https://duke.qualtrics.com/jfe/form/SV_a2XjEYFcPneNm6y) survey.
+-   Lab 1 is due Friday, at 11:59pm, on Gradescope.
 
-## Dorianne Gray says...
-
-[![](images/lec-2/dorianne-gray.jpeg){fig-alt="Picture of my cat Dorianne Gray (a gray, furry tabby) with a speech bubble that says \"Read the syllabus and make Mine happy!\"" width="800"}](https://sta210-s22.github.io/website/course-syllabus.html)
 
 ## Outline
 
@@ -355,8 +352,7 @@ $$
 
 ## Interpreting the slope {.smaller}
 
-**Poll:** The slope of the model for predicting audience score from critics score is 32.3142.
-Which of the following is the best interpretation of this value?
+**Poll:** The slope of the model for predicting audience score from critics score is 32.3142. Which of the following is the best interpretation of this value?
 
 -   For every one point increase in the critics score, the audience score goes up by 0.5187 points, on average.
 -   For every one point increase in the critics score, we expect the audience score to be higher by 0.5187 points, on average.
@@ -369,7 +365,7 @@ $$\widehat{\text{audience}} = 32.3142 + 0.5187 \times \text{critics}$$
 
 ::: incremental
 -   **Slope:** For every one point increase in the critics score, we expect the audience score to be higher by 0.5187 points, on average.
--   **Intercept:** If the critics score is 0 points, we expect the audience score to be 32.3142 points.
+-   **Intercept:** If the critics score is 0 points, we expect the audience score to be 32.3142 points, on average.
 :::
 
 ## Is the intercept meaningful?
@@ -387,8 +383,7 @@ $$\widehat{\text{audience}} = 32.3142 + 0.5187 \times \text{critics}$$
 
 ## Making a prediction
 
-Suppose that a movie has a critics score of 50.
-According to this model, what is the movie's predicted audience score?
+Suppose that a movie has a critics score of 50. According to this model, what is the movie's predicted audience score?
 
 $$
 \begin{aligned}
@@ -400,8 +395,10 @@ $$
 
 ## Extrapolation
 
-Suppose that a movie has a critics score of 0.
-According to this model, what is the movie's predicted audience score?
+Extrapolation is prediction outside of the ranged covered by data.
+
+
+Suppose that a movie has a critics score of 0. According to this model, what is the movie's predicted audience score?
 
 ```{r}
 p + coord_cartesian(xlim = c(0, 100))
@@ -414,7 +411,7 @@ p + coord_cartesian(xlim = c(0, 100))
 ::: incremental
 -   Used simple linear regression to describe the relationship between a quantitative predictor and quantitative outcome variable.
 
--   Used the least squares method to estimate the slope and intercept.å
+-   Used the least squares method to estimate the slope and intercept.
 
 -   We interpreted the slope and intercept.
 
