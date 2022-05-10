@@ -38,7 +38,7 @@ library(countdown)
 
 ## Meet the TA
 
--   Martha Aboagye (she/her, UG)
+-   Joseph Ekpenyong
 
 ## Meet each other!
 

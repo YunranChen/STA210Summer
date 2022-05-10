@@ -5,29 +5,40 @@ editor: visual
 ---
 
 ::: callout-important
-Classes are virtual this week.
-Find Zoom links [here](https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/page/d5eef508-07a4-4c6d-b7bd-4614a9631562 "Sakai - Zoom meetings").
+-   Due dates:
+    -   Lab 1: Fri, May 13, 11:59pm ET
+    -   AE 1: Sun, May 15, 11:59pm ET
 :::
 
 ## Prepare
+
 
 📖 Read the [syllabus](/course-syllabus.html)
 
 📖 Read the [support](/course-support.html) resources
 
+📖 Read Introduction to Modern Statistics, Chp 7: [Linear regression with a single predictor](https://openintro-ims.netlify.app/model-slr.html)
+
+
 ## Participate
 
-🖥️ [Lab 0 -](/_slides/lab-0.html)[Meet](/slides/lab-0.html)[+ greet](/_slides/lab-0.html)
-
 🖥️ [Lecture 1 - Welcome to STA 210](/slides/lec-1.html)
+
+🖥️ [Lab 1 - Meet the toolkit](/slides/lab-1.html)
+
+🖥️ [Lecture 2 - Simple linear regression](/slides/lec-2.html)
+
+🖥️ [Lecture 3 - Model fitting in R with tidymodels](/slides/lec-3.html)
 
 ## Practice
 
 📋 [AE 0 - Movies](/ae/ae-0-movies.html)
 
+📋 [Application Exercise 1 - Bike rentals in DC](/ae/ae-1-dcbikeshare.html) *(Post-class note: complete only Part 1 - Daily counts and temperature)*
+
 ## Perform
 
-⌨️ [Lab 0 - Meet + greet](/labs/lab-0.html)
+⌨️ [Lab 1 - Meet the toolkit](/labs/lab-1.html "Lab instructions")
 
 <br><br>
 
