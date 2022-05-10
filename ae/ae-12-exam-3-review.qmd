@@ -26,7 +26,6 @@ library(nnet)
 
 As part of a study of the effects of predatory intertidal crab species on snail populations, researchers measured the mean closing forces and the propodus heights of the claws on several crabs of three species.
 
-
 ```{r}
 #| warning: false
 

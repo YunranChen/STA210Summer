@@ -41,7 +41,7 @@ In this part we'll go back to the Palmer penguins dataset from [HW 2](hw-2.html)
 We will use the following variables:
 
 | variable          | class   | description                                      |
-|:----------------|:----------------|:--------------------------------------|
+|:-----------------|:-----------------|:------------------------------------|
 | species           | integer | Penguin species (Adelie, Gentoo, Chinstrap)      |
 | island            | integer | Island where recorded (Biscoe, Dream, Torgersen) |
 | flipper_length_mm | integer | Flipper length in mm                             |
@@ -64,11 +64,11 @@ Let's start by looking at the relationship between island and whether a penguin 
 
 1.  What does the `values_fill` argument do in the following chunk? The documentation for the function will be helpful in answering this question.
 
-    ```{r}
+```{r}
     penguins %>%
       count(island, adelie) %>%
       pivot_wider(names_from = adelie, values_from = n, values_fill = 0)
-    ```
+```
 
 2.  Calculate the odds ratio of a penguin being from the Adelie species for those recorded on Dream compared to those recorded on Biscoe.
 

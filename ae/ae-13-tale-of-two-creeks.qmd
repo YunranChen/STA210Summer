@@ -20,15 +20,15 @@ library(tidylo)
 library(tidymodels)
 library(textrecipes)
 library(vip)
-detach("package:munsell", unload=TRUE)
+#detach("package:munsell", unload=TRUE)
 library(colorblindr)
 ```
 
 ## Load data
 
-```{r, echo=FALSE}
-sc_raw <- read_csv(here::here("processed-data/schitts-creek.csv"))
-dc_raw <- read_csv(here::here("processed-data/dawsons-creek.csv"))
+```{r}
+sc_raw <- read_csv(here::here("ae/processed-data/schitts-creek.csv"))
+dc_raw <- read_csv(here::here("ae/processed-data/dawsons-creek.csv"))
 
 show_lines_raw <- bind_rows(sc_raw, dc_raw)
 ```
@@ -184,8 +184,8 @@ glm_cv_2 <- glm_workflow_2 %>%
     control = control_resamples(save_pred = TRUE)
   )
 
-write_rds(glm_cv_1, file = "intermediary-output/glm_cv_1.rds")
-write_rds(glm_cv_2, file = "intermediary-output/glm_cv_2.rds")
+write_rds(glm_cv_1, file = "ae/intermediary-output/glm_cv_1.rds")
+write_rds(glm_cv_2, file = "ae/intermediary-output/glm_cv_2.rds")
 ```
 
 ## collect metrics
@@ -226,8 +226,8 @@ glm_final_1 <- glm_workflow_1 %>%
 glm_final_2 <- glm_workflow_2 %>%
   last_fit(split = show_lines_split)
 
-write_rds(glm_final_1, file = "intermediary-output/glm_final_1.rds")
-write_rds(glm_final_2, file = "intermediary-output/glm_final_2.rds")
+write_rds(glm_final_1, file = "ae/intermediary-output/glm_final_1.rds")
+write_rds(glm_final_2, file = "ae/intermediary-output/glm_final_2.rds")
 
 collect_metrics(glm_final_1)
 collect_metrics(glm_final_2)
