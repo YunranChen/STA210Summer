@@ -18,7 +18,7 @@ By the end of the lab you will be able to...
 ## Getting started
 
 -   A repository has already been created for you and your teammates. Everyone in your team has access to the same repo.
--   Go to the [sta210-s22](https://www.github.com/sta210-s22) organization on GitHub. Click on the repo with the prefix **lab-6**. It contains the starter documents you need to complete the lab.
+-   Go to the [STA210-Summer22](https://www.github.com/STA210-Summer22) organization on GitHub. Click on the repo with the prefix **lab-6**. It contains the starter documents you need to complete the lab.
 -   Each person on the team should clone the repository and open a new project in RStudio. Throughout the lab, each person should get a chance to make commits and push to the repo.
 
 ## Packages
@@ -36,11 +36,9 @@ library(knitr)
 
 ## Data: Five Thirty Eight
 
-The data for this assignment comes from an online Ipsos survey that was conducted for the FiveThirtyEight article ["Why Many Americans Don't Vote"](https://projects.fivethirtyeight.com/non-voters-poll-2020-election/).
-You can read more about the survey design and respondents in the README of the [GitHub repo](https://github.com/fivethirtyeight/data/tree/master/non-voters) for the data.
+The data for this assignment comes from an online Ipsos survey that was conducted for the FiveThirtyEight article ["Why Many Americans Don't Vote"](https://projects.fivethirtyeight.com/non-voters-poll-2020-election/). You can read more about the survey design and respondents in the README of the [GitHub repo](https://github.com/fivethirtyeight/data/tree/master/non-voters) for the data.
 
-Respondents were asked a variety of questions about their political beliefs, thoughts on multiple issues, and voting behavior.
-We will focus on using the demographic variables and someone's party identification to understand whether a person is a probable voter.
+Respondents were asked a variety of questions about their political beliefs, thoughts on multiple issues, and voting behavior. We will focus on using the demographic variables and someone's party identification to understand whether a person is a probable voter.
 
 The variables we'll focus on are (definitions from the codebook in data set GitHub repo):
 
@@ -48,8 +46,7 @@ The variables we'll focus on are (definitions from the codebook in data set GitH
 
 -   `educ`: Highest educational attainment category.
 
--   `race`: Race of respondent, census categories.
-    Note: all categories except Hispanic are non-Hispanic.
+-   `race`: Race of respondent, census categories. Note: all categories except Hispanic are non-Hispanic.
 
 -   `gender`: Gender of respondent
 
@@ -89,15 +86,11 @@ voters <- read_csv("https://raw.githubusercontent.com/fivethirtyeight/data/maste
     -   The variable `Q30` contains the respondent's political party identification. Make a new variable that simplifies `Q30` into four categories: "Democrat", "Republican", "Independent", "Other" ("Other" also includes respondents who did not answer the question).
     -   The variable `voter_category` identifies the respondent's past voter behavior. Relevel the variable to make rarely/never the baseline level, followed by sporadic, then always.
 
-3.  In the [FiveThirtyEight article](https://projects.fivethirtyeight.com/non-voters-poll-2020-election/), the authors include visualizations of the relationship between the voter category and demographic variables such as race, age, education, etc.
-    Select two demographic variables.
-    For each variable, interpret the plot to describe its relationship with voter category.
+3.  In the [FiveThirtyEight article](https://projects.fivethirtyeight.com/non-voters-poll-2020-election/), the authors include visualizations of the relationship between the voter category and demographic variables such as race, age, education, etc. Select two demographic variables. For each variable, interpret the plot to describe its relationship with voter category.
 
-4.  Fit a model using mean-centered age, race, gender, income, and education to predict voter category.
-    Show the code used to fit the model, but do **not** display the model output.
+4.  Fit a model using mean-centered age, race, gender, income, and education to predict voter category. Show the code used to fit the model, but do **not** display the model output.
 
-Next, we want to determine whether party identification be added to the model.
-In order to do this we need to compare two *nested* models.
+Next, we want to determine whether party identification be added to the model. In order to do this we need to compare two *nested* models.
 
 -   The *reduced* model is the one we fit so far, including the predictors mean-centered age, race, gender, income, and education.
 
@@ -117,11 +110,9 @@ In order to do this we need to compare two *nested* models.
 
     > *"Nonvoters were more likely to have lower incomes; to be young; to have lower levels of education; and to say they don't belong to either political party, which are all traits that square with what we know about people less likely to engage with the political system."*
 
-    Does your model support this statement?
-    Briefly explain why or why not.
+    Does your model support this statement? Briefly explain why or why not.
 
-8.  Let's use the model to predict the voting categories.
-    Obtain the predicted voter category for each observation.
+8.  Let's use the model to predict the voting categories. Obtain the predicted voter category for each observation.
 
     -   Create a table of the actual versus predicted voter categories and a visualization of the association between the two.
     -   How well did the model perform? Briefly assess the model performance using 2 - 3 observations from the table and/or visualization to support your response.
@@ -129,8 +120,7 @@ In order to do this we need to compare two *nested* models.
 ## Submission
 
 ::: callout-warning
-Before you wrap up the assignment, make sure all documents are updated on your GitHub repo.
-We will be checking these to make sure you have been practicing how to commit and push changes.
+Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.
 
 Remember -- you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.
 :::
@@ -153,5 +143,4 @@ Total points available: 50 points.
 | Ex 1 - 10             | 45     |
 | Workflow & formatting | 5[^1]  |
 
-[^1]: The "Workflow & formatting" grade is to assess the reproducible workflow.
-    This includes having at least 3 informative commit messages and updating the name and date in the YAML.
+[^1]: The "Workflow & formatting" grade is to assess the reproducible workflow. This includes having at least 3 informative commit messages and updating the name and date in the YAML.

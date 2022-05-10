@@ -3,7 +3,7 @@ title: "AE 9: Odds"
 ---
 
 ::: callout-important
-Go to the [course GitHub organization](https://github.com/sta210-s22) and locate the repo titled `ae-9-odds-YOUR_GITHUB_USERNAME` to get started.
+Go to the [course GitHub organization](https://github.com/STA210-Summer22) and locate the repo titled `ae-9-odds-YOUR_GITHUB_USERNAME` to get started.
 :::
 
 ## Packages
@@ -37,8 +37,7 @@ State whether a linear regression model or logistic regression model is more app
 
 ### Data: Framingham study
 
-This data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts.
-We want to use the total cholesterol to predict if a randomly selected adult is high risk for heart disease in the next 10 years.
+This data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to use the total cholesterol to predict if a randomly selected adult is high risk for heart disease in the next 10 years.
 
 -   `high_risk`:
     -   1: High risk of having heart disease in next 10 years
@@ -73,8 +72,7 @@ heart_disease %>%
 
 Fit a logistic regression model to understand the relationship between total cholesterol and risk for heart disease.
 
-Let $pi$ be the probability an adult is high risk.
-The statistical model is
+Let $pi$ be the probability an adult is high risk. The statistical model is
 
 $$\log\Big(\frac{\pi_i}{1-\pi_i}\Big) = \beta_0 + \beta_1 TotChol_i$$
 
@@ -96,8 +94,7 @@ Based on the model, if a randomly selected person has a total cholesterol of 250
 
 5.  What are the odds they are high risk for heart disease?
 
-6.  What is the probability they are high risk for heart disease?
-    *Use the odds to calculate your answer.*
+6.  What is the probability they are high risk for heart disease? *Use the odds to calculate your answer.*
 
 ### Comparing observations
 

@@ -1,31 +1,59 @@
 ---
 title: "Week 6"
-subtitle: "MLR: Model building and comparison"
+subtitle: "MultiLR + Wrap up"
 editor: visual
 ---
 
 ::: callout-important
-Due dates: Exam 1 - Mon, Feb 7 at 11:59pm
+-   Due dates:
+
+    -   HW 3: Sunday, June 12, 11:59pm
+    -   HW 5: Monday, June 13, 11:59pm
+    -   HW 4: Wednesday, June 15, 11:59pm
+    -   Lab 6 + AE 11: Friday, June 17, 11:59pm
+    -   Project drafts + AE 12 + AE 13: Sunday, June 19, 11:59pm
+    -   Exam 3: Monday, June 20, 11:59pm
+
+-   Released:
+
+    -   HW 5
+    -   HW 4
+    -   Lab 6
+    -   AE 11
+    -   Exam 3
+    -   Project drafts
+    -   AE 12 + AE 13
 :::
-
-## Prepare
-
-No reading (take a break after the exam! 😴)
 
 ## Participate
 
-🖥️ [Lecture 10 - MLR: Types of predictors](/slides/lec-10.html)
+🖥️ [Lecture 24 - MultiLR: Prediction + inferential models](/slides/lec-24.html)
 
-🖥️ [Lecture 11 - MLR: Model comparison](/slides/lec-11.html)
+🖥️ [Lecture 25 - MultiLR: Predictive models](/slides/lec-25.html)
+
+🖥️ [Lecture 26 - MultiLR: Predictive models (cont.)](/slides/lec-26.html)
+
+🖥️ [Lecture 27 - Exam 3 Review](/slides/lec-27.html)
+
+🖥️ [Lecture 28 - Wrap up](/slides/lec-28.html)
 
 ## Practice
 
-No application exercises
+📋 [Application Exercise 11 - Volcanoes](/ae/ae-11-volcanoes.html)
+
+📋 [Application Exercise 12 - Exam 3 Review](/ae/ae-12-exam-3-review.html)
+
+📋 [Application Exercise 13 - A Tale of Two Creeks](https://github.com/sta210-s22/ae-13-tale-of-two-creeks)
 
 ## Perform
 
-No lab
+✍️ [HW 4 - Multinomial logistic regression](/hw/hw-4.html)
 
+[💻](/labs/lab-6.html "Lab instructions") [Lab 6 - Why Many Americans Don't Vote](/labs/lab-6.html)
+
+✍️ [Project - Peer review of drafts](/project-description.html#peer-review)
+
+✍️ [HW 5 - Statistics experience](/hw/hw-5.html)
 
 <br><br>
 

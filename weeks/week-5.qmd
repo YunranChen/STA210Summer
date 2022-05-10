@@ -1,39 +1,56 @@
 ---
 title: "Week 5"
-subtitle: "TBA"
+subtitle: " Logistic regressio"
 editor: visual
 ---
 
 ::: callout-important
--   Due date: Lab 2 - Fri, Feb 4, 5pm ET
--   Exam 1 released on Fri, Feb 4, due Mon, Feb 7 at 11:59pm
+-   Due date:
+    -   Exam 2: Mon, June 6, 11:59pm ET
+    -   Project proposals + AE 9: Wed, June 8, 11:59pm
+    -   Lab 5 + AE 10: Fri, June 10, 11:59pm
+    -   HW 3: Sun, June 12, 11:59pm
+    -   HW 5: Mon, June 13, 11:59pm
+-   Released:
+    -   Project proposals
+    -   Lab 5
+    -   AE 9 + 10
+    -   HW 3 + 5
 :::
 
 ## Prepare
 
-📖 Read Introduction to Modern Statistics, Sec 8.1: [Indicator and categorical predictors](https://openintro-ims.netlify.app/model-mlr.html#ind-and-cat-predictors)
+📖 Read Introduction to Modern Statistics, Chp 9: [Logistic regression](https://openintro-ims.netlify.app/model-logistic.html)
 
-📖 Read Introduction to Modern Statistics, Sec 8.2: [Many predictors in a model](https://openintro-ims.netlify.app/model-mlr.html#many-predictors-in-a-model)
-
-📖 Read Introduction to Modern Statistics, Sec 8.3: [Adjusted R-squared](https://openintro-ims.netlify.app/model-mlr.html#adjusted-r-squared)
+📖 Read Introduction to Modern Statistics, Chp 26: [Inference for logistic regression](https://openintro-ims.netlify.app/inf-model-logistic.html)
 
 ## Participate
 
-🖥️ [Lab 3 - Coffee ratings](/slides/lab-3.html)
+🖥️ [Lecture 18 - Logistic regression](/slides/lec-18.html)
 
-🖥️ [Lecture 8 - Multiple linear regression (MLR)](/slides/lec-8.html)
+🖥️ [Lecture 19 - Probabilities, odds, odds ratios](/slides/lec-18.html)
 
-🖥️ [Lecture 9 - Exam 1 review](/slides/lec-9.html)
+🖥️ [Lecture 20 - LR: Prediction / classification](/slides/lec-20.html)
+
+🖥️ [Lecture 21 - LR: Model validation](/slides/lec-21.html)
+
+🖥️ [Lecture 22 - LR: Inference + conditions](/slides/lec-22.html)
+
+🖥️ [Lecture 23 - Multinomial logistic regression (MultiLR)](/slides/lec-23.html)
 
 ## Practice
 
-📋 [Application Exercise 4 - Exam 1 Review](/ae/ae-4-exam-1-review.html)
+📋 [Application Exercise 9 - Odds](/ae/ae-9-odds.html)
+
+📋 [Application Exercise 10 - Flight delays](/ae/ae-10-flight-delays.html)
 
 ## Perform
 
-⌨️ [Lab 3 - Coffee ratings](labs/lab-3.html)
+✍️ [HW 3 - Logistic regression and log transformation](/hw/hw-3.html)
 
-✅ [Exam 1](/exams/exam-1.html)
+⌨️ [Lab 5 - General Social Survey](labs/lab-5.html)
+
+✍️ [HW 5 - Statistics Experience](/hw/hw-5.html)
 
 <br><br>
 

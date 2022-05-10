@@ -1,6 +1,6 @@
 ---
 title: "HW 4 - Multinomial logistic regression"
-subtitle: "Due Friday, April 8, 5pm on Gradescope"
+subtitle: "Due Wednesday, June 15, 11:59pm on Gradescope"
 editor: visual
 ---
 
@@ -18,13 +18,11 @@ In this assignment, you will...
 
 ### Getting started
 
-Your repo for this assignment is at [github.com/sta210-s22](https://github.com/sta210-s22 "Course GitHub organization") and starts with the prefix **hw-4**.
-For more detailed instructions on getting started, see [HW 1](hw-1.html).
+Your repo for this assignment is at [github.com/STA210-Summer22](https://github.com/STA210-Summer22 "Course GitHub organization") and starts with the prefix **hw-4**. For more detailed instructions on getting started, see [HW 1](hw-1.html).
 
 ### Packages
 
-The following packages will be used in this assignment.
-You can add other packages as needed.
+The following packages will be used in this assignment. You can add other packages as needed.
 
 ```{r}
 #| message: false
@@ -37,17 +35,13 @@ library(patchwork)
 
 ## Data
 
-For this assignment, we will analyze data from the eye witness identification experiment in [Carlson and Carlson (2014)](https://www.sciencedirect.com/science/article/pii/S2211368114000229).
-In this experiment, participants were asked to watch a video of a mock crime (from the first person perspective), spend a few minutes completing a random task, and then identify the perpetrator of the mock crime from a line up shown on the screen.
-Every lineup in this analysis included the true perpetrator from the video.
-After viewing the line-up , each participant could make one of the following decisions (**`id`**):
+For this assignment, we will analyze data from the eye witness identification experiment in [Carlson and Carlson (2014)](https://www.sciencedirect.com/science/article/pii/S2211368114000229). In this experiment, participants were asked to watch a video of a mock crime (from the first person perspective), spend a few minutes completing a random task, and then identify the perpetrator of the mock crime from a line up shown on the screen. Every lineup in this analysis included the true perpetrator from the video. After viewing the line-up , each participant could make one of the following decisions (**`id`**):
 
 -   **correct**: correctly identified the true perpetrator
 -   **foil**: incorrectly identified the "foil", i.e. a person who looks very similar to the perpetrator
 -   **reject**: incorrectly concluded the true perpetrator is not in the lineup
 
-The main objective of the analysis is to understand how different conditions of the mock crime and suspect lineup affect the decision made by the participant.
-We will consider the following conditions to describe the decisions:
+The main objective of the analysis is to understand how different conditions of the mock crime and suspect lineup affect the decision made by the participant. We will consider the following conditions to describe the decisions:
 
 -   **`lineup`**: How potential suspects are shown to the participants
     -   **Simultaneous Lineup**: Participants were shown photos of all 6 potential suspects at the same time and were required to make a single decision (identify someone from the lineup or reject the lineup).
@@ -104,8 +98,7 @@ Complete the exploratory data analysis by creating the plots and/or summary stat
 
 3.  Briefly explain why you should use a multinomial logistic regression model to predict `id` using `lineup`, `weapon` and `feature`.
 
-4.  Fit the multinomial logistic model that only includes main effects.
-    Display the model output.
+4.  Fit the multinomial logistic model that only includes main effects. Display the model output.
 
 -   What is the baseline category for the response variable?
 -   Interpret the intercepts for each part of the model in terms of the odds.
@@ -124,12 +117,9 @@ Complete the exploratory data analysis by creating the plots and/or summary stat
 -   If there was no weapon but the perpetrator had a distinctive feature in the mock crime, how do the **odds** of reject vs. a correct ID change when there is a simultaneous lineup vs. a sequential lineup?
 -   Which group of participants (i.e., which set of experimental conditions) is described by the intercept?
 
-7.  Are the conditions inference met?
-    List of the conditions, and, **if relevant**, create visualizations to check the conditions and evaluate whether each condition is met.
-    Include an assessment about each condition and a brief explanation about your conclusion.
+7.  Are the conditions inference met? List of the conditions, and, **if relevant**, create visualizations to check the conditions and evaluate whether each condition is met. Include an assessment about each condition and a brief explanation about your conclusion.
 
-8.  Use the model to predict the decision made by each participant.
-    Make a table of the predicted vs. the actual decisions.
+8.  Use the model to predict the decision made by each participant. Make a table of the predicted vs. the actual decisions.
 
 -   Briefly describe how the predicted decision is determined for each participant.
 -   What is the misclassification rate?
@@ -137,8 +127,7 @@ Complete the exploratory data analysis by creating the plots and/or summary stat
 ## Submission
 
 ::: callout-warning
-Before you wrap up the assignment, make sure all documents are updated on your GitHub repo.
-We will be checking these to make sure you have been practicing how to commit and push changes.
+Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.
 
 Remember -- you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.
 :::
@@ -161,5 +150,4 @@ Total points available: 50 points.
 | Exercises             | 45     |
 | Workflow & formatting | 5[^1]  |
 
-[^1]: The "Workflow & formatting" grade is to assess the reproducible workflow.
-    This includes having at least 3 informative commit messages and updating the name and date in the YAML.
+[^1]: The "Workflow & formatting" grade is to assess the reproducible workflow. This includes having at least 3 informative commit messages and updating the name and date in the YAML.

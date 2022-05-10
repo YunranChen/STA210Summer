@@ -10,13 +10,7 @@ Due dates: None.
 
 ## Prepare
 
-📖 Read Introduction to Modern Statistics, Chp 26: [Inference for logistic regression](https://openintro-ims.netlify.app/inf-model-logistic.html)
-
 ## Participate
-
-🖥️ [Lecture 22 - LR: Inference + conditions](/slides/lec-22.html)
-
-🖥️ [Lecture 23 - Multinomial logistic regression (MultiLR)](/slides/lec-23.html)
 
 ## Practice
 

@@ -13,24 +13,15 @@ Due dates:
 
 ## Prepare
 
-No additional readings this week.
-Catch up with previously assigned readings if you've fallen behind.
+No additional readings this week. Catch up with previously assigned readings if you've fallen behind.
 
 ## Participate
 
-🖥️ [Lecture 20 - LR: Prediction / classification](/slides/lec-20.html)
-
-🖥️ [Lecture 21 - LR: Model validation](/slides/lec-21.html)
 
 ## Practice
 
-📋 [Application Exercise 10 - Flight delays](/ae/ae-10-flight-delays.html)
-
 ## Perform
 
-✍️ [HW 3 - Logistic regression and log transformation](/hw/hw-3.html)
-
-⌨️ [Lab 5 - General Social Survey](labs/lab-5.html)
 
 <br><br>
 

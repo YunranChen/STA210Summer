@@ -3,7 +3,7 @@ title: "AE 11: Multinomial classification"
 ---
 
 ::: callout-important
-Go to the [course GitHub organization](https://github.com/sta210-s22) and locate the repo titled `ae-11-volcanoes-YOUR_GITHUB_USERNAME` to get started.
+Go to the [course GitHub organization](https://github.com/STA210-Summer22) and locate the repo titled `ae-11-volcanoes-YOUR_GITHUB_USERNAME` to get started.
 :::
 
 ## Packages
@@ -20,8 +20,7 @@ library(colorblindr)
 
 ## Data
 
-For this application exercise we will work with a dataset of on volcanoes.
-The data come from [The Smithsonian Institution](https://volcano.si.edu/) via [TidyTuesday](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-05-12/readme.md).
+For this application exercise we will work with a dataset of on volcanoes. The data come from [The Smithsonian Institution](https://volcano.si.edu/) via [TidyTuesday](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-05-12/readme.md).
 
 ```{r}
 volcano <- read_csv(here::here("ae", "data/volcano.csv"))

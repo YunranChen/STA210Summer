@@ -3,7 +3,7 @@ title: "AE 12: Exam 3 Review"
 ---
 
 ::: callout-important
-Go to the [course GitHub organization](https://github.com/sta210-s22) and locate the repo titled `ae-12-exam-3-review-YOUR_GITHUB_USERNAME` to get started.
+Go to the [course GitHub organization](https://github.com/STA210-Summer22) and locate the repo titled `ae-12-exam-3-review-YOUR_GITHUB_USERNAME` to get started.
 :::
 
 # Introduction
@@ -26,7 +26,6 @@ library(nnet)
 
 As part of a study of the effects of predatory intertidal crab species on snail populations, researchers measured the mean closing forces and the propodus heights of the claws on several crabs of three species.
 
-![](images/paste-7BA685C6.png){width="300"}
 
 ```{r}
 #| warning: false
@@ -63,7 +62,7 @@ claws <- claws %>%
 
 ## Probabilities vs. odds vs. log-odds
 
-Why we use log-odds as response variable: <https://sta210-s22.github.io/website/slides/lec-18.html#/do-teenagers-get-7-hours-of-sleep>
+Why we use log-odds as response variable: <https://yunranchen.github.io/sta210summer/slides/lec-18.html#/do-teenagers-get-7-hours-of-sleep>
 
 ## Exercise 1
 
@@ -75,8 +74,7 @@ Fill in the blanks:
 
 ## Exercise 2
 
-Suppose we want to use force to determine whether or not a crab is from the Lophopanopeus bellus (Lb) species.
-Why should we use a logistic regression model for this analysis?
+Suppose we want to use force to determine whether or not a crab is from the Lophopanopeus bellus (Lb) species. Why should we use a logistic regression model for this analysis?
 
 ```{r}
 claws %>%
@@ -85,10 +83,7 @@ claws %>%
 
 ## Exercise 3
 
-We will use the mean-centered variables for force in the model.
-The model output is below.
-Write the equation of the model produced by R.
-Don't forget to fill in the blanks for `…`.
+We will use the mean-centered variables for force in the model. The model output is below. Write the equation of the model produced by R. Don't forget to fill in the blanks for `…`.
 
 ```{r echo = F}
 lb_fit_1 <- logistic_reg() %>%
@@ -125,9 +120,7 @@ For each additional unit increase in closing force, the odds of crab being from 
 
 ## Exercise 6
 
-Now let's consider adding `height_cent` to the model.
-Fit the model that includes `height_cent`.
-Then use AIC to choose the model that best fits the data.
+Now let's consider adding `height_cent` to the model. Fit the model that includes `height_cent`. Then use AIC to choose the model that best fits the data.
 
 ```{r}
 lb_fit_2 <- logistic_reg() %>%
@@ -142,8 +135,7 @@ glance(lb_fit_2)$AIC
 
 ## Exercise 7
 
-What do the following mean in the context of this data.
-Explain and calculate them.
+What do the following mean in the context of this data. Explain and calculate them.
 
 -   Sensitivity: P(predict lb \| actual lb) = 6 / 12
 -   Specificity: P(predict not lb \| actual not lb) = 4/ 26
@@ -160,8 +152,7 @@ Explain and calculate them.
 
 # Part 2
 
-Let's extend the model to use force and height to predict the species (Hn, Cp, and Lb).
-The model output is below:
+Let's extend the model to use force and height to predict the species (Hn, Cp, and Lb). The model output is below:
 
 ```{r}
 species_fit <- multinom_reg() %>%
@@ -191,8 +182,7 @@ $$\log\Big(\frac{\hat{\pi}_{Lb}}{\hat{\pi}_{Cp}}\Big) = $$
 
 Interpret the effect of force on the odds a crab is in the Hn vs. Lb species.
 
-CAUTION: We can write an interpretation based on the estimated coefficients; however, we can't make any inferential conclusions for this question based on the current model.
-We would need to refit the model with Lb as the baseline category to do so.
+CAUTION: We can write an interpretation based on the estimated coefficients; however, we can't make any inferential conclusions for this question based on the current model. We would need to refit the model with Lb as the baseline category to do so.
 
 \pagebreak
 

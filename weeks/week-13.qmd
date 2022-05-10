@@ -13,19 +13,12 @@ Due dates:
 
 ## Participate
 
-🖥️ [Lecture 24 - MultiLR: Prediction + inferential models](/slides/lec-24.html)
-
-🖥️ [Lecture 25 - MultiLR: Predictive models](/slides/lec-25.html)
 
 ## Practice
 
-📋 [Application Exercise 11 - Volcanoes](/ae/ae-11-volcanoes.html)
 
 ## Perform
 
-✍️ [HW 4 - Multinomial logistic regression](/hw/hw-4.html)
-
-[💻](/labs/lab-6.html "Lab instructions") [Lab 6 - Why Many Americans Don't Vote](/labs/lab-6.html)
 
 <br><br>
 
