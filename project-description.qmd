@@ -341,7 +341,7 @@ Watch the group's video, then click "Reply" to post a question for the group. Yo
 Find your team name in the first column, watch videos from teams in the second column and leave comments.
 
 | Reviewer                         | First video to review            | Second video to review           |
-|:-----------------------|:-----------------------|:-----------------------|
+|:---------------------------------|:---------------------------------|:---------------------------------|
 | Ginger and Stats                 | Eight                            | We R                             |
 | Krafthouse                       | Ginger and Stats                 | Eight                            |
 | Soy Nuggets                      | Krafthouse                       | Ginger and Stats                 |
