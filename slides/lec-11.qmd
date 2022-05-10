@@ -1,8 +1,8 @@
 ---
 title: "Model comparison"
-subtitle: "STA 210 - Spring 2022"
-author: "Dr. Mine Çetinkaya-Rundel"
-footer: "[sta210-s22.github.io/website](https://sta210-s22.github.io/website/)"
+subtitle: "STA 210 - Summer 2022"
+author: "Yunran Chen"
+footer:  "[yunranchen.github.io/STA210Summer/](https://yunranchen.github.io/STA210Summer/)"
 logo: "images/logo.png"
 format: 
   revealjs:
@@ -472,9 +472,7 @@ glance(tip_fit_2) %>%
 
 ## Alternate views {.smaller}
 
-> Sometimes a simple model will outperform a more complex model .
-> . . Nevertheless, I believe that deliberately limiting the complexity of the model is not fruitful when the problem is evidently complex.
-> Instead, if a simple model is found that outperforms some particular complex model, the appropriate response is to define a different complex model that captures whatever aspect of the problem led to the simple model performing well.
+> Sometimes a simple model will outperform a more complex model . . . Nevertheless, I believe that deliberately limiting the complexity of the model is not fruitful when the problem is evidently complex. Instead, if a simple model is found that outperforms some particular complex model, the appropriate response is to define a different complex model that captures whatever aspect of the problem led to the simple model performing well.
 >
 > <br>
 >

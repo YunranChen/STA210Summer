@@ -1,8 +1,8 @@
 ---
 title: "Exam 1 Review"
-subtitle: "STA 210 - Spring 2022"
-author: "Dr. Mine Çetinkaya-Rundel"
-footer: "[sta210-s22.github.io/website](https://sta210-s22.github.io/website/)"
+subtitle: "STA 210 - Summer 2022"
+author: "Yunran Chen"
+footer:  "[yunranchen.github.io/STA210Summer/](https://yunranchen.github.io/STA210Summer/)"
 logo: "images/logo.png"
 format: 
   revealjs:
@@ -19,9 +19,7 @@ execute:
 
 ## Announcements
 
--   Lab 3 due tomorrow (Friday) at 5pm on Gradescope, one submission per team
--   Exam 1 open tomorrow (Friday) at 9am and ends on Monday, Feb 7 at 11:59pm
--   No lab on Monday, take the time to work on your exam
+-   Exam 1 opens today after class and ends on Sunday at 11:59pm
 
 ## Feedback from submissions so far
 
@@ -31,19 +29,13 @@ execute:
 
 ## Exam 1
 
--   Instructions can be found at
+-   Instructions can be found at website
 -   Covers everything we've done so far
--   Office hours:
-    -   Tomorrow's TA office hours are *only* for Lab 3 questions
-
-    -   Monday: I have office hours 10:30-11:30am
 -   Any clarification questions for the exam?
-    -   Direct message me or Rick on Slack
-
     -   Post on Sakai Conversations, post to "Instructors in this site"
 
 ## Application Exercise
 
 ::: appex
-📋 [github.com/sta210-s22/ae-4-exam-1-review](https://github.com/sta210-s22/?q=ae-4-exam-1-review&type=all&language=&sort=)
+📋 [github.com/STA210-Summer22/ae-4-exam-1-review](https://github.com/STA210-Summer22/?q=ae-4-exam-1-review&type=all&language=&sort=)
 :::

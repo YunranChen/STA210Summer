@@ -1,8 +1,8 @@
 ---
 title: "Probabilities, odds, odds ratios"
-subtitle: "STA 210 - Spring 2022"
-author: "Dr. Mine Çetinkaya-Rundel"
-footer: "[sta210-s22.github.io/website](https://sta210-s22.github.io/website/)"
+subtitle: "STA 210 - Summer 2022"
+author: "Yunran Chen"
+footer:  "[yunranchen.github.io/STA210Summer/](https://yunranchen.github.io/STA210Summer/)"
 logo: "images/logo.png"
 format: 
   revealjs:
@@ -67,8 +67,7 @@ ggplot2::theme_set(ggplot2::theme_minimal(base_size = 20))
 
 ## Risk of coronary heart disease {.smaller}
 
-This dataset is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts.
-We want to examine the relationship between various health characteristics and the risk of having heart disease.
+This dataset is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to examine the relationship between various health characteristics and the risk of having heart disease.
 
 -   `high_risk`:
 
@@ -153,8 +152,7 @@ $$
 #| echo: false
 ```
 
-Let's summarize the relationship between the two groups.
-To do so, we'll use the **odds ratio (OR)**.
+Let's summarize the relationship between the two groups. To do so, we'll use the **odds ratio (OR)**.
 
 $$
 OR = \frac{\text{odds}_1}{\text{odds}_2} = \frac{\omega_1}{\omega_2}

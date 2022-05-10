@@ -5,11 +5,12 @@ author: "Yunran Chen"
 footer:  "[yunranchen.github.io/STA210Summer/](https://yunranchen.github.io/STA210Summer/)"
 logo: "images/logo.png"
 format: 
-  revealjs: 
+  revealjs:
     theme: slides.scss
     multiplex: true
     transition: fade
     slide-number: true
+    incremental: true 
 editor: visual
 execute:
   freeze: auto

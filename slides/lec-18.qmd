@@ -1,8 +1,8 @@
 ---
 title: "Logistic regression"
-subtitle: "STA 210 - Spring 2022"
-author: "Dr. Mine Çetinkaya-Rundel"
-footer: "[sta210-s22.github.io/website](https://sta210-s22.github.io/website/)"
+subtitle: "STA 210 - Summer 2022"
+author: "Yunran Chen"
+footer:  "[yunranchen.github.io/STA210Summer/](https://yunranchen.github.io/STA210Summer/)"
 logo: "images/logo.png"
 format: 
   revealjs:
@@ -32,10 +32,6 @@ library(countdown)
 # Welcome
 
 ## Announcements
-
--   Schedule changes for the remainder of the semester
-
--   Thursday office hours in my office: 213 Old Chem
 
 -   Any questions on project proposals?
 
@@ -221,7 +217,7 @@ ggplot(sleep_age, aes(x = Age, y = prop)) +
 ## Different types of models
 
 | Method                          | Outcome      | Model                                                     |
-|---------------------------------|--------------|-----------------------------------------------------------|
+|--------------------|----------------|-------------------------------------|
 | Linear regression               | Quantitative | $Y = \beta_0 + \beta_1~ X$                                |
 | Linear regression (transform Y) | Quantitative | $\log(Y) = \beta_0 + \beta_1~ X$                          |
 | Logistic regression             | Binary       | $\log\big(\frac{\pi}{1-\pi}\big) = \beta_0 + \beta_1 ~ X$ |
@@ -304,8 +300,7 @@ $$
 
 ## Risk of coronary heart disease
 
-This dataset is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts.
-We want to use `age` to predict if a randomly selected adult is high risk of having coronary heart disease in the next 10 years.
+This dataset is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to use `age` to predict if a randomly selected adult is high risk of having coronary heart disease in the next 10 years.
 
 `high_risk`:
 
@@ -423,5 +418,5 @@ predict(heart_disease_fit, new_data = heart_disease) %>%
 ## Application exercise
 
 ::: appex
-📋 [github.com/sta210-s22/ae-9-odds](https://github.com/sta210-s22/ae-9-odds)
+📋 [github.com/STA210-Summer22/ae-9-odds](https://github.com/STA210-Summer22/ae-9-odds)
 :::

@@ -1,8 +1,8 @@
 ---
 title: "SLR: Model diagnostics"
-subtitle: "STA 210 - Spring 2022"
-author: "Dr. Mine Çetinkaya-Rundel"
-footer: "[sta210-s22.github.io/website](https://sta210-s22.github.io/website/)"
+subtitle: "STA 210 - Summer 2022"
+author: "Yunran Chen"
+footer:  "[yunranchen.github.io/STA210Summer/](https://yunranchen.github.io/STA210Summer/)"
 logo: "images/logo.png"
 format: 
   revealjs:
@@ -17,6 +17,14 @@ execute:
   freeze: auto
 ---
 
+```{=html}
+<style>
+slides > slide {
+  overflow-x: auto !important;
+  overflow-y: auto !important;
+}
+</style>
+```
 ```{r setup}
 #| include: false
 
@@ -126,8 +134,7 @@ normTail(L = -8.78, U = 8.78, df = nrow(duke_forest) - 2, xlim = c(-9,9), col = 
 | p-value \> 0.1          | effectively no evidence against $H_0$ |
 
 ::: callout-important
-These are general guidelines.
-The strength of evidence depends on the context of the problem.
+These are general guidelines. The strength of evidence depends on the context of the problem.
 :::
 
 ## HT: Conclusion, in context
@@ -255,16 +262,14 @@ ggplot(duke_forest, aes(x = area, y = price)) +
 
 ## Two types of predictions {.smaller}
 
-1.  Prediction for the mean: ""What is the average predicted sale price of Duke Forest houses that are 2,800 square feet?"
+1.  Prediction for the mean: "What is the average predicted sale price of Duke Forest houses that are 2,800 square feet?"
 
 2.  Prediction for an individual observation: "What is the predicted sale price of a Duke Forest house that is 2,800 square feet?"
 
 . . .
 
 ::: question
-Which would you expect to be more variable?
-The average prediction or the prediction for an individual observation?
-Based on your answer, how would you expect the widths of plausible ranges for these two predictions to compare?
+Which would you expect to be more variable? The average prediction or the prediction for an individual observation? Based on your answer, how would you expect the widths of plausible ranges for these two predictions to compare?
 :::
 
 ## Uncertainty in predictions
@@ -291,7 +296,7 @@ Based on your answer, how would you expect the widths of plausible ranges for th
 
 ## Confidence interval
 
-The 95% **confidence interval** for the *mean* outcpme:
+The 95% **confidence interval** for the *mean* outcome:
 
 ```{r}
 #| echo: true
@@ -310,7 +315,7 @@ We are 95% confident that mean sale price of Duke Forest houses that are 2,800 s
 
 ## Prediction interval
 
-The 95% **prediction interval**for the *individual* outcome:
+The 95% **prediction interval** for the *individual* outcome:
 
 ```{r}
 #| echo: true
@@ -380,10 +385,6 @@ Calculate the prediction interval for the sale price of a "tiny house" in Duke F
 :::
 :::
 
-. . .
-
-*No, thanks!*
-
 # Model conditions
 
 ## Model conditions
@@ -421,7 +422,7 @@ ggplot(df_aug, aes(x = .fitted, y = .resid)) +
 ## Application exercise
 
 ::: appex
-📋 [github.com/sta210-s22/ae-3-duke-forest](https://github.com/sta210-s22/?q=ae-3-duke-forest&type=all&language=&sort=)
+📋 [github.com/STA210-Summer22/ae-3-duke-forest](https://github.com/STA210-Summer22/?q=ae-3-duke-forest&type=all&language=&sort=)
 :::
 
 ```{r}
@@ -615,9 +616,7 @@ Used residual plots to check conditions for SLR:
 . . .
 
 ::: question
-Which of these conditions are required for fitting a SLR?
-Which for simulation-based inference for the slope for an SLR?
-Which for inference with mathematical models?
+Which of these conditions are required for fitting a SLR? Which for simulation-based inference for the slope for an SLR? Which for inference with mathematical models?
 :::
 
 ```{r}
