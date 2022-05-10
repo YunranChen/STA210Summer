@@ -8,17 +8,19 @@ title: "Teaching team"
 
 [**Yunran Chen**](https://yunranchen.github.io/) (she/her) is a third-year Ph.D. student in Department of Statistical Science at Duke University. She is interested in Bayesian factor model, nonparametric Bayes, and applications in neuroscience. Her goal is to serve as a bridge to connect various disciplines through developing statistical methods and models, and spread the concepts of statistics to the general public.
 
-| Office hours                  | Location                                                                                                                  |
-|-------------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| Office hours                | Location                                                                                                                  |
+|-----------------------------|---------------------------------------------------------------------------------------------------------------------------|
 | Sundays 7:00 pm - 8:00 am   | [Zoom](https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/page/d5eef508-07a4-4c6d-b7bd-4614a9631562) |
-| Thursdays 2:00 pm - 3:00 pm | Old Chem 022                                                                                                             |
+| Thursdays 2:00 pm - 3:00 pm | Old Chem 025                                                                                                              |
 
-If these times don't work for you or you'd like to schedule a one-on-one meeting, you can email me at [yunran.chen@duke.edu](mailto:yunran.chen@duke.edu).
+If these times don't work for you or you'd like to schedule a one-on-one meeting, you can email me at [yunran.chen\@duke.edu](mailto:yunran.chen@duke.edu).
 
 ## Teaching assistant
 
-+-------------------------------------------+-----------------------------------+-------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|                                           | Name                              | Office hours            | Location                                                                                                                                                      |
-+:=========================================:+===================================+=========================+===============================================================================================================================================================+
-| ![](images/team/martha.png)               | To be determined                    | Tuesday and Friday       | [Zoom](https://sakai.duke.edu/portal/site/)                                     |
-+-------------------------------------------+-----------------------------------+-------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
++-----------------------------+------------------+----------------------------------------+------------------------------------------------+
+|                             | Name             | Office hours                           | Location                                       |
++:===========================:+==================+========================================+================================================+
+| ![](images/team/joseph.png) | Joseph Ekpenyong | | Mondays and Tuesdays 8:00pm - 9:00pm | \| [Zoom](https://sakai.duke.edu/portal/site/) |
++-----------------------------+------------------+----------------------------------------+------------------------------------------------+
+
+Joseph will also responsible for gradings for homework and labs. If you have any questions about coursework and gradings, you can email Joseph at [joseph.ekpenyong\@duke.edu](mailto:joseph.ekpenyong@duke.edu)
