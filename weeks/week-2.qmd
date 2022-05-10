@@ -5,31 +5,86 @@ editor: visual
 ---
 
 ::: callout-important
--   Classes are virtual this week. Find Zoom links [here](https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/page/d5eef508-07a4-4c6d-b7bd-4614a9631562 "Sakai - Zoom meetings").
 -   Due dates:
-    -   Lab 1: Fri, Jan 14, 5pm ET
-    -   AE 1: Sun, Jan 16, 11:59pm ET
+    -   HW 1 + AE 2: Wed, May 18, 11:59pm ET
+    -   Lab 2 + AE 3: Fri, May 20, 11:59pm ET
+    -   AE 4: Sun, May 22, 11:59pm ET
+    -   Exam 1: Mon, May 23, 11:59pm ET
+-   Released:
+    -   HW 1
+    -   Lab 2
+    -   AE 2 + AE 3 + AE 4
+    -   Exam 1
 :::
 
 ## Prepare
 
-📖 Read Introduction to Modern Statistics, Chp 7: [Linear regression with a single predictor](https://openintro-ims.netlify.app/model-slr.html)
+📖 Read Introduction to Modern Statistics, Sec 24.1: [Case study: Sandwich store](https://openintro-ims.netlify.app/inf-model-slr.html#case-study-sandwich-store)
+
+📖 Read Introduction to Modern Statistics, Sec 24.2: [Randomization test for the slope](https://openintro-ims.netlify.app/inf-model-slr.html#randslope)
+
+📖 Read Introduction to Modern Statistics, Sec 24.3: [Bootstrap confidence interval for the slope](https://openintro-ims.netlify.app/inf-model-slr.html#bootbeta1)
+
+--- 
+
+📖 Read Introduction to Modern Statistics, Sec 24.4: [Mathematical model for testing the slope](https://openintro-ims.netlify.app/inf-model-slr.html#mathslope)
+
+📖 Read Introduction to Modern Statistics, Sec 24.5: [Mathematical model, interval for the slope](https://openintro-ims.netlify.app/inf-model-slr.html#mathematical-model-interval-for-the-slope)
+
+📖 Read Introduction to Modern Statistics, Sec 24.6: [Checking model conditions](https://openintro-ims.netlify.app/inf-model-slr.html#tech-cond-linmod)
+
+📖 Read Introduction to Modern Statistics, Sec 24.7: [Chapter review](https://openintro-ims.netlify.app/inf-model-slr.html#chp24-review)
+
+---
+
+📖 Read Introduction to Modern Statistics, Sec 8.1: [Indicator and categorical predictors](https://openintro-ims.netlify.app/model-mlr.html#ind-and-cat-predictors)
+
+📖 Read Introduction to Modern Statistics, Sec 8.2: [Many predictors in a model](https://openintro-ims.netlify.app/model-mlr.html#many-predictors-in-a-model)
+
+📖 Read Introduction to Modern Statistics, Sec 8.3: [Adjusted R-squared](https://openintro-ims.netlify.app/model-mlr.html#adjusted-r-squared)
+
 
 ## Participate
 
-🖥️ [Lab 1 - Meet the toolkit](/slides/lab-1.html)
+🖥️ [Lecture 4 - SLR: Prediction + model evaluation](/slides/lec-4.html)
 
-🖥️ [Lecture 2 - Simple linear regression](/slides/lec-2.html)
+🖥️ [Lecture 5 - SLR: Simulation-based inference](/slides/lec-5.html)
 
-🖥️ [Lecture 3 - Model fitting in R with tidymodels](/slides/lec-3.html)
+---
+
+🖥️ [Lab 2 - College scorecard](/slides/lab-1.html)
+
+🖥️ [Lecture 6 - SLR: Mathematical models for inference](/slides/lec-6.html)
+
+🖥️ [Lecture 7 - SLR: Model diagnostics](/slides/lec-7.html)
+
+---
+
+🖥️ [Lab 3 - Coffee ratings](/slides/lab-3.html)
+
+🖥️ [Lecture 8 - Multiple linear regression (MLR)](/slides/lec-8.html)
+
+🖥️ [Lecture 9 - Exam 1 review](/slides/lec-9.html)
+
 
 ## Practice
 
-📋 [Application Exercise 1 - Bike rentals in DC](/ae/ae-1-dcbikeshare.html) *(Post-class note: complete only Part 1 - Daily counts and temperature)*
+📋 [Application Exercise 2 - Bike rentals in DC](/ae/ae-2-dcbikeshare.html)
+
+📋 [Application Exercise 3 - Checking model conditions](/ae/ae-3-duke-forest.html)
+
+📋 [Application Exercise 4 - Exam 1 Review](/ae/ae-4-exam-1-review.html)
 
 ## Perform
 
-⌨️ [Lab 1 - Meet the toolkit](/labs/lab-1.html "Lab instructions")
+⌨️ [Lab 2 - College scorecard](/labs/lab-2.html "Lab instructions")
+
+✍️ [HW 1 - In-person voting trends](/hw/hw-1.html)
+
+⌨️ [Lab 3 - Coffee ratings](labs/lab-3.html)
+
+✅ [Exam 1](/exams/exam-1.html)
+
 
 <br><br>
 

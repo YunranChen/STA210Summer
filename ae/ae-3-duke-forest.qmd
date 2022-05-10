@@ -4,7 +4,7 @@ subtitle: "Checking model conditions"
 ---
 
 ::: callout-important
-Go to the [course GitHub organization](https://github.com/sta210-s22) and locate the repo titled `ae-3-duke-forest-YOUR_GITHUB_USERNAME` to get started.
+Go to the [course GitHub organization](https://github.com/STA210-Summer22) and locate the repo titled `ae-3-duke-forest-YOUR_GITHUB_USERNAME` to get started.
 :::
 
 ## Packages
@@ -32,10 +32,7 @@ tidy(df_fit) %>%
 
 ### Exercise 1
 
-The following code produces the residuals vs. fitted values plot for this model.
-Comment out the layer that defines the y-axis limits and re-create the plot.
-How does the plot change?
-Why might we want to define the limits explicitly?
+The following code produces the residuals vs. fitted values plot for this model. Comment out the layer that defines the y-axis limits and re-create the plot. How does the plot change? Why might we want to define the limits explicitly?
 
 ```{r}
 df_aug <- augment(df_fit$fit)

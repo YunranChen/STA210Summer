@@ -6,19 +6,21 @@ editor: visual
 
 ::: callout-important
 -   Due dates:
-    -   Lab 1: Fri, May 13, 11:59pm ET
-    -   AE 1: Sun, May 15, 11:59pm ET
+    -   Lab 1 + AE 0: Fri, May 13, 11:59pm ET
+    -   AE 1 : Sun, May 15, 11:59pm ET
+-   Released:
+    -   AE 0 + AE 1
+    -   Lab 1
+    -   HW 5
 :::
 
 ## Prepare
-
 
 📖 Read the [syllabus](/course-syllabus.html)
 
 📖 Read the [support](/course-support.html) resources
 
 📖 Read Introduction to Modern Statistics, Chp 7: [Linear regression with a single predictor](https://openintro-ims.netlify.app/model-slr.html)
-
 
 ## Participate
 

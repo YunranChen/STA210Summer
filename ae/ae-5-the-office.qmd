@@ -3,7 +3,7 @@ title: "AE 5: The Office"
 ---
 
 ::: callout-important
-Go to the [course GitHub organization](https://github.com/sta210-s22) and locate the repo titled `ae-5-the-office-YOUR_GITHUB_USERNAME` to get started.
+Go to the [course GitHub organization](https://github.com/STA210-Summer22) and locate the repo titled `ae-5-the-office-YOUR_GITHUB_USERNAME` to get started.
 :::
 
 ## Packages

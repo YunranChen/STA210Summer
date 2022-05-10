@@ -1,36 +1,46 @@
 ---
 title: "Week 3"
-subtitle: "TBA"
+subtitle: "Multiple linear regression"
 editor: visual
 ---
 
 ::: callout-important
--   We're back to in person classes this week! See [here](/course-syllabus.html#course-info) for class locations. And don't forget to wear your mask! 😷
 -   Due dates:
-    -   AE 2: Fri, Jan 21, 11:59pm ET
+    -   Exam 1: Mon, May 23, 11:59pm ET
+    -   Lab 3 + AE 5: Fri, May 27, 11:59pm ET
+    -   HW 2 + Project topic ideas: Sun, May 29, 11:59pm ET
+-   Released:
+    -   HW 2
+    -   Lab 3
+    -   AE 5
+    -   Project topic ideas
 :::
 
 ## Prepare
 
-📖 Read Introduction to Modern Statistics, Sec 24.1: [Case study: Sandwich store](https://openintro-ims.netlify.app/inf-model-slr.html#case-study-sandwich-store)
-
-📖 Read Introduction to Modern Statistics, Sec 24.2: [Randomization test for the slope](https://openintro-ims.netlify.app/inf-model-slr.html#randslope)
-
-📖 Read Introduction to Modern Statistics, Sec 24.3: [Bootstrap confidence interval for the slope](https://openintro-ims.netlify.app/inf-model-slr.html#bootbeta1)
+📖 Read Tidy Modeling in R Chp 8: [Feature engineering with recipes](https://www.tmwr.org/recipes.html)
 
 ## Participate
 
-🖥️ [Lecture 4 - SLR: Prediction + model evaluation](/slides/lec-4.html)
+🖥️ [Lecture 10 - MLR: Types of predictors](/slides/lec-10.html)
 
-🖥️ [Lecture 5 - SLR: Simulation-based inference](/slides/lec-5.html)
+🖥️ [Lecture 11 - MLR: Model comparison](/slides/lec-11.html)
+
+🖥️ [Lecture 12 - MLR: Feature engineering](/slides/lec-12.html)
+
+🖥️ [Lecture 13 - MLR: Feature engineering (cont.)](/slides/lec-13.html)
 
 ## Practice
 
-📋 [Application Exercise 2 - Bike rentals in DC](/ae/ae-2-dcbikeshare.html)
+📋 [Application Exercise 5 - The Office](/ae/ae-5-the-office.html)
 
 ## Perform
 
-None.
+✅ [Exam 1](/exams/exam-1.html)
+
+✍️ [HW 2 - Multiple linear regression](/hw/hw-2.html)
+
+📂 [Project - Topic ideas](/project-description.html)
 
 <br><br>
 
