@@ -25,7 +25,7 @@ editor: visual
 
 📖 Read Introduction to Modern Statistics, Sec 24.3: [Bootstrap confidence interval for the slope](https://openintro-ims.netlify.app/inf-model-slr.html#bootbeta1)
 
---- 
+
 
 📖 Read Introduction to Modern Statistics, Sec 24.4: [Mathematical model for testing the slope](https://openintro-ims.netlify.app/inf-model-slr.html#mathslope)
 
@@ -35,7 +35,7 @@ editor: visual
 
 📖 Read Introduction to Modern Statistics, Sec 24.7: [Chapter review](https://openintro-ims.netlify.app/inf-model-slr.html#chp24-review)
 
----
+
 
 📖 Read Introduction to Modern Statistics, Sec 8.1: [Indicator and categorical predictors](https://openintro-ims.netlify.app/model-mlr.html#ind-and-cat-predictors)
 
@@ -43,14 +43,13 @@ editor: visual
 
 📖 Read Introduction to Modern Statistics, Sec 8.3: [Adjusted R-squared](https://openintro-ims.netlify.app/model-mlr.html#adjusted-r-squared)
 
-
 ## Participate
 
 🖥️ [Lecture 4 - SLR: Prediction + model evaluation](/slides/lec-4.html)
 
 🖥️ [Lecture 5 - SLR: Simulation-based inference](/slides/lec-5.html)
 
----
+------------------------------------------------------------------------
 
 🖥️ [Lab 2 - College scorecard](/slides/lab-1.html)
 
@@ -58,14 +57,13 @@ editor: visual
 
 🖥️ [Lecture 7 - SLR: Model diagnostics](/slides/lec-7.html)
 
----
+------------------------------------------------------------------------
 
 🖥️ [Lab 3 - Coffee ratings](/slides/lab-3.html)
 
 🖥️ [Lecture 8 - Multiple linear regression (MLR)](/slides/lec-8.html)
 
 🖥️ [Lecture 9 - Exam 1 review](/slides/lec-9.html)
-
 
 ## Practice
 
@@ -84,7 +82,6 @@ editor: visual
 ⌨️ [Lab 3 - Coffee ratings](labs/lab-3.html)
 
 ✅ [Exam 1](/exams/exam-1.html)
-
 
 <br><br>
 
