@@ -10,7 +10,7 @@ Go to the [course GitHub organization](https://github.com/STA210-Summer22) and l
 
 ## Packages
 
-```{r}
+```{r, echo=FALSE}
 #| label: load-pkgs
 #| message: false
  
@@ -26,7 +26,7 @@ library(colorblindr)
 
 ## Load data
 
-```{r}
+```{r, echo=FALSE}
 sc_raw <- read_csv(here::here("processed-data/schitts-creek.csv"))
 dc_raw <- read_csv(here::here("processed-data/dawsons-creek.csv"))
 
@@ -35,7 +35,7 @@ show_lines_raw <- bind_rows(sc_raw, dc_raw)
 
 ## remove stage directions
 
-```{r}
+```{r, echo=FALSE}
 show_lines <- show_lines_raw %>%
   filter(
     character != "Stage directions",
@@ -45,7 +45,7 @@ show_lines <- show_lines_raw %>%
 
 ## characters
 
-```{r}
+```{r, echo=FALSE}
 sc_characters <- sc_raw %>%
   count(character, sort = TRUE) %>%
   filter(n > 100) %>%
@@ -61,7 +61,7 @@ dc_characters <- dc_raw %>%
 
 # EDA
 
-```{r}
+```{r, echo=FALSE}
 show_lines %>%
   unnest_tokens(word, line) %>%
   anti_join(stop_words) %>%
@@ -123,7 +123,7 @@ show_lines %>%
 
 ## initial split
 
-```{r}
+```{r, echo=FALSE}
 set.seed(123)
 show_lines_split <- initial_split(data = show_lines, strata = show)
 
@@ -135,7 +135,7 @@ show_lines_folds <- vfold_cv(data = show_lines_train, strata = show)
 
 ## recipe
 
-```{r}
+```{r, echo=FALSE}
 show_lines_rec_1 <- recipe(show ~ line, data = show_lines_train) %>%
   step_tokenize(line) %>%
   step_stopwords(line) %>%
@@ -152,14 +152,14 @@ show_lines_rec_2 <- recipe(show ~ line, data = show_lines_train) %>%
 
 ## model specification
 
-```{r}
+```{r, echo=FALSE}
 glm_spec <- logistic_reg() %>%
   set_engine("glm")
 ```
 
 ## workflow
 
-```{r}
+```{r, echo=FALSE}
 glm_workflow_1 <- workflow() %>%
   add_recipe(show_lines_rec_1) %>%
   add_model(glm_spec)
@@ -171,7 +171,7 @@ glm_workflow_2 <- workflow() %>%
 
 ## cv
 
-```{r}
+```{r, echo=FALSE}
 glm_cv_1 <- glm_workflow_1 %>%
   fit_resamples(
     resamples = show_lines_folds,
@@ -190,7 +190,7 @@ write_rds(glm_cv_2, file = "intermediary-output/glm_cv_2.rds")
 
 ## collect metrics
 
-```{r}
+```{r, echo=FALSE}
 glm_cv_metrics_1 <- collect_metrics(glm_cv_1)
 glm_cv_predictions_1 <- collect_predictions(glm_cv_1)
 
@@ -219,7 +219,7 @@ conf_mat_resampled(x = glm_cv_2, tidy = FALSE) %>%
 
 ## final fit
 
-```{r}
+```{r, echo=FALSE}
 glm_final_1 <- glm_workflow_1 %>%
   last_fit(split = show_lines_split)
 
@@ -235,7 +235,7 @@ collect_metrics(glm_final_2)
 
 ## variable importance
 
-```{r}
+```{r, echo=FALSE}
 glm_imp_1 <- extract_fit_parsnip(glm_final_1) %>% vi()
 glm_imp_2 <- extract_fit_parsnip(glm_final_2) %>% vi()
 
