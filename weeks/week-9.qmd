@@ -14,17 +14,12 @@ No readings this week.
 
 ## Participate
 
-🖥️ [Lecture 16 - MLR: Inference](/slides/lec-16.html)
-
-🖥️ [Lecture 17 - MLR: Inference conditions + multicollinearity](/slides/lec-17.html)
 
 ## Practice
 
-📋 [Application Exercise 8 - Rail Trail](/ae/ae-8-rail-trail.html)
 
 ## Perform
 
-✅ [Exam 2](/exams/exam-2.html)
 
 <br><br>
 

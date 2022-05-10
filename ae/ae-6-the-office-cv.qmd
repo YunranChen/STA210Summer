@@ -4,7 +4,7 @@ subtitle: "Cross validation"
 ---
 
 ::: callout-important
-Go to the [course GitHub organization](https://github.com/sta210-s22) and locate the repo titled `ae-6-the-office-cv-YOUR_GITHUB_USERNAME` to get started.
+Go to the [course GitHub organization](https://github.com/STA210-Summer22) and locate the repo titled `ae-6-the-office-cv-YOUR_GITHUB_USERNAME` to get started.
 :::
 
 ## Packages
@@ -39,8 +39,7 @@ Split your data into testing and training sets.
 
 ## Specify model
 
-Specify a linear regression model.
-Call it `office_spec`.
+Specify a linear regression model. Call it `office_spec`.
 
 ```{r}
 #| label: specify-model
@@ -50,8 +49,7 @@ Call it `office_spec`.
 
 ## Create recipe
 
-Create the recipe from class.
-Call it `office_rec1`.
+Create the recipe from class. Call it `office_rec1`.
 
 ```{r}
 #| label: create-recipe
@@ -61,8 +59,7 @@ Call it `office_rec1`.
 
 ## Create workflow
 
-Create the workflow that brings together the model specification and recipe.
-Call it `office_wflow1`.
+Create the workflow that brings together the model specification and recipe. Call it `office_wflow1`.
 
 ```{r}
 #| label: create-wflow
@@ -92,6 +89,4 @@ Summarize metrics from your CV resamples.
 
 ## Another model - Model 2
 
-Create a different (simpler, involving fewer variables) recipe and call it `office_rec2`.
-Conduct 10-fold cross validation and summarize metrics.
-Describe how the two models compare to each other based on cross validation metrics.
+Create a different (simpler, involving fewer variables) recipe and call it `office_rec2`. Conduct 10-fold cross validation and summarize metrics. Describe how the two models compare to each other based on cross validation metrics.

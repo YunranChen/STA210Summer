@@ -3,7 +3,7 @@ title: "AE 8: Rail Trail"
 ---
 
 ::: callout-important
-Go to the [course GitHub organization](https://github.com/sta210-s22) and locate the repo titled `ae-8-rail-trail-YOUR_GITHUB_USERNAME` to get started.
+Go to the [course GitHub organization](https://github.com/STA210-Summer22) and locate the repo titled `ae-8-rail-trail-YOUR_GITHUB_USERNAME` to get started.
 :::
 
 ## Packages and data
@@ -42,8 +42,7 @@ Recreate the following visualization which displays the three regression lines w
 
 ## Exercise 2
 
-Add an interaction effect between `hightemp` and `season` and comment on the significance of the interaction predictors.
-Time permitting, visualize the interaction model as well.
+Add an interaction effect between `hightemp` and `season` and comment on the significance of the interaction predictors. Time permitting, visualize the interaction model as well.
 
 ```{r}
 #| label: interaction-effects
@@ -65,10 +64,4 @@ tidy(rt_full_fit)
 
 Recreate the following visualization which displays a histogram of residuals and a normal density curve overlaid.
 
-![](images/density-hist.png){fig-align="center" width="500"}
 
-```{r}
-#| label: density-histogram
-
-# add code here
-```
