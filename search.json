@@ -1166,14 +1166,14 @@
     "href": "slides/lec-2.html#regression-model-2",
     "title": "Simple Linear Regression",
     "section": "Regression model",
-    "text": "Regression model\n\n\n$$\n\\[\\begin{aligned} Y &= \\color{purple}{\\textbf{Model}} + \\text{Error} \\\\[8pt]\n&= \\color{purple}{\\mathbf{f(X)}} + \\epsilon \\\\[8pt]\n&= \\color{purple}{\\boldsymbol{\\mu_{Y|X}}} + \\epsilon\n\\end{aligned}\\]\n$$"
+    "text": "Regression model\n\n\n$$\n\\[\\begin{aligned} Y &= \\color{purple}{\\textbf{Model}} + \\text{Error} \\\\[8pt]\n\n\n&= \\color{purple}{\\mathbf{f(X)}} + \\epsilon \\\\[8pt]\n&= \\color{purple}{\\boldsymbol{\\mu_{Y|X}}} + \\epsilon\n\\end{aligned}\\]\n$$"
   },
   {
     "objectID": "slides/lec-2.html#regression-model-residuals",
     "href": "slides/lec-2.html#regression-model-residuals",
     "title": "Simple Linear Regression",
     "section": "Regression model + residuals",
-    "text": "Regression model + residuals\n\n\n$$\n\\[\\begin{aligned} Y &= \\color{purple}{\\textbf{Model}} + \\color{blue}{\\textbf{Error}} \\\\[8pt]\n\n\n&= \\color{purple}{\\mathbf{f(X)}} + \\color{blue}{\\boldsymbol{\\epsilon}} \\\\[8pt]\n&= \\color{purple}{\\boldsymbol{\\mu_{Y|X}}} + \\color{blue}{\\boldsymbol{\\epsilon}} \\\\[8pt]\n\\end{aligned}\\]\n$$"
+    "text": "Regression model + residuals\n\n\n\\[\\begin{aligned} Y &= \\color{purple}{\\textbf{Model}} + \\color{blue}{\\textbf{Error}} \\\\[8pt]\n&= \\color{purple}{\\mathbf{f(X)}} + \\color{blue}{\\boldsymbol{\\epsilon}} \\\\[8pt]\n&= \\color{purple}{\\boldsymbol{\\mu_{Y|X}}} + \\color{blue}{\\boldsymbol{\\epsilon}} \\\\[8pt]\n\\end{aligned}\\]"
   },
   {
     "objectID": "slides/lec-2.html#simple-linear-regression-1",
@@ -1222,14 +1222,14 @@
     "href": "slides/lec-2.html#estimating-the-slope",
     "title": "Simple Linear Regression",
     "section": "Estimating the slope",
-    "text": "Estimating the slope\n\\[\\large{\\hat{\\beta}_1 = r \\frac{s_Y}{s_X}}\\]\n\n\n$$\n\\[\\begin{aligned}\ns_X &= 30.1688 \\\\\ns_Y &=  20.0244 \\\\\nr &= 0.7814\n\\end{aligned}\\]\n$$\n\n$$\n\\[\\begin{aligned}\n\\hat{\\beta}_1 &= 0.7814 \\times \\frac{20.0244}{30.1688} \\\\\n&= 0.5187\\end{aligned}\\]\n$$"
+    "text": "Estimating the slope\n\\[\\large{\\hat{\\beta}_1 = r \\frac{s_Y}{s_X}}\\]\n\n\n\\[\\begin{aligned}\ns_X &= 30.1688 \\\\\ns_Y &=  20.0244 \\\\\nr &= 0.7814\n\\end{aligned}\\]\n\n$$\n\\[\\begin{aligned}\n\n\n\\hat{\\beta}_1 &= 0.7814 \\times \\frac{20.0244}{30.1688} \\\\\n&= 0.5187\\end{aligned}\\]\n$$"
   },
   {
     "objectID": "slides/lec-2.html#estimating-the-intercept",
     "href": "slides/lec-2.html#estimating-the-intercept",
     "title": "Simple Linear Regression",
     "section": "Estimating the intercept",
-    "text": "Estimating the intercept\n\\[\\large{\\hat{\\beta}_0 = \\bar{Y} - \\hat{\\beta}_1\\bar{X}}\\]\n\n\n\\[\\begin{aligned}\n&\\bar{x} = 60.8493 \\\\\n&\\bar{y} = 63.8767 \\\\\n&\\hat{\\beta}_1 = 0.5187\n\\end{aligned}\\]\n\n$$\n\\[\\begin{aligned}\\hat{\\beta}_0 &= 63.8767 - 0.5187 \\times 60.8493 \\\\\n&= 32.3142\n\\end{aligned}\\]\n$$"
+    "text": "Estimating the intercept\n\\[\\large{\\hat{\\beta}_0 = \\bar{Y} - \\hat{\\beta}_1\\bar{X}}\\]\n\n\n$$\n\\[\\begin{aligned}\n\n\n&\\bar{x} = 60.8493 \\\\\n&\\bar{y} = 63.8767 \\\\\n&\\hat{\\beta}_1 = 0.5187\n\\end{aligned}\\]\n$$\n\n\\[\\begin{aligned}\\hat{\\beta}_0 &= 63.8767 - 0.5187 \\times 60.8493 \\\\\n&= 32.3142\n\\end{aligned}\\]"
   },
   {
     "objectID": "slides/lec-2.html#interpreting-the-slope",
@@ -1635,7 +1635,7 @@
     "href": "course-syllabus.html#course-info",
     "title": "Syllabus",
     "section": "Course info",
-    "text": "Course info\n\n\n\n\nDay\nTime\nLocation\n\n\n\n\nLectures\nWeekdays\n11:00 am - 12:15 pm\nOld Chemistry 101\n\n\nLabs\nMon and Wed\n2:00 pm - 3:15 pm\nOld Chemistry 101\n\n\nYunran’s OH\nThursdays\n2:00 pm - 3:00 pm\nOld Chemistry 025\n\n\n\nSundays\n7:00 pm - 8:00 pm\nZoom"
+    "text": "Course info\n\n\n\n\nDay\nTime\nLocation\n\n\n\n\nLectures\nWeekdays\n11:00 am - 12:15 pm\nOld Chemistry 101\n\n\nLabs\nMon and Wed\n2:00 pm - 3:15 pm\nOld Chemistry 101\n\n\nYunran’s OH\nThursdays\n2:00 pm - 3:00 pm\nOld Chemistry 025\n\n\n\nSundays\n7:00 pm - 8:00 pm\nZoom\n\n\nJoseph’s OH\nTue and Thur\n8:00 pm - 9:00 pm\nZoom"
   },
   {
     "objectID": "course-syllabus.html#learning-objectives",
@@ -1713,5 +1713,19 @@
     "title": "Useful links",
     "section": "",
     "text": "RStudio containers\n🔗 on Duke Container Manager\n\n\nCourse GitHub organization\n🔗 on GitHub\n\n\nDiscussion forum\n🔗 on Sakai\n\n\nGradebook\n🔗 on Sakai\n\n\nVirtual meetings\n🔗 on Sakai"
+  },
+  {
+    "objectID": "slides/lec-2.html#review-on-lab-1",
+    "href": "slides/lec-2.html#review-on-lab-1",
+    "title": "Simple Linear Regression",
+    "section": "Review on Lab 1",
+    "text": "Review on Lab 1\n\nGet used to R and R studio\nGet used to use R with Git : clone, commit, pull, push\nLearn the components of drawing a plot\n\ndata\nmapping (x,y,color,alpha)\ngeometry (histogram, point, density)\nlab (label for x,y-axises, title, etc.)\nCheck cheatsheet"
+  },
+  {
+    "objectID": "slides/lec-2.html#review-on-lab-1-1",
+    "href": "slides/lec-2.html#review-on-lab-1-1",
+    "title": "Simple Linear Regression",
+    "section": "Review on Lab 1",
+    "text": "Review on Lab 1\n\nQuestions:\n\nChoice of binwidth for histogram: Pick the one and reveal the main trend. Too small: too noisy; Too large: ignore trend\nDensity Plot (Smooth version of histogram. eg. Normal Distribution)"
   }
 ]
