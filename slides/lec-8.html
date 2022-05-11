@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="quarto-0.9.345">
 
-  <meta name="author" content="Dr.&nbsp;Mine Çetinkaya-Rundel">
+  <meta name="author" content="Yunran Chen">
   <title>STA 210 - Summer 2022 - Multiple linear regression (MLR)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -390,10 +390,19 @@
 
 <section id="title-slide" class="center">
   <h1 class="title">Multiple linear regression (MLR)</h1>
-  <p class="subtitle">STA 210 - Spring 2022</p>
-  <p class="author">Dr.&nbsp;Mine Çetinkaya-Rundel</p>
+  <p class="subtitle">STA 210 - Summer 2022</p>
+  <p class="author">Yunran Chen</p>
 </section>
 
+<section class="slide level2">
+
+<style>
+slides > slide {
+  overflow-x: auto !important;
+  overflow-y: auto !important;
+}
+</style>
+</section>
 <section>
 <section id="welcome" class="title-slide slide level1 center">
 <h1>Welcome</h1>
@@ -406,15 +415,14 @@
 <div>
 <ul>
 <li>Any questions about lab / teamwork?</li>
-<li>Due Friday, Feb 4 at 5pm</li>
+<li>Check ddl</li>
 </ul>
 </div></li>
 <li class="fragment"><p>Exam 1:</p>
 <div>
 <ul>
-<li>Released Friday, Feb 4</li>
 <li>Multiple choice questions (mostly conceptual) + open-ended exercises (like lab + homework)</li>
-<li>Open book, open internet, open questions to me + Rick (head TA) only</li>
+<li>Open book, open internet, open questions to me + TA only</li>
 <li>No communication with others or posting questions on the internet allowed</li>
 <li>What can you do to start preparing?
 <ul>
@@ -474,7 +482,7 @@
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>levittown <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"slides/data/homeprices.csv"</span>))</span>
 <span id="cb2-2"><a href="#cb2-2"></a>levittown</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 85 × 7
    bedrooms bathrooms living_area lot_size year_built property_tax sale_price
       &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
@@ -536,7 +544,7 @@
 </div>
 </div>
 <div id="tabset-1-2">
-<div class="cell" data-layout-align="center" data-hash="lec-8_cache/revealjs/levittown-pairs_cd281d575ae5c06e79e7d321902ee297">
+<div class="cell" data-layout-align="center" data-hash="lec-8_cache/revealjs/levittown-pairs_a712204d1b0f3cdb4c7a99a3ddf4173d">
 <div class="sourceCode cell-code" id="cb4" data-code-line-numbers="|1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">ggpairs</span>(levittown) <span class="sc">+</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">theme</span>(</span>
 <span id="cb4-3"><a href="#cb4-3"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
@@ -710,7 +718,7 @@ y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \dots + \beta_p x_{ip} + \epsi
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="sc">-</span><span class="fl">7148818.957</span> <span class="sc">-</span> <span class="fl">12291.011</span> <span class="sc">*</span> <span class="dv">3</span> <span class="sc">+</span> <span class="fl">51699.236</span> <span class="sc">*</span> <span class="dv">1</span> <span class="sc">+</span> </span>
 <span id="cb6-2"><a href="#cb6-2"></a>  <span class="fl">65.903</span> <span class="sc">*</span> <span class="dv">1050</span> <span class="sc">-</span> <span class="fl">0.897</span> <span class="sc">*</span> <span class="dv">6000</span> <span class="sc">+</span> <span class="fl">3760.898</span> <span class="sc">*</span> <span class="dv">1948</span> <span class="sc">+</span> </span>
 <span id="cb6-3"><a href="#cb6-3"></a>  <span class="fl">1.476</span> <span class="sc">*</span> <span class="dv">6306</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>[1] 265360.4</code></pre>
 </div>
 </div>
@@ -729,7 +737,7 @@ y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \dots + \beta_p x_{ip} + \epsi
 <span id="cb8-5"><a href="#cb8-5"></a>  )</span>
 <span id="cb8-6"><a href="#cb8-6"></a></span>
 <span id="cb8-7"><a href="#cb8-7"></a><span class="fu">predict</span>(price_fit, new_house)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
     .pred
     &lt;dbl&gt;
@@ -745,7 +753,7 @@ y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \dots + \beta_p x_{ip} + \epsi
 <p><br></p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">predict</span>(price_fit, new_house, <span class="at">type =</span> <span class="st">"conf_int"</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 2
   .pred_lower .pred_upper
         &lt;dbl&gt;       &lt;dbl&gt;
@@ -761,7 +769,7 @@ y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \dots + \beta_p x_{ip} + \epsi
 <p><br></p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">predict</span>(price_fit, new_house, <span class="at">type =</span> <span class="st">"pred_int"</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 2
   .pred_lower .pred_upper
         &lt;dbl&gt;       &lt;dbl&gt;
@@ -791,7 +799,7 @@ y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \dots + \beta_p x_{ip} + \epsi
 
 
 <img src="images/logo.png" class="slide-logo r-stretch"><div class="footer footer-default">
-<p><a href="https://sta210-s22.github.io/website/">sta210-s22.github.io/website</a></p>
+<p><a href="https://yunranchen.github.io/STA210Summer/">yunranchen.github.io/STA210Summer/</a></p>
 </div>
 </section></section>
     </div>
@@ -830,7 +838,7 @@ y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \dots + \beta_p x_{ip} + \epsi
 'autoAnimateUnmatched': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'chalkboard': {"buttons":true},
-'multiplex': {"secret":null,"id":"f060581ccae8d4fa","url":"https://reveal-multiplex.glitch.me/"},
+'multiplex': {"secret":null,"id":"2559198809a2648c","url":"https://reveal-multiplex.glitch.me/"},
 'smaller': false,
  
         // Display controls in the bottom right corner

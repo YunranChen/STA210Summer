@@ -304,46 +304,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="../weeks/week-7.html" class="sidebar-item-text sidebar-link">Week 7</a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-8.html" class="sidebar-item-text sidebar-link">Week 8</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-9.html" class="sidebar-item-text sidebar-link">Week 9</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-10.html" class="sidebar-item-text sidebar-link">Week 10</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-11.html" class="sidebar-item-text sidebar-link">Week 11</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-12.html" class="sidebar-item-text sidebar-link">Week 12</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-13.html" class="sidebar-item-text sidebar-link">Week 13</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-14.html" class="sidebar-item-text sidebar-link">Week 14</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-15.html" class="sidebar-item-text sidebar-link">Week 15</a>
-  </div>
-</li>
     </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -431,7 +391,7 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Go to the <a href="https://github.com/sta210-s22">course GitHub organization</a> and locate the repo titled <code>ae-10-flight-delays-YOUR_GITHUB_USERNAME</code> to get started.</p>
+<p>Go to the <a href="https://github.com/STA210-Summer22">course GitHub organization</a> and locate the repo titled <code>ae-10-flight-delays-YOUR_GITHUB_USERNAME</code> to get started.</p>
 </div>
 </div>
 <section id="packages" class="level2">
@@ -447,7 +407,7 @@ Important
 <p>For this application exercise we will work with a dataset of 25,000 randomly sampled flights that departed one of three NYC airports (JFK, LGA, EWR) in 2013.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>flight_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/flight-data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stderr">
+<div class="cell-output cell-output-stderr">
 <pre><code>Rows: 25000 Columns: 10
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: ","
@@ -468,7 +428,7 @@ date (1): date
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">arr_delay =</span> <span class="fu">as.factor</span>(arr_delay))</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(flight_data<span class="sc">$</span>arr_delay)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>[1] "late"    "on_time"</code></pre>
 </div>
 </div>
@@ -539,7 +499,7 @@ date (1): date
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(<span class="at">data =</span> flight_train)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(flight_fit1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 119 × 5
    term          estimate   std.error statistic   p.value
    &lt;chr&gt;            &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
@@ -580,7 +540,7 @@ date (1): date
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">truth =</span> arr_delay,</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    .pred_late</span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 3
   .metric .estimator .estimate
   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;

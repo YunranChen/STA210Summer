@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="quarto-0.9.345">
 
-  <meta name="author" content="Dr.&nbsp;Mine Çetinkaya-Rundel">
+  <meta name="author" content="Yunran Chen">
   <title>STA 210 - Summer 2022 - Simple Linear Regression</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -388,8 +388,8 @@
 
 <section id="title-slide" class="center">
   <h1 class="title">Simple Linear Regression</h1>
-  <p class="subtitle">STA 210 - Spring 2022</p>
-  <p class="author">Dr.&nbsp;Mine Çetinkaya-Rundel</p>
+  <p class="subtitle">STA 210 - Summer 2022</p>
+  <p class="author">Yunran Chen</p>
 </section>
 
 <section>
@@ -400,14 +400,10 @@
 <section id="announcements" class="slide level2">
 <h2>Announcements</h2>
 <ul>
-<li>If you’re just joining the class, welcome! Go to the <a href="https://sta210-s22.github.io/website">course website</a> and review content you’ve missed, read the syllabus, and complete the <em>Getting to know you</em> survey.</li>
-<li>Lab 1 is due Friday, at 5pm, on Gradescope.</li>
+<li>If you’re just joining the class, welcome! Go to the <a href="https://yunranchen.github.io/STA210Summer/">course website</a> and review content you’ve missed, read the syllabus, and complete the <a href="https://duke.qualtrics.com/jfe/form/SV_a2XjEYFcPneNm6y"><em>Getting to know you</em></a> survey.</li>
+<li>Lab 1 is due Friday, at 11:59pm, on Gradescope.</li>
 </ul>
 </section>
-<section id="dorianne-gray-says" class="slide level2">
-<h2>Dorianne Gray says…</h2>
-
-<img data-src="images/lec-2/dorianne-gray.jpeg" alt="Picture of my cat Dorianne Gray (a gray, furry tabby) with a speech bubble that says &quot;Read the syllabus and make Mine happy!&quot;" width="800" class="r-stretch quarto-figure-center"></section>
 <section id="outline" class="slide level2">
 <h2>Outline</h2>
 <ul>
@@ -477,7 +473,7 @@
 <h2>Data overview</h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">glimpse</span>(movie_scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>Rows: 146
 Columns: 23
 $ film                       &lt;chr&gt; "Avengers: Age of Ultron", "Cinderella", "A…
@@ -577,6 +573,7 @@ $ fandango_difference        &lt;dbl&gt; 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5,
 <div class="column" style="width:30%;">
 $$
 <span class="math display">\[\begin{aligned} Y &amp;= \color{purple}{\textbf{Model}} + \color{blue}{\textbf{Error}} \\[8pt]
+
 
 &amp;= \color{purple}{\mathbf{f(X)}} + \color{blue}{\boldsymbol{\epsilon}} \\[8pt]
 &amp;= \color{purple}{\boldsymbol{\mu_{Y|X}}} + \color{blue}{\boldsymbol{\epsilon}} \\[8pt]
@@ -716,7 +713,7 @@ r &amp;= 0.7814
 <div>
 <ul>
 <li class="fragment"><strong>Slope:</strong> For every one point increase in the critics score, we expect the audience score to be higher by 0.5187 points, on average.</li>
-<li class="fragment"><strong>Intercept:</strong> If the critics score is 0 points, we expect the audience score to be 32.3142 points.</li>
+<li class="fragment"><strong>Intercept:</strong> If the critics score is 0 points, we expect the audience score to be 32.3142 points, on average.</li>
 </ul>
 </div>
 </section>
@@ -749,6 +746,7 @@ r &amp;= 0.7814
 </section>
 <section id="extrapolation" class="slide level2">
 <h2>Extrapolation</h2>
+<p>Extrapolation is prediction outside of the ranged covered by data.</p>
 <p>Suppose that a movie has a critics score of 0. According to this model, what is the movie’s predicted audience score?</p>
 
 <img data-src="lec-2_files/figure-revealjs/unnamed-chunk-9-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section></section>
@@ -762,7 +760,7 @@ r &amp;= 0.7814
 <div>
 <ul>
 <li class="fragment"><p>Used simple linear regression to describe the relationship between a quantitative predictor and quantitative outcome variable.</p></li>
-<li class="fragment"><p>Used the least squares method to estimate the slope and intercept.å</p></li>
+<li class="fragment"><p>Used the least squares method to estimate the slope and intercept.</p></li>
 <li class="fragment"><p>We interpreted the slope and intercept.</p>
 <div>
 <ul>
@@ -777,7 +775,7 @@ r &amp;= 0.7814
 
 
 <img src="images/logo.png" class="slide-logo r-stretch"><div class="footer footer-default">
-<p><a href="https://sta210-s22.github.io/website/">sta210-s22.github.io/website</a></p>
+<p><a href="https://yunranchen.github.io/STA210Summer/">yunranchen.github.io/STA210Summer/</a></p>
 </div>
 </section></section>
     </div>
@@ -814,7 +812,7 @@ r &amp;= 0.7814
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'multiplex': {"secret":null,"id":"b73b3fee0b067fe8","url":"https://reveal-multiplex.glitch.me/"},
+'multiplex': {"secret":null,"id":"1b513bc7c984c2af","url":"https://reveal-multiplex.glitch.me/"},
 'smaller': false,
  
         // Display controls in the bottom right corner

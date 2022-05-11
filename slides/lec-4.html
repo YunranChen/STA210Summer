@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="quarto-0.9.345">
 
-  <meta name="author" content="Dr.&nbsp;Mine Çetinkaya-Rundel">
+  <meta name="author" content="Yunran Chen">
   <title>STA 210 - Summer 2022 - SLR: Prediction + model evaluation</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -388,45 +388,26 @@
 
 <section id="title-slide" class="center">
   <h1 class="title">SLR: Prediction + model evaluation</h1>
-  <p class="subtitle">STA 210 - Spring 2022</p>
-  <p class="author">Dr.&nbsp;Mine Çetinkaya-Rundel</p>
+  <p class="subtitle">STA 210 - Summer 2022</p>
+  <p class="author">Yunran Chen</p>
 </section>
 
+<section class="slide level2">
+
+<style>
+slides > slide {
+  overflow-x: auto !important;
+  overflow-y: auto !important;
+}
+</style>
+</section>
+<section class="slide level2">
+
+</section>
 <section>
 <section id="welcome" class="title-slide slide level1 center">
 <h1>Welcome</h1>
 
-</section>
-<section id="announcements" class="slide level2">
-<h2>Announcements</h2>
-<ul>
-<li class="fragment">New on the course website: <a href="../course-faq.html">FAQ</a></li>
-<li class="fragment">New communication tool: Slack
-<ul>
-<li class="fragment">Find the invite link in your inbox / on Sakai announcements</li>
-<li class="fragment">Use #general for questions, #random for random 🤪</li>
-<li class="fragment">Use code formatting for for questions involving code (see Course FAQ for a demo video)</li>
-</ul></li>
-<li class="fragment">My office hours: All virtual for now, hope to move 1 hour / week to in person later in the semester</li>
-</ul>
-</section>
-<section id="hybrid-teaching" class="slide level2 smaller">
-<h2>Hybrid teaching</h2>
-<ul>
-<li class="fragment">Lectures:
-<ul>
-<li class="fragment">In person as long as university says so (and I don’t have COVID)</li>
-<li class="fragment">If you can’t be in class (and you’re well enough to follow along), watch live (or the recording later) on <a href="https://duke.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%22d6c1d58a-cb6d-4732-9d4b-ae0c011bf767%22">Panopto</a></li>
-<li class="fragment">Watching live and have questions? Post on Slack!</li>
-<li class="fragment">In class and see someone ask a question on Slack? Please raise it to me!</li>
-</ul></li>
-<li class="fragment">Labs:
-<ul>
-<li class="fragment">Not live streamed / recorded</li>
-<li class="fragment">Lab 2 (next Monday) - individual</li>
-<li class="fragment">Lab 3 onwards - in teams, if teammates are in isolation, set up team Zoom calls</li>
-</ul></li>
-</ul>
 </section>
 <section id="computational-setup" class="slide level2">
 <h2>Computational setup</h2>
@@ -445,7 +426,7 @@
 <section id="application-exercise" class="title-slide slide level1 center">
 <h1>Application exercise</h1>
 <div class="appex">
-<p>📋 <a href="https://github.com/sta210-s22/?q=ae-2-dcbikeshare&amp;type=all&amp;language=&amp;sort=">github.com/sta210-s22/ae-2-dcbikeshare</a></p>
+<p>📋 <a href="https://github.com/STA210-Summer22/?q=ae-2-dcbikeshare&amp;type=all&amp;language=&amp;sort=">github.com/STA210-Summer22/ae-2-dcbikeshare</a></p>
 </div>
 </section>
 
@@ -493,7 +474,7 @@
 <span id="cb2-4"><a href="#cb2-4"></a>  <span class="fu">select</span>(name, hs_grad, uninsured)</span>
 <span id="cb2-5"><a href="#cb2-5"></a></span>
 <span id="cb2-6"><a href="#cb2-6"></a>county_2019_nc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 100 × 3
    name             hs_grad uninsured
    &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;
@@ -560,7 +541,7 @@
 <span id="cb6-3"><a href="#cb6-3"></a>  <span class="fu">fit</span>(uninsured <span class="sc">~</span> hs_grad, <span class="at">data =</span> county_2019_nc)</span>
 <span id="cb6-4"><a href="#cb6-4"></a></span>
 <span id="cb6-5"><a href="#cb6-5"></a><span class="fu">tidy</span>(nc_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 5
   term        estimate std.error statistic  p.value
   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
@@ -575,7 +556,7 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>nc_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(nc_fit<span class="sc">$</span>fit)</span>
 <span id="cb8-2"><a href="#cb8-2"></a>nc_aug</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 100 × 8
    uninsured hs_grad .fitted  .resid   .hat .sigma    .cooksd .std.resid
        &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;
@@ -708,7 +689,7 @@ RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
 <li class="fragment"><p>Calculate with <code>rsq()</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">rsq</span>(nc_aug, <span class="at">truth =</span> uninsured, <span class="at">estimate =</span> .fitted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 3
   .metric .estimator .estimate
   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
@@ -723,7 +704,7 @@ RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
 
 </div>
 <div class="poll">
-<p>🗳️ <strong>Vote on Slack</strong></p>
+<p>🗳️ <strong>Vote</strong></p>
 <p>The <span class="math inline">\(R^2\)</span> of the model for predicting uninsurance rate from high school graduation rate for NC counties is 24.3%. Which of the following is the correct interpretation of this value?</p>
 <div>
 <ul>
@@ -740,7 +721,7 @@ RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
 <p>Alternatively, use <code>glance()</code> to construct a single row summary of the model fit, including <span class="math inline">\(R^2\)</span>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">glance</span>(nc_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 12
   r.squared adj.r.squared sigma statistic     p.value    df logLik   AIC   BIC
       &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -748,7 +729,7 @@ RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
 # … with 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">glance</span>(nc_fit)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.2430694</code></pre>
 </div>
 </div>
@@ -761,7 +742,7 @@ RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
 <li class="fragment"><p>Calculate with <code>rmse()</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">rmse</span>(nc_aug, <span class="at">truth =</span> uninsured, <span class="at">estimate =</span> .fitted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 3
   .metric .estimator .estimate
   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
@@ -906,7 +887,7 @@ RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
 
 <p><img src="images/logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p><a href="https://sta210-s22.github.io/website/">sta210-s22.github.io/website</a></p>
+<p><a href="https://yunranchen.github.io/STA210Summer/">yunranchen.github.io/STA210Summer/</a></p>
 </div>
 </section></section>
     </div>
@@ -943,7 +924,7 @@ RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'multiplex': {"secret":null,"id":"5024b7c1de609e56","url":"https://reveal-multiplex.glitch.me/"},
+'multiplex': {"secret":null,"id":"fe95175470c07b5b","url":"https://reveal-multiplex.glitch.me/"},
 'smaller': false,
  
         // Display controls in the bottom right corner

@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="quarto-0.9.345">
 
-  <meta name="author" content="Dr.&nbsp;Mine Çetinkaya-Rundel">
+  <meta name="author" content="Yunran Chen">
   <title>STA 210 - Summer 2022 - Probabilities, odds, odds ratios</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -390,8 +390,8 @@
 
 <section id="title-slide" class="center">
   <h1 class="title">Probabilities, odds, odds ratios</h1>
-  <p class="subtitle">STA 210 - Spring 2022</p>
-  <p class="author">Dr.&nbsp;Mine Çetinkaya-Rundel</p>
+  <p class="subtitle">STA 210 - Summer 2022</p>
+  <p class="author">Yunran Chen</p>
 </section>
 
 <section>
@@ -747,7 +747,7 @@ OR = \frac{\text{odds}_1}{\text{odds}_2} = \frac{\omega_1}{\omega_2}
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>heart_disease <span class="sc">%&gt;%</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">count</span>(education_names, high_risk_names)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 8 × 3
   education_names                   high_risk_names     n
   &lt;fct&gt;                             &lt;chr&gt;           &lt;int&gt;
@@ -768,7 +768,7 @@ OR = \frac{\text{odds}_1}{\text{odds}_2} = \frac{\omega_1}{\omega_2}
 <div class="sourceCode cell-code" id="cb6" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>heart_disease <span class="sc">%&gt;%</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">count</span>(education_names, high_risk_names) <span class="sc">%&gt;%</span></span>
 <span id="cb6-3"><a href="#cb6-3"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> high_risk_names, <span class="at">values_from =</span> n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 3
   education_names                   `High risk` `Not high risk`
   &lt;fct&gt;                                   &lt;int&gt;           &lt;int&gt;
@@ -1474,7 +1474,7 @@ OR  = e^{\hat{\beta}_j} = \exp\{\hat{\beta}_j\}
 
 
 <img src="images/logo.png" class="slide-logo r-stretch"><div class="footer footer-default">
-<p><a href="https://sta210-s22.github.io/website/">sta210-s22.github.io/website</a></p>
+<p><a href="https://yunranchen.github.io/STA210Summer/">yunranchen.github.io/STA210Summer/</a></p>
 </div>
 </section></section>
     </div>

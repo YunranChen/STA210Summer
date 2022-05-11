@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="quarto-0.9.345">
 
-  <meta name="author" content="Dr.&nbsp;Mine Çetinkaya-Rundel">
+  <meta name="author" content="Yunran Chen">
   <title>STA 210 - Summer 2022 - LR: Prediction / classification</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -390,8 +390,8 @@
 
 <section id="title-slide" class="center">
   <h1 class="title">LR: Prediction / classification</h1>
-  <p class="subtitle">STA 210 - Spring 2022</p>
-  <p class="author">Dr.&nbsp;Mine Çetinkaya-Rundel</p>
+  <p class="subtitle">STA 210 - Summer 2022</p>
+  <p class="author">Yunran Chen</p>
 </section>
 
 <section>
@@ -482,7 +482,7 @@
 <span id="cb3-5"><a href="#cb3-5"></a><span class="fu">summary</span>(email_rec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 21 × 4
    variable     type    role      source  
    &lt;chr&gt;        &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;   
@@ -517,7 +517,7 @@
 <span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">step_rm</span>(from, sent_email)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>Recipe
 
 Inputs:
@@ -528,7 +528,7 @@ Inputs:
 
 Operations:
 
-Delete terms from, sent_email</code></pre>
+Variables removed from, sent_email</code></pre>
 </div>
 </div>
 </section>
@@ -540,7 +540,7 @@ Delete terms from, sent_email</code></pre>
 <span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">step_rm</span>(time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>Recipe
 
 Inputs:
@@ -551,9 +551,9 @@ Inputs:
 
 Operations:
 
-Delete terms from, sent_email
+Variables removed from, sent_email
 Date features from time
-Delete terms time</code></pre>
+Variables removed time</code></pre>
 </div>
 </div>
 </section>
@@ -564,7 +564,7 @@ Delete terms time</code></pre>
 <span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">step_cut</span>(cc, attach, dollar, <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>Recipe
 
 Inputs:
@@ -575,9 +575,9 @@ Inputs:
 
 Operations:
 
-Delete terms from, sent_email
+Variables removed from, sent_email
 Date features from time
-Delete terms time
+Variables removed time
 Cut numeric for cc, attach, dollar</code></pre>
 </div>
 </div>
@@ -589,7 +589,7 @@ Cut numeric for cc, attach, dollar</code></pre>
 <span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">step_dummy</span>(<span class="fu">all_nominal</span>(), <span class="sc">-</span><span class="fu">all_outcomes</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>Recipe
 
 Inputs:
@@ -600,9 +600,9 @@ Inputs:
 
 Operations:
 
-Delete terms from, sent_email
+Variables removed from, sent_email
 Date features from time
-Delete terms time
+Variables removed time
 Cut numeric for cc, attach, dollar
 Dummy variables from all_nominal(), -all_outcomes()</code></pre>
 </div>
@@ -616,7 +616,7 @@ Dummy variables from all_nominal(), -all_outcomes()</code></pre>
 <span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">step_zv</span>(<span class="fu">all_predictors</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>Recipe
 
 Inputs:
@@ -627,9 +627,9 @@ Inputs:
 
 Operations:
 
-Delete terms from, sent_email
+Variables removed from, sent_email
 Date features from time
-Delete terms time
+Variables removed time
 Cut numeric for cc, attach, dollar
 Dummy variables from all_nominal(), -all_outcomes()
 Zero variance filter on all_predictors()</code></pre>
@@ -659,7 +659,7 @@ Zero variance filter on all_predictors()</code></pre>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>email_spec <span class="ot">&lt;-</span> <span class="fu">logistic_reg</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb16-2"><a href="#cb16-2"></a>  <span class="fu">set_engine</span>(<span class="st">"glm"</span>)</span>
 <span id="cb16-3"><a href="#cb16-3"></a>email_spec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>Logistic Regression Model Specification (classification)
 
 Computational engine: glm </code></pre>
@@ -675,7 +675,7 @@ Computational engine: glm </code></pre>
 <span id="cb18-3"><a href="#cb18-3"></a>  <span class="fu">add_recipe</span>(email_rec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>══ Workflow ════════════════════════════════════════════════════════════════════
 Preprocessor: Recipe
 Model: logistic_reg()
@@ -704,7 +704,7 @@ Computational engine: glm </code></pre>
 <span id="cb20-2"><a href="#cb20-2"></a>  <span class="fu">fit</span>(<span class="at">data =</span> email_train)</span>
 <span id="cb20-3"><a href="#cb20-3"></a></span>
 <span id="cb20-4"><a href="#cb20-4"></a><span class="fu">tidy</span>(email_fit) <span class="sc">%&gt;%</span> <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">31</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 27 × 5
    term           estimate std.error statistic  p.value
    &lt;chr&gt;             &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
@@ -749,7 +749,7 @@ Computational engine: glm </code></pre>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>email_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(email_fit, email_test, <span class="at">type =</span> <span class="st">"prob"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb22-2"><a href="#cb22-2"></a>  <span class="fu">bind_cols</span>(email_test) </span>
 <span id="cb22-3"><a href="#cb22-3"></a>email_pred</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 981 × 23
    .pred_0  .pred_1 spam  to_multiple from     cc sent_email time               
      &lt;dbl&gt;    &lt;dbl&gt; &lt;fct&gt; &lt;fct&gt;       &lt;fct&gt; &lt;int&gt; &lt;fct&gt;      &lt;dttm&gt;             
@@ -779,7 +779,7 @@ Computational engine: glm </code></pre>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>email_pred <span class="sc">%&gt;%</span></span>
 <span id="cb24-2"><a href="#cb24-2"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(.pred_1)) <span class="sc">%&gt;%</span></span>
 <span id="cb24-3"><a href="#cb24-3"></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">"pred"</span>), spam)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 981 × 3
    .pred_0 .pred_1 spam 
      &lt;dbl&gt;   &lt;dbl&gt; &lt;fct&gt;
@@ -806,7 +806,7 @@ Computational engine: glm </code></pre>
 <h2>False positive and negative</h2>
 <table>
 <colgroup>
-<col style="width: 32%">
+<col style="width: 33%">
 <col style="width: 33%">
 <col style="width: 33%">
 </colgroup>
@@ -837,11 +837,11 @@ Computational engine: glm </code></pre>
 </section>
 <section id="sensitivity-and-specificity-1" class="slide level2 smaller">
 <h2>Sensitivity and specificity</h2>
-<table style="width:100%;">
+<table>
 <colgroup>
 <col style="width: 30%">
-<col style="width: 35%">
-<col style="width: 35%">
+<col style="width: 34%">
+<col style="width: 34%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -918,7 +918,7 @@ Computational engine: glm </code></pre>
 <span id="cb27-4"><a href="#cb27-4"></a>    .pred_1,</span>
 <span id="cb27-5"><a href="#cb27-5"></a>    <span class="at">event_level =</span> <span class="st">"second"</span></span>
 <span id="cb27-6"><a href="#cb27-6"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 981 × 3
     .threshold specificity sensitivity
          &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
@@ -949,7 +949,7 @@ Computational engine: glm </code></pre>
 <span id="cb29-4"><a href="#cb29-4"></a>    .pred_1,</span>
 <span id="cb29-5"><a href="#cb29-5"></a>    <span class="at">event_level =</span> <span class="st">"second"</span></span>
 <span id="cb29-6"><a href="#cb29-6"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 3
   .metric .estimator .estimate
   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
@@ -1019,7 +1019,7 @@ Computational engine: glm </code></pre>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>email_pred <span class="sc">%&gt;%</span></span>
 <span id="cb32-2"><a href="#cb32-2"></a>  <span class="fu">mutate</span>(<span class="at">spam_predicted =</span> <span class="fu">as_factor</span>(<span class="fu">if_else</span>(.pred_1 <span class="sc">&gt;=</span> cutoff_prob, <span class="dv">1</span>, <span class="dv">0</span>))) <span class="sc">%&gt;%</span></span>
 <span id="cb32-3"><a href="#cb32-3"></a>  <span class="fu">conf_mat</span>(<span class="at">truth =</span> spam, <span class="at">estimate =</span> spam_predicted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>          Truth
 Prediction   0   1
          0 883  73
@@ -1149,7 +1149,7 @@ Prediction   0   1
 
 <p><img src="images/logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p><a href="https://sta210-s22.github.io/website/">sta210-s22.github.io/website</a></p>
+<p><a href="https://yunranchen.github.io/STA210Summer/">yunranchen.github.io/STA210Summer/</a></p>
 </div>
 </section></section>
     </div>

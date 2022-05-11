@@ -305,46 +305,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="../weeks/week-7.html" class="sidebar-item-text sidebar-link">Week 7</a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-8.html" class="sidebar-item-text sidebar-link">Week 8</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-9.html" class="sidebar-item-text sidebar-link">Week 9</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-10.html" class="sidebar-item-text sidebar-link">Week 10</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-11.html" class="sidebar-item-text sidebar-link">Week 11</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-12.html" class="sidebar-item-text sidebar-link">Week 12</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-13.html" class="sidebar-item-text sidebar-link">Week 13</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-14.html" class="sidebar-item-text sidebar-link">Week 14</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-15.html" class="sidebar-item-text sidebar-link">Week 15</a>
-  </div>
-</li>
     </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -410,7 +370,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title d-none d-lg-block">HW 3 - Logistic regression and log transformation</h1>
-<p class="subtitle lead">Due Friday, March 25, 5pm on Gradescope</p>
+<p class="subtitle lead">Due Sunday, June 12, 11:59pm on Gradescope</p>
 </div>
 
 
@@ -441,7 +401,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="getting-started" class="level3">
 <h3 class="anchored" data-anchor-id="getting-started">Getting started</h3>
-<p>Your repo for this assignment is at <a href="https://github.com/sta210-s22" title="Course GitHub organization">github.com/sta210-s22</a> and starts with the prefix <strong>hw-3</strong>. For more detailed instructions on getting started, see <a href="hw-1.html">HW 1</a>.</p>
+<p>Your repo for this assignment is at <a href="https://github.com/STA210-Summer22" title="Course GitHub organization">github.com/STA210-Summer22</a> and starts with the prefix <strong>hw-3</strong>. For more detailed instructions on getting started, see <a href="hw-1.html">HW 1</a>.</p>
 </section>
 <section id="packages" class="level3">
 <h3 class="anchored" data-anchor-id="packages">Packages</h3>
@@ -460,9 +420,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We will use the following variables:</p>
 <table class="table">
 <colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 58%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 50%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -498,7 +458,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(adelie, species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 3
   adelie species       n
   &lt;fct&gt;  &lt;fct&gt;     &lt;int&gt;
@@ -509,12 +469,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Let’s start by looking at the relationship between island and whether a penguin is from the Adelie species.</p>
 <ol type="1">
-<li><p>What does the <code>values_fill</code> argument do in the following chunk? The documentation for the function will be helpful in answering this question.</p>
+<li>What does the <code>values_fill</code> argument do in the following chunk? The documentation for the function will be helpful in answering this question.</li>
+</ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(island, adelie) <span class="sc">%&gt;%</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> adelie, <span class="at">values_from =</span> n, <span class="at">values_fill =</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>    penguins <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>      <span class="fu">count</span>(island, adelie) <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> adelie, <span class="at">values_from =</span> n, <span class="at">values_fill =</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 3
   island      `0`   `1`
   &lt;fct&gt;     &lt;int&gt; &lt;int&gt;
@@ -522,7 +483,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 2 Dream        68    56
 3 Torgersen     0    52</code></pre>
 </div>
-</div></li>
+</div>
+<ol start="2" type="1">
 <li><p>Calculate the odds ratio of a penguin being from the Adelie species for those recorded on Dream compared to those recorded on Biscoe.</p></li>
 <li><p>You want to fit a model using <code>island</code> to predict the odds of being from the Adelie species. Let <span class="math inline">\(\pi\)</span> be the probability a penguin is from the Adelie species. The model has the following form. What do you expect the value of <span class="math inline">\(\hat{\beta}_1\)</span>, the estimated coefficient for <em>Dream</em>, to be? Explain your reasoning.</p></li>
 </ol>

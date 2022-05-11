@@ -304,46 +304,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="../weeks/week-7.html" class="sidebar-item-text sidebar-link">Week 7</a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-8.html" class="sidebar-item-text sidebar-link">Week 8</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-9.html" class="sidebar-item-text sidebar-link">Week 9</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-10.html" class="sidebar-item-text sidebar-link">Week 10</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-11.html" class="sidebar-item-text sidebar-link">Week 11</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-12.html" class="sidebar-item-text sidebar-link">Week 12</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-13.html" class="sidebar-item-text sidebar-link">Week 13</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-14.html" class="sidebar-item-text sidebar-link">Week 14</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-15.html" class="sidebar-item-text sidebar-link">Week 15</a>
-  </div>
-</li>
     </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -430,7 +390,7 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Go to the <a href="https://github.com/sta210-s22">course GitHub organization</a> and locate the repo titled <code>ae-11-volcanoes-YOUR_GITHUB_USERNAME</code> to get started.</p>
+<p>Go to the <a href="https://github.com/STA210-Summer22">course GitHub organization</a> and locate the repo titled <code>ae-11-volcanoes-YOUR_GITHUB_USERNAME</code> to get started.</p>
 </div>
 </div>
 <section id="packages" class="level2">
@@ -447,7 +407,7 @@ Important
 <p>For this application exercise we will work with a dataset of on volcanoes. The data come from <a href="https://volcano.si.edu/">The Smithsonian Institution</a> via <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-05-12/readme.md">TidyTuesday</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>volcano <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"ae"</span>, <span class="st">"data/volcano.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stderr">
+<div class="cell-output cell-output-stderr">
 <pre><code>Rows: 958 Columns: 26
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: ","
@@ -530,7 +490,7 @@ Use the same test/train split as well as same cross validation folds. Code for t
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>volcano_folds <span class="ot">&lt;-</span> <span class="fu">vfold_cv</span>(volcano_train, <span class="at">v =</span> <span class="dv">5</span>)</span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>volcano_folds</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>#  5-fold cross-validation 
 # A tibble: 5 × 2
   splits            id   
@@ -561,7 +521,7 @@ Use the same test/train split as well as same cross validation folds. Code for t
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(volcano_spec)</span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>volcano_wflow2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>══ Workflow ════════════════════════════════════════════════════════════════════
 Preprocessor: Recipe
 Model: multinom_reg()
@@ -590,23 +550,23 @@ Computational engine: nnet </code></pre>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>volcano_fit_rs2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># Resampling results
 # 5-fold cross-validation 
 # A tibble: 5 × 5
   splits            id    .metrics         .notes           .predictions      
   &lt;list&gt;            &lt;chr&gt; &lt;list&gt;           &lt;list&gt;           &lt;list&gt;            
-1 &lt;split [574/144]&gt; Fold1 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 1]&gt; &lt;tibble [144 × 7]&gt;
-2 &lt;split [574/144]&gt; Fold2 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 1]&gt; &lt;tibble [144 × 7]&gt;
-3 &lt;split [574/144]&gt; Fold3 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 1]&gt; &lt;tibble [144 × 7]&gt;
-4 &lt;split [575/143]&gt; Fold4 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 1]&gt; &lt;tibble [143 × 7]&gt;
-5 &lt;split [575/143]&gt; Fold5 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 1]&gt; &lt;tibble [143 × 7]&gt;</code></pre>
+1 &lt;split [574/144]&gt; Fold1 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble [144 × 7]&gt;
+2 &lt;split [574/144]&gt; Fold2 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble [144 × 7]&gt;
+3 &lt;split [574/144]&gt; Fold3 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble [144 × 7]&gt;
+4 &lt;split [575/143]&gt; Fold4 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble [143 × 7]&gt;
+5 &lt;split [575/143]&gt; Fold5 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble [143 × 7]&gt;</code></pre>
 </div>
 </div>
 <p>Collect metrics:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">collect_metrics</span>(volcano_fit_rs2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 6
   .metric  .estimator  mean     n std_err .config             
   &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               

@@ -304,46 +304,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="../weeks/week-7.html" class="sidebar-item-text sidebar-link">Week 7</a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-8.html" class="sidebar-item-text sidebar-link">Week 8</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-9.html" class="sidebar-item-text sidebar-link">Week 9</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-10.html" class="sidebar-item-text sidebar-link">Week 10</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-11.html" class="sidebar-item-text sidebar-link">Week 11</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-12.html" class="sidebar-item-text sidebar-link">Week 12</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-13.html" class="sidebar-item-text sidebar-link">Week 13</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-14.html" class="sidebar-item-text sidebar-link">Week 14</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-15.html" class="sidebar-item-text sidebar-link">Week 15</a>
-  </div>
-</li>
     </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -417,7 +377,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title d-none d-lg-block">HW 1 - In-person voting trends</h1>
-<p class="subtitle lead">Due Friday, January 28, 5pm on Gradescope</p>
+<p class="subtitle lead">Due Wed, May 18, 11:59pm on Gradescope</p>
 </div>
 
 
@@ -459,7 +419,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="clone-the-repo-start-new-rstudio-project" class="level3">
 <h3 class="anchored" data-anchor-id="clone-the-repo-start-new-rstudio-project">Clone the repo &amp; start new RStudio project</h3>
 <ul>
-<li><p>Go to the course organization at <a href="https://github.com/sta210-s22" title="Course GitHub organization">github.com/sta210-s22</a> organization on GitHub. Click on the repo with the prefix <strong>hw-1</strong>. It contains the starter documents you need to complete the lab.</p></li>
+<li><p>Go to the course organization at <a href="https://github.com/STA210-Summer22" title="Course GitHub organization">github.com/STA210-Summer22</a> organization on GitHub. Click on the repo with the prefix <strong>hw-1</strong>. It contains the starter documents you need to complete the lab.</p></li>
 <li><p>Click on the green <strong>CODE</strong> button, select <strong>Use SSH</strong> (this might already be selected by default, and if it is, you’ll see the text <strong>Clone with SSH</strong>). Click on the clipboard icon to copy the repo URL.</p></li>
 <li><p>In RStudio, go to <em>File</em> ➛ <em>New Project</em> ➛<em>Version Control</em> ➛ <em>Git</em>.</p></li>
 <li><p>Copy and paste the URL of your assignment repo into the dialog box <em>Repository URL</em>. Again, please make sure to have <em>SSH</em> highlighted under <em>Clone</em> when you copy the address.</p></li>
@@ -595,12 +555,9 @@ Warning
 </ul></li>
 <li><p>Fill in the name of your model in the code below to calculate the residuals and add them to <code>election_map_data</code>. Then, a map with the color of each county filled in based on the value of the residual. <em>Hint: Start with the code from Exercise 2.</em></p>
 <p>Is the independence condition satisfied? Briefly explain based on what you observe from the plot.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>nc_election_aug <span class="ot">&lt;-</span> nc_election_aug <span class="sc">%&gt;%</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(<span class="at">fips =</span> election_nc<span class="sc">$</span>fips)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>election_map_data <span class="ot">&lt;-</span> <span class="fu">left_join</span>(election_map_data, nc_election_aug)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></li>
+<p>#| eval: false</p>
+<p>nc_election_aug &lt;- nc_election_aug %&gt;% bind_cols(fips = election_nc$fips)</p>
+<p>election_map_data &lt;- left_join(election_map_data, nc_election_aug) ```</p></li>
 </ol>
 <div class="callout-warning callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">

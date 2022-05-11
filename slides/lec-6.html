@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="quarto-0.9.345">
 
-  <meta name="author" content="Dr.&nbsp;Mine Çetinkaya-Rundel">
+  <meta name="author" content="Yunran Chen">
   <title>STA 210 - Summer 2022 - SLR: Mathematical models for inference</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -392,10 +392,19 @@
 
 <section id="title-slide" class="center">
   <h1 class="title">SLR: Mathematical models for inference</h1>
-  <p class="subtitle">STA 210 - Spring 2022</p>
-  <p class="author">Dr.&nbsp;Mine Çetinkaya-Rundel</p>
+  <p class="subtitle">STA 210 - Summer 2022</p>
+  <p class="author">Yunran Chen</p>
 </section>
 
+<section class="slide level2">
+
+<style>
+slides > slide {
+  overflow-x: auto !important;
+  overflow-y: auto !important;
+}
+</style>
+</section>
 <section>
 <section id="welcome" class="title-slide slide level1 center">
 <h1>Welcome</h1>
@@ -499,7 +508,7 @@
 <span id="cb3-4"><a href="#cb3-4"></a></span>
 <span id="cb3-5"><a href="#cb3-5"></a>duke_forest <span class="sc">%&gt;%</span></span>
 <span id="cb3-6"><a href="#cb3-6"></a>  <span class="fu">specify</span>(price <span class="sc">~</span> area)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>Response: price (numeric)
 Explanatory: area (numeric)
 # A tibble: 98 × 2
@@ -529,7 +538,7 @@ Explanatory: area (numeric)
 <span id="cb5-5"><a href="#cb5-5"></a>duke_forest <span class="sc">%&gt;%</span></span>
 <span id="cb5-6"><a href="#cb5-6"></a>  <span class="fu">specify</span>(price <span class="sc">~</span> area) <span class="sc">%&gt;%</span></span>
 <span id="cb5-7"><a href="#cb5-7"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>Response: price (numeric)
 Explanatory: area (numeric)
 # A tibble: 98,000 × 3
@@ -561,7 +570,7 @@ Explanatory: area (numeric)
 <span id="cb7-6"><a href="#cb7-6"></a>  <span class="fu">specify</span>(price <span class="sc">~</span> area) <span class="sc">%&gt;%</span></span>
 <span id="cb7-7"><a href="#cb7-7"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb7-8"><a href="#cb7-8"></a>  <span class="fu">fit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2,000 × 3
 # Groups:   replicate [1,000]
    replicate term      estimate
@@ -624,7 +633,7 @@ Explanatory: area (numeric)
 <span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">fit</span>()</span>
 <span id="cb11-4"><a href="#cb11-4"></a></span>
 <span id="cb11-5"><a href="#cb11-5"></a>obs_fit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   term      estimate
   &lt;chr&gt;        &lt;dbl&gt;
@@ -644,7 +653,7 @@ Explanatory: area (numeric)
 <span id="cb13-6"><a href="#cb13-6"></a>    <span class="at">type =</span> <span class="st">"percentile"</span>,</span>
 <span id="cb13-7"><a href="#cb13-7"></a>    <span class="at">point_estimate =</span> obs_fit</span>
 <span id="cb13-8"><a href="#cb13-8"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 3
   term      lower_ci upper_ci
   &lt;chr&gt;        &lt;dbl&gt;    &lt;dbl&gt;
@@ -664,7 +673,7 @@ Explanatory: area (numeric)
 <span id="cb15-6"><a href="#cb15-6"></a>    <span class="at">type =</span> <span class="st">"se"</span>,</span>
 <span id="cb15-7"><a href="#cb15-7"></a>    <span class="at">point_estimate =</span> obs_fit</span>
 <span id="cb15-8"><a href="#cb15-8"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 3
   term      lower_ci upper_ci
   &lt;chr&gt;        &lt;dbl&gt;    &lt;dbl&gt;
@@ -725,7 +734,7 @@ Explanatory: area (numeric)
 </ul>
 </div><div class="column" style="width:60%;">
 <div class="cell" data-layout-align="center">
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 98 × 3
    price_Observed price_Permuted  area
             &lt;dbl&gt;          &lt;dbl&gt; &lt;dbl&gt;
@@ -787,7 +796,7 @@ Explanatory: area (numeric)
 <span id="cb18-4"><a href="#cb18-4"></a></span>
 <span id="cb18-5"><a href="#cb18-5"></a>duke_forest <span class="sc">%&gt;%</span></span>
 <span id="cb18-6"><a href="#cb18-6"></a>  <span class="fu">specify</span>(price <span class="sc">~</span> area)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>Response: price (numeric)
 Explanatory: area (numeric)
 # A tibble: 98 × 2
@@ -817,7 +826,7 @@ Explanatory: area (numeric)
 <span id="cb20-5"><a href="#cb20-5"></a>duke_forest <span class="sc">%&gt;%</span></span>
 <span id="cb20-6"><a href="#cb20-6"></a>  <span class="fu">specify</span>(price <span class="sc">~</span> area) <span class="sc">%&gt;%</span></span>
 <span id="cb20-7"><a href="#cb20-7"></a>  <span class="fu">hypothesize</span>(<span class="at">null =</span> <span class="st">"independence"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>Response: price (numeric)
 Explanatory: area (numeric)
 Null Hypothesis: independence
@@ -849,7 +858,7 @@ Null Hypothesis: independence
 <span id="cb22-6"><a href="#cb22-6"></a>  <span class="fu">specify</span>(price <span class="sc">~</span> area) <span class="sc">%&gt;%</span></span>
 <span id="cb22-7"><a href="#cb22-7"></a>  <span class="fu">hypothesize</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb22-8"><a href="#cb22-8"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"permute"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>Response: price (numeric)
 Explanatory: area (numeric)
 Null Hypothesis: independence
@@ -883,7 +892,7 @@ Null Hypothesis: independence
 <span id="cb24-7"><a href="#cb24-7"></a>  <span class="fu">hypothesize</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb24-8"><a href="#cb24-8"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb24-9"><a href="#cb24-9"></a>  <span class="fu">fit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2,000 × 3
 # Groups:   replicate [1,000]
    replicate term       estimate
@@ -946,7 +955,7 @@ Null Hypothesis: independence
 <span id="cb28-3"><a href="#cb28-3"></a>  <span class="at">obs_stat =</span> obs_fit,</span>
 <span id="cb28-4"><a href="#cb28-4"></a>  <span class="at">direction =</span> <span class="st">"two-sided"</span></span>
 <span id="cb28-5"><a href="#cb28-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stderr">
+<div class="cell-output cell-output-stderr">
 <pre><code>Warning: Please be cautious in reporting a p-value of 0. This result is an
 approximation based on the number of `reps` chosen in the `generate()` step. See
 `?get_p_value()` for more information.
@@ -955,7 +964,7 @@ Warning: Please be cautious in reporting a p-value of 0. This result is an
 approximation based on the number of `reps` chosen in the `generate()` step. See
 `?get_p_value()` for more information.</code></pre>
 </div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   term      p_value
   &lt;chr&gt;       &lt;dbl&gt;
@@ -1137,7 +1146,7 @@ SE_{\hat{\beta}_1} = \hat{\sigma}_\epsilon\sqrt{\frac{1}{(n-1)s_X^2}}
 
 <p><img src="images/logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p><a href="https://sta210-s22.github.io/website/">sta210-s22.github.io/website</a></p>
+<p><a href="https://yunranchen.github.io/STA210Summer/">yunranchen.github.io/STA210Summer/</a></p>
 </div>
 </div>
 </section></section>
@@ -1177,7 +1186,7 @@ SE_{\hat{\beta}_1} = \hat{\sigma}_\epsilon\sqrt{\frac{1}{(n-1)s_X^2}}
 'autoAnimateUnmatched': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'chalkboard': {"buttons":true},
-'multiplex': {"secret":null,"id":"7d8e4641698f6e38","url":"https://reveal-multiplex.glitch.me/"},
+'multiplex': {"secret":null,"id":"9aef073f2c7316d0","url":"https://reveal-multiplex.glitch.me/"},
 'smaller': false,
  
         // Display controls in the bottom right corner
