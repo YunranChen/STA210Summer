@@ -36,7 +36,7 @@ editor: visual
 
 📋 [AE 0 - Movies](/ae/ae-0-movies.html)
 
-📋 [Application Exercise 1 - Bike rentals in DC](/ae/ae-1-dcbikeshare.html) *(Post-class note: complete only Part 1 - Daily counts and temperature)*
+📋 [Application Exercise 1 - Bike rentals in DC](/ae/ae-1-dcbikeshare.html) 
 
 ## Perform
 

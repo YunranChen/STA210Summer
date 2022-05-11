@@ -35,7 +35,7 @@ By the end of the lab, you will...
 ## Getting started
 
 ::: callout-important
-Your lab TA will lead you through the Getting Started section.
+I will lead you through the Getting Started section.
 :::
 
 ### Log in to RStudio
@@ -85,8 +85,8 @@ For example, mine would be
 #| eval: false
 
 usethis::use_git_config(
-  user.name = "mine-cetinkaya-rundel", 
-  user.email = "cetinkaya.mine@gmail.com"
+  user.name = "YunranChen", 
+  user.email = "yunran.chen@duke.edu"
   )
 ```
 
@@ -94,7 +94,7 @@ You are now ready interact with GitHub via RStudio!
 
 ### Clone the repo & start new RStudio project
 
--   Go to the course organization at [github.com/sta210-s22](https://github.com/sta210-s22 "Course GitHub organization") organization on GitHub. Click on the repo with the prefix **lab-1**. It contains the starter documents you need to complete the lab.
+-   Go to the course organization at [github.com/STA210-Summer22](https://github.com/STA210-Summer22 "Course GitHub organization") organization on GitHub. Click on the repo with the prefix **lab-1**. It contains the starter documents you need to complete the lab.
 
 -   Click on the green **CODE** button, select **Use SSH** (this might already be selected by default, and if it is, you'll see the text **Clone with SSH**). Click on the clipboard icon to copy the repo URL.
 
@@ -184,7 +184,7 @@ ikea <- read_csv("data/ikea.csv")
 The variable definitions are as follows:
 
 | variable            | class     | description                                                                                         |
-|---------------------|-----------|-----------------------------------------------------------------------------------------------------|
+|-------------|-------------|-----------------------------------------------|
 | `item_id`           | double    | item id which can be used later to merge with other IKEA data frames                                |
 | `name`              | character | the commercial name of items                                                                        |
 | `category`          | character | the furniture category that the item belongs to (Sofas, beds, chairs, Trolleys,...)                 |

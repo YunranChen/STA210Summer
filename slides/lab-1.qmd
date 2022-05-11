@@ -13,6 +13,8 @@ execute:
   freeze: auto
 ---
 
+
+
 ## **What to expect in lab**
 
 -   Introduction to the lab assignment (\~ 5 - 10 minutes)
@@ -27,7 +29,7 @@ execute:
 
 ## **Tips**
 
--   You do not have to finish the lab in class, they will always be due on **Friday at 11:59 pm**. One work strategy is to get through the coding component during lab when a TA or I can help you on the spot, and leave the narrative writing until later.
+-   You do not have to finish the lab in class. One work strategy is to get through the coding component during lab when I can help you on the spot, and leave the narrative writing until later.
 
 -   When working in teams, do not pressure each other to finish early; use the time wisely to really learn the material and produce a quality report.
 
@@ -36,8 +38,6 @@ execute:
 -   If you have not yet taken the survey, please finish it right now :
 
     [Survey](https://duke.qualtrics.com/jfe/form/SV_a2XjEYFcPneNm6y)
-
-
 
 ## **Check: Do you have the lab-1 repo?**
 
@@ -49,8 +49,7 @@ execute:
 
 ## Demo
 
-**Follow along: **
--   Configure Git using SSH
+**Follow along:**  - Configure Git using SSH
 
 -   Clone RStudio repo and start new project
 

@@ -15,6 +15,15 @@ execute:
   freeze: auto
 ---
 
+```{=html}
+<style>
+slides > slide {
+  overflow-x: auto !important;
+  overflow-y: auto !important;
+}
+</style>
+```
+
 ```{r}
 #| include: false
 library(countdown)
@@ -32,13 +41,14 @@ library(countdown)
 ::: {.column width="50%"}
 -   Third-year Ph.D. student, Department of Statistical Science
 -   Find out more at [my personal website](https://yunranchen.github.io/)
--   Pecan, One-year old male Bernese Mountain Dog
+-   Pecan, One-year-old male Bernese Mountain Dog
 :::
 :::
 
 ## Meet the TA
 
 -   Joseph Ekpenyong
+-   Hold office hour and grade labs + HWs
 
 ## Meet each other!
 
@@ -53,8 +63,8 @@ countdown(minutes = 5)
 
 ## Check out Conversations
 
--   Go to [Conversations 💬](https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/tool/13b6446a-a6c6-4222-8cfb-c36d1f70802b)
--   Answer the discussion question: What do you love most for summer (in one word) ? 
+-   Go to [Conversations](https://sakai.duke.edu/portal/site/5f891853-b329-4c32-bbef-d209f5e37220/tool/b841430f-61a2-46ce-b9f5-09611aef28e0)💬
+-   Answer the discussion question: What do you love most for summer (in one word) ?
 
 # Regression analysis
 
@@ -72,7 +82,7 @@ Source: [Wikipedia](https://en.wikipedia.org/wiki/Regression_analysis)
 -   **What background is assumed for the course?** Introductory statistics or probability course.
 -   **Will we be doing computing?** Yes. We will use R.
 -   **Will we learn the mathematical theory of regression?** Yes and No. The course is primarily focused on application; however, we will discuss some of the mathematics of simple linear regression. If you want to dive into more of the mathematics, I can introduce some mathematics during labs.
--   **What is expected course load?** I will compress all the content from Spring 2022 to 6 weeks! This course will be super intense. You should expect to spend 1-2 hours per day on your homework or lab. You may have deadlines every other day.
+-   **What is expected course load?** Super intense! 25 hr per week. Deadlines on Mon/Wed/Fri/Sun.
 :::
 
 ## Course learning objectives
@@ -108,8 +118,8 @@ All linked from the course website:
 
 -   GitHub organization: [github.com/STA210-Summer22](https://github.com/STA210-Summer22)
 -   RStudio containers: [cmgr.oit.duke.edu/containers](https://cmgr.oit.duke.edu/containers)
--   Discussion forum: [Conversations](https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/tool/13b6446a-a6c6-4222-8cfb-c36d1f70802b)
--   Assignment submission and feedback: [Gradescope](https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/page/aec742dc-2972-4f02-a35b-1dd3315af889)
+-   Discussion forum: [Conversations](https://sakai.duke.edu/portal/site/5f891853-b329-4c32-bbef-d209f5e37220/tool/b841430f-61a2-46ce-b9f5-09611aef28e0)
+-   Assignment submission and feedback: [Gradescope](https://www.gradescope.com/courses/393365)
 
 ::: callout-important
 Reserve an RStudio Container (titled STA 210) before lab !
@@ -129,15 +139,15 @@ Reserve an RStudio Container (titled STA 210) before lab !
 ## Cadence
 
 ::: incremental
--   **Labs and HWs:** New assignments (HWs or labs) are released every other day, and due two days after.
--   **Exams:** Exam review Friday in class, exam posted Friday morning, due Sunday 11:59pm.
+-   **Labs, HWs, and AEs:** Due on Mon/Wed/Fri/Sun 11:59pm.
+-   **Exams:** Exam review Friday in class, exam posted Friday morning 9:00 am, due Monday 11:59pm.
 -   **Project:** Deadlines throughout the semester, with some lab and lecture time dedicated to working on them, and most work done in teams outside of class
 :::
 
 ## Teams
 
 -   Team assignments
-    -   Assigned by me
+    -   Assigned by me (Weekly vs Whole semester ? )
     -   Application exercises, labs, and project
     -   Peer evaluation during teamwork and after completion
 -   Expectations and roles
@@ -147,16 +157,16 @@ Reserve an RStudio Container (titled STA 210) before lab !
 
 ## Grading {.smaller}
 
-| Category              | Percentage   |
-|-----------------------|--------------|
-| Application exercises | 3%           |
-| Homework              | 35% (7% x 5) |
-| Project               | 15%          |
+| Category              | Percentage     |
+|-----------------------|----------------|
+| Application exercises | 3%             |
+| Homework              | 35% (7% x 5)   |
+| Project               | 15%            |
 | Lab                   | 14% (2.5% x 6) |
-| Exam 01               | 10%          |
-| Exam 02               | 10%          |
-| Exam 03               | 10%          |
-| Teamwork              | 2%           |
+| Exam 01               | 10%            |
+| Exam 02               | 10%            |
+| Exam 03               | 10%            |
+| Teamwork              | 2%             |
 
 See [course syllabus](https://yunranchen.github.io/STA210Summer/course-syllabus.html) for how the final letter grade will be determined.
 
@@ -171,7 +181,7 @@ See [course syllabus](https://yunranchen.github.io/STA210Summer/course-syllabus.
 
 -   Posted on Sakai (Announcements tool) and sent via email, be sure to check both regularly
 -   I'll assume that you've read an announcement by the next "business" day
--   I'll (try my best to) send a daily update announcement, reminding you what you need to do to prepare, practice, and perform
+-   Go to [website](https://yunranchen.github.io/STA210Summer/) to check what you need to do to prepare, practice, and perform
 
 ## Diversity + inclusion {.smaller}
 
@@ -180,7 +190,7 @@ It is my intent that students from all diverse backgrounds and perspectives be w
 ::: incremental
 -   Please let me know your preferred pronunciation of your name.
 -   Please let me know your preferred pronouns.
--   If you feel like your performance in the class is being impacted by your experiences outside of class, please don't hesitate to come and talk with me. 
+-   If you feel like your performance in the class is being impacted by your experiences outside of class, please don't hesitate to come and talk with me.
 -   I come from a different cultural background, and am still in the process of learning about diverse perspectives and identities. If something was said in class (by anyone) that made you feel uncomfortable, please talk to me about it.
 :::
 
@@ -255,10 +265,9 @@ I want to make sure that you learn everything you were hoping to learn from this
 ## This week's tasks
 
 -   Get a GitHub account if you don't have one (some advice for choosing a username [here](https://happygitwithr.com/github-acct.html#username-advice "Happy Git with R"))
--   Complete the Getting to know you survey if you haven't yet done so!
--   Read the syllabus
--   Watch out for next week's announcement email, in your inbox sometime tomorrow
-
+-   Complete the [Getting to know you survey](https://duke.qualtrics.com/jfe/form/SV_a2XjEYFcPneNm6y) if you haven't yet done so!
+-   Read the [syllabus](https://yunranchen.github.io/STA210Summer/course-syllabus.html)
+-   Watch out for announcement email
 
 # Application exercise
 
