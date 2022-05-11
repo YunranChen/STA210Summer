@@ -33,11 +33,33 @@ knitr::opts_chunk$set(
 -   If you're just joining the class, welcome! Go to the [course website](https://yunranchen.github.io/STA210Summer/) and review content you've missed, read the syllabus, and complete the [*Getting to know you*](https://duke.qualtrics.com/jfe/form/SV_a2XjEYFcPneNm6y) survey.
 -   Lab 1 is due Friday, at 11:59pm, on Gradescope.
 
+## Review on Lab 1
+
+-   Get used to R and R studio
+
+-   Get used to use R with Git : clone, commit, pull, push
+
+-   Learn the components of drawing a plot
+
+    -   data
+    -   mapping (x,y,color,alpha)
+    -   geometry (histogram, point, density)
+    -   lab (label for x,y-axises, title, etc.)
+    -   Check [cheatsheet](https://www.rstudio.com/resources/cheatsheets/)
+
+## Review on Lab 1
+
+-   Questions:
+
+    -   Choice of binwidth for histogram: Pick the one and reveal the main trend. Too small: too noisy; Too large: ignore trend
+    -   Density Plot (Smooth version of histogram. eg. Normal Distribution)
 
 ## Outline
 
 -   Use simple linear regression to describe the relationship between a quantitative predictor and quantitative outcome variable
+
 -   Estimate the slope and intercept of the regression line using the least squares method
+
 -   Interpret the slope and intercept of the regression line
 
 ## Computational setup
@@ -70,7 +92,7 @@ knitr::opts_chunk$set(
 
 ::: columns
 ::: {.column width="70%"}
--   Data behind the FiveThirtyEight story [*Be Suspicious Of Online Movie Ratings, Especially Fandango's*](%22Be%20Suspicious%20Of%20Online%20Movie%20Ratings,%20Especially%20Fandango's%22)
+-   Data behind the FiveThirtyEight story [*Be Suspicious Of Online Movie Ratings, Especially Fandango's*](https://fivethirtyeight.com/features/fandango-movies-ratings/)
 -   In the **fivethirtyeight** package: [`fandango`](https://fivethirtyeight-r.netlify.app/reference/fandango.html)
 -   Contains every film that has at least 30 fan reviews on Fandango, an IMDb score, Rotten Tomatoes critic and user ratings, and Metacritic critic and user scores
 :::
@@ -167,12 +189,11 @@ $$\begin{aligned} Y &= \color{black}{\textbf{Model}} + \text{Error} \\[8pt]
 
 ::: columns
 ::: {.column width="30%"}
-$$
-\begin{aligned} Y &= \color{purple}{\textbf{Model}} + \text{Error} \\[8pt]
+
+$$\begin{aligned} Y &= \color{purple}{\textbf{Model}} + \text{Error} \\[8pt]
 &= \color{purple}{\mathbf{f(X)}} + \epsilon \\[8pt]
 &= \color{purple}{\boldsymbol{\mu_{Y|X}}} + \epsilon 
-\end{aligned}
-$$
+\end{aligned}$$
 :::
 
 ::: {.column width="70%"}
@@ -310,21 +331,17 @@ $$\large{\hat{\beta}_1 = r \frac{s_Y}{s_X}}$$
 
 ::: columns
 ::: {.column width="50%"}
-$$
-\begin{aligned} 
+$$\begin{aligned} 
 s_X &= 30.1688 \\
 s_Y &=  20.0244 \\
 r &= 0.7814
-\end{aligned}
-$$
+\end{aligned}$$
 :::
 
 ::: {.column width="50%"}
-$$
-\begin{aligned}
+$$\begin{aligned}
 \hat{\beta}_1 &= 0.7814 \times \frac{20.0244}{30.1688} \\
-&= 0.5187\end{aligned}
-$$
+&= 0.5187\end{aligned}$$
 :::
 :::
 
@@ -342,11 +359,9 @@ $$\begin{aligned}
 :::
 
 ::: {.column width="50%"}
-$$
-\begin{aligned}\hat{\beta}_0 &= 63.8767 - 0.5187 \times 60.8493 \\
+$$\begin{aligned}\hat{\beta}_0 &= 63.8767 - 0.5187 \times 60.8493 \\
 &= 32.3142
-\end{aligned}
-$$
+\end{aligned}$$
 :::
 :::
 
@@ -396,7 +411,6 @@ $$
 ## Extrapolation
 
 Extrapolation is prediction outside of the ranged covered by data.
-
 
 Suppose that a movie has a critics score of 0. According to this model, what is the movie's predicted audience score?
 

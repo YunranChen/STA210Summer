@@ -6,12 +6,13 @@ title: "Syllabus"
 
 ## Course info
 
-|             | Day         | Time                | Location                                   |
-|----------------|----------------|---------------------|-------------------|
-| Lectures    | Weekdays    | 11:00 am - 12:15 pm | Old Chemistry 101                          |
-| Labs        | Mon and Wed | 2:00 pm - 3:15 pm   | Old Chemistry 101                          |
-| Yunran's OH | Thursdays   | 2:00 pm - 3:00 pm   | Old Chemistry 025                          |
-|             | Sundays     | 7:00 pm - 8:00 pm   | [Zoom](https://duke.zoom.us/j/92983164947) |
+|             | Day          | Time                | Location                                   |
+|--------------|--------------|--------------|------------------------------|
+| Lectures    | Weekdays     | 11:00 am - 12:15 pm | Old Chemistry 101                          |
+| Labs        | Mon and Wed  | 2:00 pm - 3:15 pm   | Old Chemistry 101                          |
+| Yunran's OH | Thursdays    | 2:00 pm - 3:00 pm   | Old Chemistry 025                          |
+|             | Sundays      | 7:00 pm - 8:00 pm   | [Zoom](https://duke.zoom.us/j/92983164947) |
+| Joseph's OH | Tue and Thur | 8:00 pm - 9:00 pm   | [Zoom](https://duke.zoom.us/j/98805727366) |
 
 ## Learning objectives
 
