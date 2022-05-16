@@ -21,14 +21,13 @@ execute:
 
 -   Read the syllabus if you haven't!
 
-
 ## **Code Style**
 
 -   To make code easier to read and debug, try:
 
     -   Putting each element on a different line ('enter' after + signs, etc.)
-    
-    -   Putting spaces before and after operators (+,-,*,=)
+
+    -   Putting spaces before and after operators (+,-,\*,=)
 
 ## Start your work
 

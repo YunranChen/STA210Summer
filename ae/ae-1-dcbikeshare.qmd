@@ -1,11 +1,11 @@
 ---
-title: "AE 02: Bike rentals in DC"
+title: "AE 1: Bike rentals in DC"
 subtitle: "Exploring and modeling relationships"
 editor: visual
 ---
 
 ::: callout-important
-Go to the [course GitHub organization](https://github.com/STA210-Summer22) and locate the repo titled `ae-1-dcbikeshare-YOUR_GITHUB_USERNAME` to get started.
+Go to the [course GitHub organization](https://github.com/STA210-Summer22) and locate the repo titled `ae-1-YOUR_GITHUB_USERNAME` to get started.
 :::
 
 ## Bike rentals in DC

@@ -22,6 +22,8 @@ editor: visual
 
 ## Participate
 
+🖥️ [Lecture 8 - Multiple linear regression (MLR)](/slides/lec-8.html)
+
 🖥️ [Lecture 10 - MLR: Types of predictors](/slides/lec-10.html)
 
 🖥️ [Lecture 11 - MLR: Model comparison](/slides/lec-11.html)
@@ -35,6 +37,10 @@ editor: visual
 📋 [Application Exercise 5 - The Office](/ae/ae-5-the-office.html)
 
 ## Perform
+
+🖥️ [Lab 3 - Coffee ratings](/slides/lab-3.html)
+
+
 
 ✅ [Exam 1](/exams/exam-1.html)
 

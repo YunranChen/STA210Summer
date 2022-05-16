@@ -43,6 +43,13 @@ knitr::opts_chunk$set(
 
 # Welcome
 
+## Questions from last week
+
+-   In YAML, set `format: pdf` instead of `pdf_format`
+-   `set_engine`: what alternatives? can use [`show_engines("linear_reg")`](https://parsnip.tidymodels.org/reference/show_engines.html)
+-   In R code chunk, can set `#| message: false` and `#| warning: false` 
+-   Two teams, check [github](https://github.com/orgs/sta210-s22/teams)! 
+-   Good news: set up Github Classroom! You can find your own repo and directly clone and edit! No need to fork anymore.
 
 ## Computational setup
 
@@ -64,7 +71,9 @@ ggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))
 # Application exercise
 
 ::: appex
-📋 [github.com/STA210-Summer22/ae-2-dcbikeshare](https://github.com/STA210-Summer22/?q=ae-2-dcbikeshare&type=all&language=&sort=)
+📋 [github.com/STA210-Summer22/ae-2-dcbikeshare](https://github.com/STA210-Summer22?q=ae-2&type=all&sort=)
+
+Can also keep working on your ae-1.
 :::
 
 # Uninsurance and high school graduation rates in NC
@@ -358,7 +367,7 @@ What indicates a good model fit? Higher or lower $R^2$? Higher or lower RMSE?
 
 -   Ranges between 0 (terrible predictor) and 1 (perfect predictor)
 
--   Unitless
+-   Unitless (Having no units of measurement; such as a ratio or percentage of two numbers which have the same units.)
 
 -   Calculate with `rsq()`:
 
