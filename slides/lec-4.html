@@ -409,6 +409,16 @@ slides > slide {
 <h1>Welcome</h1>
 
 </section>
+<section id="questions-from-last-week" class="slide level2">
+<h2>Questions from last week</h2>
+<ul>
+<li class="fragment">In YAML, set <code>format: pdf</code> instead of <code>pdf_format</code></li>
+<li class="fragment"><code>set_engine</code>: what alternatives? can use <a href="https://parsnip.tidymodels.org/reference/show_engines.html"><code>show_engines("linear_reg")</code></a></li>
+<li class="fragment">In R code chunk, can set <code>#| message: false</code> and <code>#| warning: false</code></li>
+<li class="fragment">Two teams, check <a href="https://github.com/orgs/sta210-s22/teams">github</a>!</li>
+<li class="fragment">Good news: set up Github Classroom! You can find your own repo and directly clone and edit! No need to fork anymore.</li>
+</ul>
+</section>
 <section id="computational-setup" class="slide level2">
 <h2>Computational setup</h2>
 <div class="cell">
@@ -426,7 +436,8 @@ slides > slide {
 <section id="application-exercise" class="title-slide slide level1 center">
 <h1>Application exercise</h1>
 <div class="appex">
-<p>📋 <a href="https://github.com/STA210-Summer22/?q=ae-2-dcbikeshare&amp;type=all&amp;language=&amp;sort=">github.com/STA210-Summer22/ae-2-dcbikeshare</a></p>
+<p>📋 <a href="https://github.com/STA210-Summer22?q=ae-2&amp;type=all&amp;sort=">github.com/STA210-Summer22/ae-2-dcbikeshare</a></p>
+<p>Can also keep working on your ae-1.</p>
 </div>
 </section>
 
@@ -685,7 +696,7 @@ RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
 <h2>R-squared</h2>
 <ul>
 <li class="fragment"><p>Ranges between 0 (terrible predictor) and 1 (perfect predictor)</p></li>
-<li class="fragment"><p>Unitless</p></li>
+<li class="fragment"><p>Unitless (Having no units of measurement; such as a ratio or percentage of two numbers which have the same units.)</p></li>
 <li class="fragment"><p>Calculate with <code>rsq()</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">rsq</span>(nc_aug, <span class="at">truth =</span> uninsured, <span class="at">estimate =</span> .fitted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
