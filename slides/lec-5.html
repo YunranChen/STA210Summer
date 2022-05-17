@@ -412,7 +412,32 @@ slides > slide {
 <section id="announcements" class="slide level2">
 <h2>Announcements</h2>
 <ul>
-<li class="fragment">HW 1 posted today, due Thursday</li>
+<li class="fragment">HW 1 posted on Monday, due Wednesday, May 18, 11:59pm.</li>
+<li class="fragment">Lab 2 posted on Monday, due Friday, May 20, 11:59pm.</li>
+<li class="fragment">AE 2 posted on Monday, due Wednesday, May 18, 11:59pm.</li>
+</ul>
+</section>
+<section id="tips-for-collaboration-on-github" class="slide level2">
+<h2>Tips for collaboration on Github</h2>
+<ul>
+<li class="fragment"><p>Frustrating, but part of our goal for the class</p></li>
+<li class="fragment"><p>Widely-used for version control and collaboration</p></li>
+<li class="fragment"><p>Merge issue</p></li>
+</ul>
+
+<img data-src="images/lec-5/merge.png" alt="Illustration on Github merge issues" width="250" class="r-stretch quarto-figure-center"></section>
+<section id="merge-issue-on-github" class="slide level2">
+<h2>Merge Issue on Github</h2>
+
+<img data-src="images/lec-5/merge-conflict.jpeg" width="250" class="r-stretch quarto-figure-center"><ul>
+<li class="fragment">Having merge issue: pull - re-edit, merge issue - commit - push</li>
+<li class="fragment">To avoid merge conflicts:
+<ul>
+<li class="fragment"><p>Work on different parts of the lab. Do not edit the same part simultaneously.</p></li>
+<li class="fragment"><p>Create your own rmd file using your own name, and only edit your file. Then merge all changes.</p></li>
+<li class="fragment"><p>Always pull before you start any new logical work on your code.</p></li>
+<li class="fragment"><p>Talk to your team members when you need to make changes related to their part</p></li>
+</ul></li>
 </ul>
 </section>
 <section id="computational-setup" class="slide level2">
@@ -443,17 +468,29 @@ slides > slide {
 <li class="fragment">Predictor: x</li>
 <li class="fragment">Observed y, <span class="math inline">\(y\)</span>: truth</li>
 <li class="fragment">Predicted y, <span class="math inline">\(\hat{y}\)</span>: fitted, estimated</li>
-<li class="fragment">Residual: difference between observed and predicted outcome for a given value of predictor</li>
+<li class="fragment">Residual: <span class="math inline">\(y-\hat{y}\)</span></li>
 </ul>
+</section>
+<section id="section" class="slide level2 smaller">
+<h2></h2>
 </section>
 <section id="model-evaluation" class="slide level2 smaller">
 <h2>Model evaluation</h2>
 <ul>
-<li class="fragment">One concern in evaluating models is how well they do for prediction</li>
-<li class="fragment">We’re generally interested in how well a model might do for predicting the outcome for a new observation, not for predicting the outcome for an observation we used to fit the model (and already know its observed value)</li>
-<li class="fragment">Evaluating predictive performance: Split the data into testing and training sets, build models using only the training set, and evaluate their performance on the testing set, and repeat many times to see how your model holds up to “new” data</li>
-<li class="fragment">Quantifying variability of of estimates: Bootstrap the data, fit a model, obtain coefficient estimates and/or measures of strength of fit, and repeat many times to see how your model holds up to “new” data</li>
-<li class="fragment">Today we introduced these concepts, throughout the semester we’ll learn how to implement them (i.e., write the code) and how to interpret their results</li>
+<li class="fragment">Evaluating models’ performance for fitting
+<ul>
+<li class="fragment">R-squared, RMSE</li>
+</ul></li>
+<li class="fragment">Interested in performance for prediction for a new observation</li>
+<li class="fragment">Evaluating predictive performance: Splitting the data</li>
+<li class="fragment">Quantifying variability of of estimates: <strong>Bootstrap</strong> the data</li>
+</ul>
+</section>
+<section id="model-evaluation-1" class="slide level2 smaller">
+<h2>Model evaluation</h2>
+<ul>
+<li class="fragment">Evaluating predictive performance: Split the data into testing and training sets, build models using only the <strong>training set</strong>, and evaluate their performance on the <strong>testing set</strong>, and repeat to see how your model holds up to “new” data</li>
+<li class="fragment">Quantifying variability of of estimates: <strong>Bootstrap</strong> the data, fit a model, obtain coefficient estimates and/or measures of strength of fit, and repeat many times to see how your model holds up to “new” data</li>
 </ul>
 </section>
 <section id="uninsurance-vs.-hs-graduation-in-nc" class="slide level2">
@@ -498,6 +535,10 @@ slides > slide {
 <div class="question">
 <p>Why are the fits from the NY models more variable than those from the NC models?</p>
 </div>
+<ul>
+<li class="fragment"><p>Sample size</p></li>
+<li class="fragment"><p>Outliers or influential points</p></li>
+</ul>
 </section></section>
 <section>
 <section id="statistical-inference" class="title-slide slide level1 center">
@@ -571,7 +612,7 @@ slides > slide {
 </div>
 <ul>
 <li class="fragment"><strong>Intercept:</strong> Duke Forest houses that are 0 square feet are expected to sell, on average, for $116,652.</li>
-<li class="fragment"><strong>Slope:</strong> For each additional square foot, the model predicts the sale price of Duke Forest houses to be higher, on average, by $159.</li>
+<li class="fragment"><strong>Slope:</strong> For each additional square foot, the model predicts (we expect) the sale price of Duke Forest houses to be higher, on average, by $159.</li>
 </ul>
 </div>
 </section>
@@ -589,15 +630,15 @@ slides > slide {
 <section id="statistical-inference-1" class="slide level2">
 <h2>Statistical inference</h2>
 <ul>
-<li class="fragment"><p>Statistical inference allows provide methods and tools for us to use the single sample we have observed to make valid statements (inferences) about the population it comes from</p></li>
-<li class="fragment"><p>For our inferences to be valid, the sample should be random and representative of the population we’re interested in</p></li>
+<li class="fragment"><p>Statistical inference allows provide methods and tools for us to use the single sample we have observed to <strong>make valid statements (inferences) about the population</strong> it comes from</p></li>
+<li class="fragment"><p>For our inferences to be valid, the sample should be <strong>random and representative</strong> of the population we’re interested in</p></li>
 </ul>
 </section>
 <section id="inference-for-simple-linear-regression" class="slide level2">
 <h2>Inference for simple linear regression</h2>
 <ul>
 <li class="fragment"><p>Calculate a confidence interval for the slope, <span class="math inline">\(\beta_1\)</span></p></li>
-<li class="fragment"><p>Conduct a hypothesis test for the interval, <span class="math inline">\(\beta_1\)</span></p></li>
+<li class="fragment"><p>Conduct a hypothesis test for the slope, <span class="math inline">\(\beta_1\)</span></p></li>
 </ul>
 </section></section>
 <section>
@@ -620,7 +661,7 @@ slides > slide {
 <h2>Confidence interval for the slope</h2>
 <p>A confidence interval will allow us to make a statement like “<em>For each additional square foot, the model predicts the sale price of Duke Forest houses to be higher, on average, by $159, give or take X dollars.</em>”</p>
 <ul>
-<li class="fragment"><p>Should X be $10? $100? $1000?</p></li>
+<li class="fragment"><p>Should X be $10? $100? $1000? (width of interval)</p></li>
 <li class="fragment"><p>If we were to take another sample of 98 would we expect the slope calculated based on that sample to be exactly $159? Off by $10? $100? $1000?</p></li>
 <li class="fragment"><p>The answer depends on how variable (from one sample to another sample) the sample statistic (the slope) is</p></li>
 <li class="fragment"><p>We need a way to quantify the variability of the sample statistic</p></li>
