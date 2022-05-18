@@ -3085,5 +3085,61 @@
     "title": "Exam 1 Review",
     "section": "Application Exercise",
     "text": "Application Exercise\n\n📋 github.com/STA210-Summer22/ae-4\n\n\n\n\nyunranchen.github.io/STA210Summer/"
+  },
+  {
+    "objectID": "slides/lec-7.html#previous-questions",
+    "href": "slides/lec-7.html#previous-questions",
+    "title": "SLR: Model diagnostics",
+    "section": "Previous Questions",
+    "text": "Previous Questions\n\nInterpretation of CI: In frequentists’ world, we do not say we are 95% confident that the slope falls into [90,200], or the slope is between 90 and 200. Since the slope is a fixed value that always unknown to us instead of a variable! We should interpret it as : if we have repeated trials, 95% of time, caculated CI will cover the true slope. Since the CI here is a variable which vary with realizations."
+  },
+  {
+    "objectID": "slides/lab-3.html#the-data",
+    "href": "slides/lab-3.html#the-data",
+    "title": "Lab 3 - Coffee ratings",
+    "section": "The data",
+    "text": "The data"
+  },
+  {
+    "objectID": "slides/lab-3.html#the-data-an-outlier",
+    "href": "slides/lab-3.html#the-data-an-outlier",
+    "title": "Lab 3 - Coffee ratings",
+    "section": "The data + an outlier",
+    "text": "The data + an outlier"
+  },
+  {
+    "objectID": "slides/lab-3.html#the-data-influential-point",
+    "href": "slides/lab-3.html#the-data-influential-point",
+    "title": "Lab 3 - Coffee ratings",
+    "section": "The data + influential point",
+    "text": "The data + influential point"
+  },
+  {
+    "objectID": "slides/lab-3.html#influential-point",
+    "href": "slides/lab-3.html#influential-point",
+    "title": "Lab 3 - Coffee ratings",
+    "section": "Influential point",
+    "text": "Influential point\nAn observation is influential if removing it substantially changes the coefficients of the regression model."
+  },
+  {
+    "objectID": "slides/lab-3.html#influential-points",
+    "href": "slides/lab-3.html#influential-points",
+    "title": "Lab 3 - Coffee ratings",
+    "section": "Influential points",
+    "text": "Influential points\n\nInfluential points have a large impact on the coefficients and standard errors used for inference\nThese points can sometimes be identified in a scatterplot if there is only one predictor variable, this is often not the case when there are multiple predictors\nWe will use measures to quantify an individual observation’s influence on the regression model: leverage, standardized residuals, and Cook’s distance"
+  },
+  {
+    "objectID": "slides/lab-3.html#remember-augment",
+    "href": "slides/lab-3.html#remember-augment",
+    "title": "Lab 3 - Coffee ratings",
+    "section": "Remember augment()?",
+    "text": "Remember augment()?\n\nmtcars_fit <- linear_reg() %>%\n  set_engine(\"lm\") %>%\n  fit(mpg ~ disp, data = mtcars)\n\naugment(mtcars_fit$fit)\n\n# A tibble: 32 × 9\n   .rownames           mpg  disp .fitted .resid   .hat .sigma .cooksd .std.resid\n   <chr>             <dbl> <dbl>   <dbl>  <dbl>  <dbl>  <dbl>   <dbl>      <dbl>\n 1 Mazda RX4          21    160     23.0 -2.01  0.0418   3.29 8.65e-3     -0.630\n 2 Mazda RX4 Wag      21    160     23.0 -2.01  0.0418   3.29 8.65e-3     -0.630\n 3 Datsun 710         22.8  108     25.1 -2.35  0.0629   3.28 1.87e-2     -0.746\n 4 Hornet 4 Drive     21.4  258     19.0  2.43  0.0328   3.27 9.83e-3      0.761\n 5 Hornet Sportabout  18.7  360     14.8  3.94  0.0663   3.22 5.58e-2      1.25 \n 6 Valiant            18.1  225     20.3 -2.23  0.0313   3.28 7.82e-3     -0.696\n 7 Duster 360         14.3  360     14.8 -0.462 0.0663   3.31 7.70e-4     -0.147\n 8 Merc 240D          24.4  147.    23.6  0.846 0.0461   3.30 1.72e-3      0.267\n 9 Merc 230           22.8  141.    23.8 -0.997 0.0482   3.30 2.50e-3     -0.314\n10 Merc 280           19.2  168.    22.7 -3.49  0.0396   3.24 2.48e-2     -1.10 \n# … with 22 more rows"
+  },
+  {
+    "objectID": "slides/lab-3.html#model-diagnostics-1",
+    "href": "slides/lab-3.html#model-diagnostics-1",
+    "title": "Lab 3 - Coffee ratings",
+    "section": "Model diagnostics",
+    "text": "Model diagnostics\nUse the augment() function to output statistics that can be used to diagnose the model, along with the predicted values and residuals:\n\n\noutcome and predictor variables in the model\n.fitted: predicted values\n.se.fit: standard errors of predicted values\n.resid: residuals\n.hat: leverage\n.sigma: estimate of residual standard deviation when the corresponding observation is dropped from model\n.cooksd: Cook’s distance\n.std.resid: standardized residuals\n\n\n\n\n\nyunranchen.github.io/STA210Summer/"
   }
 ]
