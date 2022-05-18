@@ -644,6 +644,7 @@ Explanatory: area (numeric)
 </section>
 <section id="percentile-method" class="slide level2">
 <h2>Percentile method</h2>
+<p>Though do not need to use point estimate for percentile method, do include it or will return error.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># #| code-line-numbers: "|4"</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a></span>
@@ -664,6 +665,10 @@ Explanatory: area (numeric)
 </section>
 <section id="standard-error-method" class="slide level2">
 <h2>Standard error method</h2>
+<ul>
+<li class="fragment">Use bootstrap to estimate se</li>
+<li class="fragment">Normal assumption: <span class="math inline">\(\text{Estimate} \pm \text{ (critical value) } \times \text{SE}\)</span></li>
+</ul>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># #| code-line-numbers: "|4"</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a></span>
@@ -707,16 +712,15 @@ Explanatory: area (numeric)
 </ul></li>
 </ul>
 </section>
-<section id="quantify-the-variability-of-the-slope" class="slide level2 smaller">
-<h2>Quantify the variability of the slope</h2>
-<p><strong>for testing</strong></p>
+<section id="hypothesis-testing" class="slide level2 smaller">
+<h2>Hypothesis testing</h2>
 <ul>
 <li class="fragment">Two approaches:
 <ol type="1">
-<li class="fragment">Via simulation (what we’ll review from lab)</li>
-<li class="fragment">Via mathematical models (what we’ll cover in the remainder of class)</li>
+<li class="fragment">Via simulation (CI: bootstrap; HT: permutation)</li>
+<li class="fragment">Via mathematical models</li>
 </ol></li>
-<li class="fragment">Randomizing to quantify the variability of the slope for the purpose of testing, under the assumption that the null hypothesis is true:
+<li class="fragment">Randomizing to quantify the variability of the slope for the purpose of testing, <strong>under the assumption that the null hypothesis is true</strong>:
 <ul>
 <li class="fragment">Simulate new samples from the original sample via permutation</li>
 <li class="fragment">Fit models to each of the samples and estimate the slope</li>
@@ -1038,10 +1042,10 @@ approximation based on the number of `reps` chosen in the `generate()` step. See
 <ul>
 <li class="fragment">Earlier we computed a CI and conducted a HT via simulation:
 <ul>
-<li class="fragment">CI: Bootstrap the observed sample to simulate the distribution of the slope</li>
-<li class="fragment">HT: Permute the observed sample to simulate the distribution of the slope under the assumption that the null hypothesis is true</li>
+<li class="fragment">CI: <strong>Bootstrap</strong> the observed sample to simulate the distribution of the slope</li>
+<li class="fragment">HT: <strong>Permute</strong> the observed sample to simulate the distribution of the slope under the assumption that the null hypothesis is true</li>
 </ul></li>
-<li class="fragment">Now we’ll do these based on theoretical results, i.e., by using the Central Limit Theorem to define the distribution of the slope and use features (shape, center, spread) of this distribution to compute bounds of the CI and the p-value for the HT</li>
+<li class="fragment">Now we’ll do these based on theoretical results, i.e., by using the Central Limit Theorem</li>
 </ul>
 </section>
 <section id="mathematical-representation-of-the-model" class="slide level2 smaller">
@@ -1097,7 +1101,7 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 <div class="question">
 <div>
 <ol type="1">
-<li>Why divide by <span class="math inline">\(n - 2\)</span>?</li>
+<li>Why divide by <span class="math inline">\(n - 2\)</span>? (degree of freedom) (unbiased)</li>
 <li>Why do we care about the value of the regression standard error?</li>
 </ol>
 </div>

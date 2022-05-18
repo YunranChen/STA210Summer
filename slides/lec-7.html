@@ -381,8 +381,6 @@
   </style>
   <script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
   <link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-  <link href="../site_libs/countdown-0.3.5/countdown.css" rel="stylesheet">
-  <script src="../site_libs/countdown-0.3.5/countdown.js"></script>
 <meta name="twitter:title" content="STA 210 - Summer 2022 - SLR: Model diagnostics">
 <meta name="twitter:image" content="https:/yunranchen.github.io/STA210Summer/slides/images/twitter-card.png">
 <meta name="twitter:creator" content="@minebocek">
@@ -477,16 +475,14 @@ slides > slide {
 <section id="ht-for-the-slope" class="slide level2 smaller">
 <h2>HT for the slope</h2>
 <p><strong>Hypotheses:</strong> <span class="math inline">\(H_0: \beta_1 = 0\)</span> vs.&nbsp;<span class="math inline">\(H_A: \beta_1 \ne 0\)</span></p>
-<div class="fragment">
 <p><strong>Test statistic:</strong> Number of standard errors the estimate is away from the null</p>
 <p><span class="math display">\[
 T = \frac{\text{Estimate - Null}}{\text{Standard error}} \\
 \]</span></p>
-</div>
 <div class="fragment">
 <p><strong>p-value:</strong> Probability of observing a test statistic at least as extreme (in the direction of the alternative hypothesis) from the null value as the one observed</p>
 <p><span class="math display">\[
-p-value = P(|t| &gt; |\text{test statistic}),
+p-value = P(|t| &gt; \text{test statistic}),
 \]</span></p>
 <p>calculated from a <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(n - 2\)</span> degrees of freedom</p>
 </div>
@@ -660,6 +656,7 @@ t = \frac{\hat{\beta}_1 - 0}{SE_{\hat{\beta}_1}} = \frac{159.48 - 0}{18.17} = 8.
 </section>
 <section id="ci-critical-value" class="slide level2">
 <h2>CI: Critical value</h2>
+<p><code>qt</code> quantile of t-dist</p>
 <div class="columns">
 <div class="column" style="width:60%;">
 <div class="cell" data-layout-align="center">
@@ -728,9 +725,7 @@ t = \frac{\hat{\beta}_1 - 0}{SE_{\hat{\beta}_1}} = \frac{159.48 - 0}{18.17} = 8.
 </div>
 <p><span class="math display">\[\hat{\beta}_1 = 159.48 \hspace{15mm} t^* = 1.98 \hspace{15mm} SE_{\hat{\beta}_1} = 18.17\]</span></p>
 <div class="fragment">
-<p>$$</p>
-<p>159.48 = (123.50, 195.46)</p>
-<p>$$</p>
+<p><span class="math display">\[159.48 \pm 1.98 \times 18.17 = (123.50, 195.46)\]</span></p>
 </div>
 </section>
 <section id="ci-for-the-slope-computation" class="slide level2 smaller">
@@ -788,8 +783,8 @@ t = \frac{\hat{\beta}_1 - 0}{SE_{\hat{\beta}_1}} = \frac{159.48 - 0}{18.17} = 8.
 <section id="two-types-of-predictions" class="slide level2 smaller">
 <h2>Two types of predictions</h2>
 <ol type="1">
-<li class="fragment"><p>Prediction for the mean: “What is the average predicted sale price of Duke Forest houses that are 2,800 square feet?”</p></li>
-<li class="fragment"><p>Prediction for an individual observation: “What is the predicted sale price of a Duke Forest house that is 2,800 square feet?”</p></li>
+<li class="fragment"><p>Prediction for the <strong>mean</strong>: “What is the average predicted sale price of Duke Forest houses that are 2,800 square feet?”</p></li>
+<li class="fragment"><p>Prediction for an <strong>individual observation</strong>: “What is the predicted sale price of a Duke Forest house that is 2,800 square feet?”</p></li>
 </ol>
 <div class="fragment">
 <div class="question">
@@ -913,14 +908,7 @@ t = \frac{\hat{\beta}_1 - 0}{SE_{\hat{\beta}_1}} = \frac{159.48 - 0}{18.17} = 8.
 <section id="application-exercise" class="slide level2">
 <h2>Application exercise</h2>
 <div class="appex">
-<p>📋 <a href="https://github.com/STA210-Summer22/?q=ae-3-duke-forest&amp;type=all&amp;language=&amp;sort=">github.com/STA210-Summer22/ae-3-duke-forest</a></p>
-</div>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="countdown" id="timer_627af0ad" style="right:0;bottom:0;font-size:2em;" data-warnwhen="0">
-<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
+<p>📋 <a href="https://github.com/STA210-Summer22?q=ae-3&amp;type=all&amp;language=&amp;sort=">github.com/STA210-Summer22/ae-3-duke-forest</a></p>
 </div>
 </section>
 <section id="non-linear-relationships" class="slide level2">
@@ -934,7 +922,7 @@ t = \frac{\hat{\beta}_1 - 0}{SE_{\hat{\beta}_1}} = \frac{159.48 - 0}{18.17} = 8.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="lec-7_files/figure-revealjs/unnamed-chunk-19-1.png" style="width:100.0%"></p>
+<p><img data-src="lec-7_files/figure-revealjs/unnamed-chunk-18-1.png" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -944,7 +932,7 @@ t = \frac{\hat{\beta}_1 - 0}{SE_{\hat{\beta}_1}} = \frac{159.48 - 0}{18.17} = 8.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="lec-7_files/figure-revealjs/unnamed-chunk-20-1.png" style="width:100.0%"></p>
+<p><img data-src="lec-7_files/figure-revealjs/unnamed-chunk-19-1.png" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -956,7 +944,7 @@ t = \frac{\hat{\beta}_1 - 0}{SE_{\hat{\beta}_1}} = \frac{159.48 - 0}{18.17} = 8.
 <h2>Constant variance</h2>
 <p>✅ The vertical spread of the residuals should be relatively constant across the plot</p>
 
-<img data-src="lec-7_files/figure-revealjs/unnamed-chunk-21-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="lec-7_files/figure-revealjs/unnamed-chunk-20-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
 <section id="non-constant-variance" class="slide level2">
 <h2>Non-constant variance</h2>
 <div class="columns">
@@ -965,7 +953,7 @@ t = \frac{\hat{\beta}_1 - 0}{SE_{\hat{\beta}_1}} = \frac{159.48 - 0}{18.17} = 8.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="lec-7_files/figure-revealjs/unnamed-chunk-22-1.png" style="width:100.0%"></p>
+<p><img data-src="lec-7_files/figure-revealjs/unnamed-chunk-21-1.png" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -975,7 +963,7 @@ t = \frac{\hat{\beta}_1 - 0}{SE_{\hat{\beta}_1}} = \frac{159.48 - 0}{18.17} = 8.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="lec-7_files/figure-revealjs/unnamed-chunk-23-1.png" style="width:100.0%"></p>
+<p><img data-src="lec-7_files/figure-revealjs/unnamed-chunk-22-1.png" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -986,7 +974,7 @@ t = \frac{\hat{\beta}_1 - 0}{SE_{\hat{\beta}_1}} = \frac{159.48 - 0}{18.17} = 8.
 <section id="normality" class="slide level2">
 <h2>Normality</h2>
 
-<img data-src="lec-7_files/figure-revealjs/unnamed-chunk-24-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="lec-7_files/figure-revealjs/unnamed-chunk-23-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
 <section id="independence" class="slide level2">
 <h2>Independence</h2>
 <ul>
@@ -1017,22 +1005,21 @@ t = \frac{\hat{\beta}_1 - 0}{SE_{\hat{\beta}_1}} = \frac{159.48 - 0}{18.17} = 8.
 </div>
 </div>
 </div>
-<div class="fragment">
 <div class="question">
 <p>Which of these conditions are required for fitting a SLR? Which for simulation-based inference for the slope for an SLR? Which for inference with mathematical models?</p>
 </div>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="countdown" id="timer_627af35e" style="right:0;bottom:0;font-size:2em;" data-warnwhen="0">
-<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
+<ul>
+<li class="fragment">fitting: linearity + independence</li>
+<li class="fragment">inference: linearity + independence + constant variance
+<ul>
+<li class="fragment">simulation-based:</li>
+<li class="fragment">mathematical: normality</li>
+</ul></li>
+</ul>
 
-<p><img src="images/logo.png" class="slide-logo"></p>
-<div class="footer footer-default">
+
+<img src="images/logo.png" class="slide-logo r-stretch"><div class="footer footer-default">
 <p><a href="https://yunranchen.github.io/STA210Summer/">yunranchen.github.io/STA210Summer/</a></p>
-</div>
 </div>
 </section></section>
     </div>
