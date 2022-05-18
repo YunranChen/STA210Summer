@@ -25,6 +25,7 @@ slides > slide {
 }
 </style>
 ```
+
 ```{r setup}
 #| include: false
 
@@ -43,6 +44,10 @@ options(scipen = 100)
 ```
 
 # Welcome
+
+## Previous Questions
+
+-   Interpretation of CI: In frequentists' world, we do not say we are 95\% confident that the slope falls into [90,200], or the slope is between 90 and 200. Since the slope is a fixed value that always unknown to us instead of a variable! We should interpret it as : if we have repeated trials, 95\% of time, caculated CI will cover the true slope. Since the CI here is a variable which vary with realizations.
 
 ## Computational setup
 
@@ -423,7 +428,6 @@ ggplot(df_aug, aes(x = .fitted, y = .resid)) +
 📋 [github.com/STA210-Summer22/ae-3-duke-forest](https://github.com/STA210-Summer22?q=ae-3&type=all&language=&sort=)
 :::
 
-
 ## Non-linear relationships
 
 ```{r}
@@ -614,5 +618,5 @@ Which of these conditions are required for fitting a SLR? Which for simulation-b
 
 -   fitting: linearity + independence
 -   inference: linearity + independence + constant variance
-    -   simulation-based: 
+    -   simulation-based:
     -   mathematical: normality
