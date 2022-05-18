@@ -64,7 +64,8 @@ options(scipen = 100)
 
 ## Merge Issue on Github
 
-![](images/lec-5/merge-conflict.jpeg){fig-align="center" width="250"}
+![](images/lec-5/merge-conflict.jpeg){fig-alt="Github merge issues" fig-align="center" width="250"}
+## Merge Issue on Github
 
 -   Having merge issue: pull - re-edit, merge issue - commit - push
 -   To avoid merge conflicts:

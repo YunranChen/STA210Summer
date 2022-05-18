@@ -82,8 +82,6 @@ tidy(df_fit) %>%
 
 **Hypotheses:** $H_0: \beta_1 = 0$ vs. $H_A: \beta_1 \ne 0$
 
-. . .
-
 **Test statistic:** Number of standard errors the estimate is away from the null
 
 $$
@@ -95,7 +93,7 @@ $$
 **p-value:** Probability of observing a test statistic at least as extreme (in the direction of the alternative hypothesis) from the null value as the one observed
 
 $$
-p-value = P(|t| > |\text{test statistic}),
+p-value = P(|t| > \text{test statistic}),
 $$
 
 calculated from a $t$ distribution with $n - 2$ degrees of freedom
@@ -164,6 +162,8 @@ where $t^*$ is calculated from a $t$ distribution with $n-2$ degrees of freedom
 
 ## CI: Critical value
 
+`qt` quantile of t-dist
+
 ::: columns
 ::: {.column width="60%"}
 ```{r}
@@ -202,9 +202,7 @@ $$\hat{\beta}_1 = 159.48 \hspace{15mm} t^* = 1.98 \hspace{15mm} SE_{\hat{\beta}_
 
 . . .
 
-$$
-159.48 \pm 1.98 \times 18.17 = (123.50, 195.46)
-$$
+$$159.48 \pm 1.98 \times 18.17 = (123.50, 195.46)$$
 
 ## 95% CI for the slope: Computation {.smaller}
 
@@ -262,9 +260,9 @@ ggplot(duke_forest, aes(x = area, y = price)) +
 
 ## Two types of predictions {.smaller}
 
-1.  Prediction for the mean: "What is the average predicted sale price of Duke Forest houses that are 2,800 square feet?"
+1.  Prediction for the **mean**: "What is the average predicted sale price of Duke Forest houses that are 2,800 square feet?"
 
-2.  Prediction for an individual observation: "What is the predicted sale price of a Duke Forest house that is 2,800 square feet?"
+2.  Prediction for an **individual observation**: "What is the predicted sale price of a Duke Forest house that is 2,800 square feet?"
 
 . . .
 
@@ -422,12 +420,9 @@ ggplot(df_aug, aes(x = .fitted, y = .resid)) +
 ## Application exercise
 
 ::: appex
-📋 [github.com/STA210-Summer22/ae-3-duke-forest](https://github.com/STA210-Summer22/?q=ae-3-duke-forest&type=all&language=&sort=)
+📋 [github.com/STA210-Summer22/ae-3-duke-forest](https://github.com/STA210-Summer22?q=ae-3&type=all&language=&sort=)
 :::
 
-```{r}
-countdown(minutes = 5, font_size = "2em")
-```
 
 ## Non-linear relationships
 
@@ -613,12 +608,11 @@ Used residual plots to check conditions for SLR:
 :::
 :::
 
-. . .
-
 ::: question
 Which of these conditions are required for fitting a SLR? Which for simulation-based inference for the slope for an SLR? Which for inference with mathematical models?
 :::
 
-```{r}
-countdown(minutes = 3, font_size = "2em")
-```
+-   fitting: linearity + independence
+-   inference: linearity + independence + constant variance
+    -   simulation-based: 
+    -   mathematical: normality

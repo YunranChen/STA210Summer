@@ -19,7 +19,7 @@ execute:
 
 ## Announcements
 
--   Exam 1 opens today after class and ends on Sunday at 11:59pm
+-   Exam 1 opens today after class and ends on Monday, May 23 at 11:59pm.
 
 ## Feedback from submissions so far
 
@@ -37,5 +37,5 @@ execute:
 ## Application Exercise
 
 ::: appex
-📋 [github.com/STA210-Summer22/ae-4-exam-1-review](https://github.com/STA210-Summer22/?q=ae-4-exam-1-review&type=all&language=&sort=)
+📋 [github.com/STA210-Summer22/ae-4](https://github.com/STA210-Summer22?q=ae-4&type=all&language=&sort=)
 :::

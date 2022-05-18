@@ -4,7 +4,7 @@ subtitle: "Checking model conditions"
 ---
 
 ::: callout-important
-Go to the [course GitHub organization](https://github.com/STA210-Summer22) and locate the repo titled `ae-3-duke-forest-YOUR_GITHUB_USERNAME` to get started.
+Go to the [course GitHub organization](https://github.com/STA210-Summer22) and locate the repo titled `ae-3-YOUR_GITHUB_USERNAME` to get started.
 :::
 
 ## Packages
@@ -50,6 +50,8 @@ ggplot(df_aug, aes(x = .fitted, y = .resid)) +
 ### Exercise 2
 
 Improve how the values on the axes of the plot are displayed by modifying the code below.
+
+Hint: use [`scale_continuous()`](https://ggplot2.tidyverse.org/reference/scale_continuous.html) 
 
 ```{r}
 ggplot(df_aug, aes(x = .fitted, y = .resid)) +

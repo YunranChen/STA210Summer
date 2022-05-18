@@ -6,17 +6,17 @@ title: "Project description"
 
 [Topic ideas](#topic-ideas) due Sun, May 29
 
-[Proposal](#project-proposal) due Fri, Mar 18
+[Proposal](#project-proposal) due Wed, June 8
 
-[Draft report](#draft-report) due Fri, Apr 8
+[Draft report](#draft-report) due Sun, June 19
 
-[Peer review](#peer-review) due Fri, Apr 15
+[Project peer review of drafts](https://sta210-s22.github.io/website/project-description.html#peer-review) due Mon, June 20
 
-[Final report](#written-report) due Mon, Apr 25
+[Final report](#written-report) due Wed, June 22
 
-[Video presentation + slides](#video-presentation--slides) and [final GitHub repo](#reproducibility---organization) due Thu, Apr 28
+[Video presentation + slides](#video-presentation--slides) and [final GitHub repo](#reproducibility---organization) due Wed, June 22
 
-[Presentation comments](#presentation-comments) due Sat, Apr 30
+[Presentation comments](#presentation-comments) due Wed, June 22
 
 ## Introduction
 
@@ -66,7 +66,7 @@ The data sets should meet the following criteria:
 
 -   You may not use data that has previously been used in any course materials, or any derivation of data that has been used in course materials.
 
-**Please ask a member of the teaching team if you're unsure whether your data set meets the criteria.**
+**Please ask TA or me if you're unsure whether your data set meets the criteria.**
 
 For each data set, include the following:
 
@@ -170,27 +170,12 @@ Critically reviewing others' work is a crucial part of the scientific process, a
 
 During the peer review process, you will be provided read-only access to your partner teams' GitHub repos. Provide your review in the form of GitHub issues to your partner team's GitHub repo using the issue template provided. The peer review will be graded on the extent to which it comprehensively and constructively addresses the components of the partner team's report: the research context and motivation, exploratory data analysis, modeling, interpretations, and conclusions.
 
-### Pairings
-
-#### Section 1 - M 1:45PM - 3:00PM
-
-| Team being reviewed | Reviewer 1 | Reviewer 2 |
-|---------------------|------------|------------|
-| TBA                 |            |            |
-|                     |            |            |
-|                     |            |            |
-|                     |            |            |
-|                     |            |            |
-|                     |            |            |
-|                     |            |            |
-|                     |            |            |
 
 ### Process and questions
 
-Spend \~30 mins to review each team's project.
+Spend \~30 mins to review the other team's project.
 
--   Find your team name on the **Reviewer 1** and **Reviewer 2** columns.
--   For each of the columns, find the name of the team to review in the **Team being reviewed** column. You should already have access to this team's repo.
+
 -   Open the repo of the team you're reviewing, read their project draft, and browser around the rest of their repo.
 -   Then, go to the Issues tab in that repo, click on New issue, and click on Get started for the Peer review issue. Fill out this issue, answering the following questions:
     -   Peer review by: \[NAME OF TEAM DOING THE REVIEW\]
@@ -330,40 +315,10 @@ Once your video is ready, upload the video to Warpwire, then embed the video in 
 
 ## Presentation comments {#presentation-comments}
 
-Each student will be assigned 2 presentations to watch. Your viewing assignments will be posted later in the semester.
-
-Watch the group's video, then click "Reply" to post a question for the group. You may not post a question that's already been asked on the discussion thread. Additionally, the question should be (i) substantive (i.e. it shouldn't be "Why did you use a bar plot instead of a pie chart"?), (ii) demonstrate your understanding of the content from the course, and (iii) relevant to that group's specific presentation, i.e demonstrating that you've watched the presentation.
+Watch the other group's video, then click "Reply" to post a question for the group. You may not post a question that's already been asked on the discussion thread. Additionally, the question should be (i) substantive (i.e. it shouldn't be "Why did you use a bar plot instead of a pie chart"?), (ii) demonstrate your understanding of the content from the course, and (iii) relevant to that group's specific presentation, i.e demonstrating that you've watched the presentation.
 
 *This portion of the project will be assessed individually.*
 
-### Pairings
-
-Find your team name in the first column, watch videos from teams in the second column and leave comments.
-
-| Reviewer                         | First video to review            | Second video to review           |
-|:---------------------------------|:---------------------------------|:---------------------------------|
-| Ginger and Stats                 | Eight                            | We R                             |
-| Krafthouse                       | Ginger and Stats                 | Eight                            |
-| Soy Nuggets                      | Krafthouse                       | Ginger and Stats                 |
-| Down To Earth Goats              | Soy Nuggets                      | Krafthouse                       |
-| A+++                             | Down To Earth Goats              | Soy Nuggets                      |
-| Team Five                        | A+++                             | Down To Earth Goats              |
-| Rrawr                            | Team Five                        | A+++                             |
-| Housecats                        | Rrawr                            | Team Five                        |
-| Dekk                             | Housecats                        | Rrawr                            |
-| Stat OverFlow                    | Dekk                             | Housecats                        |
-| The Three Musketeers             | Stat OverFlow                    | Dekk                             |
-| Predictors                       | The Three Musketeers             | Stat OverFlow                    |
-| Stats Squad                      | Predictors                       | The Three Musketeers             |
-| Statisix                         | Stats Squad                      | Predictors                       |
-| Sixers                           | Statisix                         | Stats Squad                      |
-| Yay Stats                        | Sixers                           | Statisix                         |
-| TINA                             | Yay Stats                        | Sixers                           |
-| Statchelorettes                  | TINA                             | Yay Stats                        |
-| Pineapple Wedge and Diced Papaya | Statchelorettes                  | TINA                             |
-| Chaa Chaa Chaa                   | Pineapple Wedge and Diced Papaya | Statchelorettes                  |
-| We R                             | Chaa Chaa Chaa                   | Pineapple Wedge and Diced Papaya |
-| Eight                            | We R                             | Chaa Chaa Chaa                   |
 
 ## Reproducibility + organization
 
