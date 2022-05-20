@@ -439,8 +439,10 @@
 </div>
 <p>The test values are 1 and 2.</p>
 </section>
-<section id="outliers-and-influential-points" class="slide level2">
-<h2>Outliers and influential points</h2>
+<section>
+<section id="outliers-and-influential-points" class="title-slide slide level1 center">
+<h1>Outliers and influential points</h1>
+
 </section>
 <section id="outliers" class="slide level2">
 <h2>Outliers</h2>
@@ -458,7 +460,13 @@
 <li>Cook’s Distance</li>
 </ul>
 <div class="cell">
-
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="fu">library</span>(broom)</span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="fu">library</span>(ggfortify)</span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="fu">library</span>(viridis)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="influential-point" class="slide level2">
@@ -508,12 +516,12 @@
 <section id="model" class="slide level2">
 <h2>Model</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>sat_scores <span class="ot">&lt;-</span> Sleuth3<span class="sc">::</span>case1201</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>sat_scores <span class="ot">&lt;-</span> Sleuth3<span class="sc">::</span>case1201</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>sat_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(SAT <span class="sc">~</span> Public, <span class="at">data =</span> sat_scores)</span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">tidy</span>(sat_model) <span class="sc">%&gt;%</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>sat_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(SAT <span class="sc">~</span> Public, <span class="at">data =</span> sat_scores)</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">tidy</span>(sat_model) <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table>
  <thead>
@@ -549,6 +557,9 @@
 <section id="sat-augmented-data" class="slide level2">
 <h2>SAT: Augmented Data</h2>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>sat_aug <span class="ot">=</span> <span class="fu">augment</span>(sat_model) <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">mutate</span>(<span class="at">obs_num=</span><span class="fu">row_number</span>())</span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="fu">glimpse</span>(sat_aug)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 50
 Columns: 9
@@ -605,10 +616,15 @@ $ obs_num    &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 
 <section id="observations-with-high-leverage" class="slide level2">
 <h2>Observations with high leverage</h2>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>(leverage_threshold <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">*</span>(<span class="dv">1</span><span class="sc">+</span><span class="dv">1</span>)<span class="sc">/</span><span class="fu">nrow</span>(sat_aug))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.08</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">autoplot</span>(sat_model,<span class="at">which =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> leverage_threshold, <span class="at">color =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>sat_aug <span class="sc">%&gt;%</span> <span class="fu">filter</span>(.hat <span class="sc">&gt;</span> leverage_threshold) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">select</span>(SAT, Public)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
     SAT Public
@@ -642,14 +658,21 @@ $ obs_num    &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 
 <section id="standardized-residuals-2" class="slide level2">
 <h2>Standardized residuals</h2>
 <p>Observations with high leverage tend to have low values of standardized residuals because they pull the regression line towards them</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">autoplot</span>(sat_model, <span class="at">which =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
+</div>
 <img data-src="lec-9_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"></section>
 <section id="using-standardized-residuals" class="slide level2">
 <h2>Using standardized residuals</h2>
 <p>Observations that have standardized residuals of large magnitude are outliers, since they don’t fit the pattern determined by the regression model</p>
 <p>An observation is a <em>potential outlier</em> if its standardized residual is beyond <span class="math inline">\(\pm 3\)</span>.</p>
 <p>Make residual plots with standardized residuals to make it easier to identify outliers</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">autoplot</span>(sat_model, <span class="at">which =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">sqrt</span>(<span class="dv">3</span>),<span class="at">color =</span> <span class="st">"red"</span>,<span class="at">linetype =</span> <span class="st">"dotted"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
+</div>
 <img data-src="lec-9_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
 <section id="motivating-cooks-distance" class="slide level2">
 <h2>Motivating Cook’s Distance</h2>
@@ -672,7 +695,12 @@ $ obs_num    &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 
 </section>
 <section id="cooks-distance-1" class="slide level2">
 <h2>Cook’s Distance</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">autoplot</span>(sat_model, <span class="at">which =</span> <span class="dv">4</span>, <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">lty =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">1</span>,<span class="at">color =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
+</div>
 <img data-src="lec-9_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section>
 <section id="using-these-measures" class="slide level2">
 <h2>Using these measures</h2>
@@ -709,7 +737,7 @@ $ obs_num    &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 
 <img src="images/logo.png" class="slide-logo r-stretch"><div class="footer footer-default">
 <p><a href="https://yunranchen.github.io/STA210Summer/">yunranchen.github.io/STA210Summer/</a></p>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
