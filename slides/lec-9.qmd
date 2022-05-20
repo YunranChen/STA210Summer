@@ -45,6 +45,8 @@ We are 95% confident that mean sale price of Duke Forest houses that are 2,800 s
 
 
 ```{r echo=T}
+#| echo: true
+#| message: false
 library(tidyverse)
 test <- tibble(a=1,b=2)
 test
@@ -53,7 +55,7 @@ test
 The test values are  `r test$a` and `r test$b`.
 
 
-## Outliers and influential points
+# Outliers and influential points
 
 ## Outliers
 
@@ -69,6 +71,8 @@ The test values are  `r test$a` and `r test$b`.
 -   Cook's Distance
 
 ```{r}
+#| echo: true
+#| message: false
 library(tidyverse)
 library(knitr)
 library(broom)
@@ -158,6 +162,7 @@ tidy(sat_model) %>%
 ## SAT: Augmented Data
 
 ```{r}
+#| echo: true
 sat_aug = augment(sat_model) %>%
   mutate(obs_num=row_number())
 glimpse(sat_aug)
@@ -208,6 +213,7 @@ Just because a point has high leverage does not necessarily mean it will have a 
 ## Observations with high leverage
 
 ```{r}
+#| echo: true
 (leverage_threshold <- 2*(1+1)/nrow(sat_aug))
 autoplot(sat_model,which = 5, ncol = 1) + 
   geom_vline(xintercept = leverage_threshold, color = "red")
@@ -255,6 +261,7 @@ sat_aug %>%
 Observations with high leverage tend to have low values of standardized residuals because they pull the regression line towards them
 
 ```{r}
+#| echo: true
 autoplot(sat_model, which = 5, ncol = 1)
 ```
 
@@ -268,6 +275,7 @@ An observation is a *potential outlier* if its standardized residual is beyond $
 Make residual plots with standardized residuals to make it easier to identify outliers
 
 ```{r}
+#| echo: true
 autoplot(sat_model, which = 3, ncol = 1) + 
   geom_hline(yintercept = sqrt(3),color = "red",linetype = "dotted")
 ```
@@ -300,6 +308,7 @@ An observation with
 ## Cook's Distance
 
 ```{r}
+#| echo: true
 autoplot(sat_model, which = 4, ncol = 1) + 
   geom_hline(yintercept = 0.5, color = "red", lty = 2) +
   geom_hline(yintercept = 1,color = "red")
