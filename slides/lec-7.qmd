@@ -617,6 +617,5 @@ Which of these conditions are required for fitting a SLR? Which for simulation-b
 :::
 
 -   fitting: linearity + independence
--   inference: linearity + independence + constant variance
-    -   simulation-based:
-    -   mathematical: normality
+-   inference (simulation-based): linearity + independence
+-   inference (mathematical): ... + normality + constant variance

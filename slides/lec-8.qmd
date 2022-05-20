@@ -12,11 +12,10 @@ format:
     slide-number: true
     incremental: true 
     chalkboard: true
-editor: visual
+editor: source
 execute:
   freeze: auto
 ---
-
 
 ```{=html}
 <style>
