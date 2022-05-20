@@ -4,7 +4,7 @@
   <meta name="generator" content="quarto-0.9.345">
 
   <meta name="author" content="Yunran Chen">
-  <title>STA 210 - Summer 2022 - Exam 1 Review</title>
+  <title>STA 210 - Summer 2022 - Model Diagnostics and Exam 1 Review</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -17,6 +17,69 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
   <script src="../site_libs/clipboard/clipboard.min.js"></script>
@@ -316,7 +379,7 @@
       margin-right: 0; 
     }
   </style>
-<meta name="twitter:title" content="STA 210 - Summer 2022 - Exam 1 Review">
+<meta name="twitter:title" content="STA 210 - Summer 2022 - Model Diagnostics and Exam 1 Review">
 <meta name="twitter:image" content="https:/yunranchen.github.io/STA210Summer/slides/images/twitter-card.png">
 <meta name="twitter:creator" content="@minebocek">
 <meta name="twitter:card" content="summary_large_image">
@@ -326,7 +389,7 @@
     <div class="slides">
 
 <section id="title-slide" class="center">
-  <h1 class="title">Exam 1 Review</h1>
+  <h1 class="title">Model Diagnostics and Exam 1 Review</h1>
   <p class="subtitle">STA 210 - Summer 2022</p>
   <p class="author">Yunran Chen</p>
 </section>
@@ -334,7 +397,7 @@
 <section id="announcements" class="slide level2">
 <h2>Announcements</h2>
 <ul>
-<li>Exam 1 opens today after class and ends on Monday, May 23 at 11:59pm.</li>
+<li>Exam 1 opens today at 1:00 pm and ends on Monday, May 23 at 11:59pm.</li>
 </ul>
 </section>
 <section id="feedback-from-submissions-so-far" class="slide level2">
@@ -355,6 +418,286 @@
 <li>Post on Sakai Conversations, post to “Instructors in this site”</li>
 </ul></li>
 </ul>
+</section>
+<section id="interpretation-on-ci" class="slide level2">
+<h2>Interpretation on CI</h2>
+<p>We are 95% confident that, as xx increase by 1 unit, the model predicts xx increase/decrease [,] on average.</p>
+<p>We are 95% confident that mean sale price of Duke Forest houses that are 2,800 square feet is between XX and XX.</p>
+</section>
+<section id="tips-on-r-programming" class="slide level2">
+<h2>Tips on R programming</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>test <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">a=</span><span class="dv">1</span>,<span class="at">b=</span><span class="dv">2</span>)</span>
+<span id="cb1-3"><a href="#cb1-3"></a>test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+      a     b
+  &lt;dbl&gt; &lt;dbl&gt;
+1     1     2</code></pre>
+</div>
+</div>
+<p>The test values are 1 and 2.</p>
+</section>
+<section id="outliers-and-influential-points" class="slide level2">
+<h2>Outliers and influential points</h2>
+</section>
+<section id="outliers" class="slide level2">
+<h2>Outliers</h2>
+<ul>
+<li>Boxplot</li>
+<li>Standard residuals</li>
+</ul>
+
+<img data-src="images/boxplot.png" class="r-stretch"></section>
+<section id="identifying-influential-points" class="slide level2">
+<h2>Identifying influential points</h2>
+<ul>
+<li>Leverage</li>
+<li>Standardized residuals</li>
+<li>Cook’s Distance</li>
+</ul>
+<div class="cell">
+
+</div>
+</section>
+<section id="influential-point" class="slide level2">
+<h2>Influential Point</h2>
+<p>An observation is influential if removing it substantially changes the coefficients of the regression model</p>
+
+<img data-src="lec-9_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
+<section id="influential-points" class="slide level2">
+<h2>Influential points</h2>
+<ul>
+<li><p>Influential points have a large impact on the coefficients and standard errors used for inference</p></li>
+<li><p>These points can sometimes be identified in a scatterplot if there is only one predictor variable</p>
+<ul>
+<li>This is often not the case when there are multiple predictors</li>
+</ul></li>
+<li><p>We will use measures to quantify an individual observation’s influence on the regression model</p>
+<ul>
+<li><strong>leverage</strong>, <strong>standardized residuals</strong>, and <strong>Cook’s distance</strong></li>
+</ul></li>
+</ul>
+</section>
+<section id="model-diagnostics-in-r" class="slide level2">
+<h2>Model diagnostics in R</h2>
+<p>Use the <code>augment</code> function to output the model diagnostics (along with the predicted values and residuals)</p>
+<ul>
+<li>response and predictor variables in the model</li>
+<li><code>.fitted</code>: predicted values</li>
+<li><code>.se.fit</code>: standard errors of predicted values</li>
+<li><code>.resid</code>: residuals</li>
+<li><code>.hat</code>: leverage</li>
+<li><code>.sigma</code>: estimate of residual standard deviation when the corresponding observation is dropped from model</li>
+<li><code>.cooksd</code>: Cook’s distance</li>
+<li><code>.std.resid</code>: standardized residuals</li>
+</ul>
+</section>
+<section id="example-average-sat-scores-by-state" class="slide level2">
+<h2>Example: Average SAT scores by state</h2>
+<ul>
+<li><p>This data set contains the average SAT score (out of 1600) and other variables that may be associated with SAT performance for each of the 50 U.S. states. The data is based on test takers for the 1982 exam.</p></li>
+<li><p><strong>Response</strong> - .vocab[<code>SAT</code>]: average total SAT score</p></li>
+<li><p><strong>Predictor</strong> - .vocab[<code>Public</code>]: percentage of test-takers who attended public high schools</p></li>
+</ul>
+</section>
+<section id="footnotedata-comes-from-case1201-data-set-in-the-sleuth3-package" class="slide level2">
+<h2>.footnote[Data comes from <code>case1201</code> data set in the <code>Sleuth3</code> package]</h2>
+</section>
+<section id="model" class="slide level2">
+<h2>Model</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>sat_scores <span class="ot">&lt;-</span> Sleuth3<span class="sc">::</span>case1201</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>sat_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(SAT <span class="sc">~</span> Public, <span class="at">data =</span> sat_scores)</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">tidy</span>(sat_model) <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> term </th>
+   <th style="text-align:right;"> estimate </th>
+   <th style="text-align:right;"> std.error </th>
+   <th style="text-align:right;"> statistic </th>
+   <th style="text-align:right;"> p.value </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> (Intercept) </td>
+   <td style="text-align:right;"> 994.971 </td>
+   <td style="text-align:right;"> 84.807 </td>
+   <td style="text-align:right;"> 11.732 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Public </td>
+   <td style="text-align:right;"> -0.579 </td>
+   <td style="text-align:right;"> 1.037 </td>
+   <td style="text-align:right;"> -0.559 </td>
+   <td style="text-align:right;"> 0.579 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</section>
+<section id="sat-augmented-data" class="slide level2">
+<h2>SAT: Augmented Data</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 50
+Columns: 9
+$ SAT        &lt;int&gt; 1088, 1075, 1068, 1045, 1045, 1033, 1028, 1022, 1017, 1011,…
+$ Public     &lt;dbl&gt; 87.8, 86.2, 88.3, 83.9, 83.6, 93.7, 78.3, 75.2, 97.0, 77.3,…
+$ .fitted    &lt;dbl&gt; 944.1198, 945.0465, 943.8302, 946.3786, 946.5523, 940.7027,…
+$ .resid     &lt;dbl&gt; 143.880224, 129.953547, 124.169810, 98.621450, 98.447698, 9…
+$ .hat       &lt;dbl&gt; 0.02918707, 0.02527061, 0.03063269, 0.02153481, 0.02121224,…
+$ .sigma     &lt;dbl&gt; 68.89683, 69.51144, 69.72849, 70.63271, 70.63847, 70.77489,…
+$ .cooksd    &lt;dbl&gt; 0.0629494764, 0.0441056591, 0.0493526954, 0.0214814500, 0.0…
+$ .std.resid &lt;dbl&gt; 2.0463672, 1.8445751, 1.7673480, 1.3971689, 1.3944776, 1.32…
+$ obs_num    &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, …</code></pre>
+</div>
+</div>
+</section>
+<section id="leverage" class="slide level2">
+<h2>Leverage</h2>
+<ul>
+<li><p>Leverage: measure of the distance between an observation’s values of the predictor variables and the average values of the predictor variables for the entire data set</p></li>
+<li><p>An observation has <strong>high leverage</strong> if its combination of values for the predictor variables is very far from the typical combination of values in the data</p></li>
+<li><p>Observations with high leverage should be considered as <em>potential</em> influential points</p></li>
+</ul>
+</section>
+<section id="calculating-leverage" class="slide level2">
+<h2>Calculating leverage</h2>
+<p>Simple Regression: leverage of the <span class="math inline">\(i^{th}\)</span> observation <span class="math display">\[h_i =  \frac{1}{n} + \frac{(x_i - \bar{x})^2}{\sum_{j=1}^{n}(x_j-\bar{x})^2}\]</span></p>
+<ul>
+<li><em>Note</em>: Leverage only depends on values of the predictor variable(s)</li>
+</ul>
+</section>
+<section id="high-leverage" class="slide level2">
+<h2>High Leverage</h2>
+<ul>
+<li><p>The sum of the leverages for all points is <span class="math inline">\(p + 1\)</span></p></li>
+<li><p><span class="math inline">\(p\)</span> is the number of predictors</p></li>
+<li><p>In the case of SLR <span class="math inline">\(\sum_{i=1}^n h_i = 2\)</span></p></li>
+<li><p>The “typical” leverage is <span class="math inline">\(\frac{(p+1)}{n}\)</span></p></li>
+<li><p>An observation has <strong>high leverage</strong> if <span class="math display">\[h_i &gt; \frac{2(p+1)}{n}\]</span></p></li>
+</ul>
+</section>
+<section id="high-leverage-1" class="slide level2">
+<h2>High Leverage</h2>
+<p>If there is point with high leverage, ask</p>
+<ul>
+<li><p>Is there a data entry error?</p></li>
+<li><p>Is this observation within the scope of individuals for which you want to make predictions and draw conclusions?</p></li>
+<li><p>Is this observation impacting the estimates of the model coefficients, especially for interactions?</p></li>
+</ul>
+<p>Just because a point has high leverage does not necessarily mean it will have a substantial impact on the regression. Therefore we need to check other measures.</p>
+</section>
+<section id="sat-leverage" class="slide level2">
+<h2>SAT: Leverage</h2>
+</section>
+<section id="observations-with-high-leverage" class="slide level2">
+<h2>Observations with high leverage</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.08</code></pre>
+</div>
+
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+    SAT Public
+  &lt;int&gt;  &lt;dbl&gt;
+1   999   61.2
+2   975   44.8</code></pre>
+</div>
+</div>
+<img data-src="lec-9_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"><p>Why do you think these observations have high leverage?</p>
+</section>
+<section id="lets-dig-into-the-data" class="slide level2">
+<h2>Let’s dig into the data</h2>
+
+<img data-src="lec-9_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
+<section id="standardized-residuals" class="slide level2">
+<h2>Standardized residuals</h2>
+<ul>
+<li><p>What is the best way to identify outliers (points that don’t fit the pattern from the regression line)?</p></li>
+<li><p>Look for points that have large residuals</p></li>
+<li><p>We want a common scale, so we can more easily identify “large” residuals</p></li>
+<li><p>We will look at each residual divided by its standard error</p></li>
+</ul>
+</section>
+<section id="standardized-residuals-1" class="slide level2">
+<h2>Standardized residuals</h2>
+<p><span class="math display">\[std.res_i = \frac{y_i - \hat{y}_i}{\hat{\sigma}_\epsilon\sqrt{1-h_i}}\]</span></p>
+<ul>
+<li>Standardized residuals are produced by <code>augment</code> in the column <code>.std.resid</code></li>
+</ul>
+</section>
+<section id="standardized-residuals-2" class="slide level2">
+<h2>Standardized residuals</h2>
+<p>Observations with high leverage tend to have low values of standardized residuals because they pull the regression line towards them</p>
+
+<img data-src="lec-9_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"></section>
+<section id="using-standardized-residuals" class="slide level2">
+<h2>Using standardized residuals</h2>
+<p>Observations that have standardized residuals of large magnitude are outliers, since they don’t fit the pattern determined by the regression model</p>
+<p>An observation is a <em>potential outlier</em> if its standardized residual is beyond <span class="math inline">\(\pm 3\)</span>.</p>
+<p>Make residual plots with standardized residuals to make it easier to identify outliers</p>
+
+<img data-src="lec-9_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
+<section id="motivating-cooks-distance" class="slide level2">
+<h2>Motivating Cook’s Distance</h2>
+<p>An observation’s influence on the regression line depends on</p>
+<ul>
+<li><p>How close it lies to the general trend of the data - (Standardized residual)</p></li>
+<li><p>Its leverage - <span class="math inline">\(h_i\)</span></p></li>
+</ul>
+<p>Cook’s Distance is a statistic that includes both of these components to measure an observation’s overall impact on the model</p>
+</section>
+<section id="cooks-distance" class="slide level2">
+<h2>Cook’s Distance</h2>
+<p><strong>Cook’s distance for the</strong> <span class="math inline">\(i^{th}\)</span> observation</p>
+<p>An observation with large <span class="math inline">\(D_i\)</span> is said to have a strong influence on the predicted values</p>
+<p>An observation with</p>
+<ul>
+<li><span class="math inline">\(D_i &gt; 0.5\)</span> is <strong>moderately influential</strong></li>
+<li><span class="math inline">\(D_i &gt; 1\)</span> is <strong>very influential</strong></li>
+</ul>
+</section>
+<section id="cooks-distance-1" class="slide level2">
+<h2>Cook’s Distance</h2>
+
+<img data-src="lec-9_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section>
+<section id="using-these-measures" class="slide level2">
+<h2>Using these measures</h2>
+<ul>
+<li><p>Standardized residuals, leverage, and Cook’s Distance should all be examined together</p></li>
+<li><p>Examine plots of the measures to identify observations that are outliers, high leverage, and may potentially impact the model.</p></li>
+</ul>
+</section>
+<section id="what-to-do-with-outliersinfluential-points" class="slide level2">
+<h2>What to do with outliers/influential points?</h2>
+<p>It is OK to drop an observation based on the predictor variables if…</p>
+<ul>
+<li><p>It is meaningful to drop the observation given the context of the problem</p></li>
+<li><p>You intended to build a model on a smaller range of the predictor variables. Mention this in the write up of the results and be careful to avoid extrapolation when making predictions</p></li>
+</ul>
+</section>
+<section id="what-to-do-with-outliersinfluential-points-1" class="slide level2">
+<h2>What to do with outliers/influential points?</h2>
+<p>It is not OK to drop an observation based on the response variable</p>
+<ul>
+<li><p>These are legitimate observations and should be in the model</p></li>
+<li><p>You can try transformations or increasing the sample size by collecting more data</p></li>
+</ul>
+<p>–</p>
+<p>In either instance, you can try building the model with and without the outliers/influential observations</p>
 </section>
 <section id="application-exercise" class="slide level2">
 <h2>Application Exercise</h2>
@@ -583,6 +926,48 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          // dispatch for htmlwidgets
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for reveal
+        if (window.Reveal) {
+          window.Reveal.addEventListener("slidechanged", function(event) {
+            fireSlideChanged(event.previousSlide, event.currentSlide);
+          });
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
