@@ -25,6 +25,7 @@ slides > slide {
 }
 </style>
 ```
+
 ```{r setup}
 #| include: false
 
@@ -44,28 +45,10 @@ options(scipen = 100)
 
 # Welcome
 
-## Announcements {.smaller}
+## Annoucement
 
--   Lab 3:
-
-    ::: nonincremental
-    -   Any questions about lab / teamwork?
-    -   Check ddl
-    :::
-
--   Exam 1:
-
-    ::: nonincremental
-    -   Multiple choice questions (mostly conceptual) + open-ended exercises (like lab + homework)
-    -   Open book, open internet, open questions to me + TA only
-    -   No communication with others or posting questions on the internet allowed
-    -   What can you do to start preparing?
-        -   Review readings, assignments, feedback returned
-
-        -   Organize your notes
-
-        -   Come to office hours with questions
-    :::
+-   Will be in person on Wednesday IF tested Negative on Monday and Tuesday
+-   Exam 1 due today 11:59pm.
 
 ## Computational setup
 
@@ -108,6 +91,8 @@ ggplot2::theme_set(ggplot2::theme_minimal(base_size = 20))
     :::
 
 ## The data {.smaller}
+
+[here](https://here.r-lib.org/) packge helps you find the path
 
 ```{r}
 #| echo: true
@@ -325,11 +310,11 @@ $$
 
 ## Interpreting $\hat{\beta}_j$ {.smaller}
 
--   The estimated coefficient $\hat{\beta}_j$ is the expected change in the mean of $y$ when $x_j$ increases by one unit, <i>holding the values of all other predictor variables constant</i>.
+-   The estimated coefficient $\hat{\beta}_j$ is the **expected** change in the **mean** of $y$ when $x_j$ increases by one unit, **holding the values of all other predictor variables constant**.
 
 . . .
 
--   **Example:** The estimated coefficient for `living_area` is 65.90. This means for each additional square foot of living area, we expect the sale price of a house in Levittown, NY to increase by \$65.90, on average, holding all other predictor variables constant.
+-   **Example:** The estimated coefficient for `living_area` is 65.90. This means for each additional square foot of living area, we **expect** the sale price of a house in Levittown, NY to increase by \$65.90, **on average**, **holding all other predictor variables constant**.
 
 ## Prediction {.smaller}
 
