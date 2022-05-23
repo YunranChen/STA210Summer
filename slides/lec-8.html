@@ -408,30 +408,11 @@ slides > slide {
 <h1>Welcome</h1>
 
 </section>
-<section id="announcements" class="slide level2 smaller">
-<h2>Announcements</h2>
+<section id="annoucement" class="slide level2">
+<h2>Annoucement</h2>
 <ul>
-<li class="fragment"><p>Lab 3:</p>
-<div>
-<ul>
-<li>Any questions about lab / teamwork?</li>
-<li>Check ddl</li>
-</ul>
-</div></li>
-<li class="fragment"><p>Exam 1:</p>
-<div>
-<ul>
-<li>Multiple choice questions (mostly conceptual) + open-ended exercises (like lab + homework)</li>
-<li>Open book, open internet, open questions to me + TA only</li>
-<li>No communication with others or posting questions on the internet allowed</li>
-<li>What can you do to start preparing?
-<ul>
-<li><p>Review readings, assignments, feedback returned</p></li>
-<li><p>Organize your notes</p></li>
-<li><p>Come to office hours with questions</p></li>
-</ul></li>
-</ul>
-</div></li>
+<li class="fragment">Will be in person on Wednesday IF tested Negative on Monday and Tuesday</li>
+<li class="fragment">Exam 1 due today 11:59pm.</li>
 </ul>
 </section>
 <section id="computational-setup" class="slide level2">
@@ -479,6 +460,7 @@ slides > slide {
 </section>
 <section id="the-data" class="slide level2 smaller">
 <h2>The data</h2>
+<p><a href="https://here.r-lib.org/">here</a> packge helps you find the path</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>levittown <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"slides/data/homeprices.csv"</span>))</span>
 <span id="cb2-2"><a href="#cb2-2"></a>levittown</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -700,11 +682,11 @@ y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \dots + \beta_p x_{ip} + \epsi
 <section id="interpreting-hatbeta_j" class="slide level2 smaller">
 <h2>Interpreting <span class="math inline">\(\hat{\beta}_j\)</span></h2>
 <ul>
-<li class="fragment">The estimated coefficient <span class="math inline">\(\hat{\beta}_j\)</span> is the expected change in the mean of <span class="math inline">\(y\)</span> when <span class="math inline">\(x_j\)</span> increases by one unit, <i>holding the values of all other predictor variables constant</i>.</li>
+<li class="fragment">The estimated coefficient <span class="math inline">\(\hat{\beta}_j\)</span> is the <strong>expected</strong> change in the <strong>mean</strong> of <span class="math inline">\(y\)</span> when <span class="math inline">\(x_j\)</span> increases by one unit, <strong>holding the values of all other predictor variables constant</strong>.</li>
 </ul>
 <div class="fragment">
 <ul>
-<li class="fragment"><strong>Example:</strong> The estimated coefficient for <code>living_area</code> is 65.90. This means for each additional square foot of living area, we expect the sale price of a house in Levittown, NY to increase by $65.90, on average, holding all other predictor variables constant.</li>
+<li class="fragment"><strong>Example:</strong> The estimated coefficient for <code>living_area</code> is 65.90. This means for each additional square foot of living area, we <strong>expect</strong> the sale price of a house in Levittown, NY to increase by $65.90, <strong>on average</strong>, <strong>holding all other predictor variables constant</strong>.</li>
 </ul>
 </div>
 </section>

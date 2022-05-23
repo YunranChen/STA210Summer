@@ -3378,7 +3378,7 @@
     "href": "slides/lec-8.html#the-data",
     "title": "Multiple linear regression (MLR)",
     "section": "The data",
-    "text": "The data\n\nlevittown <- read_csv(here::here(\"slides/data/homeprices.csv\"))\nlevittown\n\n# A tibble: 85 × 7\n   bedrooms bathrooms living_area lot_size year_built property_tax sale_price\n      <dbl>     <dbl>       <dbl>    <dbl>      <dbl>        <dbl>      <dbl>\n 1        4       1          1380     6000       1948         8360     350000\n 2        4       2          1761     7400       1951         5754     360000\n 3        4       2          1564     6000       1948         8982     350000\n 4        5       2          2904     9898       1949        11664     375000\n 5        5       2.5        1942     7788       1948         8120     370000\n 6        4       2          1830     6000       1948         8197     335000\n 7        4       1          1585     6000       1948         6223     295000\n 8        4       1           941     6800       1951         2448     250000\n 9        4       1.5        1481     6000       1948         9087     299990\n10        3       2          1630     5998       1948         9430     375000\n# … with 75 more rows"
+    "text": "The data\nhere packge helps you find the path\n\nlevittown <- read_csv(here::here(\"slides/data/homeprices.csv\"))\nlevittown\n\n# A tibble: 85 × 7\n   bedrooms bathrooms living_area lot_size year_built property_tax sale_price\n      <dbl>     <dbl>       <dbl>    <dbl>      <dbl>        <dbl>      <dbl>\n 1        4       1          1380     6000       1948         8360     350000\n 2        4       2          1761     7400       1951         5754     360000\n 3        4       2          1564     6000       1948         8982     350000\n 4        5       2          2904     9898       1949        11664     375000\n 5        5       2.5        1942     7788       1948         8120     370000\n 6        4       2          1830     6000       1948         8197     335000\n 7        4       1          1585     6000       1948         6223     295000\n 8        4       1           941     6800       1951         2448     250000\n 9        4       1.5        1481     6000       1948         9087     299990\n10        3       2          1630     5998       1948         9430     375000\n# … with 75 more rows"
   },
   {
     "objectID": "slides/lec-8.html#variables",
@@ -3512,5 +3512,12 @@
     "title": "Multiple linear regression (MLR)",
     "section": "Recap",
     "text": "Recap\n\n\nIntroduced multiple linear regression\nInterpreted a coefficient \\(\\hat{\\beta}_j\\)\nUsed the model to calculate predicted values and the corresponding intervals\n\n\n\n\n\nyunranchen.github.io/STA210Summer/"
+  },
+  {
+    "objectID": "slides/lec-8.html#annoucement",
+    "href": "slides/lec-8.html#annoucement",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Annoucement",
+    "text": "Annoucement\n\nWill be in person on Wednesday IF tested Negative on Monday and Tuesday\nExam 1 due today 11:59pm."
   }
 ]
