@@ -406,7 +406,6 @@
 <div>
 <ul>
 <li>Congratulations on finishing Exam 1!</li>
-<li>Questions on feedback vs.&nbsp;regrades</li>
 </ul>
 </div>
 </section>
@@ -734,20 +733,35 @@
 <h1>Indicator variables</h1>
 
 </section>
+<section id="dummy-variables" class="slide level2">
+<h2>Dummy variables</h2>
+<ul>
+<li class="fragment"><p>Suppose there is a categorical variable with <span class="math inline">\(K\)</span> categories (levels)</p></li>
+<li class="fragment"><p>We can treat them as continuous variables, Or</p></li>
+<li class="fragment"><p>We can make <span class="math inline">\(K-1\)</span> indicator variables (by default)</p></li>
+<li class="fragment"><p>An <strong>indicator variable</strong> takes values 1 or 0</p>
+<ul>
+<li class="fragment">1 if the observation belongs to that category</li>
+<li class="fragment">0 if the observation does not belong to that category</li>
+<li class="fragment">all 0s if the observation belong to the benchmark category</li>
+</ul></li>
+</ul>
+</section>
 <section id="indicator-variables-1" class="slide level2">
 <h2>Indicator variables</h2>
 <ul>
-<li class="fragment"><p>Suppose there is a categorical variable with <span class="math inline">\(K\)</span> categories (levels)</p></li>
-<li class="fragment"><p>We can make <span class="math inline">\(K\)</span> indicator variables - one indicator for each category</p></li>
+<li class="fragment"><p>We can also make <span class="math inline">\(K\)</span> indicator variables - one indicator for each category</p></li>
 <li class="fragment"><p>An <strong>indicator variable</strong> takes values 1 or 0</p>
 <ul>
 <li class="fragment">1 if the observation belongs to that category</li>
 <li class="fragment">0 if the observation does not belong to that category</li>
 </ul></li>
+<li class="fragment"><p>No intercept in this case</p></li>
 </ul>
 </section>
 <section id="data-manipulation-3-create-indicator-variables-for-verified_income" class="slide level2">
 <h2>Data manipulation 3: Create indicator variables for <code>verified_income</code></h2>
+<p>Since</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>loan50 <span class="ot">&lt;-</span> loan50 <span class="sc">%&gt;%</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">mutate</span>(</span>
@@ -987,6 +1001,80 @@ $ `annual_income_th_cent:verified_incomeVerified`        &lt;dbl&gt; 0.00, 0.00,
 </div>
 </section></section>
 <section>
+<section id="transformation" class="title-slide slide level1 center">
+<h1>Transformation</h1>
+
+</section>
+<section id="data-manipulation-5-transformation-on-variables" class="slide level2 smaller">
+<h2>Data manipulation 5: Transformation on variables</h2>
+<ul>
+<li class="fragment">Linearity is with respect of <span class="math inline">\(\beta\)</span>: <span class="math inline">\(y = \beta_0+\beta_1 x^2\)</span> is also a linear regression</li>
+<li class="fragment">For right-skewed long tail distributed variable (financial data), log transformation : decrease the variability of data and make data conform more closely to the normal distribution</li>
+</ul>
+</section>
+<section id="data-manipulation-5-log-transformation" class="slide level2">
+<h2>Data manipulation 5: log transformation</h2>
+
+<img data-src="lec-10_files/figure-revealjs/unnamed-chunk-24-1.png" width="3000" class="r-stretch quarto-figure-center"></section>
+
+<section id="interpretation-on-log-scale" class="slide level2">
+<h2>Interpretation on log-scale</h2>
+<p>As annual income increase by 10% (<span class="math inline">\(\log(x+0.1x)=\log(1.1\times x)=log(1.1)+\log x\)</span>), the interest rate is expected to increase by <span class="math inline">\(\beta \times \log(1.1)\)</span> on average, hold … constant.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> term </th>
+   <th style="text-align:right;"> estimate </th>
+   <th style="text-align:right;"> std.error </th>
+   <th style="text-align:right;"> statistic </th>
+   <th style="text-align:right;"> p.value </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> (Intercept) </td>
+   <td style="text-align:right;"> 35.144 </td>
+   <td style="text-align:right;"> 14.200 </td>
+   <td style="text-align:right;"> 2.475 </td>
+   <td style="text-align:right;"> 0.017 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> debt_to_income </td>
+   <td style="text-align:right;"> 0.725 </td>
+   <td style="text-align:right;"> 0.671 </td>
+   <td style="text-align:right;"> 1.081 </td>
+   <td style="text-align:right;"> 0.286 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> verified_incomeSource Verified </td>
+   <td style="text-align:right;"> 2.140 </td>
+   <td style="text-align:right;"> 1.397 </td>
+   <td style="text-align:right;"> 1.532 </td>
+   <td style="text-align:right;"> 0.133 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> verified_incomeVerified </td>
+   <td style="text-align:right;"> 7.032 </td>
+   <td style="text-align:right;"> 1.809 </td>
+   <td style="text-align:right;"> 3.888 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> annual_income_log </td>
+   <td style="text-align:right;"> -2.338 </td>
+   <td style="text-align:right;"> 1.260 </td>
+   <td style="text-align:right;"> -1.855 </td>
+   <td style="text-align:right;"> 0.070 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</section></section>
+<section>
 <section id="wrap-up" class="title-slide slide level1 center">
 <h1>Wrap up</h1>
 
@@ -1045,7 +1133,7 @@ $ `annual_income_th_cent:verified_incomeVerified`        &lt;dbl&gt; 0.00, 0.00,
 Inputs:
 
       role #variables
- predictor         24
+ predictor         25
 
 Operations:
 
