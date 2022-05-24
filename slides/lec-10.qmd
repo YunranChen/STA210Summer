@@ -33,7 +33,6 @@ knitr::opts_chunk$set(
 
 ::: nonincremental
 -   Congratulations on finishing Exam 1!
--   Questions on feedback vs. regrades
 :::
 
 ## Topics
@@ -275,18 +274,34 @@ tidy(int_cent_fit) %>%
 
 # Indicator variables
 
-## Indicator variables
+## Dummy variables
 
 -   Suppose there is a categorical variable with $K$ categories (levels)
 
--   We can make $K$ indicator variables - one indicator for each category
+-   We can treat them as continuous variables, Or
+
+-   We can make $K-1$ indicator variables (by default)
+
+-   An **indicator variable** takes values 1 or 0
+
+    -   1 if the observation belongs to that category
+    -   0 if the observation does not belong to that category
+    -   all 0s if the observation belong to the benchmark category
+
+## Indicator variables
+
+-   We can also make $K$ indicator variables - one indicator for each category
 
 -   An **indicator variable** takes values 1 or 0
 
     -   1 if the observation belongs to that category
     -   0 if the observation does not belong to that category
 
+-   No intercept in this case
+
 ## Data manipulation 3: Create indicator variables for `verified_income`
+
+Since
 
 ```{r}
 #| echo: true
@@ -404,6 +419,53 @@ framed <- model_frame(interest_rate ~ debt_inc_cent  +  debt_inc_cent + annual_i
 
 model_matrix(framed$terms, framed$data) %>%
   glimpse()
+```
+
+# Transformation
+
+## Data manipulation 5: Transformation on variables {.smaller}
+
+-   Linearity is with respect of $\beta$: $y = \beta_0+\beta_1 x^2$ is also a linear regression
+-   For right-skewed long tail distributed variable (financial data), log transformation : decrease the variability of data and make data conform more closely to the normal distribution
+
+
+## Data manipulation 5: log transformation
+
+
+
+```{r}
+loan50=loan50%>%
+  mutate(annual_income_log=log(annual_income))
+p3=ggplot(data=loan50,aes(x=annual_income_th))+
+  geom_histogram()
+p4=ggplot(data=loan50,aes(x=annual_income_log))+
+  geom_histogram()
+p3+p4
+```
+
+
+----
+
+```{r}
+p1=ggplot(data=loan50,aes(x=annual_income_th,y=interest_rate))+
+  geom_point()
+
+p2=ggplot(data=loan50,aes(x=annual_income_log,y=interest_rate))+
+  geom_point()
+p1+p2
+```
+
+## Interpretation on log-scale
+
+As annual income increase by 10\% ($\log(x+0.1x)=\log(1.1\times x)=log(1.1)+\log x$), the interest rate is expected to increase by $\beta \times \log(1.1)$ on average, hold ... constant.
+
+```{r}
+log_fit <- linear_reg() %>%
+  set_engine("lm") %>%
+  fit(interest_rate ~ debt_to_income + verified_income  + annual_income_log,
+      data = loan50)
+tidy(log_fit) %>%
+  kable(digits = 3)
 ```
 
 # Wrap up
