@@ -12,7 +12,7 @@ format:
     slide-number: true
     incremental: true 
     chalkboard: true
-editor: visual
+editor: source
 execute:
   freeze: auto
 ---
@@ -23,9 +23,10 @@ execute:
 # figure options
 knitr::opts_chunk$set(
   fig.width = 10, fig.asp = 0.618,
-  fig.retina = 3, dpi = 300, fig.align = "center"
-)
+  fig.retina = 3, dpi = 300, fig.align = "center")
 ```
+
+
 
 # Welcome
 
@@ -428,10 +429,7 @@ model_matrix(framed$terms, framed$data) %>%
 -   Linearity is with respect of $\beta$: $y = \beta_0+\beta_1 x^2$ is also a linear regression
 -   For right-skewed long tail distributed variable (financial data), log transformation : decrease the variability of data and make data conform more closely to the normal distribution
 
-
 ## Data manipulation 5: log transformation
-
-
 
 ```{r}
 loan50=loan50%>%
@@ -443,8 +441,7 @@ p4=ggplot(data=loan50,aes(x=annual_income_log))+
 p3+p4
 ```
 
-
-----
+------------------------------------------------------------------------
 
 ```{r}
 p1=ggplot(data=loan50,aes(x=annual_income_th,y=interest_rate))+
@@ -457,7 +454,7 @@ p1+p2
 
 ## Interpretation on log-scale
 
-As annual income increase by 10\% ($\log(x+0.1x)=\log(1.1\times x)=log(1.1)+\log x$), the interest rate is expected to increase by $\beta \times \log(1.1)$ on average, hold ... constant.
+As annual income increase by 10% ($\log(x+0.1x)=\log(1.1\times x)=log(1.1)+\log x$), the interest rate is expected to increase by $\beta \times \log(1.1)$ on average, hold ... constant.
 
 ```{r}
 log_fit <- linear_reg() %>%

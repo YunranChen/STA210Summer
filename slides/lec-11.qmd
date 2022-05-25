@@ -32,10 +32,17 @@ knitr::opts_chunk$set(
 ## Announcements
 
 ::: nonincremental
--   HW 2 posted tomorrow, due in a week
--   Lab on Monday: Work data selection! (Read project assignment over the weekend)
--   Mid-semester course evaluation (to be posted)
+-   HW 2 posted today, due Sunday
+-   Lab 3 posted today, due Friday
 :::
+
+## Review on Exam 1 Part 1
+
+[Exam 1 Part 1](https://sakai.duke.edu/portal/site/5f891853-b329-4c32-bbef-d209f5e37220/tool/2d878d4b-3cf9-4328-b534-751795818964/jsf/index/mainIndex)
+
+## Interpretation on coefficients
+
+[Notes](/documents/Interpretation on coefficients.pdf)
 
 ## Topics
 
