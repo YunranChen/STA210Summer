@@ -351,13 +351,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
-  <ul class="collapse">
-  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a></li>
-  </ul></li>
-  <li><a href="#meet-your-team" id="toc-meet-your-team" class="nav-link" data-scroll-target="#meet-your-team">Meet your team!</a></li>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
-  <li><a href="#workflow-using-git-and-github-as-a-team" id="toc-workflow-using-git-and-github-as-a-team" class="nav-link" data-scroll-target="#workflow-using-git-and-github-as-a-team">Workflow: Using Git and GitHub as a team</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
   <li><a href="#data-coffee-ratings" id="toc-data-coffee-ratings" class="nav-link" data-scroll-target="#data-coffee-ratings">Data: Coffee ratings</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
@@ -398,70 +392,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>In today’s lab you will analyze data from over 1,000 different coffees to explore the relationship between a coffee’s aroma and it’s overall quality. You will also begin working with your team and practicing a collaborative data analysis workflow.</p>
-<section id="learning-goals" class="level3">
-<h3 class="anchored" data-anchor-id="learning-goals">Learning goals</h3>
-<p>By the end of the lab you will…</p>
+<p>In today’s lab you will analyze data from over 1,000 different coffees to explore the relationship between a coffee’s aroma and it’s overall quality.</p>
+<p>This lab also provide you an instruction for how to collaborate with others using a Github repo. It provides you some suggestions on work on the same project in order. It suggests only one person type in the .qmd file, commit, and push updates at a time. Your team can choose to follow this workflow.</p>
+<p>If you plan to try this workflow,</p>
 <ul>
-<li>Create plots and calculate associated statistics to assess model diagnostics.</li>
-<li>Practice collaborating with others using a single Github repo.</li>
+<li>assign each person on your team a number 1 through 4.</li>
+<li>follow the guidance</li>
 </ul>
-</section>
-</section>
-<section id="meet-your-team" class="level2">
-<h2 class="anchored" data-anchor-id="meet-your-team">Meet your team!</h2>
-<p><a href="https://github.com/sta210-s22/teams/blob/master/teams.csv"><strong>Click</strong></a><a href="https://github.com/STA210-Summer22/teams/blob/master/teams.csv"><strong>here</strong></a> to see the team assignments for STA 210. This will be your team for labs and the final project.</p>
-<p>Before you get started on the lab, your TA will walk you through the following:</p>
-<ul>
-<li>Icebreaker activity to get to know your teammates.</li>
-<li>Come up with a team name. You can’t use the same name as another team, so I encourage you to be creative! Your TA will get your team name by the end of lab.</li>
-<li>Fill out the team agreement. This will help you figure out a plan for communication and working together during labs and outside of lab times. You can find the team agreement in the GitHub repo <strong>team-agreement-[github_team_name]</strong>.</li>
-<li>Have <strong>one person</strong> from the team clone the repo and start a new RStudio project. This person will type the team’s responses as you discuss the sections of the agreement. No one else in the team should type at this point but should be contributing to the discussion.</li>
-<li>Be sure to push the completed agreement to GitHub. Each team member can refer to the document in this repo or download the PDF of the agreement for future reference. You do <strong>not</strong> need to submit the agreement on Gradescope.</li>
-</ul>
-</section>
-<section id="getting-started" class="level2">
-<h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
-<ul>
-<li>A repository has already been created for you and your teammates. Everyone in your team has access to the same repo.</li>
-<li>Go to the <a href="https://www.github.com/sta210-s22">sta210-s22</a> organization on GitHub. Click on the repo with the prefix <strong>lab-3</strong>. It contains the starter documents you need to complete the lab.</li>
-<li>Each person on the team should clone the repository and open a new project in RStudio. <strong>Do not make any changes to the <code>.qmd</code> file until the instructions tell you do to so.</strong></li>
-</ul>
-</section>
-<section id="workflow-using-git-and-github-as-a-team" class="level2">
-<h2 class="anchored" data-anchor-id="workflow-using-git-and-github-as-a-team">Workflow: Using Git and GitHub as a team</h2>
-<div class="callout-important callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Assign each person on your team a number 1 through 4. For teams of three, Team Member 1 can take on the role of Team Member 4.</p>
-</div>
-</div>
-<p>The following exercises must be done in order. <strong>Only one person should type in the <code>.qmd</code> file, commit, and push updates at a time.</strong> When it is not your turn to type, you should still share ideas and contribute to the team’s discussion.</p>
-<div class="callout-important callout callout-style-simple">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>⌨️ <strong>Team Member 1: Hands on the keyboard.</strong></p>
-<p>🙅🏽 All other team members: Hands off the keyboard until otherwise instructed!<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-</div>
-</div>
-</div>
-<p>Change the author to your team name and include each team member’s name in the <code>author</code> field of the YAML in the following format: <code>Team Name: Member 1, Member 2, Member 3, Member 4</code>.</p>
-<div class="render-commit-push">
-<p><strong>Team Member 1:</strong> Render the document and confirm that the changes are visible in the PDF. Then, commit (with an informative commit message) both the <code>.qmd</code> and PDF documents, and finally push the changes to GitHub.</p>
-</div>
-<div class="pull">
-<p><strong>Team Members 2, 3, 4:</strong> Once Team Member 1 is done rendering, committing, and pushing, confirm that the changes are visible on GitHub in your team’s lab repo. Then, in RStudio, click the <strong>Pull</strong> button in the Git pane to get the updated document. You should see the updated name in your <code>.qmd</code> file.</p>
-</div>
 </section>
 <section id="packages" class="level2">
 <h2 class="anchored" data-anchor-id="packages">Packages</h2>
@@ -502,8 +439,6 @@ Note
 <li>Include axis labels and an informative title for all plots.</li>
 <li>Use the <code>kable</code> function to neatly print tables and regression output. Write all interpretations in the context of the data.</li>
 <li>Do the following exercises in order, following each step carefully.</li>
-<li>Only one person at a time should type in the <code>.qmd</code> file and push updates.</li>
-<li>If you are working on any portion of the lab virtually, the person working should share their screen and the others should follow along.</li>
 </ul>
 </div>
 </div>
@@ -513,7 +448,7 @@ Note
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>⌨️ <strong>Team Member 1: Hands still on the keyboard. Write the answers to Exercises 1 and 2.</strong></p>
+<p>⌨️ <strong>Team Member 1: Hands on the keyboard. Write the answers to Exercises 1 and 2.</strong></p>
 <p>🙅🏽 All other team members: Hands off the keyboard until otherwise instructed!</p>
 </div>
 </div>
@@ -532,7 +467,6 @@ Note
 <p><strong>Team Members 2, 3, 4:</strong> Once Team Member 1 is done rendering, committing, and pushing, confirm that the changes are visible on GitHub in your team’s lab repo. Then, in RStudio, click the <strong>Pull</strong> button in the Git pane to get the updated document. You should see the responses to Exercises 1 and 2 in your <code>.qmd</code> file.</p>
 </div>
 <p><br></p>
-<p>Now it’s time for a hand off…</p>
 <div class="callout-important callout callout-style-simple">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -583,7 +517,6 @@ h_i &gt; \frac{2(p + 1)}{n}
 <p><strong>Team Members 1, 3, 4:</strong> Once Team Member 2 is done rendering, committing, and pushing, confirm that the changes are visible on GitHub in your team’s lab repo. Then, in RStudio, click the <strong>Pull</strong> button in the Git pane to get the updated document. You should see the responses to Exercises 3 and 4 in your <code>.qmd</code> file.</p>
 </div>
 <p><br></p>
-<p>Now it’s time for another hand off…</p>
 <div class="callout-important callout callout-style-simple">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -629,7 +562,6 @@ Note
 <p><strong>Team Members 1, 2, 4:</strong> Once Team Member 3 is done rendering, committing, and pushing, confirm that the changes are visible on GitHub in your team’s lab repo. Then, in RStudio, click the <strong>Pull</strong> button in the Git pane to get the updated document. You should see the responses to Exercise 5 and 4 in your <code>.qmd</code> file.</p>
 </div>
 <p><br></p>
-<p>Now it’s time for another hand off…</p>
 <div class="callout-important callout callout-style-simple">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -686,7 +618,6 @@ D_i = \frac{(std.~res)^2}{p + 1} (\frac{h_i}{1-\frac{h_i})
 <p><strong>Team Members 1, 2, 3:</strong> Once Team Member 4 is done rendering, committing, and pushing, confirm that the changes are visible on GitHub in your team’s lab repo. Then, in RStudio, click the <strong>Pull</strong> button in the Git pane to get the updated document. You should see the responses to Exercise 6 and 4 in your <code>.qmd</code> file.</p>
 </div>
 <p><br></p>
-<p>Now it’s time for one last hand off…</p>
 </section>
 </section>
 <section id="wrapping-up" class="level2">
@@ -770,11 +701,7 @@ Important
 </tr>
 <tr class="even">
 <td style="text-align: left;">Workflow &amp; formatting</td>
-<td style="text-align: left;">5<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Complete team contract</td>
-<td style="text-align: left;">3</td>
+<td style="text-align: left;">8<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></td>
 </tr>
 </tbody>
 </table>
@@ -786,8 +713,7 @@ Important
 <div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1" role="doc-endnote"><p>Don’t trust yourself to keep your hands off the keyboard? Put them in your picket or cross your arms. No matter how silly it might feel, resist the urge to touch your keyboard until otherwise instructed!<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2" role="doc-endnote"><p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow. This includes having at least 3 informative commit messages and updating the name and date in the YAML.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1" role="doc-endnote"><p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow. This includes having at least 3 informative commit messages and updating the name and date in the YAML.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
