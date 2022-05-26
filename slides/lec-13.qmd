@@ -27,16 +27,75 @@ knitr::opts_chunk$set(
 )
 ```
 
+```{r}
+
+# load packages
+library(tidyverse)
+library(tidymodels)
+library(gghighlight)
+library(knitr)
+
+# set default theme and larger font size for ggplot2
+ggplot2::theme_set(ggplot2::theme_minimal(base_size = 20))
+```
+
 # Welcome
 
 ## Announcements
 
 ::: nonincremental
 -   Check your grades for exam-1
--   AE-5 released today but we may cover the content tomorrow
--   OH today
+-   Go through conceptual questions in homework 2
 :::
 
+## HW 2 Part 1
+
+## Categorical predictors
+
+-   Set it to be factor `as.factor`
+-   For variable only contains two levels, taking values 0 or 1. No actions needed. Can treat as continuous variable in R, since 1 unit increase equals to difference brought by level 1 compared to baseline level
+-   Okay to take correlation to depict association
+
+## High correlation
+
+-   High correlation between predictors: bad
+-   multicollinearity:  large variance -> unreasonable estimator
+
+```{r}
+#| echo: true
+set.seed(1)
+x=rnorm(100,1,1)
+epsilon=rnorm(100,0,0.01)
+y=2*x+epsilon
+dat=tibble(x=x,y=y)
+x1=0.8*x+rnorm(100,0.1,0.01)
+dat=dat%>%mutate(x1=x1)
+lm1=lm(y~x,data = dat)
+lm2=lm(y~x+x1,data=dat)
+lm3=lm(y~x1+x,data=dat)
+
+```
+
+## Multicollinearity
+
+-   No change on point estimator. (rotation)
+-   Increase se
+
+```{r}
+#| echo: true
+
+summary(lm1)
+summary(lm2)
+summary(lm3)
+```
+
+## Interpretation on coefficient
+
+-   we expect = model predicts = $\hat{y}$ 
+-   on average = expectation of y
+-   hold other constant
+
+Cold call since today ! Be prepared ! 
 
 ## Topics
 
@@ -52,20 +111,6 @@ knitr::opts_chunk$set(
 -   Improve it: Cross validation
 :::
 
-## Computational setup
-
-```{r}
-#| echo: true
-
-# load packages
-library(tidyverse)
-library(tidymodels)
-library(gghighlight)
-library(knitr)
-
-# set default theme and larger font size for ggplot2
-ggplot2::theme_set(ggplot2::theme_minimal(base_size = 20))
-```
 
 # Introduction
 
