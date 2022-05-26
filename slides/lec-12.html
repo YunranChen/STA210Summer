@@ -403,15 +403,11 @@
 <h2>Announcements</h2>
 <div>
 <ul>
-<li>Check Sakai Gradebook to make sure all scores so far are accurate</li>
-<li>Any questions on topic selection for projects?</li>
-<li>Any feedback on time of my office hours?</li>
+<li>Check your grades for exam-1</li>
+<li>AE-5 released today but we may cover the content tomorrow</li>
+<li>OH today</li>
 </ul>
 </div>
-</section>
-<section id="midterm-evaluation-summary" class="slide level2">
-<h2>Midterm evaluation summary</h2>
-<p><em>Live analysis…</em></p>
 </section>
 <section id="topics" class="slide level2">
 <h2>Topics</h2>
@@ -419,6 +415,9 @@
 <ul>
 <li>Review: Training and testing splits</li>
 <li>Feature engineering with recipes</li>
+<li>Workflows to bring together models and recipes</li>
+<li>RMSE and <span class="math inline">\(R^2\)</span> for model evaluation</li>
+<li>Cross validation</li>
 </ul>
 </div>
 </section>
@@ -480,10 +479,6 @@
 <h2>Outliers</h2>
 
 <img data-src="lec-12_files/figure-revealjs/unnamed-chunk-6-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
-<section id="aside" class="slide level2">
-<h2>Aside…</h2>
-<p>If you like the <a href="https://www.imdb.com/title/tt1031477/">Dinner Party</a> episode, I highly recommend this <a href="https://www.rollingstone.com/tv/tv-features/that-one-night-the-oral-history-of-the-greatest-office-episode-ever-629472/">“oral history” of the episode</a> published on Rolling Stone magazine.</p>
-</section>
 <section id="rating-vs.-air-date" class="slide level2">
 <h2>Rating vs.&nbsp;air date</h2>
 
@@ -555,8 +550,14 @@
 <li class="fragment"><p>We prefer simple models when possible, but <strong>parsimony</strong> does not mean sacrificing accuracy (or predictive performance) in the interest of simplicity</p></li>
 <li class="fragment"><p>Variables that go into the model and how they are represented are just as critical to success of the model</p></li>
 <li class="fragment"><p><strong>Feature engineering</strong> allows us to get creative with our predictors in an effort to make them more useful for our model (to increase its predictive performance)</p></li>
+<li class="fragment"><p>Variable selection (parsimony) + Variable representation (feature engineering)</p></li>
 </ul>
 </section>
+<section id="feature-engineering-date" class="slide level2">
+<h2>Feature engineering : date</h2>
+<p>Periodic: month or weekday</p>
+
+<img data-src="lec-12_files/figure-revealjs/unnamed-chunk-13-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
 <section id="feature-engineering-with-dplyr" class="slide level2">
 <h2>Feature engineering with dplyr</h2>
 <div class="cell" data-layout-align="center">
@@ -586,13 +587,14 @@
 <div class="question">
 <p>Can you identify any potential problems with this approach?</p>
 </div>
+<p>Holidays</p>
 <div class="cell" data-layout-align="center">
 
 </div>
 </div>
 </section>
-<section id="modeling-workflow-revisited" class="slide level2">
-<h2>Modeling workflow, revisited</h2>
+<section id="modeling-workflow" class="slide level2">
+<h2>Modeling workflow</h2>
 <ul>
 <li class="fragment"><p>Create a <strong>recipe</strong> for feature engineering steps to be applied to the training data</p></li>
 <li class="fragment"><p>Fit the model to the training data after these steps have been applied</p></li>
@@ -647,7 +649,7 @@ Inputs:
 </section>
 <section id="step-2-add-features" class="slide level2">
 <h2>Step 2: Add features</h2>
-<p>New features for day of week and month</p>
+<p>New features for day of week and month. <code>step_date</code> creates a specification of a recipe step that will convert date data into one or more factor or numeric variables.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb17" data-code-line-numbers="|2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>office_rec <span class="ot">&lt;-</span> office_rec <span class="sc">%&gt;%</span></span>
 <span id="cb17-2"><a href="#cb17-2"></a>  <span class="fu">step_date</span>(air_date, <span class="at">features =</span> <span class="fu">c</span>(<span class="st">"dow"</span>, <span class="st">"month"</span>))</span>
@@ -830,7 +832,7 @@ Zero variance filter on all_predictors()</code></pre>
 <div>
 <ul>
 <li>Review: Training and testing splits</li>
-<li>Feature engineering with recipes</li>
+<li>Feature engineering with recipes: update role - step -</li>
 </ul>
 </div>
 
