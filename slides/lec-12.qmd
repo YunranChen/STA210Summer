@@ -32,20 +32,20 @@ knitr::opts_chunk$set(
 ## Announcements
 
 ::: nonincremental
--   Check Sakai Gradebook to make sure all scores so far are accurate
--   Any questions on topic selection for projects?
--   Any feedback on time of my office hours?
+-   Check your grades for exam-1
+-   AE-5 released today but we may cover the content tomorrow
+-   OH today
 :::
 
-## Midterm evaluation summary
-
-*Live analysis...*
 
 ## Topics
 
 ::: nonincremental
 -   Review: Training and testing splits
 -   Feature engineering with recipes
+-   Workflows to bring together models and recipes
+-   RMSE and $R^2$ for model evaluation
+-   Cross validation
 :::
 
 ## Computational setup
@@ -125,9 +125,6 @@ ggplot(office_ratings, aes(x = total_votes, y = imdb_rating)) +
   )
 ```
 
-## Aside...
-
-If you like the [Dinner Party](https://www.imdb.com/title/tt1031477/) episode, I highly recommend this ["oral history" of the episode](https://www.rollingstone.com/tv/tv-features/that-one-night-the-oral-history-of-the-greatest-office-episode-ever-629472/) published on Rolling Stone magazine.
 
 ## Rating vs. air date
 
@@ -214,6 +211,23 @@ office_train
 
 -   **Feature engineering** allows us to get creative with our predictors in an effort to make them more useful for our model (to increase its predictive performance)
 
+-   Variable selection (parsimony) + Variable representation (feature engineering)
+
+## Feature engineering : date
+
+Periodic: month or weekday
+
+```{r}
+office_ratings %>%
+  mutate(season = as_factor(season)) %>%
+  ggplot(aes(x = air_date, y = imdb_rating, 
+             color = season, size = total_votes)) +
+  geom_point() +
+  labs(x = "Air date", y = "IMDB rating",
+       title = "The Office Ratings") +
+  scale_color_viridis_d()
+```
+
 ## Feature engineering with dplyr
 
 ```{r}
@@ -237,11 +251,13 @@ office_train %>%
 Can you identify any potential problems with this approach?
 :::
 
+Holidays
+
 ```{r}
 options(dplyr.print_max = 10, dplyr.print_min = 10)
 ```
 
-## Modeling workflow, revisited
+## Modeling workflow
 
 -   Create a **recipe** for feature engineering steps to be applied to the training data
 
@@ -283,7 +299,7 @@ office_rec
 
 ## Step 2: Add features
 
-New features for day of week and month
+New features for day of week and month. `step_date` creates a specification of a recipe step that will convert date data into one or more factor or numeric variables.
 
 ```{r}
 #| echo: true
@@ -293,6 +309,7 @@ office_rec <- office_rec %>%
   step_date(air_date, features = c("dow", "month"))
 
 office_rec
+
 ```
 
 ## Step 3: Add more features {.smaller}
@@ -393,5 +410,5 @@ office_rec
 
 ::: nonincremental
 -   Review: Training and testing splits
--   Feature engineering with recipes
+-   Feature engineering with recipes: update role - step - 
 :::
