@@ -20,25 +20,23 @@ editor: visual
 
 📖 Read Tidy Modeling in R Chp 10: [Resampling for evaluating performance](https://www.tmwr.org/resampling.html)
 
-
 ## Participate
 
 🖥️ [Lecture 14 - MLR: Cross validation](/slides/lec-14.html)
-
-🖥️ [Lecture 15 - Exam 2 review](/slides/lec-15.html)
 
 🖥️ [Lecture 16 - MLR: Inference](/slides/lec-16.html)
 
 🖥️ [Lecture 17 - MLR: Inference conditions + multicollinearity](/slides/lec-17.html)
 
+🖥️ [Lecture 15 - Exam 2 review](/slides/lec-15.html)
+
 ## Practice
 
 📋 [Application Exercise 6 - The office - CV](/ae/ae-6-the-office-cv.html)
 
-📋 [Application Exercise 7 - Exam 2 Review](/ae/ae-7-exam-2-review.html)
-
 📋 [Application Exercise 8 - Rail Trail](/ae/ae-8-rail-trail.html)
 
+📋 [Application Exercise 7 - Exam 2 Review](/ae/ae-7-exam-2-review.html)
 
 ## Perform
 

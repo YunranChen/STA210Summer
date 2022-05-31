@@ -8,7 +8,7 @@ editor: visual
 
 ## Overview
 
-Exam 2 will be released on Friday, June 3 at 9 am ET and must be completed by Mon, June 6 at 11:59 pm.
+Exam 2 will be released on Friday, June 3 at 1 pm ET and must be completed by Mon, June 6 at 11:59 pm.
 
 The exam will consist of two parts:
 

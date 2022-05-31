@@ -30,6 +30,11 @@ knitr::opts_chunk$set(
 
 # Welcome
 
+## Annoucement
+
+-   Class observation on June 1 by Ed and June 8 by Ben
+-   Certificate in College Teaching ([CCT program](https://gradschool.duke.edu/professional-development/programs/certificate-college-teaching)): [Observation Requirement](https://gradschool.duke.edu/professional-development/programs/certificate-college-teaching/teaching-and-observation-requirements)
+
 ## Topics
 
 ::: nonincremental
@@ -52,7 +57,7 @@ library(schrute)
 ## Data & goal {.smaller}
 
 ::: nonincremental
--   Data: The data come from the [**shrute**](https://bradlindblad.github.io/schrute/) package, and has been transformed using instructions from [Lab 4](/labs/lab-4.html)
+-   Data: The data come from the [**shrute**](https://bradlindblad.github.io/schrute/) package, and has been transformed using instructions from [Lab 4](/labs/lab-4.html)(released on Wednesday)
 -   Goal: Predict `imdb_rating` from other variables in the dataset
 :::
 
@@ -62,6 +67,21 @@ library(schrute)
 office_episodes <- read_csv(here::here("slides", "data/office_episodes.csv"))
 office_episodes
 ```
+
+# Review on workflow of building a model
+
+## Review on workflow of building a model
+
+-   Obtain data
+-   Split data into training and test sets
+-   Specify question: association between y and x(s)
+-   Feature engineering 
+-   model fitting
+-   model comparison
+-   condition check and evaluation
+-   make inference (HT + CI)
+-   model prediction
+-   make conclusion
 
 # Modeling prep
 
@@ -85,7 +105,7 @@ office_spec
 
 # Model 1
 
-## From yesterday's lab
+## One possible recipe
 
 -   Create a recipe that uses the new variables we generated
 -   Denotes `episode_name` as an ID variable and doesn't use `air_date` as a predictor
@@ -114,27 +134,36 @@ office_wflow1 <- workflow() %>%
 office_wflow1
 ```
 
-## Fit model to training data
+## Build model
 
 . . .
 
-*Actually, not so fast!*
+-   Fit model to training data
+-   Make predictions on testing data
+-   Evaluate model
+
+. . .
+
+Data Splitting is random ! May vary from time to time.
+
+Try multiple times and take average to make the conclusion robust.
 
 # Cross validation
 
 ## Spending our data
 
--   We have already established that the idea of data spending where the test set was recommended for obtaining an unbiased estimate of performance.
--   However, we usually need to understand the effectiveness of the model *before using the test set*.
--   Typically we can't decide on *which* final model to take to the test set without making model assessments.
--   Remedy: Resampling to make model assessments on training data in a way that can generalize to new data.
+-   Idea of data spending: test set was recommended for performance evaluation.
+-   Training data (Model fitting) + Test data (Model prediction)
+-   *before using the test set*: assure effectiveness of the model
+-   How to decide on *which* final model to take to the test set
+-   Treat training set as your dataset do data splitting. Repeat and take average.
 
 ## Resampling for model assessment
 
 **Resampling is only conducted on the training set**. The test set is not involved. For each iteration of resampling, the data are partitioned into two subsamples:
 
--   The model is fit with the **analysis set**.
--   The model is evaluated with the **assessment set**.
+-   The model is fit with the **analysis set** (training).
+-   The model is evaluated with the **assessment set**(test).
 
 ## Resampling for model assessment
 
@@ -280,7 +309,7 @@ office_episodes %>%
 # Application exercise
 
 ::: appex
-📋 [github.com/STA210-Summer22/ae-6-the-office-cv](https://github.com/STA210-Summer22/ae-6-the-office-cv)
+📋 [ae-6-the-office-cv](https://yunranchen.github.io/STA210Summer/ae/ae-6-the-office-cv.html)
 :::
 
 ## Recap

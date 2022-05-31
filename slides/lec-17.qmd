@@ -227,7 +227,7 @@ resid_hist / resid_box
 ## Overlaying a density plot on a histogram
 
 ::: appex
-📋 [github.com/STA210-Summer22/ae-8-rail-trail](https://github.com/sta210-s22/ae-8-rail-trail)
+📋 [ae-8-rail-trail](https://yunranchen.github.io/STA210Summer/ae/ae-8-rail-trail.html)
 :::
 
 ::: columns
@@ -323,7 +323,7 @@ No clear pattern in the residuals vs. order of data collection plot and the mode
 
 -   We can't include two variables that have a perfect linear association with each other
 
--   If we did so, we could not find unique estimates for the model coefficients
+-   Mathematically, cannot find unique estimates for the model coefficients
 
 ## Example {.smaller}
 
@@ -348,15 +348,17 @@ $$\hat{y} = \hat{\beta}_0 + \bigg(\hat{\beta}_1 + \frac{\hat{\beta}_2}{10}\bigg)
 
 ## Why multicollinearity is a problem
 
--   When we have almost perfect collinearities (i.e. highly correlated predictor variables), the standard errors for our regression coefficients inflate
+-   When we have almost perfect collinearities (i.e. highly correlated predictor variables), the standard errors for our regression coefficients **inflate**
 
--   In other words, we lose precision in our estimates of the regression coefficients
+-   Lose precision in our estimates of the regression coefficients
 
--   This impedes our ability to use the model for inference or prediction
+-   Impedes model inference or prediction
 
 ## Detecting Multicollinearity
 
-Multicollinearity may occur when... - There are very high correlations $(r > 0.9)$ among two or more predictor variables, especially when the sample size is small
+Multicollinearity may occur when... 
+
+-   There are very high correlations $(r > 0.9)$ among two or more predictor variables, especially when the sample size is small
 
 -   One (or more) predictor variables is an almost perfect linear combination of the others
 
@@ -370,6 +372,8 @@ Multicollinearity may occur when... - There are very high correlations $(r > 0.9
     -   Look out for values close to 1 or -1
 -   Look at a scatterplot matrix of the predictor variables
     -   Look out for plots that show a relatively linear relationship
+-   Look at variables that have unreasonable coefficients (based on context)
+
 
 ## Detecting Multicollinearity (VIF)
 
@@ -381,11 +385,13 @@ where $R^2_{X_j|X_{-j}}$ is the proportion of variation $X$ that is explained by
 
 ## Detecting Multicollinearity (VIF)
 
-Typically $VIF > 10$ indicates concerning multicollinearity - Variables with similar values of VIF are typically the ones correlated with each other
+Typically $VIF > 10$ indicates concerning multicollinearity 
+
+- Variables with similar values of VIF are typically the ones correlated with each other
 
 <br>
 
-Use the `vif()` function in the **rms** R package to calculate VIF
+Use the `vif()` function in the `rms` R package to calculate VIF
 
 ## VIF For SAT Model
 
@@ -404,23 +410,21 @@ m1 <- linear_reg() %>%
   set_engine("lm") %>%
   fit(volume ~ . - hightemp, data = rail_trail)
   
-m1 %>%
-  tidy() %>%
+m1 %>% tidy() %>%
   kable(digits = 3)
 
 glance(m1) %>%
   select(adj.r.squared, AIC, BIC)
 ```
 
-## Model without `avgtemp`
+## Model without `avgtemp` {.smaller}
 
 ```{r}
 m2 <- linear_reg() %>%
   set_engine("lm") %>%
   fit(volume ~ . - avgtemp, data = rail_trail)
   
-m2 %>%
-  tidy() %>%
+m2 %>% tidy() %>%
   kable(digits = 3)
 
 glance(m2) %>%

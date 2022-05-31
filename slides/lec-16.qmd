@@ -139,7 +139,7 @@ tidy(rt_mlr_main_fit)
 
 ## MLR hypothesis test: `hightemp` {.smaller}
 
-1.  **Set hypotheses:** $H_0: \beta_{hightemp} = 0$ and $H_A: \beta_{hightemp} \ne 0$, given `weekday` is in the model
+1.  **Set hypotheses:** $H_0: \beta_{hightemp} = 0$ and $H_A: \beta_{hightemp} \ne 0$, given `season` is in the model
 
 . . .
 
@@ -220,7 +220,7 @@ Same slope, different intercepts
 ## Application exercise
 
 ::: appex
-📋 [github.com/sta210-s22/ae-8-rail-trail](https://github.com/sta210-s22/ae-8-rail-trail)
+📋 [github.com/sta210-s22/ae-8-rail-trail](https://yunranchen.github.io/STA210Summer/ae/ae-8-rail-trail.html)
 :::
 
 ::: columns
@@ -251,18 +251,13 @@ ggplot(rt_mlr_main_aug, aes(x = hightemp, y = volume)) +
 ## Application exercise
 
 ::: appex
-📋 [github.com/STA210-Summer22/ae-8-rail-trail](https://github.com/STA210-Summer22/ae-8-rail-trail)
+📋 [ae-8-rail-trail](https://yunranchen.github.io/STA210Summer/ae/ae-8-rail-trail.html)
 :::
 
 ::: question
 **Ex 2.** Add an interaction effect between `hightemp` and `season` and comment on the significance of the interaction predictors. Time permitting, visualize the interaction model as well.
 :::
 
-```{r}
-#| echo: false
-
-countdown(minutes = 10)
-```
 
 # Confidence interval for $\beta_j$
 
@@ -270,9 +265,11 @@ countdown(minutes = 10)
 
 -   The $C%$ confidence interval for $\beta_j$ $$\hat{\beta}_j \pm t^* SE(\hat{\beta}_j)$$ where $t^*$ follows a $t$ distribution with $n - p - 1$ degrees of freedom.
 
--   Generically, we are $C%$ confident that the interval LB to UB contains the population coefficient of $x_j$.
+-   Generically, we are $C%$ confident that the interval LB to UB contains the population coefficient of $x_j$.(cautious!)
 
 -   In context, we are $C%$ confident that for every one unit increase in $x_j$, we expect $y$ to change by LB to UB units, holding all else constant.
+
+-   p: \# of predictors in the model w/ dummy variables
 
 ## Confidence interval for $\beta_j$
 
@@ -304,6 +301,14 @@ tidy(rt_mlr_main_fit, conf.int = TRUE)
 
 We are 95% confident that the number of riders on a Spring day is, on average, lower by 63.1 to higher by 73.4 compared to a Fall day, holding high temperature for the day constant.
 
+## Construct HT and CI based on simulation
+
+-   CI: Bootstrap observations, fit model, obtain Bootstrap distribution
+-   HT: Permute observations, fit model, obtain dist of permuted samples.
+-   Q: Permute wrt single variable? wrt observations? diff permutations for diff variables?
+-   Permutation wrt observations! Hold other variables constant!
+
+
 # Inference pitfalls
 
 ## Large sample sizes
@@ -329,3 +334,21 @@ If the sample size is small, there may not be enough evidence to reject $H_0: \b
 -   There may be a linear association that is just not strong enough to detect given your data, or there may be a non-linear association.
 :::
 :::
+
+## Connections between CI and HT
+
+-   Instead of checking p-values, we can use CI to do hypothesis testing. 
+-   If CI include 0, do not reject; Or else, reject $H_0$
+
+## Notes on permutation test
+
+-   Permutation is sensitive to outliers and high-leverage points
+-   Small repetitions may not be enough. (Bootstrap will be more representative) 
+
+
+
+
+
+
+
+

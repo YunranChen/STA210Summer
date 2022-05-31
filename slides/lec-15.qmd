@@ -20,12 +20,12 @@ execute:
 ## Announcements
 
 ::: nonincremental
--   Exam 2 is released on Friday at 9am, due at 11:59pm on Sunday
+-   Exam 2 is released on Friday at 1pm, due at 11:59pm on Monday
 -   Keys for HW and labs posted
 :::
 
 ## Application exercise
 
 ::: appex
-📋 [github.com/STA210-Summer22/ae-7-exam-2-review](https://github.com/STA210-Summer22/ae-7-exam-2-review)
+📋 [ae-7-exam-2-review](https://yunranchen.github.io/STA210Summer/ae/ae-7-exam-2-review.html)
 :::
