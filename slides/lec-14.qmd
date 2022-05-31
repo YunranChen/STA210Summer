@@ -34,7 +34,7 @@ knitr::opts_chunk$set(
 
 -   Class observation on June 1 by Ed and June 8 by Ben
 -   Certificate in College Teaching ([CCT program](https://gradschool.duke.edu/professional-development/programs/certificate-college-teaching)): [Observation Requirement](https://gradschool.duke.edu/professional-development/programs/certificate-college-teaching/teaching-and-observation-requirements)
-
+-   Feedbacks on final project topics
 ## Topics
 
 ::: nonincremental
