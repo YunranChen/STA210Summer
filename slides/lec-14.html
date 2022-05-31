@@ -399,8 +399,13 @@
 <h1>Welcome</h1>
 
 </section>
-<section id="topics" class="slide level2">
-<h2>Topics</h2>
+<section id="annoucement" class="slide level2">
+<h2>Annoucement</h2>
+<ul>
+<li class="fragment">Class observation on June 1 by Ed and June 8 by Ben</li>
+<li class="fragment">Certificate in College Teaching (<a href="https://gradschool.duke.edu/professional-development/programs/certificate-college-teaching">CCT program</a>): <a href="https://gradschool.duke.edu/professional-development/programs/certificate-college-teaching/teaching-and-observation-requirements">Observation Requirement</a></li>
+<li class="fragment">Feedbacks on final project topics ## Topics</li>
+</ul>
 <div>
 <ul>
 <li>Cross validation for model evaluation</li>
@@ -422,7 +427,7 @@
 <h2>Data &amp; goal</h2>
 <div>
 <ul>
-<li>Data: The data come from the <a href="https://bradlindblad.github.io/schrute/"><strong>shrute</strong></a> package, and has been transformed using instructions from <a href="../labs/lab-4.html">Lab 4</a></li>
+<li>Data: The data come from the <a href="https://bradlindblad.github.io/schrute/"><strong>shrute</strong></a> package, and has been transformed using instructions from <a href="../labs/lab-4.html">Lab 4</a>(released on Wednesday)</li>
 <li>Goal: Predict <code>imdb_rating</code> from other variables in the dataset</li>
 </ul>
 </div>
@@ -448,6 +453,26 @@
 #   christmas &lt;chr&gt;, michael &lt;chr&gt;</code></pre>
 </div>
 </div>
+</section></section>
+<section>
+<section id="review-on-workflow-of-building-a-model" class="title-slide slide level1 center">
+<h1>Review on workflow of building a model</h1>
+
+</section>
+<section id="review-on-workflow-of-building-a-model-1" class="slide level2">
+<h2>Review on workflow of building a model</h2>
+<ul>
+<li class="fragment">Obtain data</li>
+<li class="fragment">Split data into training and test sets</li>
+<li class="fragment">Specify question: association between y and x(s)</li>
+<li class="fragment">Feature engineering</li>
+<li class="fragment">model fitting</li>
+<li class="fragment">model comparison</li>
+<li class="fragment">condition check and evaluation</li>
+<li class="fragment">make inference (HT + CI)</li>
+<li class="fragment">model prediction</li>
+<li class="fragment">make conclusion</li>
+</ul>
 </section></section>
 <section>
 <section id="modeling-prep" class="title-slide slide level1 center">
@@ -482,8 +507,8 @@ Computational engine: lm </code></pre>
 <h1>Model 1</h1>
 
 </section>
-<section id="from-yesterdays-lab" class="slide level2">
-<h2>From yesterday’s lab</h2>
+<section id="one-possible-recipe" class="slide level2">
+<h2>One possible recipe</h2>
 <ul>
 <li class="fragment">Create a recipe that uses the new variables we generated</li>
 <li class="fragment">Denotes <code>episode_name</code> as an ID variable and doesn’t use <code>air_date</code> as a predictor</li>
@@ -546,10 +571,18 @@ Computational engine: lm </code></pre>
 </div>
 </div>
 </section>
-<section id="fit-model-to-training-data" class="slide level2">
-<h2>Fit model to training data</h2>
+<section id="build-model" class="slide level2">
+<h2>Build model</h2>
 <div class="fragment">
-<p><em>Actually, not so fast!</em></p>
+<ul>
+<li class="fragment">Fit model to training data</li>
+<li class="fragment">Make predictions on testing data</li>
+<li class="fragment">Evaluate model</li>
+</ul>
+</div>
+<div class="fragment">
+<p>Data Splitting is random ! May vary from time to time.</p>
+<p>Try multiple times and take average to make the conclusion robust.</p>
 </div>
 </section></section>
 <section>
@@ -560,18 +593,19 @@ Computational engine: lm </code></pre>
 <section id="spending-our-data" class="slide level2">
 <h2>Spending our data</h2>
 <ul>
-<li class="fragment">We have already established that the idea of data spending where the test set was recommended for obtaining an unbiased estimate of performance.</li>
-<li class="fragment">However, we usually need to understand the effectiveness of the model <em>before using the test set</em>.</li>
-<li class="fragment">Typically we can’t decide on <em>which</em> final model to take to the test set without making model assessments.</li>
-<li class="fragment">Remedy: Resampling to make model assessments on training data in a way that can generalize to new data.</li>
+<li class="fragment">Idea of data spending: test set was recommended for performance evaluation.</li>
+<li class="fragment">Training data (Model fitting) + Test data (Model prediction)</li>
+<li class="fragment"><em>before using the test set</em>: assure effectiveness of the model</li>
+<li class="fragment">How to decide on <em>which</em> final model to take to the test set</li>
+<li class="fragment">Treat training set as your dataset do data splitting. Repeat and take average.</li>
 </ul>
 </section>
 <section id="resampling-for-model-assessment" class="slide level2">
 <h2>Resampling for model assessment</h2>
 <p><strong>Resampling is only conducted on the training set</strong>. The test set is not involved. For each iteration of resampling, the data are partitioned into two subsamples:</p>
 <ul>
-<li class="fragment">The model is fit with the <strong>analysis set</strong>.</li>
-<li class="fragment">The model is evaluated with the <strong>assessment set</strong>.</li>
+<li class="fragment">The model is fit with the <strong>analysis set</strong> (training).</li>
+<li class="fragment">The model is evaluated with the <strong>assessment set</strong>(test).</li>
 </ul>
 </section>
 <section id="resampling-for-model-assessment-1" class="slide level2">
@@ -793,7 +827,7 @@ Computational engine: lm </code></pre>
 <section id="application-exercise" class="title-slide slide level1 center">
 <h1>Application exercise</h1>
 <div class="appex">
-<p>📋 <a href="https://github.com/STA210-Summer22/ae-6-the-office-cv">github.com/STA210-Summer22/ae-6-the-office-cv</a></p>
+<p>📋 <a href="https://yunranchen.github.io/STA210Summer/ae/ae-6-the-office-cv.html">ae-6-the-office-cv</a></p>
 </div>
 </section>
 <section id="recap" class="slide level2">

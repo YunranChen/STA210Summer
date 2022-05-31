@@ -569,7 +569,7 @@
 <section id="overlaying-a-density-plot-on-a-histogram" class="slide level2">
 <h2>Overlaying a density plot on a histogram</h2>
 <div class="appex">
-<p>📋 <a href="https://github.com/sta210-s22/ae-8-rail-trail">github.com/STA210-Summer22/ae-8-rail-trail</a></p>
+<p>📋 <a href="https://yunranchen.github.io/STA210Summer/ae/ae-8-rail-trail.html">ae-8-rail-trail</a></p>
 </div>
 <div class="columns">
 <div class="column" style="width:30%;">
@@ -630,7 +630,7 @@
 <h2>Why multicollinearity is a problem</h2>
 <ul>
 <li class="fragment"><p>We can’t include two variables that have a perfect linear association with each other</p></li>
-<li class="fragment"><p>If we did so, we could not find unique estimates for the model coefficients</p></li>
+<li class="fragment"><p>Mathematically, cannot find unique estimates for the model coefficients</p></li>
 </ul>
 </section>
 <section id="example" class="slide level2 smaller">
@@ -657,15 +657,16 @@
 <section id="why-multicollinearity-is-a-problem-1" class="slide level2">
 <h2>Why multicollinearity is a problem</h2>
 <ul>
-<li class="fragment"><p>When we have almost perfect collinearities (i.e.&nbsp;highly correlated predictor variables), the standard errors for our regression coefficients inflate</p></li>
-<li class="fragment"><p>In other words, we lose precision in our estimates of the regression coefficients</p></li>
-<li class="fragment"><p>This impedes our ability to use the model for inference or prediction</p></li>
+<li class="fragment"><p>When we have almost perfect collinearities (i.e.&nbsp;highly correlated predictor variables), the standard errors for our regression coefficients <strong>inflate</strong></p></li>
+<li class="fragment"><p>Lose precision in our estimates of the regression coefficients</p></li>
+<li class="fragment"><p>Impedes model inference or prediction</p></li>
 </ul>
 </section>
 <section id="detecting-multicollinearity" class="slide level2">
 <h2>Detecting Multicollinearity</h2>
-<p>Multicollinearity may occur when… - There are very high correlations <span class="math inline">\((r &gt; 0.9)\)</span> among two or more predictor variables, especially when the sample size is small</p>
+<p>Multicollinearity may occur when…</p>
 <ul>
+<li class="fragment"><p>There are very high correlations <span class="math inline">\((r &gt; 0.9)\)</span> among two or more predictor variables, especially when the sample size is small</p></li>
 <li class="fragment"><p>One (or more) predictor variables is an almost perfect linear combination of the others</p></li>
 <li class="fragment"><p>Include a quadratic in the model mean-centering the variable first</p></li>
 <li class="fragment"><p>Including interactions between two or more continuous variables</p></li>
@@ -682,6 +683,7 @@
 <ul>
 <li class="fragment">Look out for plots that show a relatively linear relationship</li>
 </ul></li>
+<li class="fragment">Look at variables that have unreasonable coefficients (based on context)</li>
 </ul>
 </section>
 <section id="detecting-multicollinearity-vif" class="slide level2">
@@ -692,9 +694,12 @@
 </section>
 <section id="detecting-multicollinearity-vif-1" class="slide level2">
 <h2>Detecting Multicollinearity (VIF)</h2>
-<p>Typically <span class="math inline">\(VIF &gt; 10\)</span> indicates concerning multicollinearity - Variables with similar values of VIF are typically the ones correlated with each other</p>
+<p>Typically <span class="math inline">\(VIF &gt; 10\)</span> indicates concerning multicollinearity</p>
+<ul>
+<li class="fragment">Variables with similar values of VIF are typically the ones correlated with each other</li>
+</ul>
 <p><br></p>
-<p>Use the <code>vif()</code> function in the <strong>rms</strong> R package to calculate VIF</p>
+<p>Use the <code>vif()</code> function in the <code>rms</code> R package to calculate VIF</p>
 </section>
 <section id="vif-for-sat-model" class="slide level2">
 <h2>VIF For SAT Model</h2>
@@ -718,9 +723,8 @@
 <span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">fit</span>(volume <span class="sc">~</span> . <span class="sc">-</span> hightemp, <span class="at">data =</span> rail_trail)</span>
 <span id="cb12-4"><a href="#cb12-4"></a>  </span>
-<span id="cb12-5"><a href="#cb12-5"></a>m1 <span class="sc">%&gt;%</span></span>
-<span id="cb12-6"><a href="#cb12-6"></a>  <span class="fu">tidy</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb12-7"><a href="#cb12-7"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-5"><a href="#cb12-5"></a>m1 <span class="sc">%&gt;%</span> <span class="fu">tidy</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table>
 <thead>
@@ -795,16 +799,15 @@
 </div>
 </div>
 </section>
-<section id="model-without-avgtemp" class="slide level2">
+<section id="model-without-avgtemp" class="slide level2 smaller">
 <h2>Model without <code>avgtemp</code></h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">fit</span>(volume <span class="sc">~</span> . <span class="sc">-</span> avgtemp, <span class="at">data =</span> rail_trail)</span>
 <span id="cb15-4"><a href="#cb15-4"></a>  </span>
-<span id="cb15-5"><a href="#cb15-5"></a>m2 <span class="sc">%&gt;%</span></span>
-<span id="cb15-6"><a href="#cb15-6"></a>  <span class="fu">tidy</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb15-7"><a href="#cb15-7"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-5"><a href="#cb15-5"></a>m2 <span class="sc">%&gt;%</span> <span class="fu">tidy</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb15-6"><a href="#cb15-6"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table>
 <thead>

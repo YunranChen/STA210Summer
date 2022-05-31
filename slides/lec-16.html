@@ -379,8 +379,6 @@
       margin-right: 0; 
     }
   </style>
-  <link href="../site_libs/countdown-0.3.5/countdown.css" rel="stylesheet">
-  <script src="../site_libs/countdown-0.3.5/countdown.js"></script>
 <meta name="twitter:title" content="STA 210 - Summer 2022 - MLR: Inference">
 <meta name="twitter:image" content="https:/yunranchen.github.io/STA210Summer/slides/images/twitter-card.png">
 <meta name="twitter:creator" content="@minebocek">
@@ -550,7 +548,7 @@
 <section id="mlr-hypothesis-test-hightemp" class="slide level2 smaller">
 <h2>MLR hypothesis test: <code>hightemp</code></h2>
 <ol type="1">
-<li class="fragment"><strong>Set hypotheses:</strong> <span class="math inline">\(H_0: \beta_{hightemp} = 0\)</span> and <span class="math inline">\(H_A: \beta_{hightemp} \ne 0\)</span>, given <code>weekday</code> is in the model</li>
+<li class="fragment"><strong>Set hypotheses:</strong> <span class="math inline">\(H_0: \beta_{hightemp} = 0\)</span> and <span class="math inline">\(H_A: \beta_{hightemp} \ne 0\)</span>, given <code>season</code> is in the model</li>
 </ol>
 <div class="fragment">
 <ol start="2" type="1">
@@ -749,7 +747,7 @@
 <section id="application-exercise" class="slide level2">
 <h2>Application exercise</h2>
 <div class="appex">
-<p>📋 <a href="https://github.com/sta210-s22/ae-8-rail-trail">github.com/sta210-s22/ae-8-rail-trail</a></p>
+<p>📋 <a href="https://yunranchen.github.io/STA210Summer/ae/ae-8-rail-trail.html">github.com/sta210-s22/ae-8-rail-trail</a></p>
 </div>
 <div class="columns">
 <div class="column" style="width:30%;">
@@ -772,17 +770,10 @@
 <section id="application-exercise-1" class="slide level2">
 <h2>Application exercise</h2>
 <div class="appex">
-<p>📋 <a href="https://github.com/STA210-Summer22/ae-8-rail-trail">github.com/STA210-Summer22/ae-8-rail-trail</a></p>
+<p>📋 <a href="https://yunranchen.github.io/STA210Summer/ae/ae-8-rail-trail.html">ae-8-rail-trail</a></p>
 </div>
 <div class="question">
 <p><strong>Ex 2.</strong> Add an interaction effect between <code>hightemp</code> and <code>season</code> and comment on the significance of the interaction predictors. Time permitting, visualize the interaction model as well.</p>
-</div>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="countdown" id="timer_627af074" style="right:0;bottom:0;" data-warnwhen="0">
-<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
 </div>
 </section></section>
 <section>
@@ -794,8 +785,9 @@
 <h2>Confidence interval for <span class="math inline">\(\beta_j\)</span></h2>
 <ul>
 <li class="fragment"><p>The <span class="math inline">\(C%\)</span> confidence interval for <span class="math inline">\(\beta_j\)</span> <span class="math display">\[\hat{\beta}_j \pm t^* SE(\hat{\beta}_j)\]</span> where <span class="math inline">\(t^*\)</span> follows a <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(n - p - 1\)</span> degrees of freedom.</p></li>
-<li class="fragment"><p>Generically, we are <span class="math inline">\(C%\)</span> confident that the interval LB to UB contains the population coefficient of <span class="math inline">\(x_j\)</span>.</p></li>
+<li class="fragment"><p>Generically, we are <span class="math inline">\(C%\)</span> confident that the interval LB to UB contains the population coefficient of <span class="math inline">\(x_j\)</span>.(cautious!)</p></li>
 <li class="fragment"><p>In context, we are <span class="math inline">\(C%\)</span> confident that for every one unit increase in <span class="math inline">\(x_j\)</span>, we expect <span class="math inline">\(y\)</span> to change by LB to UB units, holding all else constant.</p></li>
+<li class="fragment"><p>p: # of predictors in the model w/ dummy variables</p></li>
 </ul>
 </section>
 <section id="confidence-interval-for-beta_j-2" class="slide level2">
@@ -844,6 +836,15 @@
 </div>
 <p><br></p>
 <p>We are 95% confident that the number of riders on a Spring day is, on average, lower by 63.1 to higher by 73.4 compared to a Fall day, holding high temperature for the day constant.</p>
+</section>
+<section id="construct-ht-and-ci-based-on-simulation" class="slide level2">
+<h2>Construct HT and CI based on simulation</h2>
+<ul>
+<li class="fragment">CI: Bootstrap observations, fit model, obtain Bootstrap distribution</li>
+<li class="fragment">HT: Permute observations, fit model, obtain dist of permuted samples.</li>
+<li class="fragment">Q: Permute wrt single variable? wrt observations? diff permutations for diff variables?</li>
+<li class="fragment">Permutation wrt observations! Hold other variables constant!</li>
+</ul>
 </section></section>
 <section>
 <section id="inference-pitfalls" class="title-slide slide level1 center">
@@ -893,6 +894,20 @@
 </div>
 </div>
 </div>
+</section>
+<section id="connections-between-ci-and-ht" class="slide level2">
+<h2>Connections between CI and HT</h2>
+<ul>
+<li class="fragment">Instead of checking p-values, we can use CI to do hypothesis testing.</li>
+<li class="fragment">If CI include 0, do not reject; Or else, reject <span class="math inline">\(H_0\)</span></li>
+</ul>
+</section>
+<section id="notes-on-permutation-test" class="slide level2">
+<h2>Notes on permutation test</h2>
+<ul>
+<li class="fragment">Permutation is sensitive to outliers and high-leverage points</li>
+<li class="fragment">Small repetitions may not be enough. (Bootstrap will be more representative)</li>
+</ul>
 
 
 <img src="images/logo.png" class="slide-logo r-stretch"><div class="footer footer-default">
