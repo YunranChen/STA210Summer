@@ -154,7 +154,7 @@ tidy(rt_mlr_main_fit)
 
 . . .
 
-3.  **State the conclusion:** With such a small p-value, the data provides strong evidence against $H_0$, i.e., the data provide strong evidence that high temperature for the day is a helpful predictor in a model that already contains whether the given day is a weekday as a predictor for number of daily riders.
+3.  **State the conclusion:** With such a small p-value, the data provides strong evidence against $H_0$, i.e., the data provide strong evidence that high temperature for the day is a helpful predictor in a model given `season` is in the model
 
 ## The model for `season = Spring` {.smaller}
 

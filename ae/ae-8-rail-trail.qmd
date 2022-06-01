@@ -62,4 +62,4 @@ rt_full_fit <- linear_reg() %>%
 tidy(rt_full_fit)
 ```
 
-Recreate the following visualization which displays a histogram of residuals and a normal density curve overlaid.
+Recreate the following visualization which displays a histogram of residuals (y-axis should be frequency) and a density curve overlaid.
