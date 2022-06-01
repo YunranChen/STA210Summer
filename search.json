@@ -5164,5 +5164,40 @@
     "title": "MLR: Inference",
     "section": "Annoucement",
     "text": "Annoucement\n\nClass observation on June 1 by Ed and June 8 by Ben\nCertificate in College Teaching (CCT program): Observation Requirement"
+  },
+  {
+    "objectID": "ae/ae-8-rail-trail.html",
+    "href": "ae/ae-8-rail-trail.html",
+    "title": "AE 8: Rail Trail",
+    "section": "",
+    "text": "Important\n\n\n\nGo to the course GitHub organization and locate the repo titled ae-8-rail-trail-YOUR_GITHUB_USERNAME to get started."
+  },
+  {
+    "objectID": "ae/ae-8-rail-trail.html#packages-and-data",
+    "href": "ae/ae-8-rail-trail.html#packages-and-data",
+    "title": "AE 8: Rail Trail",
+    "section": "Packages and data",
+    "text": "Packages and data\n\nlibrary(tidyverse)\nlibrary(tidymodels)\n\nrail_trail <- read_csv(\"data/rail_trail.csv\")"
+  },
+  {
+    "objectID": "ae/ae-8-rail-trail.html#exercise-1",
+    "href": "ae/ae-8-rail-trail.html#exercise-1",
+    "title": "AE 8: Rail Trail",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nFit a model predicting volume from hightemp and season.\n\nrt_mlr_main_fit <- linear_reg() %>%\n  set_engine(\"lm\") %>%\n  fit(volume ~ hightemp + season, data = rail_trail)\n\ntidy(rt_mlr_main_fit)\n\n# A tibble: 4 × 5\n  term         estimate std.error statistic       p.value\n  <chr>           <dbl>     <dbl>     <dbl>         <dbl>\n1 (Intercept)   -125.       71.7     -1.75  0.0841       \n2 hightemp         7.54      1.17     6.43  0.00000000692\n3 seasonSpring     5.13     34.3      0.150 0.881        \n4 seasonSummer   -76.8      47.7     -1.61  0.111        \n\n\nRecreate the following visualization which displays the three regression lines we can draw based on the results of this model.\n\n\n\n\n\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-8-rail-trail.html#exercise-2",
+    "href": "ae/ae-8-rail-trail.html#exercise-2",
+    "title": "AE 8: Rail Trail",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nAdd an interaction effect between hightemp and season and comment on the significance of the interaction predictors. Time permitting, visualize the interaction model as well.\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-8-rail-trail.html#exercise-3",
+    "href": "ae/ae-8-rail-trail.html#exercise-3",
+    "title": "AE 8: Rail Trail",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nFit a model predicting volume from all available predictors.\n\nrt_full_fit <- linear_reg() %>%\n  set_engine(\"lm\") %>%\n  fit(volume ~ ., data = rail_trail)\n\ntidy(rt_full_fit)\n\n# A tibble: 8 × 5\n  term            estimate std.error statistic p.value\n  <chr>              <dbl>     <dbl>     <dbl>   <dbl>\n1 (Intercept)        17.6      76.6      0.230 0.819  \n2 hightemp            7.07      2.42     2.92  0.00450\n3 avgtemp            -2.04      3.14    -0.648 0.519  \n4 seasonSpring       35.9      33.0      1.09  0.280  \n5 seasonSummer       24.2      52.8      0.457 0.649  \n6 cloudcover         -7.25      3.84    -1.89  0.0627 \n7 precip            -95.7      42.6     -2.25  0.0273 \n8 day_typeWeekend    35.9      22.4      1.60  0.113  \n\n\nRecreate the following visualization which displays a histogram of residuals and a normal density curve overlaid."
   }
 ]
