@@ -399,6 +399,13 @@
 <h1>Welcome</h1>
 
 </section>
+<section id="annoucement" class="slide level2">
+<h2>Annoucement</h2>
+<ul>
+<li class="fragment">Class observation on June 1 by Ed and June 8 by Ben</li>
+<li class="fragment">Certificate in College Teaching (<a href="https://gradschool.duke.edu/professional-development/programs/certificate-college-teaching">CCT program</a>): <a href="https://gradschool.duke.edu/professional-development/programs/certificate-college-teaching/teaching-and-observation-requirements">Observation Requirement</a></li>
+</ul>
+</section>
 <section id="topics" class="slide level2">
 <h2>Topics</h2>
 <ul>
@@ -785,8 +792,8 @@
 <h2>Confidence interval for <span class="math inline">\(\beta_j\)</span></h2>
 <ul>
 <li class="fragment"><p>The <span class="math inline">\(C%\)</span> confidence interval for <span class="math inline">\(\beta_j\)</span> <span class="math display">\[\hat{\beta}_j \pm t^* SE(\hat{\beta}_j)\]</span> where <span class="math inline">\(t^*\)</span> follows a <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(n - p - 1\)</span> degrees of freedom.</p></li>
-<li class="fragment"><p>Generically, we are <span class="math inline">\(C%\)</span> confident that the interval LB to UB contains the population coefficient of <span class="math inline">\(x_j\)</span>.(cautious!)</p></li>
-<li class="fragment"><p>In context, we are <span class="math inline">\(C%\)</span> confident that for every one unit increase in <span class="math inline">\(x_j\)</span>, we expect <span class="math inline">\(y\)</span> to change by LB to UB units, holding all else constant.</p></li>
+<li class="fragment"><p>In context, we are <span class="math inline">\(C%\)</span> confident that for every one unit increase in <span class="math inline">\(x_j\)</span>, we expect <span class="math inline">\(y\)</span> to change by LB to UB units, on average, holding all else constant.</p></li>
+<li class="fragment"><p>expect + on average + hold all else constant</p></li>
 <li class="fragment"><p>p: # of predictors in the model w/ dummy variables</p></li>
 </ul>
 </section>
@@ -835,7 +842,7 @@
 </div>
 </div>
 <p><br></p>
-<p>We are 95% confident that the number of riders on a Spring day is, on average, lower by 63.1 to higher by 73.4 compared to a Fall day, holding high temperature for the day constant.</p>
+<p>We are 95% confident that the number of riders on a Spring day is expected to be lower by 63.1 to higher by 73.4 compared to a Fall day, on average, holding high temperature for the day constant.</p>
 </section>
 <section id="construct-ht-and-ci-based-on-simulation" class="slide level2">
 <h2>Construct HT and CI based on simulation</h2>
@@ -862,7 +869,7 @@
 <p><strong>Danger</strong></p>
 </div>
 <div class="callout-content">
-<p>If the sample size is large enough, the test will likely result in rejecting <span class="math inline">\(H_0: \beta_j = 0\)</span> even <span class="math inline">\(x_j\)</span> has a very small effect on <span class="math inline">\(y\)</span>.</p>
+<p>If the sample size is large enough, the test will likely result in rejecting <span class="math inline">\(H_0: \beta_j = 0\)</span> even <span class="math inline">\(x_j\)</span> has a very small effect on <span class="math inline">\(y\)</span>. (t-statistics increases)</p>
 <div>
 <ul>
 <li><p>Consider the <strong>practical significance</strong> of the result not just the statistical significance.</p></li>

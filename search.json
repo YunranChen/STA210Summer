@@ -4834,7 +4834,7 @@
     "href": "slides/lec-16.html#confidence-interval-for-beta_j-1",
     "title": "MLR: Inference",
     "section": "Confidence interval for \\(\\beta_j\\)",
-    "text": "Confidence interval for \\(\\beta_j\\)\n\nThe \\(C%\\) confidence interval for \\(\\beta_j\\) \\[\\hat{\\beta}_j \\pm t^* SE(\\hat{\\beta}_j)\\] where \\(t^*\\) follows a \\(t\\) distribution with \\(n - p - 1\\) degrees of freedom.\nGenerically, we are \\(C%\\) confident that the interval LB to UB contains the population coefficient of \\(x_j\\).(cautious!)\nIn context, we are \\(C%\\) confident that for every one unit increase in \\(x_j\\), we expect \\(y\\) to change by LB to UB units, holding all else constant.\np: # of predictors in the model w/ dummy variables"
+    "text": "Confidence interval for \\(\\beta_j\\)\n\nThe \\(C%\\) confidence interval for \\(\\beta_j\\) \\[\\hat{\\beta}_j \\pm t^* SE(\\hat{\\beta}_j)\\] where \\(t^*\\) follows a \\(t\\) distribution with \\(n - p - 1\\) degrees of freedom.\nIn context, we are \\(C%\\) confident that for every one unit increase in \\(x_j\\), we expect \\(y\\) to change by LB to UB units, on average, holding all else constant.\nexpect + on average + hold all else constant\np: # of predictors in the model w/ dummy variables"
   },
   {
     "objectID": "slides/lec-16.html#confidence-interval-for-beta_j-2",
@@ -4855,7 +4855,7 @@
     "href": "slides/lec-16.html#ci-for-seasonspring",
     "title": "MLR: Inference",
     "section": "CI for seasonSpring",
-    "text": "CI for seasonSpring\n\n\n# A tibble: 4 × 7\n  term         estimate std.error statistic       p.value conf.low conf.high\n  <chr>           <dbl>     <dbl>     <dbl>         <dbl>    <dbl>     <dbl>\n1 (Intercept)   -125.       71.7     -1.75  0.0841         -268.       17.2 \n2 hightemp         7.54      1.17     6.43  0.00000000692     5.21      9.87\n3 seasonSpring     5.13     34.3      0.150 0.881           -63.1      73.4 \n4 seasonSummer   -76.8      47.7     -1.61  0.111          -172.       18.0 \n\n\n\nWe are 95% confident that the number of riders on a Spring day is, on average, lower by 63.1 to higher by 73.4 compared to a Fall day, holding high temperature for the day constant."
+    "text": "CI for seasonSpring\n\n\n# A tibble: 4 × 7\n  term         estimate std.error statistic       p.value conf.low conf.high\n  <chr>           <dbl>     <dbl>     <dbl>         <dbl>    <dbl>     <dbl>\n1 (Intercept)   -125.       71.7     -1.75  0.0841         -268.       17.2 \n2 hightemp         7.54      1.17     6.43  0.00000000692     5.21      9.87\n3 seasonSpring     5.13     34.3      0.150 0.881           -63.1      73.4 \n4 seasonSummer   -76.8      47.7     -1.61  0.111          -172.       18.0 \n\n\n\nWe are 95% confident that the number of riders on a Spring day is expected to be lower by 63.1 to higher by 73.4 compared to a Fall day, on average, holding high temperature for the day constant."
   },
   {
     "objectID": "slides/lec-16.html#construct-ht-and-ci-based-on-simulation",
@@ -4869,7 +4869,7 @@
     "href": "slides/lec-16.html#large-sample-sizes",
     "title": "MLR: Inference",
     "section": "Large sample sizes",
-    "text": "Large sample sizes\n\n\n\n\n\n\nDanger\n\n\nIf the sample size is large enough, the test will likely result in rejecting \\(H_0: \\beta_j = 0\\) even \\(x_j\\) has a very small effect on \\(y\\).\n\n\nConsider the practical significance of the result not just the statistical significance.\nUse the confidence interval to draw conclusions instead of relying only p-values."
+    "text": "Large sample sizes\n\n\n\n\n\n\nDanger\n\n\nIf the sample size is large enough, the test will likely result in rejecting \\(H_0: \\beta_j = 0\\) even \\(x_j\\) has a very small effect on \\(y\\). (t-statistics increases)\n\n\nConsider the practical significance of the result not just the statistical significance.\nUse the confidence interval to draw conclusions instead of relying only p-values."
   },
   {
     "objectID": "slides/lec-16.html#small-sample-sizes",
@@ -5142,7 +5142,7 @@
     "href": "slides/lec-14.html#review-on-workflow-of-building-a-model-1",
     "title": "Cross validation",
     "section": "Review on workflow of building a model",
-    "text": "Review on workflow of building a model\n\nObtain data\nSplit data into training and test sets\nSpecify question: association between y and x(s)\nFeature engineering\nmodel fitting\nmodel comparison\ncondition check and evaluation\nmake inference (HT + CI)\nmodel prediction\nmake conclusion"
+    "text": "Review on workflow of building a model\n\nSpending data: Split data into training and test sets\nSpecify question: association between y and x(s)\nFeature engineering\nmodel fitting, condition check and evaluation\nmodel comparison\nmake inference (HT + CI)\nmodel prediction\nmake conclusion"
   },
   {
     "objectID": "course-team.html",
@@ -5157,5 +5157,12 @@
     "title": "Teaching team",
     "section": "Teaching assistant",
     "text": "Teaching assistant\n\n\n\n\nName\nOffice hours\nLocation\n\n\n\n\n\nJoseph Ekpenyong\nTuesdays and Thursdays 8:00pm - 9:00pm\n| Zoom\n\n\n\nJoseph will also responsible for gradings for homework and labs. If you have any questions about coursework and gradings, you can email Joseph at joseph.ekpenyong@duke.edu"
+  },
+  {
+    "objectID": "slides/lec-16.html#annoucement",
+    "href": "slides/lec-16.html#annoucement",
+    "title": "MLR: Inference",
+    "section": "Annoucement",
+    "text": "Annoucement\n\nClass observation on June 1 by Ed and June 8 by Ben\nCertificate in College Teaching (CCT program): Observation Requirement"
   }
 ]
