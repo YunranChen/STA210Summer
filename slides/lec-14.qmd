@@ -34,8 +34,7 @@ knitr::opts_chunk$set(
 
 -   Class observation on June 1 by Ed and June 8 by Ben
 -   Certificate in College Teaching ([CCT program](https://gradschool.duke.edu/professional-development/programs/certificate-college-teaching)): [Observation Requirement](https://gradschool.duke.edu/professional-development/programs/certificate-college-teaching/teaching-and-observation-requirements)
--   Feedbacks on final project topics
-## Topics
+-   Feedbacks on final project topics \## Topics
 
 ::: nonincremental
 -   Cross validation for model evaluation
@@ -70,15 +69,13 @@ office_episodes
 
 # Review on workflow of building a model
 
-## Review on workflow of building a model
+## Review on workflow of building a model{.smaller}
 
--   Obtain data
--   Split data into training and test sets
+-   Spending data: Split data into training and test sets
 -   Specify question: association between y and x(s)
--   Feature engineering 
--   model fitting
+-   Feature engineering
+-   model fitting, condition check and evaluation
 -   model comparison
--   condition check and evaluation
 -   make inference (HT + CI)
 -   model prediction
 -   make conclusion

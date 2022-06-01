@@ -31,6 +31,12 @@ library(countdown)
 
 # Welcome
 
+## Annoucement
+
+-   Class observation on June 1 by Ed and June 8 by Ben
+-   Certificate in College Teaching ([CCT program](https://gradschool.duke.edu/professional-development/programs/certificate-college-teaching)): [Observation Requirement](https://gradschool.duke.edu/professional-development/programs/certificate-college-teaching/teaching-and-observation-requirements)
+
+
 ## Topics
 
 -   Conduct a hypothesis test for $\beta_j$
@@ -38,6 +44,7 @@ library(countdown)
 -   Calculate a confidence interval for $\beta_j$
 
 -   Inference pitfalls
+
 
 ## Computational setup
 
@@ -258,16 +265,15 @@ ggplot(rt_mlr_main_aug, aes(x = hightemp, y = volume)) +
 **Ex 2.** Add an interaction effect between `hightemp` and `season` and comment on the significance of the interaction predictors. Time permitting, visualize the interaction model as well.
 :::
 
-
 # Confidence interval for $\beta_j$
 
 ## Confidence interval for $\beta_j$ {.smaller}
 
 -   The $C%$ confidence interval for $\beta_j$ $$\hat{\beta}_j \pm t^* SE(\hat{\beta}_j)$$ where $t^*$ follows a $t$ distribution with $n - p - 1$ degrees of freedom.
 
--   Generically, we are $C%$ confident that the interval LB to UB contains the population coefficient of $x_j$.(cautious!)
+-   In context, we are $C%$ confident that for every one unit increase in $x_j$, we expect $y$ to change by LB to UB units, on average, holding all else constant.
 
--   In context, we are $C%$ confident that for every one unit increase in $x_j$, we expect $y$ to change by LB to UB units, holding all else constant.
+- expect + on average + hold all else constant
 
 -   p: \# of predictors in the model w/ dummy variables
 
@@ -299,7 +305,7 @@ tidy(rt_mlr_main_fit, conf.int = TRUE)
 
 <br>
 
-We are 95% confident that the number of riders on a Spring day is, on average, lower by 63.1 to higher by 73.4 compared to a Fall day, holding high temperature for the day constant.
+We are 95% confident that the number of riders on a Spring day is expected to be lower by 63.1 to higher by 73.4 compared to a Fall day, on average, holding high temperature for the day constant.
 
 ## Construct HT and CI based on simulation
 
@@ -308,13 +314,12 @@ We are 95% confident that the number of riders on a Spring day is, on average, l
 -   Q: Permute wrt single variable? wrt observations? diff permutations for diff variables?
 -   Permutation wrt observations! Hold other variables constant!
 
-
 # Inference pitfalls
 
 ## Large sample sizes
 
 ::: callout-caution
-If the sample size is large enough, the test will likely result in rejecting $H_0: \beta_j = 0$ even $x_j$ has a very small effect on $y$.
+If the sample size is large enough, the test will likely result in rejecting $H_0: \beta_j = 0$ even $x_j$ has a very small effect on $y$. (t-statistics increases)
 
 ::: nonincremental
 -   Consider the **practical significance** of the result not just the statistical significance.
@@ -337,18 +342,10 @@ If the sample size is small, there may not be enough evidence to reject $H_0: \b
 
 ## Connections between CI and HT
 
--   Instead of checking p-values, we can use CI to do hypothesis testing. 
+-   Instead of checking p-values, we can use CI to do hypothesis testing.
 -   If CI include 0, do not reject; Or else, reject $H_0$
 
 ## Notes on permutation test
 
 -   Permutation is sensitive to outliers and high-leverage points
--   Small repetitions may not be enough. (Bootstrap will be more representative) 
-
-
-
-
-
-
-
-
+-   Small repetitions may not be enough. (Bootstrap will be more representative)
