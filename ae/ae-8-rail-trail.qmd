@@ -63,5 +63,3 @@ tidy(rt_full_fit)
 ```
 
 Recreate the following visualization which displays a histogram of residuals and a normal density curve overlaid.
-
-
