@@ -566,29 +566,24 @@
 <h2>Checking normality</h2>
 
 <img data-src="lec-17_files/figure-revealjs/unnamed-chunk-11-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
-<section id="overlaying-a-density-plot-on-a-histogram" class="slide level2">
+<section id="overlaying-a-density-plot-on-a-histogram" class="slide level2 smaller">
 <h2>Overlaying a density plot on a histogram</h2>
-<div class="appex">
-<p>📋 <a href="https://yunranchen.github.io/STA210Summer/ae/ae-8-rail-trail.html">ae-8-rail-trail</a></p>
-</div>
-<div class="columns">
-<div class="column" style="width:30%;">
-<div class="question">
-<p><strong>Ex 3.</strong> Recreate the following visualization in R based on the results of the model.</p>
-</div>
-</div><div class="column" style="width:70%;">
+<ul>
+<li class="fragment"><p>Overlay density plot on a histogram <code>+geom_density()</code></p></li>
+<li class="fragment"><p>Overlay a normal density plot on a histogram to compare whether normal assumption is reasonable (adjust bin width)</p></li>
+</ul>
 <div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="lec-17_files/figure-revealjs/density-1.png" style="width:100.0%"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">ggplot</span>(rt_full_aug, <span class="fu">aes</span>(.resid)) <span class="sc">+</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)), <span class="at">binwidth =</span> <span class="dv">50</span>) <span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a>  <span class="fu">stat_function</span>(</span>
+<span id="cb9-4"><a href="#cb9-4"></a>    <span class="at">fun =</span> dnorm, </span>
+<span id="cb9-5"><a href="#cb9-5"></a>    <span class="at">args =</span> <span class="fu">list</span>(<span class="at">mean =</span> <span class="fu">mean</span>(rt_full_aug<span class="sc">$</span>.resid), <span class="at">sd =</span> <span class="fu">sd</span>(rt_full_aug<span class="sc">$</span>.resid)), </span>
+<span id="cb9-6"><a href="#cb9-6"></a>    <span class="at">lwd =</span> <span class="dv">2</span>, </span>
+<span id="cb9-7"><a href="#cb9-7"></a>    <span class="at">color =</span> <span class="st">"red"</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 </div>
-</div>
-</div>
-</div>
-</div>
-</section>
+<img data-src="lec-17_files/figure-revealjs/density-1.png" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="checking-independence" class="slide level2">
 <h2>Checking independence</h2>
 <ul>
@@ -601,20 +596,20 @@
 <h2>Checking independence</h2>
 <p>Residuals vs.&nbsp;order of data collection:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">ggplot</span>(rt_full_aug, <span class="fu">aes</span>(<span class="at">y =</span> .resid, <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(rt_full_aug))) <span class="sc">+</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Order of data collection"</span>, <span class="at">y =</span> <span class="st">"Residuals"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">ggplot</span>(rt_full_aug, <span class="fu">aes</span>(<span class="at">y =</span> .resid, <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(rt_full_aug))) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Order of data collection"</span>, <span class="at">y =</span> <span class="st">"Residuals"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="lec-17_files/figure-revealjs/unnamed-chunk-13-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
 <section id="checking-independence-2" class="slide level2">
 <h2>Checking independence</h2>
-<p>Residuals vs.&nbsp;predicted values by <code>season</code>:</p>
+<p>Residuals vs.&nbsp;predicted values by <code>season</code>: overlap a lot</p>
 
 <img data-src="lec-17_files/figure-revealjs/unnamed-chunk-14-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
 <section id="checking-independence-3" class="slide level2">
 <h2>Checking independence</h2>
-<p>Residuals vs.&nbsp;predicted values by <code>day_type</code>:</p>
+<p>Residuals vs.&nbsp;predicted values by <code>day_type</code>: overlap a lot</p>
 
 <img data-src="lec-17_files/figure-revealjs/unnamed-chunk-15-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
 <section id="checking-independence-4" class="slide level2">
@@ -630,7 +625,7 @@
 <h2>Why multicollinearity is a problem</h2>
 <ul>
 <li class="fragment"><p>We can’t include two variables that have a perfect linear association with each other</p></li>
-<li class="fragment"><p>Mathematically, cannot find unique estimates for the model coefficients</p></li>
+<li class="fragment"><p>Mathematically, cannot find unique estimates for the model coefficients - - non-identifiability</p></li>
 </ul>
 </section>
 <section id="example" class="slide level2 smaller">
@@ -657,9 +652,19 @@
 <section id="why-multicollinearity-is-a-problem-1" class="slide level2">
 <h2>Why multicollinearity is a problem</h2>
 <ul>
-<li class="fragment"><p>When we have almost perfect collinearities (i.e.&nbsp;highly correlated predictor variables), the standard errors for our regression coefficients <strong>inflate</strong></p></li>
+<li class="fragment"><p>When we have almost perfect collinearities (i.e.&nbsp;highly correlated predictor variables), the standard errors for our regression coefficients <strong>inflate</strong> (uncertainty on identification)</p></li>
 <li class="fragment"><p>Lose precision in our estimates of the regression coefficients</p></li>
 <li class="fragment"><p>Impedes model inference or prediction</p></li>
+</ul>
+</section>
+<section id="will-not-influence-the-point-estimate" class="slide level2 smaller">
+<h2>Will not influence the point estimate</h2>
+<p>Geometric explanation for multiple regression (for model with 2 predictors):</p>
+<ul>
+<li class="fragment">Data points locate in a 3D space expanded by (y,x1,x2).</li>
+<li class="fragment">MLR is a line go through the center of the data “cloud”</li>
+<li class="fragment">If we slice the space with constant <span class="math inline">\(x_1\)</span>, we obtain projection of the regression line to the plane <span class="math inline">\(x_2=c\)</span>. The projection is a line with the slope <span class="math inline">\(\beta_1\)</span>. So <span class="math inline">\(\beta_1\)</span> is interpreted as: if <span class="math inline">\(x_1\)</span> increases by 1 unit, we expect <span class="math inline">\(y\)</span> increases by <span class="math inline">\(\beta_1\)</span>, on average, <strong>hold other constant</strong>.</li>
+<li class="fragment">If <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> linear related, it is like rotate the line on <span class="math inline">\((y,x_1)\)</span> space to <span class="math inline">\((y,x_1,x_2)\)</span> space. So add <span class="math inline">\(x_2\)</span> will not change the point estimate of <span class="math inline">\(\beta_1\)</span> much. But due to the nonidentifiability, the se will inflate.</li>
 </ul>
 </section>
 <section id="detecting-multicollinearity" class="slide level2">
@@ -704,7 +709,7 @@
 <section id="vif-for-sat-model" class="slide level2">
 <h2>VIF For SAT Model</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">vif</span>(rt_full_fit<span class="sc">$</span>fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">vif</span>(rt_full_fit<span class="sc">$</span>fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       hightemp         avgtemp    seasonSpring    seasonSummer      cloudcover 
       10.259978       13.086175        2.751577        5.841985        1.587485 
@@ -719,12 +724,12 @@
 <section id="model-without-hightemp" class="slide level2 smaller">
 <h2>Model without <code>hightemp</code></h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">fit</span>(volume <span class="sc">~</span> . <span class="sc">-</span> hightemp, <span class="at">data =</span> rail_trail)</span>
-<span id="cb12-4"><a href="#cb12-4"></a>  </span>
-<span id="cb12-5"><a href="#cb12-5"></a>m1 <span class="sc">%&gt;%</span> <span class="fu">tidy</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb12-6"><a href="#cb12-6"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">fit</span>(volume <span class="sc">~</span> . <span class="sc">-</span> hightemp, <span class="at">data =</span> rail_trail)</span>
+<span id="cb13-4"><a href="#cb13-4"></a>  </span>
+<span id="cb13-5"><a href="#cb13-5"></a>m1 <span class="sc">%&gt;%</span> <span class="fu">tidy</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table>
 <thead>
@@ -789,8 +794,8 @@
 </tbody>
 </table>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">glance</span>(m1) <span class="sc">%&gt;%</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">select</span>(adj.r.squared, AIC, BIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">glance</span>(m1) <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">select</span>(adj.r.squared, AIC, BIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 3
   adj.r.squared   AIC   BIC
@@ -802,12 +807,12 @@
 <section id="model-without-avgtemp" class="slide level2 smaller">
 <h2>Model without <code>avgtemp</code></h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">fit</span>(volume <span class="sc">~</span> . <span class="sc">-</span> avgtemp, <span class="at">data =</span> rail_trail)</span>
-<span id="cb15-4"><a href="#cb15-4"></a>  </span>
-<span id="cb15-5"><a href="#cb15-5"></a>m2 <span class="sc">%&gt;%</span> <span class="fu">tidy</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb15-6"><a href="#cb15-6"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a>  <span class="fu">fit</span>(volume <span class="sc">~</span> . <span class="sc">-</span> avgtemp, <span class="at">data =</span> rail_trail)</span>
+<span id="cb16-4"><a href="#cb16-4"></a>  </span>
+<span id="cb16-5"><a href="#cb16-5"></a>m2 <span class="sc">%&gt;%</span> <span class="fu">tidy</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb16-6"><a href="#cb16-6"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table>
 <thead>
@@ -872,8 +877,8 @@
 </tbody>
 </table>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">glance</span>(m2) <span class="sc">%&gt;%</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a>  <span class="fu">select</span>(adj.r.squared, AIC, BIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">glance</span>(m2) <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a>  <span class="fu">select</span>(adj.r.squared, AIC, BIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 3
   adj.r.squared   AIC   BIC

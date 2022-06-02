@@ -4785,7 +4785,7 @@
     "href": "slides/lec-16.html#mlr-hypothesis-test-hightemp",
     "title": "MLR: Inference",
     "section": "MLR hypothesis test: hightemp",
-    "text": "MLR hypothesis test: hightemp\n\nSet hypotheses: \\(H_0: \\beta_{hightemp} = 0\\) and \\(H_A: \\beta_{hightemp} \\ne 0\\), given season is in the model\n\n\n\nCalculate test statistic and p-value: The test statistic is \\(t = 6.43\\) with a degrees of freedom of 86, and a p-value < 0.0001.\n\n\n\n\nState the conclusion: With such a small p-value, the data provides strong evidence against \\(H_0\\), i.e., the data provide strong evidence that high temperature for the day is a helpful predictor in a model that already contains whether the given day is a weekday as a predictor for number of daily riders."
+    "text": "MLR hypothesis test: hightemp\n\nSet hypotheses: \\(H_0: \\beta_{hightemp} = 0\\) and \\(H_A: \\beta_{hightemp} \\ne 0\\), given season is in the model\n\n\n\nCalculate test statistic and p-value: The test statistic is \\(t = 6.43\\) with a degrees of freedom of 86, and a p-value < 0.0001.\n\n\n\n\nState the conclusion: With such a small p-value, the data provides strong evidence against \\(H_0\\), i.e., the data provide strong evidence that high temperature for the day is a helpful predictor in a model given season is in the model"
   },
   {
     "objectID": "slides/lec-16.html#the-model-for-season-spring",
@@ -4995,7 +4995,7 @@
     "href": "slides/lec-17.html#overlaying-a-density-plot-on-a-histogram",
     "title": "MLR: Inference conditions + multicollinearity",
     "section": "Overlaying a density plot on a histogram",
-    "text": "Overlaying a density plot on a histogram\n\n📋 ae-8-rail-trail\n\n\n\n\nEx 3. Recreate the following visualization in R based on the results of the model."
+    "text": "Overlaying a density plot on a histogram\n\nOverlay density plot on a histogram +geom_density()\nOverlay a normal density plot on a histogram to compare whether normal assumption is reasonable (adjust bin width)\n\n\nggplot(rt_full_aug, aes(.resid)) +\n  geom_histogram(aes(y = after_stat(density)), binwidth = 50) +\n  stat_function(\n    fun = dnorm, \n    args = list(mean = mean(rt_full_aug$.resid), sd = sd(rt_full_aug$.resid)), \n    lwd = 2, \n    color = \"red\"\n  )"
   },
   {
     "objectID": "slides/lec-17.html#checking-independence",
@@ -5016,14 +5016,14 @@
     "href": "slides/lec-17.html#checking-independence-2",
     "title": "MLR: Inference conditions + multicollinearity",
     "section": "Checking independence",
-    "text": "Checking independence\nResiduals vs. predicted values by season:"
+    "text": "Checking independence\nResiduals vs. predicted values by season: overlap a lot"
   },
   {
     "objectID": "slides/lec-17.html#checking-independence-3",
     "href": "slides/lec-17.html#checking-independence-3",
     "title": "MLR: Inference conditions + multicollinearity",
     "section": "Checking independence",
-    "text": "Checking independence\nResiduals vs. predicted values by day_type:"
+    "text": "Checking independence\nResiduals vs. predicted values by day_type: overlap a lot"
   },
   {
     "objectID": "slides/lec-17.html#checking-independence-4",
@@ -5037,7 +5037,7 @@
     "href": "slides/lec-17.html#why-multicollinearity-is-a-problem",
     "title": "MLR: Inference conditions + multicollinearity",
     "section": "Why multicollinearity is a problem",
-    "text": "Why multicollinearity is a problem\n\nWe can’t include two variables that have a perfect linear association with each other\nMathematically, cannot find unique estimates for the model coefficients"
+    "text": "Why multicollinearity is a problem\n\nWe can’t include two variables that have a perfect linear association with each other\nMathematically, cannot find unique estimates for the model coefficients - - non-identifiability"
   },
   {
     "objectID": "slides/lec-17.html#example",
@@ -5058,7 +5058,7 @@
     "href": "slides/lec-17.html#why-multicollinearity-is-a-problem-1",
     "title": "MLR: Inference conditions + multicollinearity",
     "section": "Why multicollinearity is a problem",
-    "text": "Why multicollinearity is a problem\n\nWhen we have almost perfect collinearities (i.e. highly correlated predictor variables), the standard errors for our regression coefficients inflate\nLose precision in our estimates of the regression coefficients\nImpedes model inference or prediction"
+    "text": "Why multicollinearity is a problem\n\nWhen we have almost perfect collinearities (i.e. highly correlated predictor variables), the standard errors for our regression coefficients inflate (uncertainty on identification)\nLose precision in our estimates of the regression coefficients\nImpedes model inference or prediction"
   },
   {
     "objectID": "slides/lec-17.html#detecting-multicollinearity",
@@ -5198,6 +5198,13 @@
     "href": "ae/ae-8-rail-trail.html#exercise-3",
     "title": "AE 8: Rail Trail",
     "section": "Exercise 3",
-    "text": "Exercise 3\nFit a model predicting volume from all available predictors.\n\nrt_full_fit <- linear_reg() %>%\n  set_engine(\"lm\") %>%\n  fit(volume ~ ., data = rail_trail)\n\ntidy(rt_full_fit)\n\n# A tibble: 8 × 5\n  term            estimate std.error statistic p.value\n  <chr>              <dbl>     <dbl>     <dbl>   <dbl>\n1 (Intercept)        17.6      76.6      0.230 0.819  \n2 hightemp            7.07      2.42     2.92  0.00450\n3 avgtemp            -2.04      3.14    -0.648 0.519  \n4 seasonSpring       35.9      33.0      1.09  0.280  \n5 seasonSummer       24.2      52.8      0.457 0.649  \n6 cloudcover         -7.25      3.84    -1.89  0.0627 \n7 precip            -95.7      42.6     -2.25  0.0273 \n8 day_typeWeekend    35.9      22.4      1.60  0.113  \n\n\nRecreate the following visualization which displays a histogram of residuals and a normal density curve overlaid."
+    "text": "Exercise 3\nFit a model predicting volume from all available predictors.\n\nrt_full_fit <- linear_reg() %>%\n  set_engine(\"lm\") %>%\n  fit(volume ~ ., data = rail_trail)\n\ntidy(rt_full_fit)\n\n# A tibble: 8 × 5\n  term            estimate std.error statistic p.value\n  <chr>              <dbl>     <dbl>     <dbl>   <dbl>\n1 (Intercept)        17.6      76.6      0.230 0.819  \n2 hightemp            7.07      2.42     2.92  0.00450\n3 avgtemp            -2.04      3.14    -0.648 0.519  \n4 seasonSpring       35.9      33.0      1.09  0.280  \n5 seasonSummer       24.2      52.8      0.457 0.649  \n6 cloudcover         -7.25      3.84    -1.89  0.0627 \n7 precip            -95.7      42.6     -2.25  0.0273 \n8 day_typeWeekend    35.9      22.4      1.60  0.113  \n\n\nRecreate the following visualization which displays a histogram of residuals (y-axis should be frequency) and a density curve overlaid."
+  },
+  {
+    "objectID": "slides/lec-17.html#will-not-influence-the-point-estimate",
+    "href": "slides/lec-17.html#will-not-influence-the-point-estimate",
+    "title": "MLR: Inference conditions + multicollinearity",
+    "section": "Will not influence the point estimate",
+    "text": "Will not influence the point estimate\nGeometric explanation for multiple regression (for model with 2 predictors):\n\nData points locate in a 3D space expanded by (y,x1,x2).\nMLR is a line go through the center of the data “cloud”\nIf we slice the space with constant \\(x_1\\), we obtain projection of the regression line to the plane \\(x_2=c\\). The projection is a line with the slope \\(\\beta_1\\). So \\(\\beta_1\\) is interpreted as: if \\(x_1\\) increases by 1 unit, we expect \\(y\\) increases by \\(\\beta_1\\), on average, hold other constant.\nIf \\(x_1\\) and \\(x_2\\) linear related, it is like rotate the line on \\((y,x_1)\\) space to \\((y,x_1,x_2)\\) space. So add \\(x_2\\) will not change the point estimate of \\(\\beta_1\\) much. But due to the nonidentifiability, the se will inflate."
   }
 ]
