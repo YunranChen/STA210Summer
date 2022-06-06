@@ -34,7 +34,7 @@ library(countdown)
 ## Topics
 
 ::: nonincremental
--   Bulding predictive logistic regression models
+-   Building predictive logistic regression models
 -   Sensitivity and specificity
 -   Making classification decisions
 :::

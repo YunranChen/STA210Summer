@@ -33,9 +33,9 @@ library(countdown)
 
 ## Announcements
 
--   Exam 2 scores are posted, please review the feedback asap
+-   Exam 2 scores for part 1 are posted
 
--   Project proposals due tomorrow (Friday), at 5pm
+-   Project proposals + AE 9 due Wednesday, June 8, at 11:59pm
 
 ## Topics
 

@@ -26,7 +26,6 @@ knitr::opts_chunk$set(
   fig.retina = 3, dpi = 300, fig.align = "center"
 )
 
-library(countdown)
 ```
 
 # Welcome

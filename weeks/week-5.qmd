@@ -1,6 +1,6 @@
 ---
 title: "Week 5"
-subtitle: " Logistic regressio"
+subtitle: " Logistic regression"
 editor: visual
 ---
 
@@ -34,10 +34,9 @@ editor: visual
 
 🖥️ [Lecture 21 - LR: Model validation](/slides/lec-21.html)
 
-🖥️ [Lecture 22 - LR: Inference + conditions](/slides/lec-22.html)
+🖥️ [Lecture 22 - LR: Inference + comparison + conditions](/slides/lec-22.html)
 
-🖥️ [Lecture 23 - Multinomial logistic regression (MultiLR)](/slides/lec-23.html)
-
+🖥️ [Lecture 23 - MultiLR: Prediction + inferential models](/slides/lec-23.html)
 ## Practice
 
 📋 [Application Exercise 9 - Odds](/ae/ae-9-odds.html)

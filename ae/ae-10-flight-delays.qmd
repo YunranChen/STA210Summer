@@ -140,6 +140,12 @@ flight_aug1 %>%
 
 ```
 
+12. Compare two models based on ROC curve. Also, calculate their AUCs, AIC, BIC and construct Drop-in-deviance test to make comparison
+
+13. Choose the best model and construct a hypothesis testing based on the question you are interested in. Also construct a confidence interval of a coefficient you are interested in. Interpret your result
+
+14. Check the conditions of your model and make comments.
+
 ## Acknowledgement
 
 This exercise was inspired by <https://www.tidymodels.org/start/recipes/>.

@@ -3,19 +3,9 @@ title: "Logistic regression"
 subtitle: "STA 210 - Summer 2022"
 author: "Yunran Chen"
 footer:  "[yunranchen.github.io/STA210Summer/](https://yunranchen.github.io/STA210Summer/)"
-logo: "images/logo.png"
-format: 
-  revealjs:
-    theme: slides.scss
-    transition: fade
-    slide-number: true
-    incremental: true 
-    chalkboard: true
-editor: visual
-execute:
-  freeze: auto
-  echo: true
+format: beamer
 ---
+
 
 ```{r}
 #| include: false
@@ -48,7 +38,7 @@ library(countdown)
 
 ```{r}
 #| warning: false
-
+#| echo: true
 # load packages
 library(tidyverse)
 library(tidymodels)

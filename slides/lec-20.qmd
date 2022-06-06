@@ -148,6 +148,7 @@ email_rec
 ```{r}
 email_rec <- email_rec %>%
   step_cut(cc, attach, dollar, breaks = c(0, 1))
+# cut numeric to factor based on breaks 0 and 1
 ```
 
 ```{r echo=FALSE}
@@ -269,8 +270,7 @@ email_pred %>%
     -   Sensitivity = 1 − False negative rate
 -   Specificity = P(classified as not spam \| Email not spam) = TN / (FP + TN)
     -   Specificity = 1 − False positive rate
-
-. . .
+-   True/True . . .
 
 ::: question
 If you were designing a spam filter, would you want sensitivity and specificity to be high or low? What are the trade-offs associated with each decision?
@@ -295,6 +295,7 @@ email_pred %>%
     truth = spam,
     .pred_1,
     event_level = "second"
+    # "first" or "second" to be the event: 1-spam
   ) %>%
   autoplot()
 ```
@@ -318,6 +319,7 @@ email_pred %>%
     .pred_1,
     event_level = "second"
   )
+# ROC draw based on different thresholds
 ```
 
 ## ROC curve
@@ -351,6 +353,8 @@ email_pred %>%
 ```
 
 ## Evaluate the performance
+
+Area under ROC curve
 
 ```{r}
 #| label: roc-auc
