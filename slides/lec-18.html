@@ -403,6 +403,7 @@
 <h2>Announcements</h2>
 <ul>
 <li class="fragment">Any questions on project proposals?</li>
+<li class="fragment">Exam 2 is due on 11:59 pm today.</li>
 </ul>
 </section>
 <section id="topics" class="slide level2">
@@ -439,7 +440,7 @@
 <li class="fragment"><strong>Model</strong>: Expected sales price given the number of bedrooms, lot size, etc.</li>
 </ul>
 <div class="fragment">
-<p><strong>Categorical outcone variable</strong>:</p>
+<p><strong>Categorical outcome variable</strong>:</p>
 <ul>
 <li class="fragment">High risk of coronary heart disease</li>
 <li class="fragment"><strong>Model</strong>: Probability an adult is high risk of heart disease given their age, total cholesterol, etc.</li>
@@ -468,7 +469,7 @@
 <section id="nba-finals-predictions" class="slide level2">
 <h2>NBA finals predictions</h2>
 
-<img data-src="images/lec-18/nba-predictions.png" class="r-stretch quarto-figure-center"><p>Source: <a href="https://projects.fivethirtyeight.com/2020-nba-predictions/games/?ex_cid=rrpromo">FiveThirtyEight 2019-20 NBA Predictions</a></p>
+<img data-src="images/lec-18/nba-pred.png" class="r-stretch quarto-figure-center"><p>Source: <a href="https://projects.fivethirtyeight.com/2022-nba-predictions/games/">FiveThirtyEight 2021-22 NBA Predictions</a></p>
 </section>
 <section id="do-teenagers-get-7-hours-of-sleep" class="slide level2 smaller">
 <h2>Do teenagers get 7+ hours of sleep?</h2>
@@ -553,9 +554,9 @@
 <h2>Different types of models</h2>
 <table>
 <colgroup>
-<col style="width: 27%">
-<col style="width: 21%">
-<col style="width: 50%">
+<col style="width: 26%">
+<col style="width: 26%">
+<col style="width: 47%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -571,11 +572,6 @@
 <td><span class="math inline">\(Y = \beta_0 + \beta_1~ X\)</span></td>
 </tr>
 <tr class="even">
-<td>Linear regression (transform Y)</td>
-<td>Quantitative</td>
-<td><span class="math inline">\(\log(Y) = \beta_0 + \beta_1~ X\)</span></td>
-</tr>
-<tr class="odd">
 <td>Logistic regression</td>
 <td>Binary</td>
 <td><span class="math inline">\(\log\big(\frac{\pi}{1-\pi}\big) = \beta_0 + \beta_1 ~ X\)</span></td>
@@ -660,9 +656,7 @@
 <p><strong>Logit form</strong>: <span class="math display">\[\log\big(\frac{\pi}{1-\pi}\big) = \beta_0 + \beta_1~X\]</span></p>
 <div class="fragment">
 <p><strong>Probability form</strong>:</p>
-<p>$$</p>
-<p>= </p>
-<p>$$</p>
+<p><span class="math display">\[\pi = \frac{\exp\{\beta_0 + \beta_1~X\}}{1 + \exp\{\beta_0 + \beta_1~X\}}\]</span></p>
 </div>
 </section>
 <section id="risk-of-coronary-heart-disease" class="slide level2">
@@ -682,7 +676,7 @@
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>heart_disease <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"slides"</span>, <span class="st">"data/framingham.csv"</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">select</span>(age, TenYearCHD) <span class="sc">%&gt;%</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">drop_na</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">drop_na</span>() <span class="sc">%&gt;%</span> <span class="co"># drop observations with NAs</span></span>
 <span id="cb8-4"><a href="#cb8-4"></a>  <span class="fu">mutate</span>(<span class="at">high_risk =</span> <span class="fu">as.factor</span>(TenYearCHD)) <span class="sc">%&gt;%</span></span>
 <span id="cb8-5"><a href="#cb8-5"></a>  <span class="fu">select</span>(age, high_risk)</span>
 <span id="cb8-6"><a href="#cb8-6"></a></span>
@@ -789,9 +783,7 @@
 </table>
 </div>
 </div>
-<p>. . .<br>
-<br>
-<span class="math display">\[\log\Big(\frac{\hat{\pi}}{1-\hat{\pi}}\Big) = -5.561 + 0.075 \times \text{age}\]</span> where <span class="math inline">\(\hat{\pi}\)</span> is the predicted probability of being high risk</p>
+<p><span class="math display">\[\log\Big(\frac{\hat{\pi}}{1-\hat{\pi}}\Big) = -5.561 + 0.075 \times \text{age}\]</span> where <span class="math inline">\(\hat{\pi}\)</span> is the predicted probability of being high risk</p>
 </section>
 <section id="predicted-log-odds" class="slide level2">
 <h2>Predicted log odds</h2>
@@ -918,7 +910,7 @@
 <section id="application-exercise" class="slide level2">
 <h2>Application exercise</h2>
 <div class="appex">
-<p>📋 <a href="https://github.com/STA210-Summer22/ae-9-odds">github.com/STA210-Summer22/ae-9-odds</a></p>
+<p>📋 <a href="https://yunranchen.github.io/STA210Summer/ae/ae-9-odds.html">ae-9-odds</a></p>
 </div>
 
 
