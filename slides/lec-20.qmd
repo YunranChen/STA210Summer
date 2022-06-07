@@ -31,10 +31,15 @@ library(countdown)
 
 # Welcome
 
+## Announcement
+
+-   Proposals and AE 9 due today 11:59 pm
+-   Welcome our observer, Ben
+
 ## Topics
 
 ::: nonincremental
--   Bulding predictive logistic regression models
+-   Building predictive logistic regression models
 -   Sensitivity and specificity
 -   Making classification decisions
 :::
@@ -224,6 +229,20 @@ email_fit <- email_wflow %>%
 tidy(email_fit) %>% print(n = 31)
 ```
 
+## Interpretation {.smaller}
+
+-   TRUE or FALSE
+
+-   Holding other constant, with 1 unit increase of image, we expect the log-odds of being a spam decrease 1.72, on average.
+
+-   Holding other constant, the odds of being a spam for those emails containing word "winner", is $exp(2.25)$ times the odds for those without word "winner".
+
+-   No "on average". Include "we expect"
+
+```{r}
+tidy(email_fit)[c(2,14),]
+```
+
 # Make predictions
 
 ## Make predictions for test data
@@ -234,19 +253,24 @@ email_pred <- predict(email_fit, email_test, type = "prob") %>%
 email_pred
 ```
 
-## A closer look at predictions
-
-::: question
-Which of the following 10 emails will be misclassified?
-:::
-
-```{r}
-email_pred %>%
-  arrange(desc(.pred_1)) %>%
-  select(contains("pred"), spam)
-```
-
 # Sensitivity and specificity
+
+## False positive and negative {.smaller}
+
+|                              | +(True)                 | -(True)             |
+|------------------------|------------------------|------------------------|
+| +(Model)     | True positive                 | False positive (Type 1 error) |
+| -(Model) | False negative (Type 2 error) | True negative                 |
+
+-   False negative rate = P(classified as - \| Truth is +) = FN / (TP + FN)
+
+-   False positive rate = P(classified as + \| Truth is -) = FP / (FP + TN)
+
+-   Sensitivity = P(classified as + \| Truth is +) = TP / (TP + FN)
+
+-   Specificity = P(classified as - \| Truth is -) = TN / (FP + TN)
+
+- W.R.T column it belongs to.
 
 ## False positive and negative {.smaller}
 
@@ -270,11 +294,23 @@ email_pred %>%
     -   Sensitivity = 1 − False negative rate
 -   Specificity = P(classified as not spam \| Email not spam) = TN / (FP + TN)
     -   Specificity = 1 − False positive rate
--   True/True . . .
 
-::: question
-If you were designing a spam filter, would you want sensitivity and specificity to be high or low? What are the trade-offs associated with each decision?
+
+
+## COVID Rapid Tests
+
+-   [Read COVID Rapid Tests](https://www.mcgill.ca/oss/article/covid-19/navigating-false-negatives-covid-rapid-tests)
+
+-   How to interpret "False positives with rapid tests are extremely rare, with one research letter in JAMA pegging the false positivity rate at 0.05%"
+
+-   How to interpret "the sensitivity of rapid tests to detect the Omicron variant was 37 percent, compared to 81 percent for Delta"
+
+. . .
+
+::: question?
+If you were designing a COVID Rapid Test, would you care more about sensitivity or specificity? Would you want sensitivity and specificity to be high or low? What are the trade-offs associated with each decision?
 :::
+
 
 ## Evaluate the performance
 

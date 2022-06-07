@@ -8,9 +8,9 @@ title: "Project description"
 
 [Proposal](#project-proposal) due Wed, June 8
 
-[Draft report](#draft-report) due Sun, June 19
+[Draft report](#draft-report) due Wed, June 15
 
-[Project peer review of drafts](https://sta210-s22.github.io/website/project-description.html#peer-review) due Mon, June 20
+[Project peer review of drafts](https://sta210-s22.github.io/website/project-description.html#peer-review) due Thur, June 16
 
 [Final report](#written-report) due Wed, June 22
 
@@ -170,11 +170,9 @@ Critically reviewing others' work is a crucial part of the scientific process, a
 
 During the peer review process, you will be provided read-only access to your partner teams' GitHub repos. Provide your review in the form of GitHub issues to your partner team's GitHub repo using the issue template provided. The peer review will be graded on the extent to which it comprehensively and constructively addresses the components of the partner team's report: the research context and motivation, exploratory data analysis, modeling, interpretations, and conclusions.
 
-
 ### Process and questions
 
 Spend \~30 mins to review the other team's project.
-
 
 -   Open the repo of the team you're reviewing, read their project draft, and browser around the rest of their repo.
 -   Then, go to the Issues tab in that repo, click on New issue, and click on Get started for the Peer review issue. Fill out this issue, answering the following questions:
@@ -318,7 +316,6 @@ Once your video is ready, upload the video to Warpwire, then embed the video in 
 Watch the other group's video, then click "Reply" to post a question for the group. You may not post a question that's already been asked on the discussion thread. Additionally, the question should be (i) substantive (i.e. it shouldn't be "Why did you use a bar plot instead of a pie chart"?), (ii) demonstrate your understanding of the content from the course, and (iii) relevant to that group's specific presentation, i.e demonstrating that you've watched the presentation.
 
 *This portion of the project will be assessed individually.*
-
 
 ## Reproducibility + organization
 
