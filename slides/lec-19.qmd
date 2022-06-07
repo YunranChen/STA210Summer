@@ -37,6 +37,12 @@ library(countdown)
 
 -   Project proposals + AE 9 due Wednesday, June 8, at 11:59pm
 
+## Exam 2
+
+-   Conceptual part
+-   Applied part
+
+
 ## Topics
 
 ::: nonincremental
