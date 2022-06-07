@@ -399,11 +399,18 @@
 <h1>Welcome</h1>
 
 </section>
+<section id="announcement" class="slide level2">
+<h2>Announcement</h2>
+<ul>
+<li class="fragment">Proposals and AE 9 due today 11:59 pm</li>
+<li class="fragment">Welcome our observer, Ben</li>
+</ul>
+</section>
 <section id="topics" class="slide level2">
 <h2>Topics</h2>
 <div>
 <ul>
-<li>Bulding predictive logistic regression models</li>
+<li>Building predictive logistic regression models</li>
 <li>Sensitivity and specificity</li>
 <li>Making classification decisions</li>
 </ul>
@@ -738,6 +745,25 @@ Computational engine: glm </code></pre>
 27 time_month_Mar  0.524     0.186      2.82   4.81e- 3</code></pre>
 </div>
 </div>
+</section>
+<section id="interpretation" class="slide level2 smaller">
+<h2>Interpretation</h2>
+<ul>
+<li class="fragment"><p>TRUE or FALSE</p></li>
+<li class="fragment"><p>Holding other constant, with 1 unit increase of image, we expect the log-odds of being a spam decrease 1.72, on average.</p></li>
+<li class="fragment"><p>Holding other constant, the odds of being a spam for those emails containing word “winner”, is <span class="math inline">\(exp(2.25)\)</span> times the odds for those without word “winner”.</p></li>
+<li class="fragment"><p>No “on average”. Include “we expect”</p></li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">tidy</span>(email_fit)[<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">14</span>),]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 5
+  term       estimate std.error statistic     p.value
+  &lt;chr&gt;         &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
+1 image         -1.72     0.941     -1.83 0.0678     
+2 winner_yes     2.25     0.438      5.14 0.000000279</code></pre>
+</div>
+</div>
 </section></section>
 <section>
 <section id="make-predictions" class="title-slide slide level1 center">
@@ -747,9 +773,9 @@ Computational engine: glm </code></pre>
 <section id="make-predictions-for-test-data" class="slide level2">
 <h2>Make predictions for test data</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>email_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(email_fit, email_test, <span class="at">type =</span> <span class="st">"prob"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb22-2"><a href="#cb22-2"></a>  <span class="fu">bind_cols</span>(email_test) </span>
-<span id="cb22-3"><a href="#cb22-3"></a>email_pred</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>email_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(email_fit, email_test, <span class="at">type =</span> <span class="st">"prob"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-2"><a href="#cb24-2"></a>  <span class="fu">bind_cols</span>(email_test) </span>
+<span id="cb24-3"><a href="#cb24-3"></a>email_pred</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 981 × 23
    .pred_0  .pred_1 spam  to_multiple from     cc sent_email time               
@@ -770,33 +796,6 @@ Computational engine: glm </code></pre>
 #   exclaim_subj &lt;dbl&gt;, urgent_subj &lt;fct&gt;, exclaim_mess &lt;dbl&gt;, number &lt;fct&gt;</code></pre>
 </div>
 </div>
-</section>
-<section id="a-closer-look-at-predictions" class="slide level2">
-<h2>A closer look at predictions</h2>
-<div class="question">
-<p>Which of the following 10 emails will be misclassified?</p>
-</div>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>email_pred <span class="sc">%&gt;%</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(.pred_1)) <span class="sc">%&gt;%</span></span>
-<span id="cb24-3"><a href="#cb24-3"></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">"pred"</span>), spam)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 981 × 3
-   .pred_0 .pred_1 spam 
-     &lt;dbl&gt;   &lt;dbl&gt; &lt;fct&gt;
- 1  0.0223   0.978 1    
- 2  0.107    0.893 0    
- 3  0.109    0.891 1    
- 4  0.140    0.860 1    
- 5  0.149    0.851 0    
- 6  0.163    0.837 1    
- 7  0.197    0.803 0    
- 8  0.207    0.793 0    
- 9  0.235    0.765 1    
-10  0.240    0.760 1    
-# … with 971 more rows</code></pre>
-</div>
-</div>
 </section></section>
 <section>
 <section id="sensitivity-and-specificity" class="title-slide slide level1 center">
@@ -804,6 +803,42 @@ Computational engine: glm </code></pre>
 
 </section>
 <section id="false-positive-and-negative" class="slide level2 smaller">
+<h2>False positive and negative</h2>
+<table>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>+(True)</th>
+<th>-(True)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>+(Model)</td>
+<td>True positive</td>
+<td>False positive (Type 1 error)</td>
+</tr>
+<tr class="even">
+<td>-(Model)</td>
+<td>False negative (Type 2 error)</td>
+<td>True negative</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li class="fragment"><p>False negative rate = P(classified as - | Truth is +) = FN / (TP + FN)</p></li>
+<li class="fragment"><p>False positive rate = P(classified as + | Truth is -) = FP / (FP + TN)</p></li>
+<li class="fragment"><p>Sensitivity = P(classified as + | Truth is +) = TP / (TP + FN)</p></li>
+<li class="fragment"><p>Specificity = P(classified as - | Truth is -) = TN / (FP + TN)</p></li>
+<li class="fragment"><p>W.R.T column it belongs to.</p></li>
+</ul>
+</section>
+<section id="false-positive-and-negative-1" class="slide level2 smaller">
 <h2>False positive and negative</h2>
 <table>
 <colgroup>
@@ -873,10 +908,19 @@ Computational engine: glm </code></pre>
 <ul>
 <li class="fragment">Specificity = 1 − False positive rate</li>
 </ul></li>
-<li class="fragment">True/True . . .</li>
 </ul>
-<div class="question">
-<p>If you were designing a spam filter, would you want sensitivity and specificity to be high or low? What are the trade-offs associated with each decision?</p>
+</section>
+<section id="covid-rapid-tests" class="slide level2">
+<h2>COVID Rapid Tests</h2>
+<ul>
+<li class="fragment"><p><a href="https://www.mcgill.ca/oss/article/covid-19/navigating-false-negatives-covid-rapid-tests">Read COVID Rapid Tests</a></p></li>
+<li class="fragment"><p>How to interpret “False positives with rapid tests are extremely rare, with one research letter in JAMA pegging the false positivity rate at 0.05%”</p></li>
+<li class="fragment"><p>How to interpret “the sensitivity of rapid tests to detect the Omicron variant was 37 percent, compared to 81 percent for Delta”</p></li>
+</ul>
+<div class="fragment">
+<div class="question?">
+<p>If you were designing a COVID Rapid Test, would you care more about sensitivity or specificity? Would you want sensitivity and specificity to be high or low? What are the trade-offs associated with each decision?</p>
+</div>
 </div>
 </section>
 <section id="evaluate-the-performance" class="slide level2">

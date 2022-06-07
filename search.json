@@ -2034,7 +2034,7 @@
     "href": "project-description.html",
     "title": "Project description",
     "section": "",
-    "text": "Topic ideas due Sun, May 29\nProposal due Wed, June 8\nDraft report due Sun, June 19\nProject peer review of drafts due Mon, June 20\nFinal report due Wed, June 22\nVideo presentation + slides and final GitHub repo due Wed, June 22\nPresentation comments due Wed, June 22"
+    "text": "Topic ideas due Sun, May 29\nProposal due Wed, June 8\nDraft report due Wed, June 15\nProject peer review of drafts due Thur, June 16\nFinal report due Wed, June 22\nVideo presentation + slides and final GitHub repo due Wed, June 22\nPresentation comments due Wed, June 22"
   },
   {
     "objectID": "project-description.html#introduction",
@@ -5247,7 +5247,7 @@
     "href": "slides/lec-20.html#topics",
     "title": "LR: Prediction / classification",
     "section": "Topics",
-    "text": "Topics\n\n\nBulding predictive logistic regression models\nSensitivity and specificity\nMaking classification decisions"
+    "text": "Topics\n\n\nBuilding predictive logistic regression models\nSensitivity and specificity\nMaking classification decisions"
   },
   {
     "objectID": "slides/lec-20.html#computational-setup",
@@ -5373,14 +5373,14 @@
     "href": "slides/lec-20.html#false-positive-and-negative",
     "title": "LR: Prediction / classification",
     "section": "False positive and negative",
-    "text": "False positive and negative\n\n\n\n\n\n\n\n\n\nEmail is spam\nEmail is not spam\n\n\n\n\nEmail classified as spam\nTrue positive\nFalse positive (Type 1 error)\n\n\nEmail classified as not spam\nFalse negative (Type 2 error)\nTrue negative\n\n\n\n\nFalse negative rate = P(classified as not spam | Email spam) = FN / (TP + FN)\nFalse positive rate = P(classified as spam | Email not spam) = FP / (FP + TN)"
+    "text": "False positive and negative\n\n\n\n\n\n\n\n\n\n+(True)\n-(True)\n\n\n\n\n+(Model)\nTrue positive\nFalse positive (Type 1 error)\n\n\n-(Model)\nFalse negative (Type 2 error)\nTrue negative\n\n\n\n\nFalse negative rate = P(classified as - | Truth is +) = FN / (TP + FN)\nFalse positive rate = P(classified as + | Truth is -) = FP / (FP + TN)\nSensitivity = P(classified as + | Truth is +) = TP / (TP + FN)\nSpecificity = P(classified as - | Truth is -) = TN / (FP + TN)\nW.R.T column it belongs to."
   },
   {
     "objectID": "slides/lec-20.html#sensitivity-and-specificity-1",
     "href": "slides/lec-20.html#sensitivity-and-specificity-1",
     "title": "LR: Prediction / classification",
     "section": "Sensitivity and specificity",
-    "text": "Sensitivity and specificity\n\n\n\n\n\n\n\n\n\nEmail is spam\nEmail is not spam\n\n\n\n\nEmail classified as spam\nTrue positive\nFalse positive (Type 1 error)\n\n\nEmail classified as not spam\nFalse negative (Type 2 error)\nTrue negative\n\n\n\n\nSensitivity = P(classified as spam | Email spam) = TP / (TP + FN)\n\nSensitivity = 1 − False negative rate\n\nSpecificity = P(classified as not spam | Email not spam) = TN / (FP + TN)\n\nSpecificity = 1 − False positive rate\n\nTrue/True . . .\n\n\nIf you were designing a spam filter, would you want sensitivity and specificity to be high or low? What are the trade-offs associated with each decision?"
+    "text": "Sensitivity and specificity\n\n\n\n\n\n\n\n\n\nEmail is spam\nEmail is not spam\n\n\n\n\nEmail classified as spam\nTrue positive\nFalse positive (Type 1 error)\n\n\nEmail classified as not spam\nFalse negative (Type 2 error)\nTrue negative\n\n\n\n\nSensitivity = P(classified as spam | Email spam) = TP / (TP + FN)\n\nSensitivity = 1 − False negative rate\n\nSpecificity = P(classified as not spam | Email not spam) = TN / (FP + TN)\n\nSpecificity = 1 − False positive rate"
   },
   {
     "objectID": "slides/lec-20.html#evaluate-the-performance",
@@ -6179,5 +6179,33 @@
     "title": "Probabilities, odds, odds ratios",
     "section": "Exam 2",
     "text": "Exam 2\n\nConceptual part\nApplied part"
+  },
+  {
+    "objectID": "slides/lec-20.html#announcement",
+    "href": "slides/lec-20.html#announcement",
+    "title": "LR: Prediction / classification",
+    "section": "Announcement",
+    "text": "Announcement\n\nProposals and AE 9 due today 11:59 pm\nWelcome our observer, Ben"
+  },
+  {
+    "objectID": "slides/lec-20.html#interpretation",
+    "href": "slides/lec-20.html#interpretation",
+    "title": "LR: Prediction / classification",
+    "section": "Interpretation",
+    "text": "Interpretation\n\nTRUE or FALSE\nHolding other constant, with 1 unit increase of image, we expect the log-odds of being a spam decrease 1.72, on average.\nHolding other constant, the odds of being a spam for those emails containing word “winner”, is \\(exp(2.25)\\) times the odds for those without word “winner”.\nNo “on average”. Include “we expect”\n\n\ntidy(email_fit)[c(2,14),]\n\n# A tibble: 2 × 5\n  term       estimate std.error statistic     p.value\n  <chr>         <dbl>     <dbl>     <dbl>       <dbl>\n1 image         -1.72     0.941     -1.83 0.0678     \n2 winner_yes     2.25     0.438      5.14 0.000000279"
+  },
+  {
+    "objectID": "slides/lec-20.html#false-positive-and-negative-1",
+    "href": "slides/lec-20.html#false-positive-and-negative-1",
+    "title": "LR: Prediction / classification",
+    "section": "False positive and negative",
+    "text": "False positive and negative\n\n\n\n\n\n\n\n\n\nEmail is spam\nEmail is not spam\n\n\n\n\nEmail classified as spam\nTrue positive\nFalse positive (Type 1 error)\n\n\nEmail classified as not spam\nFalse negative (Type 2 error)\nTrue negative\n\n\n\n\nFalse negative rate = P(classified as not spam | Email spam) = FN / (TP + FN)\nFalse positive rate = P(classified as spam | Email not spam) = FP / (FP + TN)"
+  },
+  {
+    "objectID": "slides/lec-20.html#covid-rapid-tests",
+    "href": "slides/lec-20.html#covid-rapid-tests",
+    "title": "LR: Prediction / classification",
+    "section": "COVID Rapid Tests",
+    "text": "COVID Rapid Tests\n\nRead COVID Rapid Tests\nHow to interpret “False positives with rapid tests are extremely rare, with one research letter in JAMA pegging the false positivity rate at 0.05%”\nHow to interpret “the sensitivity of rapid tests to detect the Omicron variant was 37 percent, compared to 81 percent for Delta”\n\n\n\nIf you were designing a COVID Rapid Test, would you care more about sensitivity or specificity? Would you want sensitivity and specificity to be high or low? What are the trade-offs associated with each decision?"
   }
 ]
