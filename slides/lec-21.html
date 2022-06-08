@@ -561,18 +561,11 @@
 <p><span class="math display">\[
 \small{\log\Big(\frac{\hat{\pi}}{1-\hat{\pi}}\Big) = -5.508 + 0.076 ~ \text{age} - 0.245 ~ \text{ed2} - 0.236 ~ \text{ed3} - 0.024 ~ \text{ed4}}
 \]</span></p>
-</section>
-<section id="hypothesis-test-for-beta_j" class="slide level2">
-<h2>Hypothesis test for <span class="math inline">\(\beta_j\)</span></h2>
-<p><strong>Hypotheses:</strong> <span class="math inline">\(H_0: \beta_j = 0 \hspace{2mm} \text{ vs } \hspace{2mm} H_a: \beta_j \neq 0\)</span></p>
 <div class="fragment">
-<p><strong>Test Statistic:</strong> <span class="math display">\[z = \frac{\hat{\beta}_j - 0}{SE_{\hat{\beta}_j}}\]</span></p>
-</div>
-<div class="fragment">
-<p><strong>P-value:</strong> <span class="math inline">\(P(|Z| &gt; |z|)\)</span>, where <span class="math inline">\(Z \sim N(0, 1)\)</span>, the Standard Normal distribution</p>
+<p>Cold Call</p>
 </div>
 </section>
-<section id="confidence-interval-for-beta_j" class="slide level2">
+<section id="confidence-interval-for-beta_j" class="slide level2 smaller">
 <h2>Confidence interval for <span class="math inline">\(\beta_j\)</span></h2>
 <p>We can calculate the <span class="math inline">\(C\%\)</span> confidence interval for <span class="math inline">\(\beta_j\)</span> as the following:</p>
 <p><span class="math display">\[
@@ -660,11 +653,15 @@
 
 </div>
 </div>
+</section>
+<section id="hypothesis-test-for-beta_j" class="slide level2">
+<h2>Hypothesis test for <span class="math inline">\(\beta_j\)</span></h2>
+<p><strong>Hypotheses:</strong> <span class="math inline">\(H_0: \beta_j = 0 \hspace{2mm} \text{ vs } \hspace{2mm} H_a: \beta_j \neq 0\)</span></p>
 <div class="fragment">
-<p><strong>Hypotheses:</strong></p>
-<p><span class="math display">\[
-H_0: \beta_{1} = 0 \hspace{2mm} \text{ vs } \hspace{2mm} H_a: \beta_{1} \neq 0
-\]</span></p>
+<p><strong>Test Statistic:</strong> <span class="math display">\[z = \frac{\hat{\beta}_j - 0}{SE_{\hat{\beta}_j}}\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>P-value:</strong> <span class="math inline">\(P(|Z| &gt; |z|)\)</span>, where <span class="math inline">\(Z \sim N(0, 1)\)</span>, the Standard Normal distribution</p>
 </div>
 </section>
 <section id="coefficient-for-age-1" class="slide level2 smaller">
@@ -734,6 +731,10 @@ H_0: \beta_{1} = 0 \hspace{2mm} \text{ vs } \hspace{2mm} H_a: \beta_{1} \neq 0
 
 </div>
 </div>
+<p><strong>Hypotheses:</strong></p>
+<p><span class="math display">\[
+H_0: \beta_{1} = 0 \hspace{2mm} \text{ vs } \hspace{2mm} H_a: \beta_{1} \neq 0
+\]</span></p>
 <p><strong>Test statistic:</strong></p>
 <p><span class="math display">\[
 z = \frac{0.07558692 - 0}{0.005538154} = 13.6484
@@ -1375,14 +1376,59 @@ H_A&amp;: \text{ at least 1 }\beta_j \text{ is not } 0
 <li class="fragment"><p><strong>Randomness:</strong> The data were obtained from a random process</p></li>
 <li class="fragment"><p>Was the sample randomly selected?</p></li>
 <li class="fragment"><p>If the sample was not randomly selected, ask whether there is reason to believe the observations in the sample differ systematically from the population of interest.</p></li>
-<li class="fragment"><p>We can check the independence condition based on the context of the data and how the observations were collected. . . .</p></li>
+<li class="fragment"><p>We can check the randomness condition based on the context of the data and how the observations were collected. . . .</p></li>
 </ul>
 <p>✅ The randomness condition is satisfied. We do not have reason to believe that the participants in this study differ systematically from adults in the U.S. in regards to health characteristics and risk of heart disease.</p>
 </section></section>
+<section id="comparison-between-logistic-regression-and-linear-regression" class="title-slide slide level1 center">
+<h1>Comparison between logistic regression and linear regression</h1>
+<table>
+<colgroup>
+<col style="width: 15%">
+<col style="width: 43%">
+<col style="width: 41%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Linear</th>
+<th>Logistic</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Outcome</td>
+<td>continuous</td>
+<td>binary</td>
+</tr>
+<tr class="even">
+<td>left side of equation</td>
+<td>y</td>
+<td>log odds</td>
+</tr>
+<tr class="odd">
+<td>Inference</td>
+<td>CI + HT</td>
+<td>CI+HT</td>
+</tr>
+<tr class="even">
+<td>Comparison</td>
+<td>ANOVA(F-test), AIC, BIC, R-squared</td>
+<td>ANOVA(Drop-in-Deviance), AIC, BIC, AUC</td>
+</tr>
+<tr class="odd">
+<td>Conditions</td>
+<td>linearity, independence, randomness, normality, constant variance</td>
+<td>linearity (log odds and predictors), independence, randomness</td>
+</tr>
+</tbody>
+</table>
+</section>
+
 <section id="application-exercise-for-model-comparison" class="title-slide slide level1 center">
 <h1>Application exercise for model comparison</h1>
 <div class="appex">
-<p>📋 <a href="https://github.com/STA210-Summer22">ae-10-flight-delays</a></p>
+<p>📋 <a href="https://yunranchen.github.io/STA210Summer/ae/ae-10-flight-delays.html">ae-10-flight-delays</a></p>
 </div>
 
 
