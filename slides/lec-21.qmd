@@ -17,7 +17,6 @@ execute:
   echo: true
 ---
 
-
 ```{r}
 #| include: false
 
@@ -104,19 +103,11 @@ $$
 \small{\log\Big(\frac{\hat{\pi}}{1-\hat{\pi}}\Big) = -5.508 + 0.076 ~ \text{age} - 0.245 ~ \text{ed2} - 0.236 ~ \text{ed3} - 0.024 ~ \text{ed4}}
 $$
 
-## Hypothesis test for $\beta_j$
-
-**Hypotheses:** $H_0: \beta_j = 0 \hspace{2mm} \text{ vs } \hspace{2mm} H_a: \beta_j \neq 0$
-
 . . .
 
-**Test Statistic:** $$z = \frac{\hat{\beta}_j - 0}{SE_{\hat{\beta}_j}}$$
+Cold Call
 
-. . .
-
-**P-value:** $P(|Z| > |z|)$, where $Z \sim N(0, 1)$, the Standard Normal distribution
-
-## Confidence interval for $\beta_j$
+## Confidence interval for $\beta_j$ {.smaller}
 
 We can calculate the $C\%$ confidence interval for $\beta_j$ as the following:
 
@@ -155,11 +146,17 @@ tidy(risk_fit, conf.int = TRUE) %>%
 
 . . .
 
-**Hypotheses:**
+## Hypothesis test for $\beta_j$
 
-$$
-H_0: \beta_{1} = 0 \hspace{2mm} \text{ vs } \hspace{2mm} H_a: \beta_{1} \neq 0
-$$
+**Hypotheses:** $H_0: \beta_j = 0 \hspace{2mm} \text{ vs } \hspace{2mm} H_a: \beta_j \neq 0$
+
+. . .
+
+**Test Statistic:** $$z = \frac{\hat{\beta}_j - 0}{SE_{\hat{\beta}_j}}$$
+
+. . .
+
+**P-value:** $P(|Z| > |z|)$, where $Z \sim N(0, 1)$, the Standard Normal distribution
 
 ## Coefficient for `age` {.smaller}
 
@@ -167,6 +164,12 @@ $$
 #| echo: false
 #| ref.label: risk-model-age-highlight
 ```
+
+**Hypotheses:**
+
+$$
+H_0: \beta_{1} = 0 \hspace{2mm} \text{ vs } \hspace{2mm} H_a: \beta_{1} \neq 0
+$$
 
 **Test statistic:**
 
@@ -373,8 +376,7 @@ pchisq(test_stat, 1, lower.tail = FALSE)
 
 -   Add **`test = "Chisq"`** to conduct the drop-in-deviance test
 
--   For linear regression nested models, we use F-stat to test
-. . .
+-   For linear regression nested models, we use F-stat to test . . .
 
 ```{r}
 anova(risk_fit_reduced$fit, risk_fit_full$fit, test = "Chisq") %>%
@@ -564,16 +566,25 @@ emplogitplot1(high_risk ~ totChol,
 -   **Randomness:** The data were obtained from a random process
 
 -   Was the sample randomly selected?
+
 -   If the sample was not randomly selected, ask whether there is reason to believe the observations in the sample differ systematically from the population of interest.
--   We can check the independence condition based on the context of the data and how the observations were collected.
-. . .
+
+-   We can check the randomness condition based on the context of the data and how the observations were collected. . . .
 
 `r emo::ji("white_check_mark")` The randomness condition is satisfied. We do not have reason to believe that the participants in this study differ systematically from adults in the U.S. in regards to health characteristics and risk of heart disease.
 
+# Comparison between logistic regression and linear regression
+
+|                       | Linear                                                            | Logistic                                                      |
+|-----------------------|-------------------------------------------------------------------|---------------------------------------------------------------|
+| Outcome               | continuous                                                        | binary                                                        |
+| left side of equation | y                                                                 | log odds                                                      |
+| Inference             | CI + HT                                                           | CI+HT                                                         |
+| Comparison            | ANOVA(F-test), AIC, BIC, R-squared                                | ANOVA(Drop-in-Deviance), AIC, BIC, AUC                        |
+| Conditions            | linearity, independence, randomness, normality, constant variance | linearity (log odds and predictors), independence, randomness |
 
 # Application exercise for model comparison
 
 ::: appex
-📋 [ae-10-flight-delays](https://github.com/STA210-Summer22)
+📋 [ae-10-flight-delays](https://yunranchen.github.io/STA210Summer/ae/ae-10-flight-delays.html)
 :::
-
