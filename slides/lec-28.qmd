@@ -39,7 +39,7 @@ library(countdown)
 
 -   [Presentation comments](https://yunranchen.github.io/STA210Summer/project-description.html#presentation-comments) due Tue, June 22
 
--   Peer evaluations due Sunday, June 19
+. . .
 
 ::: question
 Any questions related to projects?
@@ -47,13 +47,16 @@ Any questions related to projects?
 
 ## Grading
 
--   Check your grades on Sakai, make sure they match Gradescope, email me if not by June 22
+-   Check your grades on Sakai, make sure they match Gradescope, email me before June 22
 -   Watch for new feedback released on Gradescope
 
 ## Evaluations
 
 -   Course evaluation
 -   TA evaluation
+
+## Review 
+
 
 ## Application exercise
 

@@ -28,10 +28,7 @@ flight_data <- read_csv("data/flight-data.csv")
 1.  Convert `arr_delay` to factor with levels `"late"` (first level) and `"on_time"` (second level). This variable is our outcome and it indicates whether the flight's arrival was more than 30 minutes.
 
 ```{r}
-flight_data <- flight_data %>%
-  mutate(arr_delay = as.factor(arr_delay))
 
-levels(flight_data$arr_delay)
 ```
 
 2.  Let's get started with some data prep: Convert all variables that are character strings to factors.
@@ -53,22 +50,16 @@ flight_data <- flight_data %>%
 
 ## Modeling prep
 
-3.  Split the data into testing (75%) and training (25%), and save each subset.
+3.  Split the data into testing (75%) and training (25%), and save each subset. (Don't forget to set seed)
 
 ```{r}
-set.seed(222)
 
-flight_split <- initial_split(flight_data)
-
-flight_train <- training(flight_split)
-flight_test <- testing(flight_split)
 ```
 
 4.  Specify a logistic regression model that uses the `"glm"` engine.
 
 ```{r}
-flight_spec <- logistic_reg() %>%
-  set_engine("glm")
+
 ```
 
 Next, we'll create two recipes and workflows and compare them to each other.
@@ -78,50 +69,31 @@ Next, we'll create two recipes and workflows and compare them to each other.
 5.  Define a recipe that predicts `arr_delay` using all variables except for `flight` and `time_hour`, which, in combination, can be used to identify a flight. Also make sure this recipe handles dummy coding as well as issues that can arise due to having categorical variables with some levels apparent in the training set but not in the testing set. Call this recipe `flights_rec1`.
 
 ```{r}
-flights_rec1 <- recipe(arr_delay ~ ., data = flight_train) %>%
-  update_role(flight, time_hour, new_role = "id") %>%
-  step_dummy(all_nominal_predictors()) %>%
-  step_zv(all_predictors())
+
 ```
 
 6.  Create a workflow that uses `flights_rec1` and the model you specified.
 
 ```{r}
-flight_wflow1 <- workflow() %>%
-  add_recipe(flights_rec1) %>%
-  add_model(flight_spec)
+
 ```
 
 7.  Fit the this model to the training data using your workflow and display a tidy summary of the model fit.
 
 ```{r}
-flight_fit1 <- flight_wflow1 %>%
-  fit(data = flight_train)
 
-tidy(flight_fit1)
 ```
 
 8.  Predict `arr_delay` for the testing data using this model.
 
 ```{r}
-flight_aug1 <- augment(flight_fit1, flight_test)
+
 ```
 
 9.  Plot the ROC curve and find the area under the curve. Comment on how well you think this model has done for predicting arrival delay.
 
 ```{r}
-flight_aug1 %>%
-  roc_curve(
-    truth = arr_delay,
-    .pred_late
-  ) %>%
-  autoplot()
 
-flight_aug1 %>%
-  roc_auc(
-    truth = arr_delay,
-    .pred_late
-  )
 ```
 
 ## Model 2: Let's be a bit more thoughtful
