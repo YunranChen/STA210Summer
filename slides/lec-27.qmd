@@ -68,8 +68,22 @@ library(countdown)
 -   You can produce a report that is suitable for a professional audience (e.g., narrative is written in complete sentences, all graphs have proper titles and axis labels, there is not extraneous output, all Latex is rendered)
 -   You can conduct the analysis using a reproducible data analysis workflow that incorporates version control
 
+## Review on logistic regression and Multinomial Logistic Regression
+
+-   Analogize to a linear regression
+-   Motivation
+-   Model 
+-   Estimation
+-   Interpretation
+-   Inference
+-   Comparison
+-   Prediction
+-   Condition
+-   Issue
+-   Extend to Multinomial logistic regression
+
 ## Application exercise
 
 ::: appex
-📋 [github.com/STA210-Summer22/ae-12-exam-3-review](https://github.com/STA210-Summer22/ae-12-exam-3-review/search?q=ae-12-exam-3-review)
+📋 [github.com/STA210-Summer22/ae-12-exam-3-review](https://yunranchen.github.io/STA210Summer/ae/ae-12-exam-3-review.html)
 :::
