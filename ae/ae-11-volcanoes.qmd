@@ -47,7 +47,7 @@ volcano <- volcano %>%
 
 ## Exploratory data analysis
 
-1.  Create a map of volcanoes that is faceted by `volcano_type`.
+1.  Create a map of volcanoes that is faceted by `volcano_type`. First, we create a map here. 
 
 ```{r}
 world <- map_data("world")
@@ -63,7 +63,13 @@ world_map <- ggplot() +
   theme_minimal() +
   coord_quickmap() +
   labs(x = NULL, y = NULL)
+world_map
+```
 
+Then you need to add a layer to the map using `geom_point`, and reproduce the following plot.
+
+```{r}
+#| echo: false
 world_map +
   geom_point(
     data = volcano,
@@ -78,98 +84,42 @@ world_map +
 
 ## Build a new model
 
-2.  Build a new model that uses a recipe that includes geographic information (latitude and longitude). How does this model compare to the original? **Note:**\
-    Use the same test/train split as well as same cross validation folds. Code for these is provided below.
+2.  Build a new model that uses a recipe that includes geographic information (latitude and longitude). How does this model compare to the original one presented on slides? **Note:**\
+    Use the same test/train split as well as same cross validation folds. Use seed 1234 for data splitting, and 9876 for cv.
 
 ```{r}
-# test/train split
-set.seed(1234)
-
-volcano_split <- initial_split(volcano)
-volcano_train <- training(volcano_split)
-volcano_test  <- testing(volcano_split)
-
-# cv folds
-set.seed(9876)
-
-volcano_folds <- vfold_cv(volcano_train, v = 5)
-volcano_folds
 ```
 
 New recipe, including geographic information:
 
 ```{r}
-volcano_rec2 <- recipe(volcano_type ~ ., data = volcano_train) %>%
-  step_other(tectonic_settings) %>%
-  step_other(major_rock_1) %>%
-  step_dummy(all_nominal_predictors()) %>%
-  step_zv(all_predictors()) %>%
-  step_center(all_predictors())
 ```
 
-Original model specification and new workflow:
+Combine the original model specification as the one on slides and new recipe to obtain new workflow:
 
 ```{r}
-volcano_spec <- multinom_reg() %>%
-  set_engine("nnet")
 
-volcano_wflow2 <- workflow() %>%
-  add_recipe(volcano_rec2) %>%
-  add_model(volcano_spec)
-
-volcano_wflow2
 ```
 
-Fit resamples:
+Fit resamples, and save it to `volcano\_fit\_rs2`
 
 ```{r}
-volcano_fit_rs2 <- volcano_wflow2 %>%
-  fit_resamples(
-    volcano_folds, 
-    control = control_resamples(save_pred = TRUE)
-    )
 
-volcano_fit_rs2
 ```
 
 Collect metrics:
 
 ```{r}
-collect_metrics(volcano_fit_rs2)
+
 ```
 
-ROC curves:
+Draw ROC curves:
 
 ```{r}
-volcano_fit_rs2 %>%
-  collect_predictions() %>%
-  group_by(id) %>%
-  roc_curve(
-    truth = volcano_type,
-    .pred_Stratovolcano:.pred_Other
-  ) %>%
-  autoplot()
+
 ```
 
-## ROC curves
-
-3.  Recreate the ROC curve from the slides.
-
-```{r}
-final_fit <- last_fit(
-  volcano_wflow2, 
-  split = volcano_split
-  )
-
-collect_predictions(final_fit) %>%
-  roc_curve(truth = volcano_type, .pred_Stratovolcano:.pred_Other) %>%
-  ggplot(aes(x = 1 - specificity, y = sensitivity, color = .level)) +
-  geom_path(size = 1) +
-  scale_color_OkabeIto() +
-  geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "gray") +
-  theme_minimal() +
-  labs(color = NULL)
-```
+Compare these with the ones on slides. Comments on it. Which model do you prefer?
 
 ## Acknowledgement
 
