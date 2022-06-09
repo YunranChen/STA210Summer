@@ -1309,6 +1309,7 @@ H_A&amp;: \text{ at least 1 }\beta_j \text{ is not } 0
 </section>
 <section id="empirical-logit-plot-in-r-quantitative-predictor" class="slide level2">
 <h2>Empirical logit plot in R (quantitative predictor)</h2>
+<p><code>emplogitplot1</code>: for 1 quantitative variable</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">emplogitplot1</span>(high_risk <span class="sc">~</span> age, </span>
 <span id="cb39-2"><a href="#cb39-2"></a>              <span class="at">data =</span> heart_disease, </span>
@@ -1318,6 +1319,7 @@ H_A&amp;: \text{ at least 1 }\beta_j \text{ is not } 0
 <img data-src="lec-21_files/figure-revealjs/unnamed-chunk-27-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
 <section id="empirical-logit-plot-in-r-interactions" class="slide level2">
 <h2>Empirical logit plot in R (interactions)</h2>
+<p><code>emplogitplot2</code>: for 1 quantitative variable and 1 categorical variable</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">emplogitplot2</span>(high_risk <span class="sc">~</span> age <span class="sc">+</span> currentSmoker, <span class="at">data =</span> heart_disease, </span>
 <span id="cb40-2"><a href="#cb40-2"></a>              <span class="at">ngroups =</span> <span class="dv">10</span>, </span>
@@ -1380,13 +1382,13 @@ H_A&amp;: \text{ at least 1 }\beta_j \text{ is not } 0
 </ul>
 <p>✅ The randomness condition is satisfied. We do not have reason to believe that the participants in this study differ systematically from adults in the U.S. in regards to health characteristics and risk of heart disease.</p>
 </section></section>
-<section id="comparison-between-logistic-regression-and-linear-regression" class="title-slide slide level1 center">
+<section id="comparison-between-logistic-regression-and-linear-regression" class="title-slide slide level1 smaller center">
 <h1>Comparison between logistic regression and linear regression</h1>
 <table>
 <colgroup>
-<col style="width: 15%">
-<col style="width: 43%">
-<col style="width: 41%">
+<col style="width: 22%">
+<col style="width: 40%">
+<col style="width: 37%">
 </colgroup>
 <thead>
 <tr class="header">

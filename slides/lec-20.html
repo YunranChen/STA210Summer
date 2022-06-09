@@ -806,9 +806,9 @@ Computational engine: glm </code></pre>
 <h2>False positive and negative</h2>
 <table>
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 13%">
+<col style="width: 43%">
+<col style="width: 43%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -922,92 +922,16 @@ Computational engine: glm </code></pre>
 <p>If you were designing a COVID Rapid Test, would you care more about sensitivity or specificity? Would you want sensitivity and specificity to be high or low? What are the trade-offs associated with each decision?</p>
 </div>
 </div>
-</section>
-<section id="evaluate-the-performance" class="slide level2">
-<h2>Evaluate the performance</h2>
-<p><strong>Receiver operating characteristic (ROC) curve</strong><sup>+</sup> which plot true positive rate vs.&nbsp;false positive rate (1 - specificity).</p>
-
-<div class="columns">
-<div class="column" style="width:40%;">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>email_pred <span class="sc">%&gt;%</span></span>
-<span id="cb26-2"><a href="#cb26-2"></a>  <span class="fu">roc_curve</span>(</span>
-<span id="cb26-3"><a href="#cb26-3"></a>    <span class="at">truth =</span> spam,</span>
-<span id="cb26-4"><a href="#cb26-4"></a>    .pred_1,</span>
-<span id="cb26-5"><a href="#cb26-5"></a>    <span class="at">event_level =</span> <span class="st">"second"</span></span>
-<span id="cb26-6"><a href="#cb26-6"></a>    <span class="co"># "first" or "second" to be the event: 1-spam</span></span>
-<span id="cb26-7"><a href="#cb26-7"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb26-8"><a href="#cb26-8"></a>  <span class="fu">autoplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:60%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="lec-20_files/figure-revealjs/unnamed-chunk-24-1.png" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-<aside><div>
-<p><sup>+</sup> Originally developed for operators of military radar receivers, hence the name.</p>
-</div></aside></section>
-<section id="roc-curve-under-the-hood" class="slide level2">
-<h2>ROC curve, under the hood</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>email_pred <span class="sc">%&gt;%</span></span>
-<span id="cb27-2"><a href="#cb27-2"></a>  <span class="fu">roc_curve</span>(</span>
-<span id="cb27-3"><a href="#cb27-3"></a>    <span class="at">truth =</span> spam,</span>
-<span id="cb27-4"><a href="#cb27-4"></a>    .pred_1,</span>
-<span id="cb27-5"><a href="#cb27-5"></a>    <span class="at">event_level =</span> <span class="st">"second"</span></span>
-<span id="cb27-6"><a href="#cb27-6"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 981 × 3
-    .threshold specificity sensitivity
-         &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
- 1 -Inf            0                 1
- 2    1.31e-13     0                 1
- 3    2.63e- 8     0.00111           1
- 4    5.75e- 6     0.00223           1
- 5    1.36e- 5     0.00334           1
- 6    2.33e- 5     0.00446           1
- 7    2.74e- 5     0.00557           1
- 8    3.28e- 5     0.00669           1
- 9    4.59e- 5     0.00780           1
-10    4.78e- 5     0.00892           1
-# … with 971 more rows</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># ROC draw based on different thresholds</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="roc-curve" class="slide level2">
-<h2>ROC curve</h2>
-
-<img data-src="lec-20_files/figure-revealjs/unnamed-chunk-26-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
-<section id="evaluate-the-performance-1" class="slide level2">
-<h2>Evaluate the performance</h2>
-<p>Area under ROC curve</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>email_pred <span class="sc">%&gt;%</span></span>
-<span id="cb30-2"><a href="#cb30-2"></a>  <span class="fu">roc_auc</span>(</span>
-<span id="cb30-3"><a href="#cb30-3"></a>    <span class="at">truth =</span> spam,</span>
-<span id="cb30-4"><a href="#cb30-4"></a>    .pred_1,</span>
-<span id="cb30-5"><a href="#cb30-5"></a>    <span class="at">event_level =</span> <span class="st">"second"</span></span>
-<span id="cb30-6"><a href="#cb30-6"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 3
-  .metric .estimator .estimate
-  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-1 roc_auc binary         0.850</code></pre>
-</div>
-</div>
 </section></section>
 <section>
 <section id="make-decisions" class="title-slide slide level1 center">
 <h1>Make decisions</h1>
-
+<ul>
+<li class="fragment"><p>We called the previous table : confusion matrix.</p></li>
+<li class="fragment"><p>For different value of cutoff, we can obtain different confusion matrix</p></li>
+<li class="fragment"><p>We make decisions depending on our budget (cost for false negative or false positive)</p></li>
+<li class="fragment"><p>Different people may select different cutoff based on their distinct goals</p></li>
+</ul>
 </section>
 <section id="cutoff-probability-0.5" class="slide level2 smaller">
 <h2>Cutoff probability: 0.5</h2>
@@ -1044,16 +968,16 @@ Computational engine: glm </code></pre>
 </div>
 <div id="tabset-1-2">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>cutoff_prob <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
-<span id="cb32-2"><a href="#cb32-2"></a>email_pred <span class="sc">%&gt;%</span></span>
-<span id="cb32-3"><a href="#cb32-3"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb32-4"><a href="#cb32-4"></a>    <span class="at">spam_pred =</span> <span class="fu">as_factor</span>(<span class="fu">if_else</span>(.pred_1 <span class="sc">&gt;=</span> cutoff_prob, <span class="dv">1</span>, <span class="dv">0</span>)),</span>
-<span id="cb32-5"><a href="#cb32-5"></a>    <span class="at">spam      =</span> <span class="fu">if_else</span>(spam <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Email is spam"</span>, <span class="st">"Email is not spam"</span>),</span>
-<span id="cb32-6"><a href="#cb32-6"></a>    <span class="at">spam_pred =</span> <span class="fu">if_else</span>(spam_pred <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Email classified as spam"</span>, <span class="st">"Email classified as not spam"</span>)</span>
-<span id="cb32-7"><a href="#cb32-7"></a>    ) <span class="sc">%&gt;%</span></span>
-<span id="cb32-8"><a href="#cb32-8"></a>  <span class="fu">count</span>(spam_pred, spam) <span class="sc">%&gt;%</span></span>
-<span id="cb32-9"><a href="#cb32-9"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> spam, <span class="at">values_from =</span> n) <span class="sc">%&gt;%</span></span>
-<span id="cb32-10"><a href="#cb32-10"></a>  <span class="fu">kable</span>(<span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">"Email is not spam"</span>, <span class="st">"Email is spam"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>cutoff_prob <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a>email_pred <span class="sc">%&gt;%</span></span>
+<span id="cb26-3"><a href="#cb26-3"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb26-4"><a href="#cb26-4"></a>    <span class="at">spam_pred =</span> <span class="fu">as_factor</span>(<span class="fu">if_else</span>(.pred_1 <span class="sc">&gt;=</span> cutoff_prob, <span class="dv">1</span>, <span class="dv">0</span>)),</span>
+<span id="cb26-5"><a href="#cb26-5"></a>    <span class="at">spam      =</span> <span class="fu">if_else</span>(spam <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Email is spam"</span>, <span class="st">"Email is not spam"</span>),</span>
+<span id="cb26-6"><a href="#cb26-6"></a>    <span class="at">spam_pred =</span> <span class="fu">if_else</span>(spam_pred <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Email classified as spam"</span>, <span class="st">"Email classified as not spam"</span>)</span>
+<span id="cb26-7"><a href="#cb26-7"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb26-8"><a href="#cb26-8"></a>  <span class="fu">count</span>(spam_pred, spam) <span class="sc">%&gt;%</span></span>
+<span id="cb26-9"><a href="#cb26-9"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> spam, <span class="at">values_from =</span> n) <span class="sc">%&gt;%</span></span>
+<span id="cb26-10"><a href="#cb26-10"></a>  <span class="fu">kable</span>(<span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">"Email is not spam"</span>, <span class="st">"Email is spam"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1063,9 +987,9 @@ Computational engine: glm </code></pre>
 <h2>Confusion matrix</h2>
 <p>Cross-tabulation of observed and predicted classes:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>email_pred <span class="sc">%&gt;%</span></span>
-<span id="cb33-2"><a href="#cb33-2"></a>  <span class="fu">mutate</span>(<span class="at">spam_predicted =</span> <span class="fu">as_factor</span>(<span class="fu">if_else</span>(.pred_1 <span class="sc">&gt;=</span> cutoff_prob, <span class="dv">1</span>, <span class="dv">0</span>))) <span class="sc">%&gt;%</span></span>
-<span id="cb33-3"><a href="#cb33-3"></a>  <span class="fu">conf_mat</span>(<span class="at">truth =</span> spam, <span class="at">estimate =</span> spam_predicted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>email_pred <span class="sc">%&gt;%</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a>  <span class="fu">mutate</span>(<span class="at">spam_predicted =</span> <span class="fu">as_factor</span>(<span class="fu">if_else</span>(.pred_1 <span class="sc">&gt;=</span> cutoff_prob, <span class="dv">1</span>, <span class="dv">0</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb27-3"><a href="#cb27-3"></a>  <span class="fu">conf_mat</span>(<span class="at">truth =</span> spam, <span class="at">estimate =</span> spam_predicted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          Truth
 Prediction   0   1
@@ -1077,7 +1001,7 @@ Prediction   0   1
 <section id="classification" class="slide level2">
 <h2>Classification</h2>
 
-<img data-src="lec-20_files/figure-revealjs/unnamed-chunk-31-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="lec-20_files/figure-revealjs/unnamed-chunk-26-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
 <section id="cutoff-probability-0.25" class="slide level2 smaller">
 <h2>Cutoff probability: 0.25</h2>
 <div class="panel-tabset">
@@ -1113,16 +1037,16 @@ Prediction   0   1
 </div>
 <div id="tabset-2-2">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>cutoff_prob <span class="ot">&lt;-</span> <span class="fl">0.25</span></span>
-<span id="cb35-2"><a href="#cb35-2"></a>email_pred <span class="sc">%&gt;%</span></span>
-<span id="cb35-3"><a href="#cb35-3"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb35-4"><a href="#cb35-4"></a>    <span class="at">spam_pred =</span> <span class="fu">as_factor</span>(<span class="fu">if_else</span>(.pred_1 <span class="sc">&gt;=</span> cutoff_prob, <span class="dv">1</span>, <span class="dv">0</span>)),</span>
-<span id="cb35-5"><a href="#cb35-5"></a>    <span class="at">spam      =</span> <span class="fu">if_else</span>(spam <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Email is spam"</span>, <span class="st">"Email is not spam"</span>),</span>
-<span id="cb35-6"><a href="#cb35-6"></a>    <span class="at">spam_pred =</span> <span class="fu">if_else</span>(spam_pred <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Email classified as spam"</span>, <span class="st">"Email classified as not spam"</span>)</span>
-<span id="cb35-7"><a href="#cb35-7"></a>    ) <span class="sc">%&gt;%</span></span>
-<span id="cb35-8"><a href="#cb35-8"></a>  <span class="fu">count</span>(spam_pred, spam) <span class="sc">%&gt;%</span></span>
-<span id="cb35-9"><a href="#cb35-9"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> spam, <span class="at">values_from =</span> n) <span class="sc">%&gt;%</span></span>
-<span id="cb35-10"><a href="#cb35-10"></a>  <span class="fu">kable</span>(<span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">"Email is not spam"</span>, <span class="st">"Email is spam"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>cutoff_prob <span class="ot">&lt;-</span> <span class="fl">0.25</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a>email_pred <span class="sc">%&gt;%</span></span>
+<span id="cb29-3"><a href="#cb29-3"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb29-4"><a href="#cb29-4"></a>    <span class="at">spam_pred =</span> <span class="fu">as_factor</span>(<span class="fu">if_else</span>(.pred_1 <span class="sc">&gt;=</span> cutoff_prob, <span class="dv">1</span>, <span class="dv">0</span>)),</span>
+<span id="cb29-5"><a href="#cb29-5"></a>    <span class="at">spam      =</span> <span class="fu">if_else</span>(spam <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Email is spam"</span>, <span class="st">"Email is not spam"</span>),</span>
+<span id="cb29-6"><a href="#cb29-6"></a>    <span class="at">spam_pred =</span> <span class="fu">if_else</span>(spam_pred <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Email classified as spam"</span>, <span class="st">"Email classified as not spam"</span>)</span>
+<span id="cb29-7"><a href="#cb29-7"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb29-8"><a href="#cb29-8"></a>  <span class="fu">count</span>(spam_pred, spam) <span class="sc">%&gt;%</span></span>
+<span id="cb29-9"><a href="#cb29-9"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> spam, <span class="at">values_from =</span> n) <span class="sc">%&gt;%</span></span>
+<span id="cb29-10"><a href="#cb29-10"></a>  <span class="fu">kable</span>(<span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">"Email is not spam"</span>, <span class="st">"Email is spam"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1131,7 +1055,7 @@ Prediction   0   1
 <section id="classification-1" class="slide level2">
 <h2>Classification</h2>
 
-<img data-src="lec-20_files/figure-revealjs/unnamed-chunk-33-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="lec-20_files/figure-revealjs/unnamed-chunk-28-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
 <section id="cutoff-probability-0.75" class="slide level2 smaller">
 <h2>Cutoff probability: 0.75</h2>
 <div class="panel-tabset">
@@ -1167,16 +1091,16 @@ Prediction   0   1
 </div>
 <div id="tabset-3-2">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>cutoff_prob <span class="ot">&lt;-</span> <span class="fl">0.75</span></span>
-<span id="cb36-2"><a href="#cb36-2"></a>email_pred <span class="sc">%&gt;%</span></span>
-<span id="cb36-3"><a href="#cb36-3"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb36-4"><a href="#cb36-4"></a>    <span class="at">spam_pred =</span> <span class="fu">as_factor</span>(<span class="fu">if_else</span>(.pred_1 <span class="sc">&gt;=</span> cutoff_prob, <span class="dv">1</span>, <span class="dv">0</span>)),</span>
-<span id="cb36-5"><a href="#cb36-5"></a>    <span class="at">spam      =</span> <span class="fu">if_else</span>(spam <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Email is spam"</span>, <span class="st">"Email is not spam"</span>),</span>
-<span id="cb36-6"><a href="#cb36-6"></a>    <span class="at">spam_pred =</span> <span class="fu">if_else</span>(spam_pred <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Email classified as spam"</span>, <span class="st">"Email classified as not spam"</span>)</span>
-<span id="cb36-7"><a href="#cb36-7"></a>    ) <span class="sc">%&gt;%</span></span>
-<span id="cb36-8"><a href="#cb36-8"></a>  <span class="fu">count</span>(spam_pred, spam) <span class="sc">%&gt;%</span></span>
-<span id="cb36-9"><a href="#cb36-9"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> spam, <span class="at">values_from =</span> n) <span class="sc">%&gt;%</span></span>
-<span id="cb36-10"><a href="#cb36-10"></a>  <span class="fu">kable</span>(<span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">"Email is not spam"</span>, <span class="st">"Email is spam"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>cutoff_prob <span class="ot">&lt;-</span> <span class="fl">0.75</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a>email_pred <span class="sc">%&gt;%</span></span>
+<span id="cb30-3"><a href="#cb30-3"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb30-4"><a href="#cb30-4"></a>    <span class="at">spam_pred =</span> <span class="fu">as_factor</span>(<span class="fu">if_else</span>(.pred_1 <span class="sc">&gt;=</span> cutoff_prob, <span class="dv">1</span>, <span class="dv">0</span>)),</span>
+<span id="cb30-5"><a href="#cb30-5"></a>    <span class="at">spam      =</span> <span class="fu">if_else</span>(spam <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Email is spam"</span>, <span class="st">"Email is not spam"</span>),</span>
+<span id="cb30-6"><a href="#cb30-6"></a>    <span class="at">spam_pred =</span> <span class="fu">if_else</span>(spam_pred <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Email classified as spam"</span>, <span class="st">"Email classified as not spam"</span>)</span>
+<span id="cb30-7"><a href="#cb30-7"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb30-8"><a href="#cb30-8"></a>  <span class="fu">count</span>(spam_pred, spam) <span class="sc">%&gt;%</span></span>
+<span id="cb30-9"><a href="#cb30-9"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> spam, <span class="at">values_from =</span> n) <span class="sc">%&gt;%</span></span>
+<span id="cb30-10"><a href="#cb30-10"></a>  <span class="fu">kable</span>(<span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">"Email is not spam"</span>, <span class="st">"Email is spam"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1184,21 +1108,104 @@ Prediction   0   1
 </section>
 <section id="classification-2" class="slide level2">
 <h2>Classification</h2>
+
+<img data-src="lec-20_files/figure-revealjs/unnamed-chunk-30-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section></section>
+<section>
+<section id="evaluate-your-classifier" class="title-slide slide level1 center">
+<h1>Evaluate your classifier</h1>
+
+</section>
+<section id="evaluate-the-performance" class="slide level2">
+<h2>Evaluate the performance</h2>
+<p><strong>Receiver operating characteristic (ROC) curve</strong><sup>+</sup> which plot true positive rate vs.&nbsp;false positive rate (1 - specificity).</p>
+<p>Each point in the ROC curve correspond to different cutoffs.</p>
+
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>email_pred <span class="sc">%&gt;%</span></span>
+<span id="cb31-2"><a href="#cb31-2"></a>  <span class="fu">roc_curve</span>(</span>
+<span id="cb31-3"><a href="#cb31-3"></a>    <span class="at">truth =</span> spam,</span>
+<span id="cb31-4"><a href="#cb31-4"></a>    .pred_1,</span>
+<span id="cb31-5"><a href="#cb31-5"></a>    <span class="at">event_level =</span> <span class="st">"second"</span></span>
+<span id="cb31-6"><a href="#cb31-6"></a>    <span class="co"># "first" or "second" to be the event: 1-spam</span></span>
+<span id="cb31-7"><a href="#cb31-7"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb31-8"><a href="#cb31-8"></a>  <span class="fu">autoplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="lec-20_files/figure-revealjs/unnamed-chunk-35-1.png" style="width:90.0%"></p>
+<p><img data-src="lec-20_files/figure-revealjs/unnamed-chunk-32-1.png" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
 </div>
+</div>
+</div>
+<aside><div>
+<p><sup>+</sup> Originally developed for operators of military radar receivers, hence the name.</p>
+</div></aside></section>
+<section id="roc-curve-under-the-hood" class="slide level2">
+<h2>ROC curve, under the hood</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>email_pred <span class="sc">%&gt;%</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a>  <span class="fu">roc_curve</span>(</span>
+<span id="cb32-3"><a href="#cb32-3"></a>    <span class="at">truth =</span> spam,</span>
+<span id="cb32-4"><a href="#cb32-4"></a>    .pred_1,</span>
+<span id="cb32-5"><a href="#cb32-5"></a>    <span class="at">event_level =</span> <span class="st">"second"</span></span>
+<span id="cb32-6"><a href="#cb32-6"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 981 × 3
+    .threshold specificity sensitivity
+         &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+ 1 -Inf            0                 1
+ 2    1.31e-13     0                 1
+ 3    2.63e- 8     0.00111           1
+ 4    5.75e- 6     0.00223           1
+ 5    1.36e- 5     0.00334           1
+ 6    2.33e- 5     0.00446           1
+ 7    2.74e- 5     0.00557           1
+ 8    3.28e- 5     0.00669           1
+ 9    4.59e- 5     0.00780           1
+10    4.78e- 5     0.00892           1
+# … with 971 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="co"># ROC draw based on different thresholds</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="roc-curve" class="slide level2">
+<h2>ROC curve</h2>
 
-<p><img src="images/logo.png" class="slide-logo"></p>
-<div class="footer footer-default">
-<p><a href="https://yunranchen.github.io/STA210Summer/">yunranchen.github.io/STA210Summer/</a></p>
+<img data-src="lec-20_files/figure-revealjs/unnamed-chunk-34-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
+<section id="evaluate-the-performance-1" class="slide level2">
+<h2>Evaluate the performance</h2>
+<p>Area under ROC curve</p>
+<p>Analogize to R-square</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>email_pred <span class="sc">%&gt;%</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a>  <span class="fu">roc_auc</span>(</span>
+<span id="cb35-3"><a href="#cb35-3"></a>    <span class="at">truth =</span> spam,</span>
+<span id="cb35-4"><a href="#cb35-4"></a>    .pred_1,</span>
+<span id="cb35-5"><a href="#cb35-5"></a>    <span class="at">event_level =</span> <span class="st">"second"</span></span>
+<span id="cb35-6"><a href="#cb35-6"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  .metric .estimator .estimate
+  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+1 roc_auc binary         0.850</code></pre>
+</div>
 </div>
 </section></section>
+<section id="section" class="title-slide slide level1 center">
+<h1></h1>
+
+
+<img src="images/logo.png" class="slide-logo r-stretch"><div class="footer footer-default">
+<p><a href="https://yunranchen.github.io/STA210Summer/">yunranchen.github.io/STA210Summer/</a></p>
+</div>
+</section>
     </div>
   </div>
 
