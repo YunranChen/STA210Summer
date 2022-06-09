@@ -61,15 +61,14 @@ claws <- claws %>%
 
 ## Probabilities vs. odds vs. log-odds
 
-Why we use log-odds as response variable: <https://yunranchen.github.io/sta210summer/slides/lec-18.html#/do-teenagers-get-7-hours-of-sleep>
 
 ## Exercise 1
 
-Fill in the blanks:
+Use Probabilities, odds, log-odds to fill in the blanks:
 
--   Use log-odds to fit the model (outcome)
--   Use odds to interpret model results
--   Use probabilities to make predictions for individual observations and ultimately to make classification decisions
+-   Use \_\_\_ to fit the model (outcome)
+-   Use \_\_\_ to interpret model results
+-   Use \_\_\_ to make predictions for individual observations and ultimately to make classification decisions
 
 ## Exercise 2
 
@@ -82,32 +81,25 @@ claws %>%
 
 ## Exercise 3
 
-We will use the mean-centered variables for force in the model. The model output is below. Write the equation of the model produced by R. Don't forget to fill in the blanks for `…`.
+We will use the mean-centered variables for force (`force\_cent`) in the model. Use logistic regression to fit the model. Obtain its confidence interval and knit it to a table presenting only 3 digits. Write the equation of the model produced by R.
 
 ```{r echo = F}
-lb_fit_1 <- logistic_reg() %>%
-  set_engine("glm") %>%
-  fit(lb ~ force_cent, data = claws)
 
-tidy(lb_fit_1, conf.int = TRUE) %>%
-  kable(digits = 3)
 ```
 
-Let $\pi$ be probability that a crab is from Lb species.
+Let $\pi$ be probability that a crab is from Lb species, write down the model formula based on your result.
 
-$$
-\log\Big(\frac{\hat{\pi}}{1 - \hat{\pi}}\Big) = -0.798 + 0.043 * force\_cent
-$$
+
 
 ## Exercise 4
 
 Interpret the intercept in the context of the data.
 
 ```{r}
-mean_force <- round(mean(claws$force), 2)
+
 ```
 
-For crabs with average closing force (`r mean_force` newtons), we expect odds of the crab being *Lophopanopeus bellus* is `r round(exp(-0.798), 2)` (`exp(-0.798)`).
+
 
 ## Exercise 5
 
@@ -115,52 +107,38 @@ Interpret the effect of force in the context of the data.
 
 When x goes up by 1 unit, we expect y to change by (slope) units.
 
-For each additional unit increase in closing force, the odds of crab being from lb species multiplies on average by a factor of `r exp(0.043)`.
 
 ## Exercise 6
 
 Now let's consider adding `height_cent` to the model. Fit the model that includes `height_cent`. Then use AIC to choose the model that best fits the data.
 
 ```{r}
-lb_fit_2 <- logistic_reg() %>%
-  set_engine("glm") %>%
-  fit(lb ~ force_cent + height_cent, data = claws)
 
-tidy(lb_fit_2, conf.int = TRUE)
-
-glance(lb_fit_1)$AIC
-glance(lb_fit_2)$AIC
 ```
 
 ## Exercise 7
 
 What do the following mean in the context of this data. Explain and calculate them.
 
--   Sensitivity: P(predict lb \| actual lb) = 6 / 12
--   Specificity: P(predict not lb \| actual not lb) = 4/ 26
--   Negative predictive power: P(actual not lb \| predict not lb) = 22 / 28
--   Positive predictive power: P(actual lb \| predict lb) = 6 / 10
+-   Sensitivity: P(predict lb \| actual lb) = 
+-   Specificity: P(predict not lb \| actual not lb) = 
+-   Negative predictive power: P(actual not lb \| predict not lb) = 
+-   Positive predictive power: P(actual lb \| predict lb) = 
 
 | Actual       | Predict lb | Predict not lb | TOTAL predicted |
 |--------------|------------|----------------|-----------------|
-| Lb           | 6          | 6              | 12              |
-| Not lb       | 4          | 22             | 26              |
-| TOTAL actual | 10         | 28             | 38              |
+| Lb           |            |                |                 |
+| Not lb       |            |                |                 |
+| TOTAL actual |            |                |                 |
 
 \pagebreak
 
 # Part 2
 
-Let's extend the model to use force and height to predict the species (Hn, Cp, and Lb). The model output is below:
+Let's extend the model to use force and height to predict the species (Hn, Cp, and Lb). 
 
 ```{r}
-species_fit <- multinom_reg() %>%
-  set_engine("nnet") %>%
-  fit(species ~ force_cent + height_cent, data = claws)
 
-species_fit <- repair_call(species_fit, data = claws)
-
-tidy(species_fit, conf.int = TRUE)
 ```
 
 ## Exercise 8
@@ -189,15 +167,11 @@ CAUTION: We can write an interpretation based on the estimated coefficients; how
 
 Conditions for multinomial logistic (and logistic models as well):
 
--   Independence:
--   Randomness:
--   Linearity:
+
 
 ```{r}
 #| layout-ncol: 2
 
-emplogitplot1(lb ~ force, data = claws, ngroups = 10)
-emplogitplot1(lb ~ height, data = claws, ngroups = 10)
 ```
 
 ```{r}
