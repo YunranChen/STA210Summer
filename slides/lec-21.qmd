@@ -514,6 +514,8 @@ Then, create a plot of the empirical logit versus the mean value of the predicto
 
 ## Empirical logit plot in R (quantitative predictor)
 
+`emplogitplot1`: for 1 quantitative variable
+
 ```{r}
 emplogitplot1(high_risk ~ age, 
               data = heart_disease, 
@@ -521,6 +523,8 @@ emplogitplot1(high_risk ~ age,
 ```
 
 ## Empirical logit plot in R (interactions)
+
+`emplogitplot2`: for 1 quantitative variable and 1 categorical variable
 
 ```{r}
 emplogitplot2(high_risk ~ age + currentSmoker, data = heart_disease, 
@@ -573,10 +577,10 @@ emplogitplot1(high_risk ~ totChol,
 
 `r emo::ji("white_check_mark")` The randomness condition is satisfied. We do not have reason to believe that the participants in this study differ systematically from adults in the U.S. in regards to health characteristics and risk of heart disease.
 
-# Comparison between logistic regression and linear regression
+# Comparison between logistic regression and linear regression {.smaller}
 
 |                       | Linear                                                            | Logistic                                                      |
-|-----------------------|-------------------------------------------------------------------|---------------------------------------------------------------|
+|----------------|-----------------------------|---------------------------|
 | Outcome               | continuous                                                        | binary                                                        |
 | left side of equation | y                                                                 | log odds                                                      |
 | Inference             | CI + HT                                                           | CI+HT                                                         |

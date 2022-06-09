@@ -11,7 +11,7 @@ format:
     slide-number: true
     incremental: true 
     chalkboard: true
-editor: visual
+editor: source
 execute:
   freeze: auto
   echo: true
@@ -257,9 +257,9 @@ email_pred
 
 ## False positive and negative {.smaller}
 
-|                              | +(True)                 | -(True)             |
-|------------------------|------------------------|------------------------|
-| +(Model)     | True positive                 | False positive (Type 1 error) |
+|          | +(True)                       | -(True)                       |
+|----------|-------------------------------|-------------------------------|
+| +(Model) | True positive                 | False positive (Type 1 error) |
 | -(Model) | False negative (Type 2 error) | True negative                 |
 
 -   False negative rate = P(classified as - \| Truth is +) = FN / (TP + FN)
@@ -270,7 +270,7 @@ email_pred
 
 -   Specificity = P(classified as - \| Truth is -) = TN / (FP + TN)
 
-- W.R.T column it belongs to.
+-   W.R.T column it belongs to.
 
 ## False positive and negative {.smaller}
 
@@ -295,8 +295,6 @@ email_pred
 -   Specificity = P(classified as not spam \| Email not spam) = TN / (FP + TN)
     -   Specificity = 1 − False positive rate
 
-
-
 ## COVID Rapid Tests
 
 -   [Read COVID Rapid Tests](https://www.mcgill.ca/oss/article/covid-19/navigating-false-negatives-covid-rapid-tests)
@@ -311,99 +309,15 @@ email_pred
 If you were designing a COVID Rapid Test, would you care more about sensitivity or specificity? Would you want sensitivity and specificity to be high or low? What are the trade-offs associated with each decision?
 :::
 
-
-## Evaluate the performance
-
-**Receiver operating characteristic (ROC) curve**<sup>+</sup> which plot true positive rate vs. false positive rate (1 - specificity).
-
-::: aside
-<sup>+</sup> Originally developed for operators of military radar receivers, hence the name.
-:::
-
-::: columns
-::: {.column width="40%"}
-```{r}
-#| label: roc-curve
-#| fig.show: hide
-
-email_pred %>%
-  roc_curve(
-    truth = spam,
-    .pred_1,
-    event_level = "second"
-    # "first" or "second" to be the event: 1-spam
-  ) %>%
-  autoplot()
-```
-:::
-
-::: {.column width="60%"}
-```{r}
-#| ref.label: roc-curve
-#| echo: false
-#| out.width: "100%"
-```
-:::
-:::
-
-## ROC curve, under the hood
-
-```{r}
-email_pred %>%
-  roc_curve(
-    truth = spam,
-    .pred_1,
-    event_level = "second"
-  )
-# ROC draw based on different thresholds
-```
-
-## ROC curve
-
-```{r}
-#| echo: false
-
-email_pred %>%
-  roc_curve(
-    truth = spam,
-    .pred_1,
-    event_level = "second"
-  ) %>%
-  autoplot() +
-  annotate("point", x = 0, y = 1, color = "#5B888C") +
-  annotate("point", x = 0, y = 1, color = "#5B888C", size = 3, shape = "circle open") +
-  annotate(
-    "label", x = 0.02, y = 0.99, label = "All spams classified as spam,\nall non-spams classified as nonspam", hjust = 0, color = "#5B888C", fontface = "bold", vjust = 1, fill = "white"
-  ) +
-  annotate("point", x = 1, y = 0, color = "#8F2D56") +
-  annotate("point", x = 1, y = 0, color = "#8F2D56", size = 3, shape = "circle open") +
-  annotate(
-    "label", x = 0.98, y = 0.01, label = "All spams classified as non-spam,\nall non-spams classified as spam", hjust = 1, color = "#8F2D56", fontface = "bold", vjust = 0, fill = "white"
-  ) +
-  annotate(
-    "segment", color = "#5b708c", x = 0, y = 0, xend = 1, yend = 1, size = 2, alpha = 0.5
-  ) +
-  annotate(
-    "label", x = 0.58, y = 0.5, label = "True positive rate\n= false positive rate", hjust = 0, color = "#5b708c", fontface = "bold", fill = "white"
-  )
-```
-
-## Evaluate the performance
-
-Area under ROC curve
-
-```{r}
-#| label: roc-auc
-
-email_pred %>%
-  roc_auc(
-    truth = spam,
-    .pred_1,
-    event_level = "second"
-  )
-```
-
 # Make decisions
+
+-   We called the previous table : confusion matrix.
+
+-   For different value of cutoff, we can obtain different confusion matrix
+
+-   We make decisions depending on our budget (cost for false negative or false positive)
+
+-   Different people may select different cutoff based on their distinct goals
 
 ## Cutoff probability: 0.5 {.smaller}
 
@@ -595,3 +509,102 @@ email_pred %>%
   ) +
   coord_cartesian(clip = "off")
 ```
+
+# Evaluate your classifier
+
+## Evaluate the performance
+
+**Receiver operating characteristic (ROC) curve**<sup>+</sup> which plot true positive rate vs. false positive rate (1 - specificity).
+
+Each point in the ROC curve correspond to different cutoffs.
+
+::: aside
+<sup>+</sup> Originally developed for operators of military radar receivers, hence the name.
+:::
+
+::: columns
+::: {.column width="40%"}
+```{r}
+#| label: roc-curve
+#| fig.show: hide
+
+email_pred %>%
+  roc_curve(
+    truth = spam,
+    .pred_1,
+    event_level = "second"
+    # "first" or "second" to be the event: 1-spam
+  ) %>%
+  autoplot()
+```
+:::
+
+::: {.column width="60%"}
+```{r}
+#| ref.label: roc-curve
+#| echo: false
+#| out.width: "100%"
+```
+:::
+:::
+
+## ROC curve, under the hood
+
+```{r}
+email_pred %>%
+  roc_curve(
+    truth = spam,
+    .pred_1,
+    event_level = "second"
+  )
+# ROC draw based on different thresholds
+```
+
+## ROC curve
+
+```{r}
+#| echo: false
+
+email_pred %>%
+  roc_curve(
+    truth = spam,
+    .pred_1,
+    event_level = "second"
+  ) %>%
+  autoplot() +
+  annotate("point", x = 0, y = 1, color = "#5B888C") +
+  annotate("point", x = 0, y = 1, color = "#5B888C", size = 3, shape = "circle open") +
+  annotate(
+    "label", x = 0.02, y = 0.99, label = "All spams classified as spam,\nall non-spams classified as nonspam", hjust = 0, color = "#5B888C", fontface = "bold", vjust = 1, fill = "white"
+  ) +
+  annotate("point", x = 1, y = 0, color = "#8F2D56") +
+  annotate("point", x = 1, y = 0, color = "#8F2D56", size = 3, shape = "circle open") +
+  annotate(
+    "label", x = 0.98, y = 0.01, label = "All spams classified as non-spam,\nall non-spams classified as spam", hjust = 1, color = "#8F2D56", fontface = "bold", vjust = 0, fill = "white"
+  ) +
+  annotate(
+    "segment", color = "#5b708c", x = 0, y = 0, xend = 1, yend = 1, size = 2, alpha = 0.5
+  ) +
+  annotate(
+    "label", x = 0.58, y = 0.5, label = "True positive rate\n= false positive rate", hjust = 0, color = "#5b708c", fontface = "bold", fill = "white"
+  )
+```
+
+## Evaluate the performance
+
+Area under ROC curve
+
+Analogize to R-square
+
+```{r}
+#| label: roc-auc
+
+email_pred %>%
+  roc_auc(
+    truth = spam,
+    .pred_1,
+    event_level = "second"
+  )
+```
+
+# 
