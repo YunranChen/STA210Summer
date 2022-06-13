@@ -1565,7 +1565,7 @@
     "href": "slides/lec-24.html#add-education-to-the-model-2",
     "title": "MultiLR: Prediction + inferential models",
     "section": "Add Education to the model?",
-    "text": "Add Education to the model?\n\nanova(reduced_fit$fit, full_fit$fit, test = \"Chisq\") %>%\n  kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nResid. df\nResid. Dev\nTest\nDf\nLR stat.\nPr(Chi)\n\n\n\n\nAge + PhysActive\n25848\n16994.23\n\nNA\nNA\nNA\n\n\nAge + PhysActive + Education\n25832\n16505.10\n1 vs 2\n16\n489.132\n0\n\n\n\n\n\n\nAt least one coefficient associated with Education is non-zero. Therefore, we will include Education in the model."
+    "text": "Add Education to the model?\n\nanova(reduced_fit$fit, full_fit$fit, test = \"Chisq\") %>%\n  kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nResid. df\nResid. Dev\nTest\nDf\nLR stat.\nPr(Chi)\n\n\n\n\nAge + PhysActive\n25848\n16994.23\n\nNA\nNA\nNA\n\n\nAge + PhysActive + Education\n25832\n16505.10\n1 vs 2\n16\n489.132\n0\n\n\n\n\n\n\nAt least one coefficient associated with Education is non-zero. Therefore, we will include Education in the model.\n\n\nIf you want to apply anova to the fitted model from workflow, you have to apply fitted_obj \\%>\\% extract\\_fit\\_engine() to obtain fitted object that can be put into anova()."
   },
   {
     "objectID": "slides/lec-24.html#model-with-education",
@@ -1600,7 +1600,7 @@
     "href": "slides/lec-24.html#checking-linearity-1",
     "title": "MultiLR: Prediction + inferential models",
     "section": "Checking linearity",
-    "text": "Checking linearity\n\nemplogitplot1(Excellent ~ Age, data = nhanes_adult, \n              ngroups = 10, main = \"Excellent vs. Age\")\n\nemplogitplot1(Vgood ~ Age, data = nhanes_adult, \n              ngroups = 10, main = \"Vgood vs. Age\")"
+    "text": "Checking linearity\nemplogitplot1: numerical predictor\nemplogitplot2: numerical + categorical\n\nemplogitplot1(Excellent ~ Age, data = nhanes_adult, \n              ngroups = 10, main = \"Excellent vs. Age\")\n\nemplogitplot1(Vgood ~ Age, data = nhanes_adult, \n              ngroups = 10, main = \"Vgood vs. Age\")"
   },
   {
     "objectID": "slides/lec-24.html#checking-linearity-2",
@@ -6459,5 +6459,12 @@
     "title": "AE 12: Exam 3 Review",
     "section": "Checking for multicollinearity in logistic and multinomial logistic",
     "text": "Checking for multicollinearity in logistic and multinomial logistic\nSimilar to multiple linear regression, we can also check for multicollinearity in logistic and multinomial logistic models.\n\nUse the vif function to check for multicollinearity in logistic regression.\n\n\n\n\n\nThe vif function doesn’t work for the multinomial logistic regression models, so we can look at a correlation matrix of the predictors as a way to assess if the predictors are highly correlated:"
+  },
+  {
+    "objectID": "slides/lec-24.html#compare-nhanes-models-using-aic-1",
+    "href": "slides/lec-24.html#compare-nhanes-models-using-aic-1",
+    "title": "MultiLR: Prediction + inferential models",
+    "section": "Compare NHANES models using AIC",
+    "text": "Compare NHANES models using AIC\nReduced model:\n\nglance(reduced_fit)$BIC\n\nNULL\n\n\n\nFull model:\n\nglance(full_fit)$BIC\n\nNULL"
   }
 ]
