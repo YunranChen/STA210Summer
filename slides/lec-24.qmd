@@ -151,28 +151,6 @@ health_conf <- health_aug %>%
 health_conf
 ```
 
-## Actual vs. predicted health rating
-
-::: question
-Why do you think no observations were predicted to have a rating of "Excellent", "Fair", or "Poor"?
-:::
-
-```{r}
-#| echo: false
-#| out-width: "100%"
-#| fig-width: 10
-#| layout-ncol: 2
-
-ggplot(nhanes_adult, aes(x = HealthGen)) + 
-  geom_bar() +
-  labs(title = "Self-reported rating of overall health")
-
-ggplot(health_aug, aes(x = HealthGen, fill = .pred_class)) + 
-  geom_bar() +
-  scale_fill_OkabeIto() +
-  labs(title = "Predicted vs.\nself-reported rating of overall health") +
-  theme(legend.position = c(0.8, 0.8))
-```
 
 # Model selection for inference
 
@@ -231,6 +209,10 @@ anova(reduced_fit$fit, full_fit$fit, test = "Chisq") %>%
 
 At least one coefficient associated with `Education` is non-zero. Therefore, we will include `Education` in the model.
 
+. . .
+
+If you want to apply `anova` to the fitted model from workflow, you have to apply `fitted_obj \%>\% extract\_fit\_engine()` to obtain fitted object that can be put into `anova()`.
+
 ## Model with `Education` {.smaller}
 
 ```{r}
@@ -251,6 +233,22 @@ Full model:
 
 ```{r}
 glance(full_fit)$AIC
+```
+
+## Compare NHANES models using AIC
+
+Reduced model:
+
+```{r}
+glance(reduced_fit)$BIC
+```
+
+. . .
+
+Full model:
+
+```{r}
+glance(full_fit)$BIC
 ```
 
 # Checking conditions for inference
@@ -281,6 +279,10 @@ nhanes_adult <- nhanes_adult %>%
 ```
 
 ## Checking linearity
+
+`emplogitplot1`: numerical predictor
+
+`emplogitplot2`: numerical + categorical
 
 ```{r}
 #| layout-ncol: 2
