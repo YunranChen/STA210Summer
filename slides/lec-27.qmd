@@ -1,5 +1,5 @@
 ---
-title: "Project Peer Review and Data Cleaning"
+title: "Exam 3 review"
 subtitle: "STA 210 - Summer 2022"
 author: "Yunran Chen"
 footer:  "[yunranchen.github.io/STA210Summer/](https://yunranchen.github.io/STA210Summer/)"
@@ -30,105 +30,70 @@ knitr::opts_chunk$set(
 
 ```
 
+# Welcome
+
 ## Topics
 
--   [Project Peer Review](https://yunranchen.github.io/STA210Summer/project-description.html#peer-teamwork-evaluation)
+::: nonincremental
+-   Exam 3 Review
+-   Course Evaluation
+-   Peer Review
+:::
 
--   Data Cleaning
+## Exam instructions {.smaller}
 
-## Project Peer Review (20 min)
+-   The exam is an individual assignment. Everything in your repository is for your eyes only.
 
-## Data Cleaning using tidyverse 
+-   You may not collaborate or communicate anything about this exam to anyone except the instructor. For example, you may not communicate with other students, the TAs, or post/solicit help on the internet, email or via any other method of communication.
 
--   Raw data to understanding, insight, and knowledge
+-   The exam is open-book, open-note, so you may use any materials from class as you take the exam.
 
--   Workflow
+-   If you have questions, email me.
 
-. . .
+## Exam coverage and format
 
-![](images/lec-27/data-science.png)
+-   Focuses on content after exam 2, but can include material from previous weeks
 
+-   Similar format as previous exams
 
-## Packages in Tidyverse
+    -   Part 1: Multiple choice/fill-in-the-blank questions on Sakai
+    -   Part 2: Open-ended data analysis in GitHub and submitted on Gradescope
 
-![](images/lec-27/tidyverse.png)
+## Part 2 of the exam
 
-## Focus on data wrangling
+-   **Goal:** Assess your understanding of the course material and how the methods you learned are applied to the analysis of real-world data.
 
-![](images/lec-27/data-science.png)
+-   Include all of your analysis steps in your exam write up, unless stated otherwise.
 
--   Data import (`readr`)
+    -   For example, if the exam says "assume conditions are met," You can reference that information in your write up but don't have to recheck the conditions.
 
--   Tidy data (`tidyr`,`tibble`)
+## Assessment criteria {.smaller}
 
--   Wrangle (`dplyr`,`stringr`, `lubridate`)
+-   You can identify the correct approach, analysis method, and/or inferential results required to answer the question.
+-   You understand the correct conditions and diagnostics needed to determine whether the conclusions drawn from the model will be reliable
+-   You can write results and conclusions in a meaningful way that can be understood by a general audience (think a business or research partner)
+-   You can produce a report that is suitable for a professional audience (e.g., narrative is written in complete sentences, all graphs have proper titles and axis labels, there is not extraneous output, all Latex is rendered)
+-   You can conduct the analysis using a reproducible data analysis workflow that incorporates version control
 
-```{r}
-library(tidyverse)
-```
+## Review on logistic regression and Multinomial Logistic Regression
 
+Analogize to a linear regression
 
-## Data import using `readr` {.smaller}
+-   Motivation
+-   Model
+-   Estimation
+-   Interpretation
+-   Inference
+-   Comparison
+-   Prediction
+-   Condition
+-   Issue
+-   Extend to Multinomial logistic regression
 
--   `read_csv`, ...
+## Application exercise
 
--    `parse_*`: parse the characters/numbers only
-  
-. . .
+::: appex
+📋 [github.com/STA210-Summer22/ae-12-exam-3-review](https://yunranchen.github.io/STA210Summer/ae/ae-12-exam-3-review.html)
+:::
 
-```{r}
-parse_number("$100")
-parse_number("20%")
-parse_number("It cost $123.45")
-
-# Used in America
-parse_number("$123,456,789")
-# Used in many parts of Europe
-parse_number("123.456.789", locale = locale(grouping_mark = "."))
-# Used in Switzerland
-parse_number("123'456'789", locale = locale(grouping_mark = "'"))
-```
-
-## function `parse` in pkg `readr` {.smaller}
-
-```{r}
-x1 <- "El Ni\xf1o was particularly bad this year"
-x2 <- "\x82\xb1\x82\xf1\x82\xc9\x82\xbf\x82\xcd"
-
-x1
-x2
-parse_character(x1, locale = locale(encoding = "Latin1"))
-parse_character(x2, locale = locale(encoding = "Shift-JIS"))
-```
-
-
-## function `parse` in pkg `readr` {.smaller}
-
-```{r}
-parse_date("1 janvier 2015", "%d %B %Y", locale = locale("fr"))
-parse_date("01/02/15", "%m/%d/%y")
-parse_date("01/02/15", "%d/%m/%y")
-parse_date("01/02/15", "%y/%m/%d")
-```
-
-```{r}
-parse_datetime("2010-10-01T2010")
-library(hms)
-parse_time("01:10 am")
-```
-
-## Other packages for data importing
-
--   Package `haven`: SPSS, Stata, SAS file
-
--   Package `readxl`: Excel file .xls, .xlsx
-
--   Package `jsonlite`/`htmltab`: json, html
-
--   use `as_tibble` to coerce a data frame to a tibble
-
-
-
-
-
-
+## Course Evaluation

@@ -1,5 +1,5 @@
 ---
-title: "Exam 3 review"
+title: "Data Cleaning"
 subtitle: "STA 210 - Summer 2022"
 author: "Yunran Chen"
 footer:  "[yunranchen.github.io/STA210Summer/](https://yunranchen.github.io/STA210Summer/)"
@@ -30,68 +30,460 @@ knitr::opts_chunk$set(
 
 ```
 
-# Welcome
-
 ## Topics
 
-::: nonincremental
--   Exam 3 Review
--   Course Evaluation
-:::
+-   [Project Peer Review](https://yunranchen.github.io/STA210Summer/project-description.html#peer-teamwork-evaluation)
 
-## Exam instructions {.smaller}
+-   Data Cleaning
 
--   The exam is an individual assignment. Everything in your repository is for your eyes only.
+## Project Peer Review (20 min)
 
--   You may not collaborate or communicate anything about this exam to anyone except the instructor. For example, you may not communicate with other students, the TAs, or post/solicit help on the internet, email or via any other method of communication.
+## Data Cleaning using tidyverse
 
--   The exam is open-book, open-note, so you may use any materials from class as you take the exam.
+-   Raw data to understanding, insight, and knowledge
 
--   If you have questions, email me.
+-   Workflow
 
-## Exam coverage and format
+. . .
 
--   Focuses on content after exam 2, but can include material from previous weeks
+![](images/lec-26/data-science.png)
 
--   Similar format as previous exams
+## Packages in Tidyverse
 
-    -   Part 1: Multiple choice/fill-in-the-blank questions on Sakai
-    -   Part 2: Open-ended data analysis in GitHub and submitted on Gradescope
+![](images/lec-26/tidyverse.png) \# Data Wrangling
 
-## Part 2 of the exam
+## Focus on data wrangling
 
--   **Goal:** Assess your understanding of the course material and how the methods you learned are applied to the analysis of real-world data.
+![](images/lec-26/data-science-wrangle.png)
 
--   Include all of your analysis steps in your exam write up, unless stated otherwise.
+-   Data import (`readr`, `tibble`)
 
-    -   For example, if the exam says "assume conditions are met," You can reference that information in your write up but don't have to recheck the conditions.
+-   Tidy data (`tidyr`)
 
-## Assessment criteria {.smaller}
+-   Wrangle (`dplyr`, `stringr`, `lubridate`,`janitor`)
 
--   You can identify the correct approach, analysis method, and/or inferential results required to answer the question.
--   You understand the correct conditions and diagnostics needed to determine whether the conclusions drawn from the model will be reliable
--   You can write results and conclusions in a meaningful way that can be understood by a general audience (think a business or research partner)
--   You can produce a report that is suitable for a professional audience (e.g., narrative is written in complete sentences, all graphs have proper titles and axis labels, there is not extraneous output, all Latex is rendered)
--   You can conduct the analysis using a reproducible data analysis workflow that incorporates version control
+```{r}
+library(tidyverse)
+library(cowplot)
+```
 
-## Review on logistic regression and Multinomial Logistic Regression
+# Data import
 
--   Analogize to a linear regression
--   Motivation
--   Model
--   Estimation
--   Interpretation
--   Inference
--   Comparison
--   Prediction
--   Condition
--   Issue
--   Extend to Multinomial logistic regression
+## Data import using `readr` {.smaller}
 
-## Application exercise
+-   `read_csv`, ...
 
-::: appex
-📋 [github.com/STA210-Summer22/ae-12-exam-3-review](https://yunranchen.github.io/STA210Summer/ae/ae-12-exam-3-review.html)
-:::
+## Extract the certain type of data {.smaller}
 
-## Course Evaluation
+`readr::parse_*`: parse the characters/numbers only
+
+![](images/lec-26/parse_number.png)
+
+## function `parse` in pkg `readr` {.smaller}
+
+```{r}
+parse_number("$100")
+parse_number("20%")
+parse_number("It cost $123.45")
+
+# Used in America
+parse_number("$123,456,789")
+# Used in many parts of Europe
+parse_number("123.456.789", locale = locale(grouping_mark = "."))
+# Used in Switzerland
+parse_number("123'456'789", locale = locale(grouping_mark = "'"))
+```
+
+## function `parse` in pkg `readr` {.smaller}
+
+```{r}
+x1 <- "El Ni\xf1o was particularly bad this year"
+x2 <- "\x82\xb1\x82\xf1\x82\xc9\x82\xbf\x82\xcd"
+
+x1
+x2
+parse_character(x1, locale = locale(encoding = "Latin1"))
+parse_character(x2, locale = locale(encoding = "Shift-JIS"))
+```
+
+## function `parse` in pkg `readr` {.smaller}
+
+```{r}
+parse_date("1 janvier 2015", "%d %B %Y", locale = locale("fr"))
+parse_date("01/02/15", "%m/%d/%y")
+parse_date("01/02/15", "%d/%m/%y")
+parse_date("01/02/15", "%y/%m/%d")
+```
+
+```{r}
+parse_datetime("2010-10-01T2010")
+library(hms)
+parse_time("01:10 am")
+```
+
+## Other packages for data importing
+
+-   Package `haven`: SPSS, Stata, SAS file
+
+-   Package `readxl`: Excel file .xls, .xlsx
+
+-   Package `jsonlite`/`htmltab`: json, html
+
+-   use `as_tibble` to coerce a data frame to a tibble
+
+## `janitor` package can help with cleaning names
+
+-   `clean_names`,`remove_empty_cols`,`remove_empty_rows`
+
+![](images/lec-26/janitor_clean_names.png)
+
+## `janitor` package
+
+-   `clean_names`,`remove_empty_cols`,`remove_empty_rows`
+
+![](images/lec-26/coding_cases.png)
+
+# Tidy data
+
+## Tidy data
+
+![](images/lec-26/tidyverse.png)
+
+## Tidy data
+
+![](images/lec-26/tidydata_1.jpeg)
+
+## Tidy data
+
+![](images/lec-26/tidydata_2.jpeg)
+
+## Tidy data
+
+![](images/lec-26/tidydata_3.jpeg)
+
+## Tidy data
+
+![](images/lec-26/tidydata_4.jpeg)
+
+## Tidy data
+
+![](images/lec-26/tidy-1.png)
+
+## `pivot_longer` function in `tidyr` pkg
+
+-   `pivot_longer`: from wide to long
+
+```{r}
+#| eval: false
+table4 %>% 
+  pivot_longer(c(`1999`, `2000`), names_to = "year", values_to = "cases")
+```
+
+![](images/lec-26/tidy-9.png) \## `pivot_wider` function in `tidyr` pkg
+
+-   `pivot_wider`: from long to wide
+
+```{r}
+#| eval: false
+table2 %>%
+    pivot_wider(names_from = key, values_from = value)
+```
+
+![](images/lec-26/tidy-8.png) \## `separate` function in `tidyr` pkg
+
+-   `separate`: from 1 column to 2+ column
+-   can `sep` based on digits or characters.
+
+```{r}
+#| eval: false
+table3 %>% 
+  separate(rate, into = c("cases", "population"), sep = "/")
+
+```
+
+![](images/lec-26/tidy-17.png)
+
+## `unite` function in `tidyr` pkg
+
+-   `unite`: from 2+ column to 1 column
+
+```{r}
+#| eval: false
+table6 %>% 
+  unite("year", century, year, sep = "")
+
+```
+
+![](images/lec-26/tidy-18.png) \# Transform
+
+# `dplyr`: `join` multiple datasets
+
+## `join` multiple datasets
+
+R pkg `nycflights13` provide multiple relational datasets:
+
+-   `flights` connects to `planes` via a single variable, `tailnum`.
+
+-   `flights` connects to `airlines` through the `carrier` variable.
+
+-   `flights` connects to `airports` in two ways: via the `origin` and `dest` variables.
+
+-   `flights` connects to `weather` via `origin` (the location), and `year`, `month`, `day` and `hour` (the time)
+
+## Relational datasets in `nycflights13`
+
+![](images/lec-26/relational-nycflights.png)
+
+## `inner_join`
+
+```{r}
+#| eval: false
+inner_join(x,y,by="key")
+```
+
+![](images/lec-26/join-inner.png)
+
+## `*_join`
+
+-   `left_join`, `right_join`, `full_join`
+
+```{r}
+#| eval: false
+left_join(x,y,by="key")
+```
+
+![](images/lec-26/join-outer.png) \# `dplyr`: transform variables in tibble
+
+## Data wrangling with `dplyr` {.smaller}
+
+-   `slice()`: pick rows using indexes
+-   `filter()`: keep rows satisfying your condition
+-   `select()`: select variables obtain a tibble
+-   `pull()`: grab a column as a vector
+-   `relocate()`: relocate a variable
+-   `arrange()`: reorder rows
+-   `rename()`: rename a variable
+-   `mutate()`: add columns
+-   `group_by()%>%summarize()`: summary statistics for different groups
+-   `count()`: count the frequency
+-   `distinct()`: keep unique rows
+-   functions within `mutate()`: `across()`, `if_else()`,`case_when()`
+-   functions for selecting variables: `starts_with()`, `ends_with()`,`contains()`,`matches()`,`everything()`
+
+## `case_when`
+
+![](images/lec-26/dplyr_case_when_sm.png)
+
+## Practice
+
+```{r}
+library("palmerpenguins")
+```
+
+-   Keep the chinstrap and gentoo penguins, living in Dream and Biscoe Islands.
+-   Get first 100 observation
+-   Only keep columns from `species` to `flipper_length_mm`, and `sex` and `year`
+-   Rename `sex` as `gender`
+-   Move `gender` right after island, move any numeric variables to after factor variables
+-   Add a new column to identify each observation
+-   Transfer `island` as character
+-   Add a new variable called `bill_ratio` which is the ratio of bill length to bill depth
+-   Obtain the mean and standard deviation of body mass of different species
+-   For different species, obtain the mean of variables ending with `mm`
+-   Provide a distribution of different species of penguins living in different island across time
+
+## Practice
+
+To penguins, add a new column size_bin that contains:
+
+-   "large" if body mass is greater than 4500 g
+-   "medium" if body mass is greater than 3000 g, and less than or equal to 4500 g
+-   "small" if body mass is less than or equal to 3000 g
+
+# Deal with different types of variables
+
+## Deal with different types of variables
+
+-   `stringr` for strings
+-   `forcats` for factors
+-   `lubridate` for dates and times
+
+# `stringr` for strings
+
+## `stringr` for strings
+
+-   [Cheatsheets for `stringr`](https://github.com/rstudio/cheatsheets/blob/main/strings.pdf)
+
+## Useful functions in `stringr`
+
+If your raw data has numbers as variable names, you may consider to add characters in front of it.
+
+```{r}
+#| eval: false
+table4 %>% 
+  pivot_longer(c(`1999`, `2000`), names_to = "year", values_to = "cases")
+```
+
+. . .
+
+`str_c`: join multiple strings to a single string
+
+```{r}
+str_c(c("x", "y", "z"), collapse = ", ")
+str_c("x",1:3) 
+```
+
+## Useful functions in `stringr`
+
+-   Can use to obtain nice variable names.
+-   Can use `janitor::clean_names`
+-   Or `str_to_upper`, `str_to_lower`, `str_to_title`
+
+. . .
+
+```{r}
+colnames(penguins)
+colnames(penguins)%>%
+  str_to_title()
+```
+
+## Useful functions in `stringr`
+
+-   `str_detect()`: Return TRUE/FALSE for strings satisfying the pattern
+-   pattern: regular expressions ([CheatSheets](https://github.com/rstudio/cheatsheets/blob/main/strings.pdf))
+-   `str_replace`, `str_replace_all`(multiple replacements)
+-   Text mining: Useful if your have text in the survey, and you want to extract important features from text
+
+. . .
+
+```{r}
+x <- c("apple", "banana", "pear")
+str_detect(x, "[aeiou]$")
+str_replace(x, "[aeiou]", "-")
+x <- c("1 house", "2 cars", "3 people")
+str_replace_all(x, c("1" = "one", "2" = "two", "3" = "three"))
+```
+
+# `forcats` for factors
+
+## `forcats` for factors
+
+-   `fct_infreq`: order levels by frequency
+-   `fct_rev`: reverse the order of levels
+-   `fct_reorder`,`fct_reorder2`: order according to other variables
+-   `fct_relevel`: reorder manually
+-   `fct_collapse`: combine levels
+-   Useful for visualization in `ggplot`.
+
+## `fct_infreq` and `fct_rev`
+
+```{r}
+p1=penguins %>%
+  ggplot(aes(species)) + geom_bar()
+p2=penguins %>%
+  mutate(species=species %>% fct_infreq() %>% fct_rev()) %>%
+  ggplot(aes(species)) + geom_bar()
+plot_grid(p1,p2)
+```
+
+## Examples for `fct_reorder`
+
+```{r}
+library(cowplot)
+peng_summary=penguins %>%
+  group_by(species)%>%
+  summarise(
+    bill_length_mean=mean(bill_length_mm, na.rm=T),
+    bill_depth_mean=mean(bill_depth_mm, na.rm=T)
+  )
+p1=ggplot(peng_summary,aes(bill_length_mean,species)) + 
+  geom_point()
+p2=ggplot(peng_summary,aes(bill_length_mean,fct_reorder(species,bill_length_mean))) + 
+  geom_point()
+plot_grid(p1,p2)
+```
+
+## Examples for `fct_reorder2`
+
+`fct_reorder2()` reorders the factor by the y values associated with the largest x values. This makes the plot easier to read because the line colours line up with the legend.
+
+```{r}
+p1=ggplot(penguins,aes(bill_length_mm,flipper_length_mm,color=species)) + 
+  geom_line()
+p2=ggplot(penguins,aes(bill_length_mm,flipper_length_mm,color=fct_reorder2(species,bill_length_mm,flipper_length_mm))) + 
+  geom_line() + 
+  guides(color=guide_legend(title="species"))
+plot_grid(p1,p2)
+```
+
+## `fct_recode()`
+
+```{r}
+penguins %>%
+  count(species)
+
+penguins %>%
+  mutate(species = fct_recode(species,
+                              "Adeliea" = "Adelie",
+                               "ChinChin" = "Chinstrap",
+                               "Gentooman" = "Gentoo")) %>%
+  count(species)
+```
+
+## `fct_collapse`
+
+Can use to collapse lots of levels
+
+```{r}
+penguins %>% 
+  mutate(species = fct_collapse(species,
+                                "Adelie"="Adelie",
+                                "Other"=c("Chinstrap","Gentoo")))%>%
+  count(species)
+```
+
+## `fct_lump`
+
+```{r}
+volcano <- read_csv(here::here("slides", "data/volcano.csv"))
+volcano %>% count(country) %>% nrow()
+volcano %>%
+  mutate(country=fct_lump(country,n=5))%>%
+  count(country)
+```
+
+# `lubridate` for dates and times
+
+## `lubridate` for dates and times
+
+```{r}
+library("lubridate")
+library(nycflights13)
+```
+
+------------------------------------------------------------------------
+
+```{r}
+flights %>% 
+  select(year, month, day, hour, minute) %>% 
+  mutate(departure = make_datetime(year, month, day))%>%
+  ggplot(aes(departure))+
+  geom_freqpoly()
+```
+
+------------------------------------------------------------------------
+
+```{r}
+flights %>% 
+  select(year, month, day, hour, minute) %>% 
+  mutate(departure = make_datetime(year, month, day))%>%
+  filter(departure < ymd(20131002)) %>% 
+  ggplot(aes(departure))+
+  geom_freqpoly()
+```
+
+------------------------------------------------------------------------
+
+-   `year()`, `month()`,
+-   `mday()` (day of the month), `yday()` (day of the year), `wday()` (day of the week)
+-   `hour()`, `minute()`, `second()`

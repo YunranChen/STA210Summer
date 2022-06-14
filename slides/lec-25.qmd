@@ -60,13 +60,12 @@ ggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))
 
 ## Terminology
 
-::: question
+
 What's the difference between regression and classification?
-::: nonincremental
+
 -   Logistic regression / binary classification
 -   Multinomial logistic regression / multinomial classification
-:::
-:::
+
 
 # Data
 

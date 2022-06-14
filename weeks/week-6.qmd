@@ -7,7 +7,6 @@ editor: visual
 ::: callout-important
 -   Due dates:
 
-    -   HW 3: Sunday, June 12, 11:59pm
     -   HW 5: Monday, June 13, 11:59pm
     -   HW 4: Wednesday, June 15, 11:59pm
     -   Lab 6 + AE 11: Friday, June 17, 11:59pm
@@ -31,7 +30,7 @@ editor: visual
 
 🖥️ [Lecture 25 - MultiLR: Predictive models](/slides/lec-25.html)
 
-🖥️ [Lecture 26 - MultiLR: Predictive models (cont.)](/slides/lec-26.html)
+🖥️ [Lecture 26 - Data Wrangling ](/slides/lec-26.html)
 
 🖥️ [Lecture 27 - Exam 3 Review](/slides/lec-27.html)
 
