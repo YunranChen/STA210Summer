@@ -147,10 +147,31 @@ health_aug %>% select(contains("pred"))
 health_conf <- health_aug %>% 
   count(HealthGen, .pred_class, .drop = FALSE) %>%
   pivot_wider(names_from = .pred_class, values_from = n)
-
 health_conf
 ```
 
+## Actual vs. predicted health rating
+
+::: question
+Why do you think no observations were predicted to have a rating of "Excellent", "Fair", or "Poor"?
+:::
+
+Will discuss this later in the model diagnosis.
+
+```{r}
+#| echo: false
+#| out-width: "100%"
+#| fig-width: 10
+#| layout-ncol: 2
+ggplot(nhanes_adult, aes(x = HealthGen)) + 
+  geom_bar() +
+  labs(title = "Self-reported rating of overall health")
+ggplot(health_aug, aes(x = HealthGen, fill = .pred_class)) + 
+  geom_bar() +
+  scale_fill_OkabeIto() +
+  labs(title = "Predicted vs.\nself-reported rating of overall health") +
+  theme(legend.position = c(0.8, 0.8))
+```
 
 # Model selection for inference
 
@@ -211,7 +232,7 @@ At least one coefficient associated with `Education` is non-zero. Therefore, we 
 
 . . .
 
-If you want to apply `anova` to the fitted model from workflow, you have to apply `fitted_obj \%>\% extract\_fit\_engine()` to obtain fitted object that can be put into `anova()`.
+If you want to apply `anova` to the fitted model from workflow, you have to apply `fitted_obj %>% extract_fit_engine()` to obtain fitted object that can be put into `anova()`.
 
 ## Model with `Education` {.smaller}
 
@@ -235,21 +256,9 @@ Full model:
 glance(full_fit)$AIC
 ```
 
-## Compare NHANES models using AIC
-
-Reduced model:
-
-```{r}
-glance(reduced_fit)$BIC
-```
-
 . . .
 
-Full model:
-
-```{r}
-glance(full_fit)$BIC
-```
+We can also use BIC to compare model. Since the `glance()` does not provide us the BIC. For this class, we just use AIC.
 
 # Checking conditions for inference
 
@@ -314,7 +323,7 @@ emplogitplot1(Poor ~ Age, data = nhanes_adult,
 
 . . .
 
-`r emo::ji("white_check_mark")` The linearity condition is satisfied. There is a linear relationship between the empirical logit and the quantitative predictor variable, Age.
+The linearity condition is not satisfied. If we recall the previous confusion matrix, the fitted model only provide two fitted class: very good and good, which may due to the unreasonable model assumption.
 
 ## Checking randomness
 
@@ -343,3 +352,6 @@ Independence is most often violated if the data were collected over time or ther
 -   Predictions
 -   Model selection for inference
 -   Checking conditions for inference
+
+
+
