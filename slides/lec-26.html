@@ -4,7 +4,7 @@
   <meta name="generator" content="quarto-0.9.345">
 
   <meta name="author" content="Yunran Chen">
-  <title>STA 210 - Summer 2022 - MultiLR: Predictive models (cont.)</title>
+  <title>STA 210 - Summer 2022 - Exam 3 review</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -17,69 +17,6 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      {   }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-    code span.at { color: #7d9029; } /* Attribute */
-    code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #4070a0; } /* Char */
-    code span.cn { color: #880000; } /* Constant */
-    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-    code span.dt { color: #902000; } /* DataType */
-    code span.dv { color: #40a070; } /* DecVal */
-    code span.er { color: #ff0000; font-weight: bold; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #40a070; } /* Float */
-    code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
-    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-    code span.op { color: #666666; } /* Operator */
-    code span.ot { color: #007020; } /* Other */
-    code span.pp { color: #bc7a00; } /* Preprocessor */
-    code span.sc { color: #4070a0; } /* SpecialChar */
-    code span.ss { color: #bb6688; } /* SpecialString */
-    code span.st { color: #4070a0; } /* String */
-    code span.va { color: #19177c; } /* Variable */
-    code span.vs { color: #4070a0; } /* VerbatimString */
-    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
   <script src="../site_libs/clipboard/clipboard.min.js"></script>
@@ -379,7 +316,7 @@
       margin-right: 0; 
     }
   </style>
-<meta name="twitter:title" content="STA 210 - Summer 2022 - MultiLR: Predictive models (cont.)">
+<meta name="twitter:title" content="STA 210 - Summer 2022 - Exam 3 review">
 <meta name="twitter:image" content="https:/yunranchen.github.io/STA210Summer/slides/images/twitter-card.png">
 <meta name="twitter:creator" content="@minebocek">
 <meta name="twitter:card" content="summary_large_image">
@@ -389,7 +326,7 @@
     <div class="slides">
 
 <section id="title-slide" class="center">
-  <h1 class="title">MultiLR: Predictive models (cont.)</h1>
+  <h1 class="title">Exam 3 review</h1>
   <p class="subtitle">STA 210 - Summer 2022</p>
   <p class="author">Yunran Chen</p>
 </section>
@@ -403,372 +340,75 @@
 <h2>Topics</h2>
 <div>
 <ul>
-<li>Unbalanced data</li>
-<li>Choosing the “final” model</li>
+<li>Exam 3 Review</li>
+<li>Course Evaluation</li>
 </ul>
 </div>
 </section>
-<section id="computational-setup" class="slide level2">
-<h2>Computational setup</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># load packages</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">library</span>(colorblindr)</span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">library</span>(themis)</span>
-<span id="cb1-7"><a href="#cb1-7"></a></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">16</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section></section>
-<section>
-<section id="from-last-time" class="title-slide slide level1 center">
-<h1>From last time…</h1>
-
-</section>
-<section id="volcanoes" class="slide level2">
-<h2>Volcanoes</h2>
-<p>The data come from <a href="https://volcano.si.edu/">The Smithsonian Institution</a>, via <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-05-12/readme.md">TidyTuesday</a>.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>volcano <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"slides"</span>, <span class="st">"data/volcano.csv"</span>))</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">names</span>(volcano)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "volcano_number"           "volcano_name"            
- [3] "primary_volcano_type"     "last_eruption_year"      
- [5] "country"                  "region"                  
- [7] "subregion"                "latitude"                
- [9] "longitude"                "elevation"               
-[11] "tectonic_settings"        "evidence_category"       
-[13] "major_rock_1"             "major_rock_2"            
-[15] "major_rock_3"             "major_rock_4"            
-[17] "major_rock_5"             "minor_rock_1"            
-[19] "minor_rock_2"             "minor_rock_3"            
-[21] "minor_rock_4"             "minor_rock_5"            
-[23] "population_within_5_km"   "population_within_10_km" 
-[25] "population_within_30_km"  "population_within_100_km"</code></pre>
-</div>
-</div>
-</section>
-<section id="data-prep" class="slide level2">
-<h2>Data prep</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>volcano <span class="ot">&lt;-</span> volcano <span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb4-3"><a href="#cb4-3"></a>    <span class="at">volcano_type =</span> <span class="fu">case_when</span>(</span>
-<span id="cb4-4"><a href="#cb4-4"></a>      <span class="fu">str_detect</span>(primary_volcano_type, <span class="st">"Stratovolcano"</span>) <span class="sc">~</span> <span class="st">"Stratovolcano"</span>,</span>
-<span id="cb4-5"><a href="#cb4-5"></a>      <span class="fu">str_detect</span>(primary_volcano_type, <span class="st">"Shield"</span>) <span class="sc">~</span> <span class="st">"Shield"</span>,</span>
-<span id="cb4-6"><a href="#cb4-6"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Other"</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a>    ),</span>
-<span id="cb4-8"><a href="#cb4-8"></a>    <span class="at">volcano_type =</span> <span class="fu">fct_relevel</span>(volcano_type, <span class="st">"Stratovolcano"</span>, <span class="st">"Shield"</span>, <span class="st">"Other"</span>)</span>
-<span id="cb4-9"><a href="#cb4-9"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb4-10"><a href="#cb4-10"></a>  <span class="fu">select</span>(</span>
-<span id="cb4-11"><a href="#cb4-11"></a>    volcano_type, latitude, longitude, </span>
-<span id="cb4-12"><a href="#cb4-12"></a>    elevation, tectonic_settings, major_rock_1</span>
-<span id="cb4-13"><a href="#cb4-13"></a>    ) <span class="sc">%&gt;%</span></span>
-<span id="cb4-14"><a href="#cb4-14"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.character), as_factor))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="split-into-testingtraining" class="slide level2">
-<h2>Split into testing/training</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
-<span id="cb5-2"><a href="#cb5-2"></a></span>
-<span id="cb5-3"><a href="#cb5-3"></a>volcano_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(volcano)</span>
-<span id="cb5-4"><a href="#cb5-4"></a>volcano_train <span class="ot">&lt;-</span> <span class="fu">training</span>(volcano_split)</span>
-<span id="cb5-5"><a href="#cb5-5"></a>volcano_test  <span class="ot">&lt;-</span> <span class="fu">testing</span>(volcano_split)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="specify-a-model" class="slide level2">
-<h2>Specify a model</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>volcano_spec <span class="ot">&lt;-</span> <span class="fu">multinom_reg</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">set_engine</span>(<span class="st">"nnet"</span>)</span>
-<span id="cb6-3"><a href="#cb6-3"></a></span>
-<span id="cb6-4"><a href="#cb6-4"></a>volcano_spec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Multinomial Regression Model Specification (classification)
-
-Computational engine: nnet </code></pre>
-</div>
-</div>
-</section>
-<section id="create-cross-validation-folds" class="slide level2">
-<h2>Create cross validation folds</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">set.seed</span>(<span class="dv">9876</span>)</span>
-<span id="cb8-2"><a href="#cb8-2"></a></span>
-<span id="cb8-3"><a href="#cb8-3"></a>volcano_folds <span class="ot">&lt;-</span> <span class="fu">vfold_cv</span>(volcano_train, <span class="at">v =</span> <span class="dv">5</span>)</span>
-<span id="cb8-4"><a href="#cb8-4"></a>volcano_folds</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>#  5-fold cross-validation 
-# A tibble: 5 × 2
-  splits            id   
-  &lt;list&gt;            &lt;chr&gt;
-1 &lt;split [574/144]&gt; Fold1
-2 &lt;split [574/144]&gt; Fold2
-3 &lt;split [574/144]&gt; Fold3
-4 &lt;split [575/143]&gt; Fold4
-5 &lt;split [575/143]&gt; Fold5</code></pre>
-</div>
-</div>
-</section></section>
-<section>
-<section id="unbalanced-data" class="title-slide slide level1 center">
-<h1>Unbalanced data</h1>
-
-</section>
-<section id="unbalanced-data-1" class="slide level2">
-<h2>Unbalanced data</h2>
-<p>Remember that the observed volcano types are unbalanced:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>volcano <span class="sc">%&gt;%</span> </span>
-<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">count</span>(volcano_type)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 2
-  volcano_type      n
-  &lt;fct&gt;         &lt;int&gt;
-1 Stratovolcano   461
-2 Shield          118
-3 Other           379</code></pre>
-</div>
-</div>
-</section>
-<section id="addressing-unbalance" class="slide level2 smaller">
-<h2>Addressing unbalance</h2>
-<p>To address class unbalance, we generally use</p>
+<section id="exam-instructions" class="slide level2 smaller">
+<h2>Exam instructions</h2>
 <ul>
-<li class="fragment"><strong>oversampling</strong> data from levels that are less prevalent in the data
+<li class="fragment"><p>The exam is an individual assignment. Everything in your repository is for your eyes only.</p></li>
+<li class="fragment"><p>You may not collaborate or communicate anything about this exam to anyone except the instructor. For example, you may not communicate with other students, the TAs, or post/solicit help on the internet, email or via any other method of communication.</p></li>
+<li class="fragment"><p>The exam is open-book, open-note, so you may use any materials from class as you take the exam.</p></li>
+<li class="fragment"><p>If you have questions, email me.</p></li>
+</ul>
+</section>
+<section id="exam-coverage-and-format" class="slide level2">
+<h2>Exam coverage and format</h2>
 <ul>
-<li class="fragment">e.g., <code>step_smote()</code>: Uses a technique called <a href="https://jair.org/index.php/jair/article/view/10302/24590">“<strong>S</strong>ynthetic <strong>M</strong>inority <strong>O</strong>ver-sampling <strong>Te</strong>chnique”</a> to generate new examples of the minority class using nearest neighbors of these cases.</li>
-</ul></li>
-<li class="fragment"><strong>downsampling</strong> data from levels that are more prevalent in the data
+<li class="fragment"><p>Focuses on content after exam 2, but can include material from previous weeks</p></li>
+<li class="fragment"><p>Similar format as previous exams</p>
 <ul>
-<li class="fragment">e.g., <code>step_downsample()</code>: Removes rows of a data set to make the occurrence of levels in a specific factor level equal.</li>
+<li class="fragment">Part 1: Multiple choice/fill-in-the-blank questions on Sakai</li>
+<li class="fragment">Part 2: Open-ended data analysis in GitHub and submitted on Gradescope</li>
 </ul></li>
 </ul>
 </section>
-<section id="new-recipe---oversample" class="slide level2">
-<h2>New recipe - oversample</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb12" data-code-line-numbers="|7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>volcano_rec3 <span class="ot">&lt;-</span> <span class="fu">recipe</span>(volcano_type <span class="sc">~</span> ., <span class="at">data =</span> volcano_train) <span class="sc">%&gt;%</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">step_other</span>(tectonic_settings) <span class="sc">%&gt;%</span></span>
-<span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">step_other</span>(major_rock_1) <span class="sc">%&gt;%</span></span>
-<span id="cb12-4"><a href="#cb12-4"></a>  <span class="fu">step_dummy</span>(<span class="fu">all_nominal_predictors</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb12-5"><a href="#cb12-5"></a>  <span class="fu">step_zv</span>(<span class="fu">all_predictors</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb12-6"><a href="#cb12-6"></a>  <span class="fu">step_center</span>(<span class="fu">all_predictors</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb12-7"><a href="#cb12-7"></a>  <span class="fu">step_smote</span>(volcano_type)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="part-2-of-the-exam" class="slide level2">
+<h2>Part 2 of the exam</h2>
+<ul>
+<li class="fragment"><p><strong>Goal:</strong> Assess your understanding of the course material and how the methods you learned are applied to the analysis of real-world data.</p></li>
+<li class="fragment"><p>Include all of your analysis steps in your exam write up, unless stated otherwise.</p>
+<ul>
+<li class="fragment">For example, if the exam says “assume conditions are met,” You can reference that information in your write up but don’t have to recheck the conditions.</li>
+</ul></li>
+</ul>
 </section>
-<section id="new-recipe---downsample" class="slide level2">
-<h2>New recipe - downsample</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb13" data-code-line-numbers="|7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>volcano_rec4 <span class="ot">&lt;-</span> <span class="fu">recipe</span>(volcano_type <span class="sc">~</span> ., <span class="at">data =</span> volcano_train) <span class="sc">%&gt;%</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">step_other</span>(tectonic_settings) <span class="sc">%&gt;%</span></span>
-<span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">step_other</span>(major_rock_1) <span class="sc">%&gt;%</span></span>
-<span id="cb13-4"><a href="#cb13-4"></a>  <span class="fu">step_dummy</span>(<span class="fu">all_nominal_predictors</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb13-5"><a href="#cb13-5"></a>  <span class="fu">step_zv</span>(<span class="fu">all_predictors</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb13-6"><a href="#cb13-6"></a>  <span class="fu">step_center</span>(<span class="fu">all_predictors</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb13-7"><a href="#cb13-7"></a>  <span class="fu">step_downsample</span>(volcano_type)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="assessment-criteria" class="slide level2 smaller">
+<h2>Assessment criteria</h2>
+<ul>
+<li class="fragment">You can identify the correct approach, analysis method, and/or inferential results required to answer the question.</li>
+<li class="fragment">You understand the correct conditions and diagnostics needed to determine whether the conclusions drawn from the model will be reliable</li>
+<li class="fragment">You can write results and conclusions in a meaningful way that can be understood by a general audience (think a business or research partner)</li>
+<li class="fragment">You can produce a report that is suitable for a professional audience (e.g., narrative is written in complete sentences, all graphs have proper titles and axis labels, there is not extraneous output, all Latex is rendered)</li>
+<li class="fragment">You can conduct the analysis using a reproducible data analysis workflow that incorporates version control</li>
+</ul>
 </section>
-<section id="new-workflows" class="slide level2">
-<h2>New workflows</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>volcano_wflow3 <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">add_recipe</span>(volcano_rec3) <span class="sc">%&gt;%</span></span>
-<span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">add_model</span>(volcano_spec)</span>
-<span id="cb14-4"><a href="#cb14-4"></a></span>
-<span id="cb14-5"><a href="#cb14-5"></a>volcano_wflow4 <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb14-6"><a href="#cb14-6"></a>  <span class="fu">add_recipe</span>(volcano_rec4) <span class="sc">%&gt;%</span></span>
-<span id="cb14-7"><a href="#cb14-7"></a>  <span class="fu">add_model</span>(volcano_spec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="review-on-logistic-regression-and-multinomial-logistic-regression" class="slide level2">
+<h2>Review on logistic regression and Multinomial Logistic Regression</h2>
+<ul>
+<li class="fragment">Analogize to a linear regression</li>
+<li class="fragment">Motivation</li>
+<li class="fragment">Model</li>
+<li class="fragment">Estimation</li>
+<li class="fragment">Interpretation</li>
+<li class="fragment">Inference</li>
+<li class="fragment">Comparison</li>
+<li class="fragment">Prediction</li>
+<li class="fragment">Condition</li>
+<li class="fragment">Issue</li>
+<li class="fragment">Extend to Multinomial logistic regression</li>
+</ul>
 </section>
-<section id="fit-resamples" class="slide level2">
-<h2>Fit resamples</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>volcano_fit_rs3 <span class="ot">&lt;-</span> volcano_wflow3 <span class="sc">%&gt;%</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">fit_resamples</span>(</span>
-<span id="cb15-3"><a href="#cb15-3"></a>    volcano_folds, </span>
-<span id="cb15-4"><a href="#cb15-4"></a>    <span class="at">control =</span> <span class="fu">control_resamples</span>(<span class="at">save_pred =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb15-5"><a href="#cb15-5"></a>    )</span>
-<span id="cb15-6"><a href="#cb15-6"></a></span>
-<span id="cb15-7"><a href="#cb15-7"></a>volcano_fit_rs4 <span class="ot">&lt;-</span> volcano_wflow4 <span class="sc">%&gt;%</span></span>
-<span id="cb15-8"><a href="#cb15-8"></a>  <span class="fu">fit_resamples</span>(</span>
-<span id="cb15-9"><a href="#cb15-9"></a>    volcano_folds, </span>
-<span id="cb15-10"><a href="#cb15-10"></a>    <span class="at">control =</span> <span class="fu">control_resamples</span>(<span class="at">save_pred =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb15-11"><a href="#cb15-11"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="collect-metrics" class="slide level2">
-<h2>Collect metrics</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">collect_metrics</span>(volcano_fit_rs3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 6
-  .metric  .estimator  mean     n std_err .config             
-  &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               
-1 accuracy multiclass 0.510     5  0.0173 Preprocessor1_Model1
-2 roc_auc  hand_till  0.694     5  0.0212 Preprocessor1_Model1</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">collect_metrics</span>(volcano_fit_rs4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 6
-  .metric  .estimator  mean     n std_err .config             
-  &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               
-1 accuracy multiclass 0.504     5  0.0148 Preprocessor1_Model1
-2 roc_auc  hand_till  0.687     5  0.0168 Preprocessor1_Model1</code></pre>
-</div>
-</div>
-</section>
-<section id="roc-curves---oversampling" class="slide level2">
-<h2>ROC curves - oversampling</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>volcano_fit_rs3 <span class="sc">%&gt;%</span></span>
-<span id="cb20-2"><a href="#cb20-2"></a>  <span class="fu">collect_predictions</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb20-3"><a href="#cb20-3"></a>  <span class="fu">group_by</span>(id) <span class="sc">%&gt;%</span></span>
-<span id="cb20-4"><a href="#cb20-4"></a>  <span class="fu">roc_curve</span>(</span>
-<span id="cb20-5"><a href="#cb20-5"></a>    <span class="at">truth =</span> volcano_type,</span>
-<span id="cb20-6"><a href="#cb20-6"></a>    .pred_Stratovolcano<span class="sc">:</span>.pred_Other</span>
-<span id="cb20-7"><a href="#cb20-7"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb20-8"><a href="#cb20-8"></a>  <span class="fu">autoplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="lec-26_files/figure-revealjs/unnamed-chunk-14-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
-<section id="roc-curves---downsampling" class="slide level2">
-<h2>ROC curves - downsampling</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>volcano_fit_rs4 <span class="sc">%&gt;%</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">collect_predictions</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb21-3"><a href="#cb21-3"></a>  <span class="fu">group_by</span>(id) <span class="sc">%&gt;%</span></span>
-<span id="cb21-4"><a href="#cb21-4"></a>  <span class="fu">roc_curve</span>(</span>
-<span id="cb21-5"><a href="#cb21-5"></a>    <span class="at">truth =</span> volcano_type,</span>
-<span id="cb21-6"><a href="#cb21-6"></a>    .pred_Stratovolcano<span class="sc">:</span>.pred_Other</span>
-<span id="cb21-7"><a href="#cb21-7"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb21-8"><a href="#cb21-8"></a>  <span class="fu">autoplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="lec-26_files/figure-revealjs/unnamed-chunk-15-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
-<section id="addressing-unbalance-1" class="slide level2">
-<h2>Addressing unbalance</h2>
-<div class="question">
-<p>Can you think of any issues resulting from over/down sampling?</p>
-</div>
-</section></section>
-<section>
-<section id="final-model" class="title-slide slide level1 center">
-<h1>Final model</h1>
-
-</section>
-<section id="the-chosen-model" class="slide level2">
-<h2>The “chosen” model</h2>
-<p>Let’s stick to the models without over/down sampling.</p>
-<p>From the application exercise:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>volcano_rec2 <span class="ot">&lt;-</span> <span class="fu">recipe</span>(volcano_type <span class="sc">~</span> ., <span class="at">data =</span> volcano_train) <span class="sc">%&gt;%</span></span>
-<span id="cb22-2"><a href="#cb22-2"></a>  <span class="fu">step_other</span>(tectonic_settings) <span class="sc">%&gt;%</span></span>
-<span id="cb22-3"><a href="#cb22-3"></a>  <span class="fu">step_other</span>(major_rock_1) <span class="sc">%&gt;%</span></span>
-<span id="cb22-4"><a href="#cb22-4"></a>  <span class="fu">step_dummy</span>(<span class="fu">all_nominal_predictors</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb22-5"><a href="#cb22-5"></a>  <span class="fu">step_zv</span>(<span class="fu">all_predictors</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb22-6"><a href="#cb22-6"></a>  <span class="fu">step_center</span>(<span class="fu">all_predictors</span>())</span>
-<span id="cb22-7"><a href="#cb22-7"></a></span>
-<span id="cb22-8"><a href="#cb22-8"></a>volcano_wflow2 <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb22-9"><a href="#cb22-9"></a>  <span class="fu">add_recipe</span>(volcano_rec2) <span class="sc">%&gt;%</span></span>
-<span id="cb22-10"><a href="#cb22-10"></a>  <span class="fu">add_model</span>(volcano_spec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="fitting-the-final-model" class="slide level2">
-<h2>Fitting the final model</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb23" data-code-line-numbers="|1-4|6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>final_fit <span class="ot">&lt;-</span> <span class="fu">last_fit</span>(</span>
-<span id="cb23-2"><a href="#cb23-2"></a>  volcano_wflow2, </span>
-<span id="cb23-3"><a href="#cb23-3"></a>  <span class="at">split =</span> volcano_split</span>
-<span id="cb23-4"><a href="#cb23-4"></a>  )</span>
-<span id="cb23-5"><a href="#cb23-5"></a></span>
-<span id="cb23-6"><a href="#cb23-6"></a><span class="fu">collect_metrics</span>(final_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 4
-  .metric  .estimator .estimate .config             
-  &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;               
-1 accuracy multiclass     0.629 Preprocessor1_Model1
-2 roc_auc  hand_till      0.734 Preprocessor1_Model1</code></pre>
-</div>
-</div>
-</section>
-<section id="confusion-matrix" class="slide level2">
-<h2>Confusion matrix</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">collect_predictions</span>(final_fit) <span class="sc">%&gt;%</span></span>
-<span id="cb25-2"><a href="#cb25-2"></a>  <span class="fu">conf_mat</span>(volcano_type, .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>               Truth
-Prediction      Stratovolcano Shield Other
-  Stratovolcano            96     13    38
-  Shield                    1      0     0
-  Other                    21     16    55</code></pre>
-</div>
-</div>
-</section>
-<section id="confusion-matrix---visualized" class="slide level2">
-<h2>Confusion matrix - visualized</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">collect_predictions</span>(final_fit) <span class="sc">%&gt;%</span></span>
-<span id="cb27-2"><a href="#cb27-2"></a>  <span class="fu">conf_mat</span>(volcano_type, .pred_class) <span class="sc">%&gt;%</span></span>
-<span id="cb27-3"><a href="#cb27-3"></a>  <span class="fu">autoplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="lec-26_files/figure-revealjs/unnamed-chunk-19-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
-<section id="roc-curve" class="slide level2">
-<h2>ROC curve</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">collect_predictions</span>(final_fit) <span class="sc">%&gt;%</span></span>
-<span id="cb28-2"><a href="#cb28-2"></a>  <span class="fu">roc_curve</span>(<span class="at">truth =</span> volcano_type, .pred_Stratovolcano<span class="sc">:</span>.pred_Other) <span class="sc">%&gt;%</span></span>
-<span id="cb28-3"><a href="#cb28-3"></a>  <span class="fu">autoplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="lec-26_files/figure-revealjs/unnamed-chunk-20-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
-<section id="roc-curve---altogether" class="slide level2">
-<h2>ROC curve - altogether</h2>
+<section id="application-exercise" class="slide level2">
+<h2>Application exercise</h2>
 <div class="appex">
-<p>📋 <a href="https://github.com/STA210-Summer22/ae-11-volcanoes">github.com/STA210-Summer22/ae-11-volcanoes</a> - Exercise 3</p>
-</div>
-
-<img data-src="lec-26_files/figure-revealjs/unnamed-chunk-21-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
-<section id="prediction" class="slide level2">
-<h2>Prediction</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>final_fitted <span class="ot">&lt;-</span> <span class="fu">extract_workflow</span>(final_fit)</span>
-<span id="cb29-2"><a href="#cb29-2"></a></span>
-<span id="cb29-3"><a href="#cb29-3"></a>new_volcano <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb29-4"><a href="#cb29-4"></a>  <span class="at">latitude =</span> <span class="fl">35.9940</span>,</span>
-<span id="cb29-5"><a href="#cb29-5"></a>  <span class="at">longitude =</span> <span class="sc">-</span><span class="fl">78.8986</span>,</span>
-<span id="cb29-6"><a href="#cb29-6"></a>  <span class="at">elevation =</span> <span class="dv">404</span>,</span>
-<span id="cb29-7"><a href="#cb29-7"></a>  <span class="at">tectonic_settings =</span> <span class="st">"Subduction zone / Continental crust (&gt;25 km)"</span>,</span>
-<span id="cb29-8"><a href="#cb29-8"></a>  <span class="at">major_rock_1 =</span> <span class="st">"Andesite / Basaltic Andesite"</span></span>
-<span id="cb29-9"><a href="#cb29-9"></a>)</span>
-<span id="cb29-10"><a href="#cb29-10"></a></span>
-<span id="cb29-11"><a href="#cb29-11"></a><span class="fu">predict</span>(</span>
-<span id="cb29-12"><a href="#cb29-12"></a>  final_fitted, </span>
-<span id="cb29-13"><a href="#cb29-13"></a>  new_volcano, </span>
-<span id="cb29-14"><a href="#cb29-14"></a>  <span class="at">type =</span> <span class="st">"prob"</span></span>
-<span id="cb29-15"><a href="#cb29-15"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 3
-  .pred_Stratovolcano .pred_Shield .pred_Other
-                &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;
-1               0.381       0.0379       0.581</code></pre>
-</div>
+<p>📋 <a href="https://yunranchen.github.io/STA210Summer/ae/ae-12-exam-3-review.html">github.com/STA210-Summer22/ae-12-exam-3-review</a></p>
 </div>
 </section>
-<section id="acknowledgements" class="slide level2">
-<h2>Acknowledgements</h2>
-<p>Inspired by</p>
-<div>
-<ul>
-<li>https://juliasilge.com/blog/multinomial-volcano-eruptions/</li>
-<li>https://juliasilge.com/blog/nber-papers/</li>
-</ul>
-</div>
+<section id="course-evaluation" class="slide level2">
+<h2>Course Evaluation</h2>
 
 
 <img src="images/logo.png" class="slide-logo r-stretch"><div class="footer footer-default">

@@ -345,9 +345,9 @@
   {
     "objectID": "slides/lec-26.html#topics",
     "href": "slides/lec-26.html#topics",
-    "title": "MultiLR: Predictive models (cont.)",
+    "title": "Exam 3 review",
     "section": "Topics",
-    "text": "Topics\n\n\nUnbalanced data\nChoosing the “final” model"
+    "text": "Topics\n\n\nExam 3 Review\nCourse Evaluation"
   },
   {
     "objectID": "slides/lec-26.html#computational-setup",
@@ -844,7 +844,7 @@
     "href": "slides/lec-25.html#topics",
     "title": "MultiLR: Predictive models",
     "section": "Topics",
-    "text": "Topics\n\n\nBuilding predictive multinomial logistic regression models\nComparing models"
+    "text": "Topics\n\n\nBuilding predictive multinomial logistic regression models\nComparing models\nUnbalanced data\nChoosing the “final” model"
   },
   {
     "objectID": "slides/lec-25.html#computational-setup",
@@ -858,7 +858,7 @@
     "href": "slides/lec-25.html#terminology",
     "title": "MultiLR: Predictive models",
     "section": "Terminology",
-    "text": "Terminology\n\nWhat’s the difference between regression and classification?\n\n\nLogistic regression / binary classification\nMultinomial logistic regression / multinomial classification"
+    "text": "Terminology\n\nWhat’s the difference between regression and classification? ::: nonincremental - Logistic regression / binary classification - Multinomial logistic regression / multinomial classification\n\n:::"
   },
   {
     "objectID": "slides/lec-25.html#volcanoes",
@@ -942,7 +942,7 @@
     "href": "slides/lec-25.html#create-a-recipe",
     "title": "MultiLR: Predictive models",
     "section": "Create a recipe",
-    "text": "Create a recipe\nStart with a model that doesn’t use geographic information:\n\nvolcano_rec1 <- recipe(volcano_type ~ ., data = volcano_train) %>%\n  step_rm(latitude, longitude) %>%\n  step_other(tectonic_settings) %>%\n  step_other(major_rock_1) %>%\n  step_dummy(all_nominal_predictors()) %>%\n  step_zv(all_predictors()) %>%\n  step_center(all_predictors())"
+    "text": "Create a recipe\nStart with a model that doesn’t use geographic information:\nstep_other creates a specification of a recipe step that will potentially pool infrequently occurring values into an “other” category.\n\nvolcano_rec1 <- recipe(volcano_type ~ ., data = volcano_train) %>%\n  step_rm(latitude, longitude) %>%\n  step_other(tectonic_settings) %>%\n  step_other(major_rock_1) %>%\n  step_dummy(all_nominal_predictors()) %>%\n  step_zv(all_predictors()) %>%\n  step_center(all_predictors())"
   },
   {
     "objectID": "slides/lec-25.html#specify-a-model",
@@ -991,7 +991,7 @@
     "href": "slides/lec-25.html#roc-curve---under-the-hood",
     "title": "MultiLR: Predictive models",
     "section": "ROC curve - under the hood",
-    "text": "ROC curve - under the hood\nAn additional column, .level, identifies the “one” column in the one-vs-all calculation:\n\nvolcano_fit_rs1 %>%\n  collect_predictions() %>%\n  group_by(id) %>%\n  roc_curve(\n    truth = volcano_type,\n    .pred_Stratovolcano:.pred_Other\n  )\n\n# A tibble: 2,175 × 5\n# Groups:   id [5]\n   id    .level        .threshold specificity sensitivity\n   <chr> <chr>              <dbl>       <dbl>       <dbl>\n 1 Fold1 Stratovolcano  -Inf           0                1\n 2 Fold1 Stratovolcano     0.0621      0                1\n 3 Fold1 Stratovolcano     0.0786      0.0123           1\n 4 Fold1 Stratovolcano     0.0869      0.0247           1\n 5 Fold1 Stratovolcano     0.0957      0.0370           1\n 6 Fold1 Stratovolcano     0.104       0.0494           1\n 7 Fold1 Stratovolcano     0.104       0.0617           1\n 8 Fold1 Stratovolcano     0.105       0.0741           1\n 9 Fold1 Stratovolcano     0.105       0.0864           1\n10 Fold1 Stratovolcano     0.107       0.0988           1\n# … with 2,165 more rows"
+    "text": "ROC curve - under the hood\nAn additional column, .level, identifies the “one” column in the one-vs-all calculation:\n\nvolcano_fit_rs1 %>%\n  collect_predictions() %>%\n  group_by(id) %>%\n  roc_curve(\n    truth = volcano_type,\n    .pred_Stratovolcano:.pred_Other\n  )%>%\n  autoplot()"
   },
   {
     "objectID": "slides/lec-25.html#your-turn-1",
@@ -1530,14 +1530,14 @@
     "href": "slides/lec-24.html#confusion-matrix",
     "title": "MultiLR: Prediction + inferential models",
     "section": "Confusion matrix",
-    "text": "Confusion matrix\n\nhealth_conf <- health_aug %>% \n  count(HealthGen, .pred_class, .drop = FALSE) %>%\n  pivot_wider(names_from = .pred_class, values_from = n)\n\nhealth_conf\n\n# A tibble: 5 × 6\n  HealthGen Excellent Vgood  Good  Fair  Poor\n  <fct>         <int> <int> <int> <int> <int>\n1 Excellent         0   528   210     0     0\n2 Vgood             0  1341   743     0     0\n3 Good              0  1226  1316     0     0\n4 Fair              0   296   625     0     0\n5 Poor              0    24   156     0     0"
+    "text": "Confusion matrix\n\nhealth_conf <- health_aug %>% \n  count(HealthGen, .pred_class, .drop = FALSE) %>%\n  pivot_wider(names_from = .pred_class, values_from = n)\nhealth_conf\n\n# A tibble: 5 × 6\n  HealthGen Excellent Vgood  Good  Fair  Poor\n  <fct>         <int> <int> <int> <int> <int>\n1 Excellent         0   528   210     0     0\n2 Vgood             0  1341   743     0     0\n3 Good              0  1226  1316     0     0\n4 Fair              0   296   625     0     0\n5 Poor              0    24   156     0     0"
   },
   {
     "objectID": "slides/lec-24.html#actual-vs.-predicted-health-rating-1",
     "href": "slides/lec-24.html#actual-vs.-predicted-health-rating-1",
     "title": "MultiLR: Prediction + inferential models",
     "section": "Actual vs. predicted health rating",
-    "text": "Actual vs. predicted health rating\n\nWhy do you think no observations were predicted to have a rating of “Excellent”, “Fair”, or “Poor”?"
+    "text": "Actual vs. predicted health rating\n\nWhy do you think no observations were predicted to have a rating of “Excellent”, “Fair”, or “Poor”?\n\nWill discuss this later in the model diagnosis."
   },
   {
     "objectID": "slides/lec-24.html#comparing-nested-models",
@@ -1565,7 +1565,7 @@
     "href": "slides/lec-24.html#add-education-to-the-model-2",
     "title": "MultiLR: Prediction + inferential models",
     "section": "Add Education to the model?",
-    "text": "Add Education to the model?\n\nanova(reduced_fit$fit, full_fit$fit, test = \"Chisq\") %>%\n  kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nResid. df\nResid. Dev\nTest\nDf\nLR stat.\nPr(Chi)\n\n\n\n\nAge + PhysActive\n25848\n16994.23\n\nNA\nNA\nNA\n\n\nAge + PhysActive + Education\n25832\n16505.10\n1 vs 2\n16\n489.132\n0\n\n\n\n\n\n\nAt least one coefficient associated with Education is non-zero. Therefore, we will include Education in the model.\n\n\nIf you want to apply anova to the fitted model from workflow, you have to apply fitted_obj \\%>\\% extract\\_fit\\_engine() to obtain fitted object that can be put into anova()."
+    "text": "Add Education to the model?\n\nanova(reduced_fit$fit, full_fit$fit, test = \"Chisq\") %>%\n  kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nResid. df\nResid. Dev\nTest\nDf\nLR stat.\nPr(Chi)\n\n\n\n\nAge + PhysActive\n25848\n16994.23\n\nNA\nNA\nNA\n\n\nAge + PhysActive + Education\n25832\n16505.10\n1 vs 2\n16\n489.132\n0\n\n\n\n\n\n\nAt least one coefficient associated with Education is non-zero. Therefore, we will include Education in the model.\n\n\nIf you want to apply anova to the fitted model from workflow, you have to apply fitted_obj %>% extract_fit_engine() to obtain fitted object that can be put into anova()."
   },
   {
     "objectID": "slides/lec-24.html#model-with-education",
@@ -1579,7 +1579,7 @@
     "href": "slides/lec-24.html#compare-nhanes-models-using-aic",
     "title": "MultiLR: Prediction + inferential models",
     "section": "Compare NHANES models using AIC",
-    "text": "Compare NHANES models using AIC\nReduced model:\n\nglance(reduced_fit)$AIC\n\n[1] 17018.23\n\n\n\nFull model:\n\nglance(full_fit)$AIC\n\n[1] 16561.1"
+    "text": "Compare NHANES models using AIC\nReduced model:\n\nglance(reduced_fit)$AIC\n\n[1] 17018.23\n\n\n\nFull model:\n\nglance(full_fit)$AIC\n\n[1] 16561.1\n\n\n\n\nWe can also use BIC to compare model. Since the glance() does not provide us the BIC. For this class, we just use AIC."
   },
   {
     "objectID": "slides/lec-24.html#conditions-for-inference",
@@ -1614,7 +1614,7 @@
     "href": "slides/lec-24.html#checking-linearity-3",
     "title": "MultiLR: Prediction + inferential models",
     "section": "Checking linearity",
-    "text": "Checking linearity\n\nemplogitplot1(Poor ~ Age, data = nhanes_adult, \n              ngroups = 10, main = \"Poor vs. Age\")\n\n\n\n✅ The linearity condition is satisfied. There is a linear relationship between the empirical logit and the quantitative predictor variable, Age."
+    "text": "Checking linearity\n\nemplogitplot1(Poor ~ Age, data = nhanes_adult, \n              ngroups = 10, main = \"Poor vs. Age\")\n\n\n\nThe linearity condition is not satisfied. If we recall the previous confusion matrix, the fitted model only provide two fitted class: very good and good, which may due to the unreasonable model assumption."
   },
   {
     "objectID": "slides/lec-24.html#checking-randomness",
@@ -6466,5 +6466,236 @@
     "title": "MultiLR: Prediction + inferential models",
     "section": "Compare NHANES models using AIC",
     "text": "Compare NHANES models using AIC\nReduced model:\n\nglance(reduced_fit)$BIC\n\nNULL\n\n\n\nFull model:\n\nglance(full_fit)$BIC\n\nNULL"
+  },
+  {
+    "objectID": "slides/lec-25.html#unbalanced-data-1",
+    "href": "slides/lec-25.html#unbalanced-data-1",
+    "title": "MultiLR: Predictive models",
+    "section": "Unbalanced data",
+    "text": "Unbalanced data\nRemember that the observed volcano types are unbalanced:\n\nvolcano %>% \n  count(volcano_type)\n\n# A tibble: 3 × 2\n  volcano_type      n\n  <fct>         <int>\n1 Stratovolcano   461\n2 Shield          118\n3 Other           379\n\n\nFor educational purpose, we consider some statistical tools to address this issue."
+  },
+  {
+    "objectID": "slides/lec-25.html#addressing-unbalance",
+    "href": "slides/lec-25.html#addressing-unbalance",
+    "title": "MultiLR: Predictive models",
+    "section": "Addressing unbalance",
+    "text": "Addressing unbalance\nTo address class unbalance, we generally use\n\noversampling data from levels that are less prevalent in the data\n\ne.g., step_smote(): Uses a technique called “Synthetic Minority Over-sampling Technique” to generate new examples of the minority class using nearest neighbors of these cases.\n\ndownsampling data from levels that are more prevalent in the data\n\ne.g., step_downsample(): Removes rows of a data set to make the occurrence of levels in a specific factor level equal."
+  },
+  {
+    "objectID": "slides/lec-25.html#new-recipe---oversample",
+    "href": "slides/lec-25.html#new-recipe---oversample",
+    "title": "MultiLR: Predictive models",
+    "section": "New recipe - oversample",
+    "text": "New recipe - oversample\n\nvolcano_rec3 <- recipe(volcano_type ~ ., data = volcano_train) %>%\n  step_other(tectonic_settings) %>%\n  step_other(major_rock_1) %>%\n  step_dummy(all_nominal_predictors()) %>%\n  step_zv(all_predictors()) %>%\n  step_center(all_predictors()) %>%\n  step_smote(volcano_type)"
+  },
+  {
+    "objectID": "slides/lec-25.html#new-recipe---downsample",
+    "href": "slides/lec-25.html#new-recipe---downsample",
+    "title": "MultiLR: Predictive models",
+    "section": "New recipe - downsample",
+    "text": "New recipe - downsample\n\nvolcano_rec4 <- recipe(volcano_type ~ ., data = volcano_train) %>%\n  step_other(tectonic_settings) %>%\n  step_other(major_rock_1) %>%\n  step_dummy(all_nominal_predictors()) %>%\n  step_zv(all_predictors()) %>%\n  step_center(all_predictors()) %>%\n  step_downsample(volcano_type)"
+  },
+  {
+    "objectID": "slides/lec-25.html#new-workflows",
+    "href": "slides/lec-25.html#new-workflows",
+    "title": "MultiLR: Predictive models",
+    "section": "New workflows",
+    "text": "New workflows\n\nvolcano_wflow3 <- workflow() %>%\n  add_recipe(volcano_rec3) %>%\n  add_model(volcano_spec)\n\nvolcano_wflow4 <- workflow() %>%\n  add_recipe(volcano_rec4) %>%\n  add_model(volcano_spec)"
+  },
+  {
+    "objectID": "slides/lec-25.html#fit-resamples-1",
+    "href": "slides/lec-25.html#fit-resamples-1",
+    "title": "MultiLR: Predictive models",
+    "section": "Fit resamples",
+    "text": "Fit resamples\n\nvolcano_fit_rs3 <- volcano_wflow3 %>%\n  fit_resamples(\n    volcano_folds, \n    control = control_resamples(save_pred = TRUE)\n    )\n\nvolcano_fit_rs4 <- volcano_wflow4 %>%\n  fit_resamples(\n    volcano_folds, \n    control = control_resamples(save_pred = TRUE)\n    )"
+  },
+  {
+    "objectID": "slides/lec-25.html#collect-metrics-1",
+    "href": "slides/lec-25.html#collect-metrics-1",
+    "title": "MultiLR: Predictive models",
+    "section": "Collect metrics",
+    "text": "Collect metrics\n\ncollect_metrics(volcano_fit_rs3)\n\n# A tibble: 2 × 6\n  .metric  .estimator  mean     n std_err .config             \n  <chr>    <chr>      <dbl> <int>   <dbl> <chr>               \n1 accuracy multiclass 0.510     5  0.0169 Preprocessor1_Model1\n2 roc_auc  hand_till  0.693     5  0.0243 Preprocessor1_Model1\n\ncollect_metrics(volcano_fit_rs4)\n\n# A tibble: 2 × 6\n  .metric  .estimator  mean     n std_err .config             \n  <chr>    <chr>      <dbl> <int>   <dbl> <chr>               \n1 accuracy multiclass 0.504     5  0.0264 Preprocessor1_Model1\n2 roc_auc  hand_till  0.669     5  0.0147 Preprocessor1_Model1"
+  },
+  {
+    "objectID": "slides/lec-25.html#roc-curves---oversampling",
+    "href": "slides/lec-25.html#roc-curves---oversampling",
+    "title": "MultiLR: Predictive models",
+    "section": "ROC curves - oversampling",
+    "text": "ROC curves - oversampling\n\nvolcano_fit_rs3 %>%\n  collect_predictions() %>%\n  group_by(id) %>%\n  roc_curve(\n    truth = volcano_type,\n    .pred_Stratovolcano:.pred_Other\n  ) %>%\n  autoplot()"
+  },
+  {
+    "objectID": "slides/lec-25.html#roc-curves---downsampling",
+    "href": "slides/lec-25.html#roc-curves---downsampling",
+    "title": "MultiLR: Predictive models",
+    "section": "ROC curves - downsampling",
+    "text": "ROC curves - downsampling\n\nvolcano_fit_rs4 %>%\n  collect_predictions() %>%\n  group_by(id) %>%\n  roc_curve(\n    truth = volcano_type,\n    .pred_Stratovolcano:.pred_Other\n  ) %>%\n  autoplot()"
+  },
+  {
+    "objectID": "slides/lec-25.html#addressing-unbalance-1",
+    "href": "slides/lec-25.html#addressing-unbalance-1",
+    "title": "MultiLR: Predictive models",
+    "section": "Addressing unbalance",
+    "text": "Addressing unbalance\n\nCan you think of any issues resulting from over/down sampling?"
+  },
+  {
+    "objectID": "slides/lec-25.html#the-chosen-model",
+    "href": "slides/lec-25.html#the-chosen-model",
+    "title": "MultiLR: Predictive models",
+    "section": "The “chosen” model",
+    "text": "The “chosen” model\nLet’s stick to the models without over/down sampling.\nFrom the application exercise:\n\nvolcano_rec2 <- recipe(volcano_type ~ ., data = volcano_train) %>%\n  step_other(tectonic_settings) %>%\n  step_other(major_rock_1) %>%\n  step_dummy(all_nominal_predictors()) %>%\n  step_zv(all_predictors()) %>%\n  step_center(all_predictors())\n\nvolcano_wflow2 <- workflow() %>%\n  add_recipe(volcano_rec2) %>%\n  add_model(volcano_spec)"
+  },
+  {
+    "objectID": "slides/lec-25.html#fitting-the-final-model",
+    "href": "slides/lec-25.html#fitting-the-final-model",
+    "title": "MultiLR: Predictive models",
+    "section": "Fitting the final model",
+    "text": "Fitting the final model\n\nfinal_fit <- last_fit(\n  volcano_wflow2, \n  split = volcano_split\n  )\n\ncollect_metrics(final_fit)\n\n# A tibble: 2 × 4\n  .metric  .estimator .estimate .config             \n  <chr>    <chr>          <dbl> <chr>               \n1 accuracy multiclass     0.629 Preprocessor1_Model1\n2 roc_auc  hand_till      0.734 Preprocessor1_Model1"
+  },
+  {
+    "objectID": "slides/lec-25.html#confusion-matrix",
+    "href": "slides/lec-25.html#confusion-matrix",
+    "title": "MultiLR: Predictive models",
+    "section": "Confusion matrix",
+    "text": "Confusion matrix\n\ncollect_predictions(final_fit) %>%\n  conf_mat(volcano_type, .pred_class)\n\n               Truth\nPrediction      Stratovolcano Shield Other\n  Stratovolcano            96     13    38\n  Shield                    1      0     0\n  Other                    21     16    55"
+  },
+  {
+    "objectID": "slides/lec-25.html#confusion-matrix---visualized",
+    "href": "slides/lec-25.html#confusion-matrix---visualized",
+    "title": "MultiLR: Predictive models",
+    "section": "Confusion matrix - visualized",
+    "text": "Confusion matrix - visualized\n\ncollect_predictions(final_fit) %>%\n  conf_mat(volcano_type, .pred_class) %>%\n  autoplot()"
+  },
+  {
+    "objectID": "slides/lec-25.html#roc-curve-1",
+    "href": "slides/lec-25.html#roc-curve-1",
+    "title": "MultiLR: Predictive models",
+    "section": "ROC curve",
+    "text": "ROC curve\n\ncollect_predictions(final_fit) %>%\n  roc_curve(truth = volcano_type, .pred_Stratovolcano:.pred_Other) %>%\n  autoplot()"
+  },
+  {
+    "objectID": "slides/lec-25.html#prediction",
+    "href": "slides/lec-25.html#prediction",
+    "title": "MultiLR: Predictive models",
+    "section": "Prediction",
+    "text": "Prediction\n\nfinal_fitted <- extract_workflow(final_fit)\n\nnew_volcano <- tibble(\n  latitude = 35.9940,\n  longitude = -78.8986,\n  elevation = 404,\n  tectonic_settings = \"Subduction zone / Continental crust (>25 km)\",\n  major_rock_1 = \"Andesite / Basaltic Andesite\"\n)\n\npredict(\n  final_fitted, \n  new_volcano, \n  type = \"prob\"\n  )\n\n# A tibble: 1 × 3\n  .pred_Stratovolcano .pred_Shield .pred_Other\n                <dbl>        <dbl>       <dbl>\n1               0.381       0.0379       0.581"
+  },
+  {
+    "objectID": "slides/lec-27.html#topics",
+    "href": "slides/lec-27.html#topics",
+    "title": "Project Peer Review and Data Cleaning",
+    "section": "Topics",
+    "text": "Topics\n\nProject Peer Review\nData Cleaning"
+  },
+  {
+    "objectID": "slides/lec-27.html#project-peer-review-20-min",
+    "href": "slides/lec-27.html#project-peer-review-20-min",
+    "title": "Project Peer Review and Data Cleaning",
+    "section": "Project Peer Review (20 min)",
+    "text": "Project Peer Review (20 min)"
+  },
+  {
+    "objectID": "slides/lec-27.html#data-cleaning-using-tidyverse-and-others-janitor",
+    "href": "slides/lec-27.html#data-cleaning-using-tidyverse-and-others-janitor",
+    "title": "Project Peer Review and Data Cleaning",
+    "section": "Data Cleaning using tidyverse and others (janitor,…)",
+    "text": "Data Cleaning using tidyverse and others (janitor,…)\n\nRaw data to understanding, insight, and knowledge\nWorkflow\n\n…\n\n\n\n\nyunranchen.github.io/STA210Summer/"
+  },
+  {
+    "objectID": "slides/lec-27.html#data-cleaning-using-tidyverse",
+    "href": "slides/lec-27.html#data-cleaning-using-tidyverse",
+    "title": "Project Peer Review and Data Cleaning",
+    "section": "Data Cleaning using tidyverse",
+    "text": "Data Cleaning using tidyverse\n\nRaw data to understanding, insight, and knowledge\nWorkflow"
+  },
+  {
+    "objectID": "slides/lec-27.html#packages-in-tidyverse",
+    "href": "slides/lec-27.html#packages-in-tidyverse",
+    "title": "Project Peer Review and Data Cleaning",
+    "section": "Packages in Tidyverse",
+    "text": "Packages in Tidyverse"
+  },
+  {
+    "objectID": "slides/lec-26.html#exam-instructions",
+    "href": "slides/lec-26.html#exam-instructions",
+    "title": "Exam 3 review",
+    "section": "Exam instructions",
+    "text": "Exam instructions\n\nThe exam is an individual assignment. Everything in your repository is for your eyes only.\nYou may not collaborate or communicate anything about this exam to anyone except the instructor. For example, you may not communicate with other students, the TAs, or post/solicit help on the internet, email or via any other method of communication.\nThe exam is open-book, open-note, so you may use any materials from class as you take the exam.\nIf you have questions, email me."
+  },
+  {
+    "objectID": "slides/lec-26.html#exam-coverage-and-format",
+    "href": "slides/lec-26.html#exam-coverage-and-format",
+    "title": "Exam 3 review",
+    "section": "Exam coverage and format",
+    "text": "Exam coverage and format\n\nFocuses on content after exam 2, but can include material from previous weeks\nSimilar format as previous exams\n\nPart 1: Multiple choice/fill-in-the-blank questions on Sakai\nPart 2: Open-ended data analysis in GitHub and submitted on Gradescope"
+  },
+  {
+    "objectID": "slides/lec-26.html#part-2-of-the-exam",
+    "href": "slides/lec-26.html#part-2-of-the-exam",
+    "title": "Exam 3 review",
+    "section": "Part 2 of the exam",
+    "text": "Part 2 of the exam\n\nGoal: Assess your understanding of the course material and how the methods you learned are applied to the analysis of real-world data.\nInclude all of your analysis steps in your exam write up, unless stated otherwise.\n\nFor example, if the exam says “assume conditions are met,” You can reference that information in your write up but don’t have to recheck the conditions."
+  },
+  {
+    "objectID": "slides/lec-26.html#assessment-criteria",
+    "href": "slides/lec-26.html#assessment-criteria",
+    "title": "Exam 3 review",
+    "section": "Assessment criteria",
+    "text": "Assessment criteria\n\nYou can identify the correct approach, analysis method, and/or inferential results required to answer the question.\nYou understand the correct conditions and diagnostics needed to determine whether the conclusions drawn from the model will be reliable\nYou can write results and conclusions in a meaningful way that can be understood by a general audience (think a business or research partner)\nYou can produce a report that is suitable for a professional audience (e.g., narrative is written in complete sentences, all graphs have proper titles and axis labels, there is not extraneous output, all Latex is rendered)\nYou can conduct the analysis using a reproducible data analysis workflow that incorporates version control"
+  },
+  {
+    "objectID": "slides/lec-26.html#review-on-logistic-regression-and-multinomial-logistic-regression",
+    "href": "slides/lec-26.html#review-on-logistic-regression-and-multinomial-logistic-regression",
+    "title": "Exam 3 review",
+    "section": "Review on logistic regression and Multinomial Logistic Regression",
+    "text": "Review on logistic regression and Multinomial Logistic Regression\n\nAnalogize to a linear regression\nMotivation\nModel\nEstimation\nInterpretation\nInference\nComparison\nPrediction\nCondition\nIssue\nExtend to Multinomial logistic regression"
+  },
+  {
+    "objectID": "slides/lec-26.html#application-exercise",
+    "href": "slides/lec-26.html#application-exercise",
+    "title": "Exam 3 review",
+    "section": "Application exercise",
+    "text": "Application exercise\n\n📋 github.com/STA210-Summer22/ae-12-exam-3-review"
+  },
+  {
+    "objectID": "slides/lec-26.html#course-evaluation",
+    "href": "slides/lec-26.html#course-evaluation",
+    "title": "Exam 3 review",
+    "section": "Course Evaluation",
+    "text": "Course Evaluation\n\n\n\nyunranchen.github.io/STA210Summer/"
+  },
+  {
+    "objectID": "slides/lec-27.html#focus-on-data-wrangling",
+    "href": "slides/lec-27.html#focus-on-data-wrangling",
+    "title": "Project Peer Review and Data Cleaning",
+    "section": "Focus on data wrangling",
+    "text": "Focus on data wrangling\n\n\nData import (readr)\nTidy data (tidyr,tibble)\nWrangle (dplyr,stringr, lubridate)\n\n\nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "slides/lec-27.html#data-import-using-readr",
+    "href": "slides/lec-27.html#data-import-using-readr",
+    "title": "Project Peer Review and Data Cleaning",
+    "section": "Data import using readr",
+    "text": "Data import using readr\n\nread_csv, …\nparse_*: parse the characters/numbers only\n\n\n\nparse_number(\"$100\")\n\n[1] 100\n\nparse_number(\"20%\")\n\n[1] 20\n\nparse_number(\"It cost $123.45\")\n\n[1] 123.45\n\n# Used in America\nparse_number(\"$123,456,789\")\n\n[1] 123456789\n\n# Used in many parts of Europe\nparse_number(\"123.456.789\", locale = locale(grouping_mark = \".\"))\n\n[1] 123456789\n\n# Used in Switzerland\nparse_number(\"123'456'789\", locale = locale(grouping_mark = \"'\"))\n\n[1] 123456789"
+  },
+  {
+    "objectID": "slides/lec-27.html#function-parse-in-pkg-readr",
+    "href": "slides/lec-27.html#function-parse-in-pkg-readr",
+    "title": "Project Peer Review and Data Cleaning",
+    "section": "function parse in pkg readr",
+    "text": "function parse in pkg readr\n\nx1 <- \"El Ni\\xf1o was particularly bad this year\"\nx2 <- \"\\x82\\xb1\\x82\\xf1\\x82\\xc9\\x82\\xbf\\x82\\xcd\"\n\nx1\n\n[1] \"El Ni\\xf1o was particularly bad this year\"\n\nx2\n\n[1] \"\\x82\\xb1\\x82\\xf1\\x82ɂ\\xbf\\x82\\xcd\"\n\nparse_character(x1, locale = locale(encoding = \"Latin1\"))\n\n[1] \"El Niño was particularly bad this year\"\n\nparse_character(x2, locale = locale(encoding = \"Shift-JIS\"))\n\n[1] \"こんにちは\""
+  },
+  {
+    "objectID": "slides/lec-27.html#function-parse-in-pkg-readr-1",
+    "href": "slides/lec-27.html#function-parse-in-pkg-readr-1",
+    "title": "Project Peer Review and Data Cleaning",
+    "section": "function parse in pkg readr",
+    "text": "function parse in pkg readr\n\nparse_date(\"1 janvier 2015\", \"%d %B %Y\", locale = locale(\"fr\"))\n\n[1] \"2015-01-01\"\n\nparse_date(\"01/02/15\", \"%m/%d/%y\")\n\n[1] \"2015-01-02\"\n\nparse_date(\"01/02/15\", \"%d/%m/%y\")\n\n[1] \"2015-02-01\"\n\nparse_date(\"01/02/15\", \"%y/%m/%d\")\n\n[1] \"2001-02-15\"\n\n\n\nparse_datetime(\"2010-10-01T2010\")\n\n[1] \"2010-10-01 20:10:00 UTC\"\n\nlibrary(hms)\nparse_time(\"01:10 am\")\n\n01:10:00"
+  },
+  {
+    "objectID": "slides/lec-27.html#other-packages-for-data-importing",
+    "href": "slides/lec-27.html#other-packages-for-data-importing",
+    "title": "Project Peer Review and Data Cleaning",
+    "section": "Other packages for data importing",
+    "text": "Other packages for data importing\n\nPackage haven: SPSS, Stata, SAS file\nPackage readxl: Excel file .xls, .xlsx\nPackage jsonlite/htmltab: json, html\nuse as_tibble to coerce a data frame to a tibble\n\n\n\n\nyunranchen.github.io/STA210Summer/"
   }
 ]

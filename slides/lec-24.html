@@ -576,8 +576,7 @@ $ obs_num    &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>health_conf <span class="ot">&lt;-</span> health_aug <span class="sc">%&gt;%</span> </span>
 <span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">count</span>(HealthGen, .pred_class, <span class="at">.drop =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> .pred_class, <span class="at">values_from =</span> n)</span>
-<span id="cb12-4"><a href="#cb12-4"></a></span>
-<span id="cb12-5"><a href="#cb12-5"></a>health_conf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-4"><a href="#cb12-4"></a>health_conf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 6
   HealthGen Excellent Vgood  Good  Fair  Poor
@@ -587,6 +586,31 @@ $ obs_num    &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 
 3 Good              0  1226  1316     0     0
 4 Fair              0   296   625     0     0
 5 Poor              0    24   156     0     0</code></pre>
+</div>
+</div>
+</section>
+<section id="actual-vs.-predicted-health-rating-1" class="slide level2">
+<h2>Actual vs.&nbsp;predicted health rating</h2>
+<div class="question">
+<p>Why do you think no observations were predicted to have a rating of “Excellent”, “Fair”, or “Poor”?</p>
+</div>
+<p>Will discuss this later in the model diagnosis.</p>
+<div class="cell quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="lec-24_files/figure-revealjs/unnamed-chunk-10-1.png"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="lec-24_files/figure-revealjs/unnamed-chunk-10-2.png"></p>
+</figure>
+</div>
+</div>
 </div>
 </div>
 </section></section>
@@ -704,7 +728,7 @@ $ obs_num    &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 
 <p>At least one coefficient associated with <code>Education</code> is non-zero. Therefore, we will include <code>Education</code> in the model.</p>
 </div>
 <div class="fragment">
-<p>If you want to apply <code>anova</code> to the fitted model from workflow, you have to apply <code>fitted_obj \%&gt;\% extract\_fit\_engine()</code> to obtain fitted object that can be put into <code>anova()</code>.</p>
+<p>If you want to apply <code>anova</code> to the fitted model from workflow, you have to apply <code>fitted_obj %&gt;% extract_fit_engine()</code> to obtain fitted object that can be put into <code>anova()</code>.</p>
 </div>
 </section>
 <section id="model-with-education" class="slide level2 smaller">
@@ -764,24 +788,8 @@ $ obs_num    &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 
 </div>
 </div>
 </div>
-</section>
-<section id="compare-nhanes-models-using-aic-1" class="slide level2">
-<h2>Compare NHANES models using AIC</h2>
-<p>Reduced model:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">glance</span>(reduced_fit)<span class="sc">$</span>BIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>NULL</code></pre>
-</div>
-</div>
 <div class="fragment">
-<p>Full model:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">glance</span>(full_fit)<span class="sc">$</span>BIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>NULL</code></pre>
-</div>
-</div>
+<p>We can also use BIC to compare model. Since the <code>glance()</code> does not provide us the BIC. For this class, we just use AIC.</p>
 </div>
 </section></section>
 <section>
@@ -802,14 +810,14 @@ $ obs_num    &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 
 <h2>Checking linearity</h2>
 <p>Similar to logistic regression, we will check linearity by examining empirical logit plots between each level of the response and the quantitative predictor variables.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>nhanes_adult <span class="ot">&lt;-</span> nhanes_adult <span class="sc">%&gt;%</span></span>
-<span id="cb26-2"><a href="#cb26-2"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb26-3"><a href="#cb26-3"></a>    <span class="at">Excellent =</span> <span class="fu">factor</span>(<span class="fu">if_else</span>(HealthGen <span class="sc">==</span> <span class="st">"Excellent"</span>, <span class="st">"1"</span>, <span class="st">"0"</span>)),</span>
-<span id="cb26-4"><a href="#cb26-4"></a>    <span class="at">Vgood =</span> <span class="fu">factor</span>(<span class="fu">if_else</span>(HealthGen <span class="sc">==</span> <span class="st">"Vgood"</span>, <span class="st">"1"</span>, <span class="st">"0"</span>)),</span>
-<span id="cb26-5"><a href="#cb26-5"></a>    <span class="at">Good =</span> <span class="fu">factor</span>(<span class="fu">if_else</span>(HealthGen <span class="sc">==</span> <span class="st">"Good"</span>, <span class="st">"1"</span>, <span class="st">"0"</span>)),</span>
-<span id="cb26-6"><a href="#cb26-6"></a>    <span class="at">Fair =</span> <span class="fu">factor</span>(<span class="fu">if_else</span>(HealthGen <span class="sc">==</span> <span class="st">"Fair"</span>, <span class="st">"1"</span>, <span class="st">"0"</span>)),</span>
-<span id="cb26-7"><a href="#cb26-7"></a>    <span class="at">Poor =</span> <span class="fu">factor</span>(<span class="fu">if_else</span>(HealthGen <span class="sc">==</span> <span class="st">"Poor"</span>, <span class="st">"1"</span>, <span class="st">"0"</span>))</span>
-<span id="cb26-8"><a href="#cb26-8"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>nhanes_adult <span class="ot">&lt;-</span> nhanes_adult <span class="sc">%&gt;%</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb22-3"><a href="#cb22-3"></a>    <span class="at">Excellent =</span> <span class="fu">factor</span>(<span class="fu">if_else</span>(HealthGen <span class="sc">==</span> <span class="st">"Excellent"</span>, <span class="st">"1"</span>, <span class="st">"0"</span>)),</span>
+<span id="cb22-4"><a href="#cb22-4"></a>    <span class="at">Vgood =</span> <span class="fu">factor</span>(<span class="fu">if_else</span>(HealthGen <span class="sc">==</span> <span class="st">"Vgood"</span>, <span class="st">"1"</span>, <span class="st">"0"</span>)),</span>
+<span id="cb22-5"><a href="#cb22-5"></a>    <span class="at">Good =</span> <span class="fu">factor</span>(<span class="fu">if_else</span>(HealthGen <span class="sc">==</span> <span class="st">"Good"</span>, <span class="st">"1"</span>, <span class="st">"0"</span>)),</span>
+<span id="cb22-6"><a href="#cb22-6"></a>    <span class="at">Fair =</span> <span class="fu">factor</span>(<span class="fu">if_else</span>(HealthGen <span class="sc">==</span> <span class="st">"Fair"</span>, <span class="st">"1"</span>, <span class="st">"0"</span>)),</span>
+<span id="cb22-7"><a href="#cb22-7"></a>    <span class="at">Poor =</span> <span class="fu">factor</span>(<span class="fu">if_else</span>(HealthGen <span class="sc">==</span> <span class="st">"Poor"</span>, <span class="st">"1"</span>, <span class="st">"0"</span>))</span>
+<span id="cb22-8"><a href="#cb22-8"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="checking-linearity-1" class="slide level2">
@@ -817,11 +825,39 @@ $ obs_num    &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 
 <p><code>emplogitplot1</code>: numerical predictor</p>
 <p><code>emplogitplot2</code>: numerical + categorical</p>
 <div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">emplogitplot1</span>(Excellent <span class="sc">~</span> Age, <span class="at">data =</span> nhanes_adult, </span>
-<span id="cb27-2"><a href="#cb27-2"></a>              <span class="at">ngroups =</span> <span class="dv">10</span>, <span class="at">main =</span> <span class="st">"Excellent vs. Age"</span>)</span>
-<span id="cb27-3"><a href="#cb27-3"></a></span>
-<span id="cb27-4"><a href="#cb27-4"></a><span class="fu">emplogitplot1</span>(Vgood <span class="sc">~</span> Age, <span class="at">data =</span> nhanes_adult, </span>
-<span id="cb27-5"><a href="#cb27-5"></a>              <span class="at">ngroups =</span> <span class="dv">10</span>, <span class="at">main =</span> <span class="st">"Vgood vs. Age"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">emplogitplot1</span>(Excellent <span class="sc">~</span> Age, <span class="at">data =</span> nhanes_adult, </span>
+<span id="cb23-2"><a href="#cb23-2"></a>              <span class="at">ngroups =</span> <span class="dv">10</span>, <span class="at">main =</span> <span class="st">"Excellent vs. Age"</span>)</span>
+<span id="cb23-3"><a href="#cb23-3"></a></span>
+<span id="cb23-4"><a href="#cb23-4"></a><span class="fu">emplogitplot1</span>(Vgood <span class="sc">~</span> Age, <span class="at">data =</span> nhanes_adult, </span>
+<span id="cb23-5"><a href="#cb23-5"></a>              <span class="at">ngroups =</span> <span class="dv">10</span>, <span class="at">main =</span> <span class="st">"Vgood vs. Age"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="lec-24_files/figure-revealjs/unnamed-chunk-17-1.png"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="lec-24_files/figure-revealjs/unnamed-chunk-17-2.png"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="checking-linearity-2" class="slide level2">
+<h2>Checking linearity</h2>
+<div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">emplogitplot1</span>(Good <span class="sc">~</span> Age, <span class="at">data =</span> nhanes_adult, </span>
+<span id="cb24-2"><a href="#cb24-2"></a>              <span class="at">ngroups =</span> <span class="dv">10</span>, <span class="at">main =</span> <span class="st">"Good vs. Age"</span>)</span>
+<span id="cb24-3"><a href="#cb24-3"></a></span>
+<span id="cb24-4"><a href="#cb24-4"></a><span class="fu">emplogitplot1</span>(Fair <span class="sc">~</span> Age, <span class="at">data =</span> nhanes_adult, </span>
+<span id="cb24-5"><a href="#cb24-5"></a>              <span class="at">ngroups =</span> <span class="dv">10</span>, <span class="at">main =</span> <span class="st">"Fair vs. Age"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
@@ -842,43 +878,15 @@ $ obs_num    &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 
 </div>
 </div>
 </section>
-<section id="checking-linearity-2" class="slide level2">
-<h2>Checking linearity</h2>
-<div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">emplogitplot1</span>(Good <span class="sc">~</span> Age, <span class="at">data =</span> nhanes_adult, </span>
-<span id="cb28-2"><a href="#cb28-2"></a>              <span class="at">ngroups =</span> <span class="dv">10</span>, <span class="at">main =</span> <span class="st">"Good vs. Age"</span>)</span>
-<span id="cb28-3"><a href="#cb28-3"></a></span>
-<span id="cb28-4"><a href="#cb28-4"></a><span class="fu">emplogitplot1</span>(Fair <span class="sc">~</span> Age, <span class="at">data =</span> nhanes_adult, </span>
-<span id="cb28-5"><a href="#cb28-5"></a>              <span class="at">ngroups =</span> <span class="dv">10</span>, <span class="at">main =</span> <span class="st">"Fair vs. Age"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="lec-24_files/figure-revealjs/unnamed-chunk-19-1.png"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="lec-24_files/figure-revealjs/unnamed-chunk-19-2.png"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
 <section id="checking-linearity-3" class="slide level2">
 <h2>Checking linearity</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">emplogitplot1</span>(Poor <span class="sc">~</span> Age, <span class="at">data =</span> nhanes_adult, </span>
-<span id="cb29-2"><a href="#cb29-2"></a>              <span class="at">ngroups =</span> <span class="dv">10</span>, <span class="at">main =</span> <span class="st">"Poor vs. Age"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">emplogitplot1</span>(Poor <span class="sc">~</span> Age, <span class="at">data =</span> nhanes_adult, </span>
+<span id="cb25-2"><a href="#cb25-2"></a>              <span class="at">ngroups =</span> <span class="dv">10</span>, <span class="at">main =</span> <span class="st">"Poor vs. Age"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="lec-24_files/figure-revealjs/unnamed-chunk-20-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"><div class="fragment">
-<p>✅ The linearity condition is satisfied. There is a linear relationship between the empirical logit and the quantitative predictor variable, Age.</p>
+<img data-src="lec-24_files/figure-revealjs/unnamed-chunk-19-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"><div class="fragment">
+<p>The linearity condition is not satisfied. If we recall the previous confusion matrix, the fitted model only provide two fitted class: very good and good, which may due to the unreasonable model assumption.</p>
 </div>
 </section>
 <section id="checking-randomness" class="slide level2">
