@@ -487,3 +487,18 @@ flights %>%
 -   `year()`, `month()`,
 -   `mday()` (day of the month), `yday()` (day of the year), `wday()` (day of the week)
 -   `hour()`, `minute()`, `second()`
+
+## Reference
+
+-   [Allison Horst's Posts](https://allisonhorst.shinyapps.io/dplyr-learnr/#section-welcome)
+-   [Julie Scholler's Slides](https://juliescholler.gitlab.io/files/M2/M2-CM1-workflow1.html#1)
+-   [R for Data Science](https://r4ds.had.co.nz/index.html)
+-   [Gina Reynolds's Slides](https://evamaerey.github.io/little_flipbooks_library/data_cleaning/data_cleaning#1)
+-   [Sharla Gelfand's Slides](https://uoft-brown-bag-data-cleaning.netlify.app/#1)
+-   [David's Blog](https://rfortherestofus.com/2019/12/how-to-clean-messy-data-in-r/)
+
+
+
+
+
+
