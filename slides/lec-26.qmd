@@ -24,7 +24,7 @@ execute:
 
 # figure options
 knitr::opts_chunk$set(
-  fig.width = 8, fig.asp = 0.618, out.width = "90%",
+  fig.width = 8, fig.asp = 0.618, out.width = "80%",
   fig.retina = 3, dpi = 300, fig.align = "center"
 )
 
@@ -50,7 +50,7 @@ knitr::opts_chunk$set(
 
 ## Packages in Tidyverse
 
-![](images/lec-26/tidyverse.png) 
+![](images/lec-26/tidyverse.png)
 
 # Data Wrangling
 
@@ -191,7 +191,7 @@ table4 %>%
   pivot_longer(c(`1999`, `2000`), names_to = "year", values_to = "cases")
 ```
 
-![](images/lec-26/tidy-9.png) 
+![](images/lec-26/tidy-9.png)
 
 ## `pivot_wider` function in `tidyr` pkg
 
@@ -205,7 +205,7 @@ table2 %>%
     pivot_wider(names_from = key, values_from = value)
 ```
 
-![](images/lec-26/tidy-8.png) 
+![](images/lec-26/tidy-8.png)
 
 ## `separate` function in `tidyr` pkg
 
@@ -235,20 +235,19 @@ table6 %>%
 
 ```
 
-![](images/lec-26/tidy-18.png) 
+![](images/lec-26/tidy-18.png)
 
 # Transform
 
 ## Packages in Tidyverse
 
-![](images/lec-26/tidyverse.png) 
+![](images/lec-26/tidyverse.png)
 
 # `dplyr`: `join` multiple datasets
 
 ## Relational datasets in `nycflights13`
 
 ![](images/lec-26/relational-nycflights.png)
-
 
 ## `join` multiple datasets
 
@@ -261,7 +260,6 @@ R pkg `nycflights13` provide multiple relational datasets:
 -   `flights` connects to `airports` in two ways: via the `origin` and `dest` variables.
 
 -   `flights` connects to `weather` via `origin` (the location), and `year`, `month`, `day` and `hour` (the time)
-
 
 ## `inner_join`
 
@@ -278,7 +276,7 @@ inner_join(x,y,by="key")
 
 . . .
 
-![](images/lec-26/join-outer.png) 
+![](images/lec-26/join-outer.png)
 
 ## Data wrangling with `dplyr` {.smaller}
 
@@ -361,9 +359,7 @@ str_c("x",1:3)
 
 ## Useful functions in `stringr`
 
-To obtain nice variable names.
--   Can use `janitor::clean_names`
--   Or `str_to_upper`, `str_to_lower`, `str_to_title`
+To obtain nice variable names. - Can use `janitor::clean_names` - Or `str_to_upper`, `str_to_lower`, `str_to_title`
 
 . . .
 
