@@ -445,7 +445,7 @@
 <h1>Data import</h1>
 
 </section>
-<section id="data-import-using-readr" class="slide level2 smaller">
+<section id="data-import-using-readr" class="slide level2">
 <h2>Data import using <code>readr</code></h2>
 <ul>
 <li class="fragment"><code>read_csv</code>, …</li>
@@ -455,7 +455,7 @@
 <h2>Extract the certain type of data</h2>
 <p><code>readr::parse_*</code>: parse the characters/numbers only</p>
 <div class="fragment">
-<p><img data-src="images/lec-26/parse_number.png"></p>
+<p><img data-src="images/lec-26/parse_number.png" width="500"></p>
 </div>
 </section>
 <section id="function-parse-in-pkg-readr" class="slide level2 smaller">
@@ -555,24 +555,16 @@
 <li class="fragment"><p>use <code>as_tibble</code> to coerce a data frame to a tibble</p></li>
 </ul>
 </section>
-<section id="janitor-package-can-help-with-cleaning-names" class="slide level2">
+<section id="janitor-package-can-help-with-cleaning-names" class="slide level2 smaller">
 <h2><code>janitor</code> package can help with cleaning names</h2>
-<ul>
-<li class="fragment"><code>clean_names</code>,<code>remove_empty_cols</code>,<code>remove_empty_rows</code></li>
-</ul>
-<div class="fragment">
-<p><img data-src="images/lec-26/janitor_clean_names.png"></p>
-</div>
-</section>
-<section id="janitor-package" class="slide level2">
+<p><code>clean_names</code>,<code>remove_empty_cols</code>,<code>remove_empty_rows</code></p>
+
+<img data-src="images/lec-26/janitor_clean_names.png" width="500" class="r-stretch"></section>
+<section id="janitor-package" class="slide level2 smaller">
 <h2><code>janitor</code> package</h2>
-<ul>
-<li class="fragment"><code>clean_names</code>,<code>remove_empty_cols</code>,<code>remove_empty_rows</code></li>
-</ul>
-<div class="fragment">
-<p><img data-src="images/lec-26/coding_cases.png"></p>
-</div>
-</section></section>
+<p><code>clean_names</code>,<code>remove_empty_cols</code>,<code>remove_empty_rows</code></p>
+
+<img data-src="images/lec-26/coding_cases.png" width="500" class="r-stretch"></section></section>
 <section>
 <section id="tidy-data" class="title-slide slide level1 center">
 <h1>Tidy data</h1>
@@ -581,7 +573,7 @@
 <section id="tidy-data-1" class="slide level2">
 <h2>Tidy data</h2>
 
-<img data-src="images/lec-26/tidyverse.png" class="r-stretch"></section>
+<img data-src="images/lec-26/tidyverse.png" width="500" class="r-stretch"></section>
 <section id="tidy-data-2" class="slide level2">
 <h2>Tidy data</h2>
 
@@ -625,7 +617,7 @@
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>table2 <span class="sc">%&gt;%</span></span>
 <span id="cb35-2"><a href="#cb35-2"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> key, <span class="at">values_from =</span> value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><img data-src="images/lec-26/tidy-8.png"></p>
+<p><img data-src="images/lec-26/tidy-8.png" width="1000"></p>
 </div>
 </section>
 <section id="separate-function-in-tidyr-pkg" class="slide level2">
@@ -663,7 +655,7 @@
 <section id="packages-in-tidyverse-1" class="slide level2">
 <h2>Packages in Tidyverse</h2>
 
-<img data-src="images/lec-26/tidyverse.png" class="r-stretch"></section></section>
+<img data-src="images/lec-26/tidyverse.png" width="1000" class="r-stretch"></section></section>
 <section>
 <section id="dplyr-join-multiple-datasets" class="title-slide slide level1 center">
 <h1><code>dplyr</code>: <code>join</code> multiple datasets</h1>
@@ -694,7 +686,7 @@
 <h2><code>*_join</code></h2>
 <p><code>left_join</code>, <code>right_join</code>, <code>full_join</code></p>
 <div class="fragment">
-<p><img data-src="images/lec-26/join-outer.png"></p>
+<p><img data-src="images/lec-26/join-outer.png" width="400"></p>
 </div>
 </section>
 <section id="data-wrangling-with-dplyr" class="slide level2 smaller">
@@ -718,7 +710,7 @@
 <section id="case_when" class="slide level2">
 <h2><code>case_when</code></h2>
 
-<img data-src="images/lec-26/dplyr_case_when_sm.png" class="r-stretch"></section>
+<img data-src="images/lec-26/dplyr_case_when_sm.png" width="1000" class="r-stretch"></section>
 <section id="practice" class="slide level2 smaller">
 <h2>Practice</h2>
 <div class="cell" data-layout-align="center">
@@ -867,7 +859,7 @@
 <span id="cb55-6"><a href="#cb55-6"></a><span class="fu">plot_grid</span>(p1,p2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="lec-26_files/figure-revealjs/unnamed-chunk-17-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="lec-26_files/figure-revealjs/unnamed-chunk-17-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
 <section id="examples-for-fct_reorder" class="slide level2">
 <h2>Examples for <code>fct_reorder</code></h2>
 <div class="cell" data-layout-align="center">
@@ -883,7 +875,7 @@
 <span id="cb56-10"><a href="#cb56-10"></a><span class="fu">plot_grid</span>(p1,p2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="lec-26_files/figure-revealjs/unnamed-chunk-18-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="lec-26_files/figure-revealjs/unnamed-chunk-18-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
 <section id="examples-for-fct_reorder2" class="slide level2 smaller">
 <h2>Examples for <code>fct_reorder2</code></h2>
 <ul>
@@ -900,7 +892,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="lec-26_files/figure-revealjs/unnamed-chunk-19-1.png" style="width:80.0%"></p>
+<p><img data-src="lec-26_files/figure-revealjs/unnamed-chunk-19-1.png" style="width:90.0%"></p>
 </figure>
 </div>
 </div>
@@ -1000,7 +992,7 @@
 <span id="cb69-5"><a href="#cb69-5"></a>  <span class="fu">geom_freqpoly</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="lec-26_files/figure-revealjs/unnamed-chunk-24-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="lec-26_files/figure-revealjs/unnamed-chunk-24-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
@@ -1012,7 +1004,7 @@
 <span id="cb70-6"><a href="#cb70-6"></a>  <span class="fu">geom_freqpoly</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="lec-26_files/figure-revealjs/unnamed-chunk-25-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="lec-26_files/figure-revealjs/unnamed-chunk-25-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
 <section class="slide level2">
 
 <ul>

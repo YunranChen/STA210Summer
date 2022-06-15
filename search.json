@@ -543,14 +543,14 @@
     "href": "slides/lec-26.html#janitor-package-can-help-with-cleaning-names",
     "title": "Data Wrangling",
     "section": "janitor package can help with cleaning names",
-    "text": "janitor package can help with cleaning names\n\nclean_names,remove_empty_cols,remove_empty_rows"
+    "text": "janitor package can help with cleaning names\nclean_names,remove_empty_cols,remove_empty_rows"
   },
   {
     "objectID": "slides/lec-26.html#janitor-package",
     "href": "slides/lec-26.html#janitor-package",
     "title": "Data Wrangling",
     "section": "janitor package",
-    "text": "janitor package\n\nclean_names,remove_empty_cols,remove_empty_rows"
+    "text": "janitor package\nclean_names,remove_empty_cols,remove_empty_rows"
   },
   {
     "objectID": "slides/lec-26.html#tidy-data-1",
