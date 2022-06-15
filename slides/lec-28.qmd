@@ -27,8 +27,6 @@ knitr::opts_chunk$set(
   fig.width = 8, fig.asp = 0.618, out.width = "90%",
   fig.retina = 3, dpi = 300, fig.align = "center"
 )
-
-library(countdown)
 ```
 
 ## Remaining deadlines for project {.smaller}
@@ -55,11 +53,8 @@ Any questions related to projects?
 -   Course evaluation
 -   TA evaluation
 
-## Review 
+## Review
 
-
-## Application exercise
-
-::: appex
-📋 [github.com/STA210-Summer22/ae-13-tale-of-two-creeks](https://github.com/STA210-Summer22/ae-13-tale-of-two-creeks)
-:::
+-   Course Review
+-   Previous Expectation and Syllabus
+-   About Statistics
