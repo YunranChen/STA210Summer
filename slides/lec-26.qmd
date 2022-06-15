@@ -11,8 +11,6 @@ format:
     slide-number: true
     incremental: true 
     chalkboard: true
-    highlight-style: ayu-mirage
-code-link: true
 editor: visual
 execute:
   freeze: auto
