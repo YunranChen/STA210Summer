@@ -8,9 +8,9 @@ editor: visual
 -   Due dates:
 
     -   HW 5: Monday, June 13, 11:59pm
-    -   HW 4: Wednesday, June 15, 11:59pm
+    -   HW 4 + Project drafts: Wednesday, June 15, 11:59pm
     -   Lab 6 + AE 11: Friday, June 17, 11:59pm
-    -   Project drafts + AE 12 + AE 13: Sunday, June 19, 11:59pm
+    -   AE 12: Sunday, June 19, 11:59pm
     -   Exam 3: Monday, June 20, 11:59pm
 
 -   Released:
@@ -20,8 +20,7 @@ editor: visual
     -   Lab 6
     -   AE 11
     -   Exam 3
-    -   Project drafts
-    -   AE 12 + AE 13
+    -   AE 12
 :::
 
 ## Participate
@@ -30,7 +29,7 @@ editor: visual
 
 🖥️ [Lecture 25 - MultiLR: Predictive models](/slides/lec-25.html)
 
-🖥️ [Lecture 26 - Data Wrangling ](/slides/lec-26.html)
+🖥️ [Lecture 26 - Data Wrangling](/slides/lec-26.html)
 
 🖥️ [Lecture 27 - Exam 3 Review](/slides/lec-27.html)
 
@@ -41,8 +40,6 @@ editor: visual
 📋 [Application Exercise 11 - Volcanoes](/ae/ae-11-volcanoes.html)
 
 📋 [Application Exercise 12 - Exam 3 Review](/ae/ae-12-exam-3-review.html)
-
-📋 [Application Exercise 13 - A Tale of Two Creeks](https://github.com/sta210-s22/ae-13-tale-of-two-creeks)
 
 ## Perform
 

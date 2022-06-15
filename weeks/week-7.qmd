@@ -5,14 +5,12 @@ editor: visual
 ---
 
 ::: callout-important
--   Due dates: 
+-   Due dates:
 
     -   Exam 3: Monday, June 20, 11:59pm
-    -   Project peer review of drafts: Monday, June 20, 11:59pm
     -   Project presentation: Wednesday, June 22, 11:59pm
     -   Project presentation comments: Wednesday, June 22, 11:59pm
     -   Project write-up: Wednesday, June 22, 11:59pm
-    
 :::
 
 ## Participate
@@ -21,13 +19,11 @@ None
 
 ## Practice
 
-None 
+None
 
 ## Perform
 
 ✍️ [Project](/project-description.html)
-
-
 
 <br><br>
 
