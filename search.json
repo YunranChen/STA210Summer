@@ -464,9 +464,9 @@
   {
     "objectID": "slides/lec-26.html#topics",
     "href": "slides/lec-26.html#topics",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "Topics",
-    "text": "Topics\n\nProject Peer Review\nData Cleaning"
+    "text": "Topics\n\nData Cleaning/Wrangling\nCourse Evaluation (10-15min)"
   },
   {
     "objectID": "slides/lec-26.html#project-peer-review-20-min",
@@ -2686,5 +2686,61 @@
     "title": "Week 6",
     "section": "Perform",
     "text": "Perform\n✍️ HW 4 - Multinomial logistic regression\n💻 Lab 6 - Why Many Americans Don’t Vote\n✍️ Project - Peer review of drafts\n✍️ HW 5 - Statistics experience\n\n\nBack to course schedule ⏎"
+  },
+  {
+    "objectID": "weeks/week-7.html",
+    "href": "weeks/week-7.html",
+    "title": "Week 7",
+    "section": "",
+    "text": "Important\n\n\n\n\nDue dates:\n\nExam 3: Monday, June 20, 11:59pm\nProject presentation: Wednesday, June 22, 11:59pm\nProject presentation comments: Wednesday, June 22, 11:59pm\nProject write-up: Wednesday, June 22, 11:59pm"
+  },
+  {
+    "objectID": "weeks/week-7.html#participate",
+    "href": "weeks/week-7.html#participate",
+    "title": "Week 7",
+    "section": "Participate",
+    "text": "Participate\nNone"
+  },
+  {
+    "objectID": "weeks/week-7.html#practice",
+    "href": "weeks/week-7.html#practice",
+    "title": "Week 7",
+    "section": "Practice",
+    "text": "Practice\nNone"
+  },
+  {
+    "objectID": "weeks/week-7.html#perform",
+    "href": "weeks/week-7.html#perform",
+    "title": "Week 7",
+    "section": "Perform",
+    "text": "Perform\n✍️ Project\n\n\nBack to course schedule ⏎"
+  },
+  {
+    "objectID": "slides/lec-28.html#remaining-deadlines-for-project",
+    "href": "slides/lec-28.html#remaining-deadlines-for-project",
+    "title": "Wrap up",
+    "section": "Remaining deadlines for project",
+    "text": "Remaining deadlines for project\n\nFinal report due Tue, June 22\nVideo presentation + slides and final GitHub repo due Tue, June 22\nPresentation comments due Tue, June 22\n\n\n\nAny questions related to projects?"
+  },
+  {
+    "objectID": "slides/lec-28.html#grading",
+    "href": "slides/lec-28.html#grading",
+    "title": "Wrap up",
+    "section": "Grading",
+    "text": "Grading\n\nCheck your grades on Sakai, make sure they match Gradescope, email me before June 22\nWatch for new feedback released on Gradescope"
+  },
+  {
+    "objectID": "slides/lec-28.html#evaluations",
+    "href": "slides/lec-28.html#evaluations",
+    "title": "Wrap up",
+    "section": "Evaluations",
+    "text": "Evaluations\n\nCourse evaluation\nTA evaluation"
+  },
+  {
+    "objectID": "slides/lec-28.html#review",
+    "href": "slides/lec-28.html#review",
+    "title": "Wrap up",
+    "section": "Review",
+    "text": "Review\n\nCourse Review\nPrevious Expectation and Syllabus\nAbout Statistics\n\n\n\n\nyunranchen.github.io/STA210Summer/"
   }
 ]
