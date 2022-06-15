@@ -19,10 +19,9 @@ execute:
 
 ```{r}
 #| include: false
-
 # figure options
 knitr::opts_chunk$set(
-  fig.width = 8, fig.asp = 0.618, out.width = "80%",
+  fig.width = 8, fig.asp = 0.618, out.width = "90%",
   fig.retina = 3, dpi = 300, fig.align = "center"
 )
 
@@ -71,7 +70,7 @@ library(cowplot)
 
 # Data import
 
-## Data import using `readr` {.smaller}
+## Data import using `readr` 
 
 -   `read_csv`, ...
 
@@ -81,7 +80,7 @@ library(cowplot)
 
 . . .
 
-![](images/lec-26/parse_number.png)
+![](images/lec-26/parse_number.png){width="500"}
 
 ## function `parse` in pkg `readr` {.smaller}
 
@@ -135,27 +134,23 @@ parse_time("01:10 am")
 
 -   use `as_tibble` to coerce a data frame to a tibble
 
-## `janitor` package can help with cleaning names
+## `janitor` package can help with cleaning names {.smaller}
 
--   `clean_names`,`remove_empty_cols`,`remove_empty_rows`
+`clean_names`,`remove_empty_cols`,`remove_empty_rows`
 
-. . .
+![](images/lec-26/janitor_clean_names.png){width="500"}
 
-![](images/lec-26/janitor_clean_names.png)
+## `janitor` package {.smaller}
 
-## `janitor` package
+`clean_names`,`remove_empty_cols`,`remove_empty_rows`
 
--   `clean_names`,`remove_empty_cols`,`remove_empty_rows`
-
-. . .
-
-![](images/lec-26/coding_cases.png)
+![](images/lec-26/coding_cases.png){width="500"}
 
 # Tidy data
 
 ## Tidy data
 
-![](images/lec-26/tidyverse.png)
+![](images/lec-26/tidyverse.png){width="500"}
 
 ## Tidy data
 
@@ -203,7 +198,7 @@ table2 %>%
     pivot_wider(names_from = key, values_from = value)
 ```
 
-![](images/lec-26/tidy-8.png)
+![](images/lec-26/tidy-8.png){width="1000"}
 
 ## `separate` function in `tidyr` pkg
 
@@ -239,7 +234,7 @@ table6 %>%
 
 ## Packages in Tidyverse
 
-![](images/lec-26/tidyverse.png)
+![](images/lec-26/tidyverse.png){width="1000"}
 
 # `dplyr`: `join` multiple datasets
 
@@ -274,7 +269,7 @@ inner_join(x,y,by="key")
 
 . . .
 
-![](images/lec-26/join-outer.png)
+![](images/lec-26/join-outer.png){width="400"}
 
 ## Data wrangling with `dplyr` {.smaller}
 
@@ -294,7 +289,7 @@ inner_join(x,y,by="key")
 
 ## `case_when`
 
-![](images/lec-26/dplyr_case_when_sm.png)
+![](images/lec-26/dplyr_case_when_sm.png){width="1000"}
 
 ## Practice {.smaller}
 
