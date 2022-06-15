@@ -478,287 +478,287 @@
   {
     "objectID": "slides/lec-26.html#data-cleaning-using-tidyverse",
     "href": "slides/lec-26.html#data-cleaning-using-tidyverse",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "Data Cleaning using tidyverse",
-    "text": "Data Cleaning using tidyverse\n\nRaw data to understanding, insight, and knowledge\nWorkflow"
+    "text": "Data Cleaning using tidyverse\n\nRaw data to understanding, insight, and knowledge\nWorkflow for real-world data analysis"
   },
   {
     "objectID": "slides/lec-26.html#packages-in-tidyverse",
     "href": "slides/lec-26.html#packages-in-tidyverse",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "Packages in Tidyverse",
-    "text": "Packages in Tidyverse\n # Data Wrangling"
+    "text": "Packages in Tidyverse"
   },
   {
     "objectID": "slides/lec-26.html#focus-on-data-wrangling",
     "href": "slides/lec-26.html#focus-on-data-wrangling",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "Focus on data wrangling",
-    "text": "Focus on data wrangling\n\n\nData import (readr, tibble)\nTidy data (tidyr)\nWrangle (dplyr, stringr, lubridate,janitor)\n\n\nlibrary(tidyverse)\nlibrary(cowplot)"
+    "text": "Focus on data wrangling\n\n\nData import (readr, tibble)\nTidy data (tidyr)\nWrangle (dplyr, stringr, lubridate,janitor)\n\n\n\nlibrary(tidyverse)\nlibrary(cowplot)"
   },
   {
     "objectID": "slides/lec-26.html#data-import-using-readr",
     "href": "slides/lec-26.html#data-import-using-readr",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "Data import using readr",
     "text": "Data import using readr\n\nread_csv, …"
   },
   {
     "objectID": "slides/lec-26.html#extract-the-certain-type-of-data",
     "href": "slides/lec-26.html#extract-the-certain-type-of-data",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "Extract the certain type of data",
     "text": "Extract the certain type of data\nreadr::parse_*: parse the characters/numbers only"
   },
   {
     "objectID": "slides/lec-26.html#function-parse-in-pkg-readr",
     "href": "slides/lec-26.html#function-parse-in-pkg-readr",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "function parse in pkg readr",
     "text": "function parse in pkg readr\n\nparse_number(\"$100\")\n\n[1] 100\n\nparse_number(\"20%\")\n\n[1] 20\n\nparse_number(\"It cost $123.45\")\n\n[1] 123.45\n\n# Used in America\nparse_number(\"$123,456,789\")\n\n[1] 123456789\n\n# Used in many parts of Europe\nparse_number(\"123.456.789\", locale = locale(grouping_mark = \".\"))\n\n[1] 123456789\n\n# Used in Switzerland\nparse_number(\"123'456'789\", locale = locale(grouping_mark = \"'\"))\n\n[1] 123456789"
   },
   {
     "objectID": "slides/lec-26.html#function-parse-in-pkg-readr-1",
     "href": "slides/lec-26.html#function-parse-in-pkg-readr-1",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "function parse in pkg readr",
     "text": "function parse in pkg readr\n\nx1 <- \"El Ni\\xf1o was particularly bad this year\"\nx2 <- \"\\x82\\xb1\\x82\\xf1\\x82\\xc9\\x82\\xbf\\x82\\xcd\"\n\nx1\n\n[1] \"El Ni\\xf1o was particularly bad this year\"\n\nx2\n\n[1] \"\\x82\\xb1\\x82\\xf1\\x82ɂ\\xbf\\x82\\xcd\"\n\nparse_character(x1, locale = locale(encoding = \"Latin1\"))\n\n[1] \"El Niño was particularly bad this year\"\n\nparse_character(x2, locale = locale(encoding = \"Shift-JIS\"))\n\n[1] \"こんにちは\""
   },
   {
     "objectID": "slides/lec-26.html#function-parse-in-pkg-readr-2",
     "href": "slides/lec-26.html#function-parse-in-pkg-readr-2",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "function parse in pkg readr",
     "text": "function parse in pkg readr\n\nparse_date(\"1 janvier 2015\", \"%d %B %Y\", locale = locale(\"fr\"))\n\n[1] \"2015-01-01\"\n\nparse_date(\"01/02/15\", \"%m/%d/%y\")\n\n[1] \"2015-01-02\"\n\nparse_date(\"01/02/15\", \"%d/%m/%y\")\n\n[1] \"2015-02-01\"\n\nparse_date(\"01/02/15\", \"%y/%m/%d\")\n\n[1] \"2001-02-15\"\n\n\n\nparse_datetime(\"2010-10-01T2010\")\n\n[1] \"2010-10-01 20:10:00 UTC\"\n\nlibrary(hms)\nparse_time(\"01:10 am\")\n\n01:10:00"
   },
   {
     "objectID": "slides/lec-26.html#other-packages-for-data-importing",
     "href": "slides/lec-26.html#other-packages-for-data-importing",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "Other packages for data importing",
     "text": "Other packages for data importing\n\nPackage haven: SPSS, Stata, SAS file\nPackage readxl: Excel file .xls, .xlsx\nPackage jsonlite/htmltab: json, html\nuse as_tibble to coerce a data frame to a tibble"
   },
   {
     "objectID": "slides/lec-26.html#janitor-package-can-help-with-cleaning-names",
     "href": "slides/lec-26.html#janitor-package-can-help-with-cleaning-names",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "janitor package can help with cleaning names",
     "text": "janitor package can help with cleaning names\n\nclean_names,remove_empty_cols,remove_empty_rows"
   },
   {
     "objectID": "slides/lec-26.html#janitor-package",
     "href": "slides/lec-26.html#janitor-package",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "janitor package",
     "text": "janitor package\n\nclean_names,remove_empty_cols,remove_empty_rows"
   },
   {
     "objectID": "slides/lec-26.html#tidy-data-1",
     "href": "slides/lec-26.html#tidy-data-1",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "Tidy data",
     "text": "Tidy data"
   },
   {
     "objectID": "slides/lec-26.html#tidy-data-2",
     "href": "slides/lec-26.html#tidy-data-2",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "Tidy data",
     "text": "Tidy data"
   },
   {
     "objectID": "slides/lec-26.html#tidy-data-3",
     "href": "slides/lec-26.html#tidy-data-3",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "Tidy data",
     "text": "Tidy data"
   },
   {
     "objectID": "slides/lec-26.html#tidy-data-4",
     "href": "slides/lec-26.html#tidy-data-4",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "Tidy data",
     "text": "Tidy data"
   },
   {
     "objectID": "slides/lec-26.html#tidy-data-5",
     "href": "slides/lec-26.html#tidy-data-5",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "Tidy data",
     "text": "Tidy data"
   },
   {
     "objectID": "slides/lec-26.html#tidy-data-6",
     "href": "slides/lec-26.html#tidy-data-6",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "Tidy data",
     "text": "Tidy data"
   },
   {
     "objectID": "slides/lec-26.html#pivot_longer-function-in-tidyr-pkg",
     "href": "slides/lec-26.html#pivot_longer-function-in-tidyr-pkg",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "pivot_longer function in tidyr pkg",
-    "text": "pivot_longer function in tidyr pkg\n\npivot_longer: from wide to long\n\n\ntable4 %>% \n  pivot_longer(c(`1999`, `2000`), names_to = \"year\", values_to = \"cases\")\n\n ## pivot_wider function in tidyr pkg\n\npivot_wider: from long to wide\n\n\ntable2 %>%\n    pivot_wider(names_from = key, values_from = value)\n\n ## separate function in tidyr pkg\n\nseparate: from 1 column to 2+ column\ncan sep based on digits or characters.\n\n\ntable3 %>% \n  separate(rate, into = c(\"cases\", \"population\"), sep = \"/\")"
+    "text": "pivot_longer function in tidyr pkg\n\npivot_longer: from wide to long\n\n\n\ntable4 %>% \n  pivot_longer(c(`1999`, `2000`), names_to = \"year\", values_to = \"cases\")"
   },
   {
     "objectID": "slides/lec-26.html#unite-function-in-tidyr-pkg",
     "href": "slides/lec-26.html#unite-function-in-tidyr-pkg",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "unite function in tidyr pkg",
-    "text": "unite function in tidyr pkg\n\nunite: from 2+ column to 1 column\n\n\ntable6 %>% \n  unite(\"year\", century, year, sep = \"\")\n\n # Transform"
+    "text": "unite function in tidyr pkg\n\nunite: from 2+ column to 1 column\n\n\n\ntable6 %>% \n  unite(\"year\", century, year, sep = \"\")"
   },
   {
     "objectID": "slides/lec-26.html#join-multiple-datasets",
     "href": "slides/lec-26.html#join-multiple-datasets",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "join multiple datasets",
     "text": "join multiple datasets\nR pkg nycflights13 provide multiple relational datasets:\n\nflights connects to planes via a single variable, tailnum.\nflights connects to airlines through the carrier variable.\nflights connects to airports in two ways: via the origin and dest variables.\nflights connects to weather via origin (the location), and year, month, day and hour (the time)"
   },
   {
     "objectID": "slides/lec-26.html#relational-datasets-in-nycflights13",
     "href": "slides/lec-26.html#relational-datasets-in-nycflights13",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "Relational datasets in nycflights13",
     "text": "Relational datasets in nycflights13"
   },
   {
     "objectID": "slides/lec-26.html#inner_join",
     "href": "slides/lec-26.html#inner_join",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "inner_join",
     "text": "inner_join\n\ninner_join(x,y,by=\"key\")"
   },
   {
     "objectID": "slides/lec-26.html#join",
     "href": "slides/lec-26.html#join",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "*_join",
-    "text": "*_join\n\nleft_join, right_join, full_join\n\n\nleft_join(x,y,by=\"key\")\n\n # dplyr: transform variables in tibble"
+    "text": "*_join\nleft_join, right_join, full_join"
   },
   {
     "objectID": "slides/lec-26.html#data-wrangling-with-dplyr",
     "href": "slides/lec-26.html#data-wrangling-with-dplyr",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "Data wrangling with dplyr",
-    "text": "Data wrangling with dplyr\n\nslice(): pick rows using indexes\nfilter(): keep rows satisfying your condition\nselect(): select variables obtain a tibble\npull(): grab a column as a vector\nrelocate(): relocate a variable\narrange(): reorder rows\nrename(): rename a variable\nmutate(): add columns\ngroup_by()%>%summarize(): summary statistics for different groups\ncount(): count the frequency\ndistinct(): keep unique rows\nfunctions within mutate(): across(), if_else(),case_when()\nfunctions for selecting variables: starts_with(), ends_with(),contains(),matches(),everything()"
+    "text": "Data wrangling with dplyr\n\nslice(): pick rows using indexes\nfilter(): keep rows satisfying your condition\nselect(): select variables obtain a tibble\npull(): grab a column as a vector\nrelocate(): relocate a variable\narrange(): reorder rows\nrename(): rename a variable\nmutate(): add columns\ngroup_by()%>%summarize(): summary statistics for different groups\ncount(): count the frequency\ndistinct(): keep unique rows\nfunctions within mutate(): across(), if_else(), case_when()\nfunctions for selecting variables: starts_with(), ends_with(), contains(), matches(), everything()"
   },
   {
     "objectID": "slides/lec-26.html#case_when",
     "href": "slides/lec-26.html#case_when",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "case_when",
     "text": "case_when"
   },
   {
     "objectID": "slides/lec-26.html#practice",
     "href": "slides/lec-26.html#practice",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "Practice",
-    "text": "Practice\n\nlibrary(\"palmerpenguins\")\n\n\nKeep the chinstrap and gentoo penguins, living in Dream and Biscoe Islands.\nGet first 100 observation\nOnly keep columns from species to flipper_length_mm, and sex and year\nRename sex as gender\nMove gender right after island, move any numeric variables to after factor variables\nAdd a new column to identify each observation\nTransfer island as character\nAdd a new variable called bill_ratio which is the ratio of bill length to bill depth\nObtain the mean and standard deviation of body mass of different species\nFor different species, obtain the mean of variables ending with mm\nProvide a distribution of different species of penguins living in different island across time"
+    "text": "Practice\n\nlibrary(\"palmerpenguins\")\n\n\nKeep the chinstrap and gentoo penguins, living in Dream and Biscoe Islands.\nGet first 100 observation\nOnly keep columns from species to flipper_length_mm, and sex and year\nRename sex as gender\nMove gender right after island, move numeric variables after factor variables\nAdd a new column to identify each observation\nTransfer island as character\nAdd a new variable called bill_ratio which is the ratio of bill length to bill depth\nObtain the mean and standard deviation of body mass of different species\nFor different species, obtain the mean of variables ending with mm\nProvide the distribution of different species of penguins living in different island across time"
   },
   {
     "objectID": "slides/lec-26.html#practice-1",
     "href": "slides/lec-26.html#practice-1",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "Practice",
     "text": "Practice\nTo penguins, add a new column size_bin that contains:\n\n“large” if body mass is greater than 4500 g\n“medium” if body mass is greater than 3000 g, and less than or equal to 4500 g\n“small” if body mass is less than or equal to 3000 g"
   },
   {
     "objectID": "slides/lec-26.html#deal-with-different-types-of-variables-1",
     "href": "slides/lec-26.html#deal-with-different-types-of-variables-1",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "Deal with different types of variables",
     "text": "Deal with different types of variables\n\nstringr for strings\nforcats for factors\nlubridate for dates and times"
   },
   {
     "objectID": "slides/lec-26.html#stringr-for-strings-1",
     "href": "slides/lec-26.html#stringr-for-strings-1",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "stringr for strings",
     "text": "stringr for strings\n\nCheatsheets for stringr"
   },
   {
     "objectID": "slides/lec-26.html#useful-functions-in-stringr",
     "href": "slides/lec-26.html#useful-functions-in-stringr",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "Useful functions in stringr",
     "text": "Useful functions in stringr\nIf your raw data has numbers as variable names, you may consider to add characters in front of it.\n\ntable4 %>% \n  pivot_longer(c(`1999`, `2000`), names_to = \"year\", values_to = \"cases\")\n\n\nstr_c: join multiple strings to a single string\n\nstr_c(c(\"x\", \"y\", \"z\"), collapse = \", \")\n\n[1] \"x, y, z\"\n\nstr_c(\"x\",1:3) \n\n[1] \"x1\" \"x2\" \"x3\""
   },
   {
     "objectID": "slides/lec-26.html#useful-functions-in-stringr-1",
     "href": "slides/lec-26.html#useful-functions-in-stringr-1",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "Useful functions in stringr",
-    "text": "Useful functions in stringr\n\nCan use to obtain nice variable names.\nCan use janitor::clean_names\nOr str_to_upper, str_to_lower, str_to_title\n\n\n\ncolnames(penguins)\n\n[1] \"species\"           \"island\"            \"bill_length_mm\"   \n[4] \"bill_depth_mm\"     \"flipper_length_mm\" \"body_mass_g\"      \n[7] \"sex\"               \"year\"             \n\ncolnames(penguins)%>%\n  str_to_title()\n\n[1] \"Species\"           \"Island\"            \"Bill_length_mm\"   \n[4] \"Bill_depth_mm\"     \"Flipper_length_mm\" \"Body_mass_g\"      \n[7] \"Sex\"               \"Year\""
+    "text": "Useful functions in stringr\nTo obtain nice variable names. - Can use janitor::clean_names - Or str_to_upper, str_to_lower, str_to_title\n\n\ncolnames(penguins)\n\n[1] \"species\"           \"island\"            \"bill_length_mm\"   \n[4] \"bill_depth_mm\"     \"flipper_length_mm\" \"body_mass_g\"      \n[7] \"sex\"               \"year\"             \n\ncolnames(penguins)%>%\n  str_to_title()\n\n[1] \"Species\"           \"Island\"            \"Bill_length_mm\"   \n[4] \"Bill_depth_mm\"     \"Flipper_length_mm\" \"Body_mass_g\"      \n[7] \"Sex\"               \"Year\""
   },
   {
     "objectID": "slides/lec-26.html#useful-functions-in-stringr-2",
     "href": "slides/lec-26.html#useful-functions-in-stringr-2",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "Useful functions in stringr",
     "text": "Useful functions in stringr\n\nstr_detect(): Return TRUE/FALSE for strings satisfying the pattern\npattern: regular expressions (CheatSheets)\nstr_replace, str_replace_all(multiple replacements)\nText mining: Useful if your have text in the survey, and you want to extract important features from text\n\n\n\nx <- c(\"apple\", \"banana\", \"pear\")\nstr_detect(x, \"[aeiou]$\")\n\n[1]  TRUE  TRUE FALSE\n\nstr_replace(x, \"[aeiou]\", \"-\")\n\n[1] \"-pple\"  \"b-nana\" \"p-ar\"  \n\nx <- c(\"1 house\", \"2 cars\", \"3 people\")\nstr_replace_all(x, c(\"1\" = \"one\", \"2\" = \"two\", \"3\" = \"three\"))\n\n[1] \"one house\"    \"two cars\"     \"three people\""
   },
   {
     "objectID": "slides/lec-26.html#forcats-for-factors-1",
     "href": "slides/lec-26.html#forcats-for-factors-1",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "forcats for factors",
     "text": "forcats for factors\n\nfct_infreq: order levels by frequency\nfct_rev: reverse the order of levels\nfct_reorder,fct_reorder2: order according to other variables\nfct_relevel: reorder manually\nfct_collapse: combine levels\nUseful for visualization in ggplot."
   },
   {
     "objectID": "slides/lec-26.html#fct_infreq-and-fct_rev",
     "href": "slides/lec-26.html#fct_infreq-and-fct_rev",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "fct_infreq and fct_rev",
     "text": "fct_infreq and fct_rev\n\np1=penguins %>%\n  ggplot(aes(species)) + geom_bar()\np2=penguins %>%\n  mutate(species=species %>% fct_infreq() %>% fct_rev()) %>%\n  ggplot(aes(species)) + geom_bar()\nplot_grid(p1,p2)"
   },
   {
     "objectID": "slides/lec-26.html#examples-for-fct_reorder",
     "href": "slides/lec-26.html#examples-for-fct_reorder",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "Examples for fct_reorder",
-    "text": "Examples for fct_reorder\n\nlibrary(cowplot)\npeng_summary=penguins %>%\n  group_by(species)%>%\n  summarise(\n    bill_length_mean=mean(bill_length_mm, na.rm=T),\n    bill_depth_mean=mean(bill_depth_mm, na.rm=T)\n  )\np1=ggplot(peng_summary,aes(bill_length_mean,species)) + \n  geom_point()\np2=ggplot(peng_summary,aes(bill_length_mean,fct_reorder(species,bill_length_mean))) + \n  geom_point()\nplot_grid(p1,p2)"
+    "text": "Examples for fct_reorder\n\nlibrary(cowplot)\npeng_summary=penguins %>%\n  group_by(species)%>%\n  summarise(\n    bill_length_mean=mean(bill_length_mm, na.rm=T),\n    bill_depth_mean=mean(bill_depth_mm, na.rm=T))\np1=ggplot(peng_summary,aes(bill_length_mean,species)) + \n  geom_point()\np2=ggplot(peng_summary,aes(bill_length_mean,fct_reorder(species,bill_length_mean))) + geom_point()\nplot_grid(p1,p2)"
   },
   {
     "objectID": "slides/lec-26.html#examples-for-fct_reorder2",
     "href": "slides/lec-26.html#examples-for-fct_reorder2",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "Examples for fct_reorder2",
-    "text": "Examples for fct_reorder2\nfct_reorder2() reorders the factor by the y values associated with the largest x values. This makes the plot easier to read because the line colours line up with the legend.\n\np1=ggplot(penguins,aes(bill_length_mm,flipper_length_mm,color=species)) + \n  geom_line()\np2=ggplot(penguins,aes(bill_length_mm,flipper_length_mm,color=fct_reorder2(species,bill_length_mm,flipper_length_mm))) + \n  geom_line() + \n  guides(color=guide_legend(title=\"species\"))\nplot_grid(p1,p2)"
+    "text": "Examples for fct_reorder2\n\nReorder the factor by the y values associated with the largest x values\nEasier to read: colours line up with the legend\n\n\n\np1=ggplot(penguins,aes(bill_length_mm,flipper_length_mm,color=species)) + \n  geom_line()\np2=ggplot(penguins,aes(bill_length_mm,flipper_length_mm,color=fct_reorder2(species,bill_length_mm,flipper_length_mm))) + \n  geom_line() + guides(color=guide_legend(title=\"species\"))\nplot_grid(p1,p2)"
   },
   {
     "objectID": "slides/lec-26.html#fct_recode",
     "href": "slides/lec-26.html#fct_recode",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "fct_recode()",
     "text": "fct_recode()\n\npenguins %>%\n  count(species)\n\n# A tibble: 3 × 2\n  species       n\n  <fct>     <int>\n1 Adelie      152\n2 Chinstrap    68\n3 Gentoo      124\n\npenguins %>%\n  mutate(species = fct_recode(species,\n                              \"Adeliea\" = \"Adelie\",\n                               \"ChinChin\" = \"Chinstrap\",\n                               \"Gentooman\" = \"Gentoo\")) %>%\n  count(species)\n\n# A tibble: 3 × 2\n  species       n\n  <fct>     <int>\n1 Adeliea     152\n2 ChinChin     68\n3 Gentooman   124"
   },
   {
     "objectID": "slides/lec-26.html#fct_collapse",
     "href": "slides/lec-26.html#fct_collapse",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "fct_collapse",
     "text": "fct_collapse\nCan use to collapse lots of levels\n\npenguins %>% \n  mutate(species = fct_collapse(species,\n                                \"Adelie\"=\"Adelie\",\n                                \"Other\"=c(\"Chinstrap\",\"Gentoo\")))%>%\n  count(species)\n\n# A tibble: 2 × 2\n  species     n\n  <fct>   <int>\n1 Adelie    152\n2 Other     192"
   },
   {
     "objectID": "slides/lec-26.html#fct_lump",
     "href": "slides/lec-26.html#fct_lump",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "fct_lump",
     "text": "fct_lump\n\nvolcano <- read_csv(here::here(\"slides\", \"data/volcano.csv\"))\nvolcano %>% count(country) %>% nrow()\n\n[1] 89\n\nvolcano %>%\n  mutate(country=fct_lump(country,n=5))%>%\n  count(country)\n\n# A tibble: 6 × 2\n  country           n\n  <fct>         <int>\n1 Chile            43\n2 Indonesia        95\n3 Japan            92\n4 Russia           79\n5 United States    99\n6 Other           550"
   },
   {
     "objectID": "slides/lec-26.html#lubridate-for-dates-and-times-1",
     "href": "slides/lec-26.html#lubridate-for-dates-and-times-1",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "lubridate for dates and times",
     "text": "lubridate for dates and times\n\nlibrary(\"lubridate\")\nlibrary(nycflights13)"
   },
   {
     "objectID": "slides/lec-26.html#reference",
     "href": "slides/lec-26.html#reference",
-    "title": "Data Cleaning",
+    "title": "Data Wrangling",
     "section": "Reference",
     "text": "Reference\n\nAllison Horst’s Posts\nJulie Scholler’s Slides\nR for Data Science\nGina Reynolds’s Slides\nSharla Gelfand’s Slides\nDavid’s Blog\n\n\n\n\nyunranchen.github.io/STA210Summer/"
   },
@@ -2637,5 +2637,26 @@
     "title": "Computing troubleshooting",
     "section": "",
     "text": "If the status shows something other than Operational, this means there is a known incident with the containers. Check back later to see if it’s been resolved. If there’s a deadline coming up soon, post on the course forum to let us know that there’s an issue. We can look into how quickly it might get resolved and decide on what to do about the deadline accordingly. Note: We don’t anticipate this to happen regularly, the systems are Operational a huge majority of the time!\nIf the status shows Operational, this means the system is expected to be working. Check your internet connection, if need be, restart your computer to ensure a fresh new connection. If your issue persists, post on the course forum with details on what you’ve tried and the errors you see (including verbatim errors and/or screenshots).\nEither way you can also fill out the form here, which will notify our the R TA for the department as well as our undergraduate coordinator. They’ll be able to help diagnose the issue."
+  },
+  {
+    "objectID": "slides/lec-26.html#pivot_wider-function-in-tidyr-pkg",
+    "href": "slides/lec-26.html#pivot_wider-function-in-tidyr-pkg",
+    "title": "Data Wrangling",
+    "section": "pivot_wider function in tidyr pkg",
+    "text": "pivot_wider function in tidyr pkg\n\npivot_wider: from long to wide\n\n\n\ntable2 %>%\n    pivot_wider(names_from = key, values_from = value)"
+  },
+  {
+    "objectID": "slides/lec-26.html#separate-function-in-tidyr-pkg",
+    "href": "slides/lec-26.html#separate-function-in-tidyr-pkg",
+    "title": "Data Wrangling",
+    "section": "separate function in tidyr pkg",
+    "text": "separate function in tidyr pkg\n\nseparate: from 1 column to 2+ column\ncan sep based on digits or characters.\n\n\n\ntable3 %>% \n  separate(rate, into = c(\"cases\", \"population\"), sep = \"/\")"
+  },
+  {
+    "objectID": "slides/lec-26.html#packages-in-tidyverse-1",
+    "href": "slides/lec-26.html#packages-in-tidyverse-1",
+    "title": "Data Wrangling",
+    "section": "Packages in Tidyverse",
+    "text": "Packages in Tidyverse"
   }
 ]

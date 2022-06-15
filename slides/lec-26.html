@@ -4,7 +4,7 @@
   <meta name="generator" content="quarto-0.9.345">
 
   <meta name="author" content="Yunran Chen">
-  <title>STA 210 - Summer 2022 - Data Cleaning</title>
+  <title>STA 210 - Summer 2022 - Data Wrangling</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -379,7 +379,7 @@
       margin-right: 0; 
     }
   </style>
-<meta name="twitter:title" content="STA 210 - Summer 2022 - Data Cleaning">
+<meta name="twitter:title" content="STA 210 - Summer 2022 - Data Wrangling">
 <meta name="twitter:image" content="https:/yunranchen.github.io/STA210Summer/slides/images/twitter-card.png">
 <meta name="twitter:creator" content="@minebocek">
 <meta name="twitter:card" content="summary_large_image">
@@ -389,26 +389,16 @@
     <div class="slides">
 
 <section id="title-slide" class="center">
-  <h1 class="title">Data Cleaning</h1>
+  <h1 class="title">Data Wrangling</h1>
   <p class="subtitle">STA 210 - Summer 2022</p>
   <p class="author">Yunran Chen</p>
 </section>
 
-<section id="topics" class="slide level2">
-<h2>Topics</h2>
-<ul>
-<li class="fragment"><p><a href="https://yunranchen.github.io/STA210Summer/project-description.html#peer-teamwork-evaluation">Project Peer Review</a></p></li>
-<li class="fragment"><p>Data Cleaning</p></li>
-</ul>
-</section>
-<section id="project-peer-review-20-min" class="slide level2">
-<h2>Project Peer Review (20 min)</h2>
-</section>
 <section id="data-cleaning-using-tidyverse" class="slide level2">
 <h2>Data Cleaning using tidyverse</h2>
 <ul>
 <li class="fragment"><p>Raw data to understanding, insight, and knowledge</p></li>
-<li class="fragment"><p>Workflow</p></li>
+<li class="fragment"><p>Workflow for real-world data analysis</p></li>
 </ul>
 <div class="fragment">
 <p><img data-src="images/lec-26/data-science.png"></p>
@@ -416,7 +406,12 @@
 </section>
 <section id="packages-in-tidyverse" class="slide level2">
 <h2>Packages in Tidyverse</h2>
-<p><img data-src="images/lec-26/tidyverse.png"> # Data Wrangling</p>
+
+<img data-src="images/lec-26/tidyverse.png" class="r-stretch"></section>
+<section>
+<section id="data-wrangling" class="title-slide slide level1 center">
+<h1>Data Wrangling</h1>
+
 </section>
 <section id="focus-on-data-wrangling" class="slide level2">
 <h2>Focus on data wrangling</h2>
@@ -426,11 +421,13 @@
 <li class="fragment"><p>Tidy data (<code>tidyr</code>)</p></li>
 <li class="fragment"><p>Wrangle (<code>dplyr</code>, <code>stringr</code>, <code>lubridate</code>,<code>janitor</code>)</p></li>
 </ul>
+<div class="fragment">
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(cowplot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
+</div>
+</section></section>
 <section>
 <section id="data-import" class="title-slide slide level1 center">
 <h1>Data import</h1>
@@ -445,8 +442,10 @@
 <section id="extract-the-certain-type-of-data" class="slide level2 smaller">
 <h2>Extract the certain type of data</h2>
 <p><code>readr::parse_*</code>: parse the characters/numbers only</p>
-
-<img data-src="images/lec-26/parse_number.png" class="r-stretch"></section>
+<div class="fragment">
+<p><img data-src="images/lec-26/parse_number.png"></p>
+</div>
+</section>
 <section id="function-parse-in-pkg-readr" class="slide level2 smaller">
 <h2>function <code>parse</code> in pkg <code>readr</code></h2>
 <div class="cell" data-layout-align="center">
@@ -549,15 +548,19 @@
 <ul>
 <li class="fragment"><code>clean_names</code>,<code>remove_empty_cols</code>,<code>remove_empty_rows</code></li>
 </ul>
-
-<img data-src="images/lec-26/janitor_clean_names.png" class="r-stretch"></section>
+<div class="fragment">
+<p><img data-src="images/lec-26/janitor_clean_names.png"></p>
+</div>
+</section>
 <section id="janitor-package" class="slide level2">
 <h2><code>janitor</code> package</h2>
 <ul>
 <li class="fragment"><code>clean_names</code>,<code>remove_empty_cols</code>,<code>remove_empty_rows</code></li>
 </ul>
-
-<img data-src="images/lec-26/coding_cases.png" class="r-stretch"></section></section>
+<div class="fragment">
+<p><img data-src="images/lec-26/coding_cases.png"></p>
+</div>
+</section></section>
 <section>
 <section id="tidy-data" class="title-slide slide level1 center">
 <h1>Tidy data</h1>
@@ -592,45 +595,72 @@
 <ul>
 <li class="fragment"><code>pivot_longer</code>: from wide to long</li>
 </ul>
+<div class="fragment">
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>table4 <span class="sc">%&gt;%</span> </span>
 <span id="cb34-2"><a href="#cb34-2"></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(<span class="st">`</span><span class="at">1999</span><span class="st">`</span>, <span class="st">`</span><span class="at">2000</span><span class="st">`</span>), <span class="at">names_to =</span> <span class="st">"year"</span>, <span class="at">values_to =</span> <span class="st">"cases"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><img data-src="images/lec-26/tidy-9.png"> ## <code>pivot_wider</code> function in <code>tidyr</code> pkg</p>
+<p><img data-src="images/lec-26/tidy-9.png"></p>
+</div>
+</section>
+<section id="pivot_wider-function-in-tidyr-pkg" class="slide level2">
+<h2><code>pivot_wider</code> function in <code>tidyr</code> pkg</h2>
 <ul>
 <li class="fragment"><code>pivot_wider</code>: from long to wide</li>
 </ul>
+<div class="fragment">
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>table2 <span class="sc">%&gt;%</span></span>
 <span id="cb35-2"><a href="#cb35-2"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> key, <span class="at">values_from =</span> value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><img data-src="images/lec-26/tidy-8.png"> ## <code>separate</code> function in <code>tidyr</code> pkg</p>
+<p><img data-src="images/lec-26/tidy-8.png"></p>
+</div>
+</section>
+<section id="separate-function-in-tidyr-pkg" class="slide level2">
+<h2><code>separate</code> function in <code>tidyr</code> pkg</h2>
 <ul>
 <li class="fragment"><code>separate</code>: from 1 column to 2+ column</li>
 <li class="fragment">can <code>sep</code> based on digits or characters.</li>
 </ul>
+<div class="fragment">
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>table3 <span class="sc">%&gt;%</span> </span>
 <span id="cb36-2"><a href="#cb36-2"></a>  <span class="fu">separate</span>(rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"cases"</span>, <span class="st">"population"</span>), <span class="at">sep =</span> <span class="st">"/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><img data-src="images/lec-26/tidy-17.png"></p>
+</div>
 </section>
 <section id="unite-function-in-tidyr-pkg" class="slide level2">
 <h2><code>unite</code> function in <code>tidyr</code> pkg</h2>
 <ul>
 <li class="fragment"><code>unite</code>: from 2+ column to 1 column</li>
 </ul>
+<div class="fragment">
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>table6 <span class="sc">%&gt;%</span> </span>
 <span id="cb37-2"><a href="#cb37-2"></a>  <span class="fu">unite</span>(<span class="st">"year"</span>, century, year, <span class="at">sep =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><img data-src="images/lec-26/tidy-18.png"> # Transform</p>
+<p><img data-src="images/lec-26/tidy-18.png"></p>
+</div>
 </section></section>
+<section>
+<section id="transform" class="title-slide slide level1 center">
+<h1>Transform</h1>
+
+</section>
+<section id="packages-in-tidyverse-1" class="slide level2">
+<h2>Packages in Tidyverse</h2>
+
+<img data-src="images/lec-26/tidyverse.png" class="r-stretch"></section></section>
 <section>
 <section id="dplyr-join-multiple-datasets" class="title-slide slide level1 center">
 <h1><code>dplyr</code>: <code>join</code> multiple datasets</h1>
 
 </section>
+<section id="relational-datasets-in-nycflights13" class="slide level2">
+<h2>Relational datasets in <code>nycflights13</code></h2>
+
+<img data-src="images/lec-26/relational-nycflights.png" class="r-stretch"></section>
 <section id="join-multiple-datasets" class="slide level2">
 <h2><code>join</code> multiple datasets</h2>
 <p>R pkg <code>nycflights13</code> provide multiple relational datasets:</p>
@@ -641,10 +671,6 @@
 <li class="fragment"><p><code>flights</code> connects to <code>weather</code> via <code>origin</code> (the location), and <code>year</code>, <code>month</code>, <code>day</code> and <code>hour</code> (the time)</p></li>
 </ul>
 </section>
-<section id="relational-datasets-in-nycflights13" class="slide level2">
-<h2>Relational datasets in <code>nycflights13</code></h2>
-
-<img data-src="images/lec-26/relational-nycflights.png" class="r-stretch"></section>
 <section id="inner_join" class="slide level2">
 <h2><code>inner_join</code></h2>
 <div class="cell" data-layout-align="center">
@@ -652,15 +678,12 @@
 </div>
 
 <img data-src="images/lec-26/join-inner.png" class="r-stretch"></section>
-<section id="join" class="slide level2">
+<section id="join" class="slide level2 smaller">
 <h2><code>*_join</code></h2>
-<ul>
-<li class="fragment"><code>left_join</code>, <code>right_join</code>, <code>full_join</code></li>
-</ul>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">left_join</span>(x,y,<span class="at">by=</span><span class="st">"key"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>left_join</code>, <code>right_join</code>, <code>full_join</code></p>
+<div class="fragment">
+<p><img data-src="images/lec-26/join-outer.png"></p>
 </div>
-<p><img data-src="images/lec-26/join-outer.png"> # <code>dplyr</code>: transform variables in tibble</p>
 </section>
 <section id="data-wrangling-with-dplyr" class="slide level2 smaller">
 <h2>Data wrangling with <code>dplyr</code></h2>
@@ -676,31 +699,31 @@
 <li class="fragment"><code>group_by()%&gt;%summarize()</code>: summary statistics for different groups</li>
 <li class="fragment"><code>count()</code>: count the frequency</li>
 <li class="fragment"><code>distinct()</code>: keep unique rows</li>
-<li class="fragment">functions within <code>mutate()</code>: <code>across()</code>, <code>if_else()</code>,<code>case_when()</code></li>
-<li class="fragment">functions for selecting variables: <code>starts_with()</code>, <code>ends_with()</code>,<code>contains()</code>,<code>matches()</code>,<code>everything()</code></li>
+<li class="fragment">functions within <code>mutate()</code>: <code>across()</code>, <code>if_else()</code>, <code>case_when()</code></li>
+<li class="fragment">functions for selecting variables: <code>starts_with()</code>, <code>ends_with()</code>, <code>contains()</code>, <code>matches()</code>, <code>everything()</code></li>
 </ul>
 </section>
 <section id="case_when" class="slide level2">
 <h2><code>case_when</code></h2>
 
 <img data-src="images/lec-26/dplyr_case_when_sm.png" class="r-stretch"></section>
-<section id="practice" class="slide level2">
+<section id="practice" class="slide level2 smaller">
 <h2>Practice</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">library</span>(<span class="st">"palmerpenguins"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">library</span>(<span class="st">"palmerpenguins"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li class="fragment">Keep the chinstrap and gentoo penguins, living in Dream and Biscoe Islands.</li>
 <li class="fragment">Get first 100 observation</li>
 <li class="fragment">Only keep columns from <code>species</code> to <code>flipper_length_mm</code>, and <code>sex</code> and <code>year</code></li>
 <li class="fragment">Rename <code>sex</code> as <code>gender</code></li>
-<li class="fragment">Move <code>gender</code> right after island, move any numeric variables to after factor variables</li>
+<li class="fragment">Move <code>gender</code> right after island, move numeric variables after factor variables</li>
 <li class="fragment">Add a new column to identify each observation</li>
 <li class="fragment">Transfer <code>island</code> as character</li>
 <li class="fragment">Add a new variable called <code>bill_ratio</code> which is the ratio of bill length to bill depth</li>
 <li class="fragment">Obtain the mean and standard deviation of body mass of different species</li>
 <li class="fragment">For different species, obtain the mean of variables ending with <code>mm</code></li>
-<li class="fragment">Provide a distribution of different species of penguins living in different island across time</li>
+<li class="fragment">Provide the distribution of different species of penguins living in different island across time</li>
 </ul>
 </section>
 <section id="practice-1" class="slide level2">
@@ -740,17 +763,17 @@
 <h2>Useful functions in <code>stringr</code></h2>
 <p>If your raw data has numbers as variable names, you may consider to add characters in front of it.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>table4 <span class="sc">%&gt;%</span> </span>
-<span id="cb41-2"><a href="#cb41-2"></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(<span class="st">`</span><span class="at">1999</span><span class="st">`</span>, <span class="st">`</span><span class="at">2000</span><span class="st">`</span>), <span class="at">names_to =</span> <span class="st">"year"</span>, <span class="at">values_to =</span> <span class="st">"cases"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>table4 <span class="sc">%&gt;%</span> </span>
+<span id="cb40-2"><a href="#cb40-2"></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(<span class="st">`</span><span class="at">1999</span><span class="st">`</span>, <span class="st">`</span><span class="at">2000</span><span class="st">`</span>), <span class="at">names_to =</span> <span class="st">"year"</span>, <span class="at">values_to =</span> <span class="st">"cases"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p><code>str_c</code>: join multiple strings to a single string</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">str_c</span>(<span class="fu">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>, <span class="st">"z"</span>), <span class="at">collapse =</span> <span class="st">", "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">str_c</span>(<span class="fu">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>, <span class="st">"z"</span>), <span class="at">collapse =</span> <span class="st">", "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "x, y, z"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="fu">str_c</span>(<span class="st">"x"</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">str_c</span>(<span class="st">"x"</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "x1" "x2" "x3"</code></pre>
 </div>
@@ -759,21 +782,17 @@
 </section>
 <section id="useful-functions-in-stringr-1" class="slide level2">
 <h2>Useful functions in <code>stringr</code></h2>
-<ul>
-<li class="fragment">Can use to obtain nice variable names.</li>
-<li class="fragment">Can use <code>janitor::clean_names</code></li>
-<li class="fragment">Or <code>str_to_upper</code>, <code>str_to_lower</code>, <code>str_to_title</code></li>
-</ul>
+<p>To obtain nice variable names. - Can use <code>janitor::clean_names</code> - Or <code>str_to_upper</code>, <code>str_to_lower</code>, <code>str_to_title</code></p>
 <div class="fragment">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="fu">colnames</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">colnames</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "species"           "island"            "bill_length_mm"   
 [4] "bill_depth_mm"     "flipper_length_mm" "body_mass_g"      
 [7] "sex"               "year"             </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="fu">colnames</span>(penguins)<span class="sc">%&gt;%</span></span>
-<span id="cb48-2"><a href="#cb48-2"></a>  <span class="fu">str_to_title</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="fu">colnames</span>(penguins)<span class="sc">%&gt;%</span></span>
+<span id="cb47-2"><a href="#cb47-2"></a>  <span class="fu">str_to_title</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Species"           "Island"            "Bill_length_mm"   
 [4] "Bill_depth_mm"     "Flipper_length_mm" "Body_mass_g"      
@@ -782,7 +801,7 @@
 </div>
 </div>
 </section>
-<section id="useful-functions-in-stringr-2" class="slide level2">
+<section id="useful-functions-in-stringr-2" class="slide level2 smaller">
 <h2>Useful functions in <code>stringr</code></h2>
 <ul>
 <li class="fragment"><code>str_detect()</code>: Return TRUE/FALSE for strings satisfying the pattern</li>
@@ -792,17 +811,17 @@
 </ul>
 <div class="fragment">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"pear"</span>)</span>
-<span id="cb50-2"><a href="#cb50-2"></a><span class="fu">str_detect</span>(x, <span class="st">"[aeiou]$"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"pear"</span>)</span>
+<span id="cb49-2"><a href="#cb49-2"></a><span class="fu">str_detect</span>(x, <span class="st">"[aeiou]$"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  TRUE  TRUE FALSE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="fu">str_replace</span>(x, <span class="st">"[aeiou]"</span>, <span class="st">"-"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="fu">str_replace</span>(x, <span class="st">"[aeiou]"</span>, <span class="st">"-"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "-pple"  "b-nana" "p-ar"  </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1 house"</span>, <span class="st">"2 cars"</span>, <span class="st">"3 people"</span>)</span>
-<span id="cb54-2"><a href="#cb54-2"></a><span class="fu">str_replace_all</span>(x, <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"one"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"two"</span>, <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"three"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1 house"</span>, <span class="st">"2 cars"</span>, <span class="st">"3 people"</span>)</span>
+<span id="cb53-2"><a href="#cb53-2"></a><span class="fu">str_replace_all</span>(x, <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"one"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"two"</span>, <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"three"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "one house"    "two cars"     "three people"</code></pre>
 </div>
@@ -828,51 +847,59 @@
 <section id="fct_infreq-and-fct_rev" class="slide level2">
 <h2><code>fct_infreq</code> and <code>fct_rev</code></h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a>p1<span class="ot">=</span>penguins <span class="sc">%&gt;%</span></span>
-<span id="cb56-2"><a href="#cb56-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(species)) <span class="sc">+</span> <span class="fu">geom_bar</span>()</span>
-<span id="cb56-3"><a href="#cb56-3"></a>p2<span class="ot">=</span>penguins <span class="sc">%&gt;%</span></span>
-<span id="cb56-4"><a href="#cb56-4"></a>  <span class="fu">mutate</span>(<span class="at">species=</span>species <span class="sc">%&gt;%</span> <span class="fu">fct_infreq</span>() <span class="sc">%&gt;%</span> <span class="fu">fct_rev</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb56-5"><a href="#cb56-5"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(species)) <span class="sc">+</span> <span class="fu">geom_bar</span>()</span>
-<span id="cb56-6"><a href="#cb56-6"></a><span class="fu">plot_grid</span>(p1,p2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a>p1<span class="ot">=</span>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb55-2"><a href="#cb55-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(species)) <span class="sc">+</span> <span class="fu">geom_bar</span>()</span>
+<span id="cb55-3"><a href="#cb55-3"></a>p2<span class="ot">=</span>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb55-4"><a href="#cb55-4"></a>  <span class="fu">mutate</span>(<span class="at">species=</span>species <span class="sc">%&gt;%</span> <span class="fu">fct_infreq</span>() <span class="sc">%&gt;%</span> <span class="fu">fct_rev</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb55-5"><a href="#cb55-5"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(species)) <span class="sc">+</span> <span class="fu">geom_bar</span>()</span>
+<span id="cb55-6"><a href="#cb55-6"></a><span class="fu">plot_grid</span>(p1,p2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="lec-26_files/figure-revealjs/unnamed-chunk-18-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="lec-26_files/figure-revealjs/unnamed-chunk-17-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
 <section id="examples-for-fct_reorder" class="slide level2">
 <h2>Examples for <code>fct_reorder</code></h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="fu">library</span>(cowplot)</span>
-<span id="cb57-2"><a href="#cb57-2"></a>peng_summary<span class="ot">=</span>penguins <span class="sc">%&gt;%</span></span>
-<span id="cb57-3"><a href="#cb57-3"></a>  <span class="fu">group_by</span>(species)<span class="sc">%&gt;%</span></span>
-<span id="cb57-4"><a href="#cb57-4"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb57-5"><a href="#cb57-5"></a>    <span class="at">bill_length_mean=</span><span class="fu">mean</span>(bill_length_mm, <span class="at">na.rm=</span>T),</span>
-<span id="cb57-6"><a href="#cb57-6"></a>    <span class="at">bill_depth_mean=</span><span class="fu">mean</span>(bill_depth_mm, <span class="at">na.rm=</span>T)</span>
-<span id="cb57-7"><a href="#cb57-7"></a>  )</span>
-<span id="cb57-8"><a href="#cb57-8"></a>p1<span class="ot">=</span><span class="fu">ggplot</span>(peng_summary,<span class="fu">aes</span>(bill_length_mean,species)) <span class="sc">+</span> </span>
-<span id="cb57-9"><a href="#cb57-9"></a>  <span class="fu">geom_point</span>()</span>
-<span id="cb57-10"><a href="#cb57-10"></a>p2<span class="ot">=</span><span class="fu">ggplot</span>(peng_summary,<span class="fu">aes</span>(bill_length_mean,<span class="fu">fct_reorder</span>(species,bill_length_mean))) <span class="sc">+</span> </span>
-<span id="cb57-11"><a href="#cb57-11"></a>  <span class="fu">geom_point</span>()</span>
-<span id="cb57-12"><a href="#cb57-12"></a><span class="fu">plot_grid</span>(p1,p2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="fu">library</span>(cowplot)</span>
+<span id="cb56-2"><a href="#cb56-2"></a>peng_summary<span class="ot">=</span>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb56-3"><a href="#cb56-3"></a>  <span class="fu">group_by</span>(species)<span class="sc">%&gt;%</span></span>
+<span id="cb56-4"><a href="#cb56-4"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb56-5"><a href="#cb56-5"></a>    <span class="at">bill_length_mean=</span><span class="fu">mean</span>(bill_length_mm, <span class="at">na.rm=</span>T),</span>
+<span id="cb56-6"><a href="#cb56-6"></a>    <span class="at">bill_depth_mean=</span><span class="fu">mean</span>(bill_depth_mm, <span class="at">na.rm=</span>T))</span>
+<span id="cb56-7"><a href="#cb56-7"></a>p1<span class="ot">=</span><span class="fu">ggplot</span>(peng_summary,<span class="fu">aes</span>(bill_length_mean,species)) <span class="sc">+</span> </span>
+<span id="cb56-8"><a href="#cb56-8"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb56-9"><a href="#cb56-9"></a>p2<span class="ot">=</span><span class="fu">ggplot</span>(peng_summary,<span class="fu">aes</span>(bill_length_mean,<span class="fu">fct_reorder</span>(species,bill_length_mean))) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb56-10"><a href="#cb56-10"></a><span class="fu">plot_grid</span>(p1,p2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="lec-26_files/figure-revealjs/unnamed-chunk-19-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
-<section id="examples-for-fct_reorder2" class="slide level2">
+<img data-src="lec-26_files/figure-revealjs/unnamed-chunk-18-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
+<section id="examples-for-fct_reorder2" class="slide level2 smaller">
 <h2>Examples for <code>fct_reorder2</code></h2>
-<p><code>fct_reorder2()</code> reorders the factor by the y values associated with the largest x values. This makes the plot easier to read because the line colours line up with the legend.</p>
+<ul>
+<li class="fragment">Reorder the factor by the y values associated with the largest x values</li>
+<li class="fragment">Easier to read: colours line up with the legend</li>
+</ul>
+<div class="fragment">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a>p1<span class="ot">=</span><span class="fu">ggplot</span>(penguins,<span class="fu">aes</span>(bill_length_mm,flipper_length_mm,<span class="at">color=</span>species)) <span class="sc">+</span> </span>
-<span id="cb58-2"><a href="#cb58-2"></a>  <span class="fu">geom_line</span>()</span>
-<span id="cb58-3"><a href="#cb58-3"></a>p2<span class="ot">=</span><span class="fu">ggplot</span>(penguins,<span class="fu">aes</span>(bill_length_mm,flipper_length_mm,<span class="at">color=</span><span class="fu">fct_reorder2</span>(species,bill_length_mm,flipper_length_mm))) <span class="sc">+</span> </span>
-<span id="cb58-4"><a href="#cb58-4"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
-<span id="cb58-5"><a href="#cb58-5"></a>  <span class="fu">guides</span>(<span class="at">color=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="st">"species"</span>))</span>
-<span id="cb58-6"><a href="#cb58-6"></a><span class="fu">plot_grid</span>(p1,p2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a>p1<span class="ot">=</span><span class="fu">ggplot</span>(penguins,<span class="fu">aes</span>(bill_length_mm,flipper_length_mm,<span class="at">color=</span>species)) <span class="sc">+</span> </span>
+<span id="cb57-2"><a href="#cb57-2"></a>  <span class="fu">geom_line</span>()</span>
+<span id="cb57-3"><a href="#cb57-3"></a>p2<span class="ot">=</span><span class="fu">ggplot</span>(penguins,<span class="fu">aes</span>(bill_length_mm,flipper_length_mm,<span class="at">color=</span><span class="fu">fct_reorder2</span>(species,bill_length_mm,flipper_length_mm))) <span class="sc">+</span> </span>
+<span id="cb57-4"><a href="#cb57-4"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">color=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="st">"species"</span>))</span>
+<span id="cb57-5"><a href="#cb57-5"></a><span class="fu">plot_grid</span>(p1,p2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="lec-26_files/figure-revealjs/unnamed-chunk-19-1.png" style="width:90.0%"></p>
+</figure>
 </div>
-<img data-src="lec-26_files/figure-revealjs/unnamed-chunk-20-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
+</div>
+</div>
+</div>
+</section>
 <section id="fct_recode" class="slide level2">
 <h2><code>fct_recode()</code></h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a>penguins <span class="sc">%&gt;%</span></span>
-<span id="cb59-2"><a href="#cb59-2"></a>  <span class="fu">count</span>(species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb58-2"><a href="#cb58-2"></a>  <span class="fu">count</span>(species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   species       n
@@ -881,12 +908,12 @@
 2 Chinstrap    68
 3 Gentoo      124</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a>penguins <span class="sc">%&gt;%</span></span>
-<span id="cb61-2"><a href="#cb61-2"></a>  <span class="fu">mutate</span>(<span class="at">species =</span> <span class="fu">fct_recode</span>(species,</span>
-<span id="cb61-3"><a href="#cb61-3"></a>                              <span class="st">"Adeliea"</span> <span class="ot">=</span> <span class="st">"Adelie"</span>,</span>
-<span id="cb61-4"><a href="#cb61-4"></a>                               <span class="st">"ChinChin"</span> <span class="ot">=</span> <span class="st">"Chinstrap"</span>,</span>
-<span id="cb61-5"><a href="#cb61-5"></a>                               <span class="st">"Gentooman"</span> <span class="ot">=</span> <span class="st">"Gentoo"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb61-6"><a href="#cb61-6"></a>  <span class="fu">count</span>(species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb60-2"><a href="#cb60-2"></a>  <span class="fu">mutate</span>(<span class="at">species =</span> <span class="fu">fct_recode</span>(species,</span>
+<span id="cb60-3"><a href="#cb60-3"></a>                              <span class="st">"Adeliea"</span> <span class="ot">=</span> <span class="st">"Adelie"</span>,</span>
+<span id="cb60-4"><a href="#cb60-4"></a>                               <span class="st">"ChinChin"</span> <span class="ot">=</span> <span class="st">"Chinstrap"</span>,</span>
+<span id="cb60-5"><a href="#cb60-5"></a>                               <span class="st">"Gentooman"</span> <span class="ot">=</span> <span class="st">"Gentoo"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb60-6"><a href="#cb60-6"></a>  <span class="fu">count</span>(species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   species       n
@@ -901,11 +928,11 @@
 <h2><code>fct_collapse</code></h2>
 <p>Can use to collapse lots of levels</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a>penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb63-2"><a href="#cb63-2"></a>  <span class="fu">mutate</span>(<span class="at">species =</span> <span class="fu">fct_collapse</span>(species,</span>
-<span id="cb63-3"><a href="#cb63-3"></a>                                <span class="st">"Adelie"</span><span class="ot">=</span><span class="st">"Adelie"</span>,</span>
-<span id="cb63-4"><a href="#cb63-4"></a>                                <span class="st">"Other"</span><span class="ot">=</span><span class="fu">c</span>(<span class="st">"Chinstrap"</span>,<span class="st">"Gentoo"</span>)))<span class="sc">%&gt;%</span></span>
-<span id="cb63-5"><a href="#cb63-5"></a>  <span class="fu">count</span>(species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb62-2"><a href="#cb62-2"></a>  <span class="fu">mutate</span>(<span class="at">species =</span> <span class="fu">fct_collapse</span>(species,</span>
+<span id="cb62-3"><a href="#cb62-3"></a>                                <span class="st">"Adelie"</span><span class="ot">=</span><span class="st">"Adelie"</span>,</span>
+<span id="cb62-4"><a href="#cb62-4"></a>                                <span class="st">"Other"</span><span class="ot">=</span><span class="fu">c</span>(<span class="st">"Chinstrap"</span>,<span class="st">"Gentoo"</span>)))<span class="sc">%&gt;%</span></span>
+<span id="cb62-5"><a href="#cb62-5"></a>  <span class="fu">count</span>(species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   species     n
@@ -918,14 +945,14 @@
 <section id="fct_lump" class="slide level2">
 <h2><code>fct_lump</code></h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a>volcano <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"slides"</span>, <span class="st">"data/volcano.csv"</span>))</span>
-<span id="cb65-2"><a href="#cb65-2"></a>volcano <span class="sc">%&gt;%</span> <span class="fu">count</span>(country) <span class="sc">%&gt;%</span> <span class="fu">nrow</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a>volcano <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"slides"</span>, <span class="st">"data/volcano.csv"</span>))</span>
+<span id="cb64-2"><a href="#cb64-2"></a>volcano <span class="sc">%&gt;%</span> <span class="fu">count</span>(country) <span class="sc">%&gt;%</span> <span class="fu">nrow</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 89</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a>volcano <span class="sc">%&gt;%</span></span>
-<span id="cb67-2"><a href="#cb67-2"></a>  <span class="fu">mutate</span>(<span class="at">country=</span><span class="fu">fct_lump</span>(country,<span class="at">n=</span><span class="dv">5</span>))<span class="sc">%&gt;%</span></span>
-<span id="cb67-3"><a href="#cb67-3"></a>  <span class="fu">count</span>(country)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a>volcano <span class="sc">%&gt;%</span></span>
+<span id="cb66-2"><a href="#cb66-2"></a>  <span class="fu">mutate</span>(<span class="at">country=</span><span class="fu">fct_lump</span>(country,<span class="at">n=</span><span class="dv">5</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb66-3"><a href="#cb66-3"></a>  <span class="fu">count</span>(country)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 2
   country           n
@@ -947,37 +974,37 @@
 <section id="lubridate-for-dates-and-times-1" class="slide level2">
 <h2><code>lubridate</code> for dates and times</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1"></a><span class="fu">library</span>(<span class="st">"lubridate"</span>)</span>
-<span id="cb69-2"><a href="#cb69-2"></a><span class="fu">library</span>(nycflights13)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a><span class="fu">library</span>(<span class="st">"lubridate"</span>)</span>
+<span id="cb68-2"><a href="#cb68-2"></a><span class="fu">library</span>(nycflights13)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1"></a>flights <span class="sc">%&gt;%</span> </span>
+<span id="cb69-2"><a href="#cb69-2"></a>  <span class="fu">select</span>(year, month, day, hour, minute) <span class="sc">%&gt;%</span> </span>
+<span id="cb69-3"><a href="#cb69-3"></a>  <span class="fu">mutate</span>(<span class="at">departure =</span> <span class="fu">make_datetime</span>(year, month, day))<span class="sc">%&gt;%</span></span>
+<span id="cb69-4"><a href="#cb69-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(departure))<span class="sc">+</span></span>
+<span id="cb69-5"><a href="#cb69-5"></a>  <span class="fu">geom_freqpoly</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="lec-26_files/figure-revealjs/unnamed-chunk-24-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
 <section class="slide level2">
 
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a>flights <span class="sc">%&gt;%</span> </span>
 <span id="cb70-2"><a href="#cb70-2"></a>  <span class="fu">select</span>(year, month, day, hour, minute) <span class="sc">%&gt;%</span> </span>
 <span id="cb70-3"><a href="#cb70-3"></a>  <span class="fu">mutate</span>(<span class="at">departure =</span> <span class="fu">make_datetime</span>(year, month, day))<span class="sc">%&gt;%</span></span>
-<span id="cb70-4"><a href="#cb70-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(departure))<span class="sc">+</span></span>
-<span id="cb70-5"><a href="#cb70-5"></a>  <span class="fu">geom_freqpoly</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb70-4"><a href="#cb70-4"></a>  <span class="fu">filter</span>(departure <span class="sc">&lt;</span> <span class="fu">ymd</span>(<span class="dv">20131002</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb70-5"><a href="#cb70-5"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(departure))<span class="sc">+</span></span>
+<span id="cb70-6"><a href="#cb70-6"></a>  <span class="fu">geom_freqpoly</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="lec-26_files/figure-revealjs/unnamed-chunk-25-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
 <section class="slide level2">
 
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1"></a>flights <span class="sc">%&gt;%</span> </span>
-<span id="cb71-2"><a href="#cb71-2"></a>  <span class="fu">select</span>(year, month, day, hour, minute) <span class="sc">%&gt;%</span> </span>
-<span id="cb71-3"><a href="#cb71-3"></a>  <span class="fu">mutate</span>(<span class="at">departure =</span> <span class="fu">make_datetime</span>(year, month, day))<span class="sc">%&gt;%</span></span>
-<span id="cb71-4"><a href="#cb71-4"></a>  <span class="fu">filter</span>(departure <span class="sc">&lt;</span> <span class="fu">ymd</span>(<span class="dv">20131002</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb71-5"><a href="#cb71-5"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(departure))<span class="sc">+</span></span>
-<span id="cb71-6"><a href="#cb71-6"></a>  <span class="fu">geom_freqpoly</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="lec-26_files/figure-revealjs/unnamed-chunk-26-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
-<section class="slide level2">
-
 <ul>
-<li class="fragment"><code>year()</code>, <code>month()</code>,</li>
+<li class="fragment"><code>year()</code>, <code>month()</code></li>
 <li class="fragment"><code>mday()</code> (day of the month), <code>yday()</code> (day of the year), <code>wday()</code> (day of the week)</li>
 <li class="fragment"><code>hour()</code>, <code>minute()</code>, <code>second()</code></li>
 </ul>
