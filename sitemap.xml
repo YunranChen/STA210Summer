@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://yunranchen.github.io/STA210Summer/index.html</loc>
-    <lastmod>2022-06-15T01:11:58.855Z</lastmod>
+    <lastmod>2022-06-15T03:41:37.516Z</lastmod>
   </url>
   <url>
     <loc>https://yunranchen.github.io/STA210Summer/slides/lec-22.html</loc>
@@ -103,5 +103,9 @@
   <url>
     <loc>https://yunranchen.github.io/STA210Summer/computing-troubleshooting.html</loc>
     <lastmod>2022-06-14T22:45:13.011Z</lastmod>
+  </url>
+  <url>
+    <loc>https://yunranchen.github.io/STA210Summer/weeks/week-6.html</loc>
+    <lastmod>2022-06-15T03:40:26.345Z</lastmod>
   </url>
 </urlset>
