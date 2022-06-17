@@ -31,11 +31,13 @@ knitr::opts_chunk$set(
 
 ## Remaining deadlines for project {.smaller}
 
--   [Final report](https://yunranchen.github.io/STA210Summer/project-description.html#written-report) due Tue, June 22
+-   [Final report](https://yunranchen.github.io/STA210Summer/project-description.html#written-report) due 11:59pm, Wed, June 22
 
--   [Video presentation + slides](https://yunranchen.github.io/STA210Summer/project-description.html#video-presentation--slides) and [final GitHub repo](https://yunranchen.github.io/STA210Summer/project-description.html#reproducibility---organization) due Tue, June 22
+-   [Video presentation + slides](https://yunranchen.github.io/STA210Summer/project-description.html#video-presentation--slides) and [final GitHub repo](https://yunranchen.github.io/STA210Summer/project-description.html#reproducibility---organization) due **11:59 am**, Wed, June 22
 
--   [Presentation comments](https://yunranchen.github.io/STA210Summer/project-description.html#presentation-comments) due Tue, June 22
+-   [Presentation comments](https://yunranchen.github.io/STA210Summer/project-description.html#presentation-comments) due 11:59 pm, Wed, June 22
+
+-   Early submission credit for video and report. 1 point/day. maximum 5 pts (video + report).
 
 . . .
 
@@ -43,18 +45,15 @@ knitr::opts_chunk$set(
 Any questions related to projects?
 :::
 
-## Grading
-
--   Check your grades on Sakai, make sure they match Gradescope, email me before June 22
--   Watch for new feedback released on Gradescope
-
 ## Evaluations
 
 -   Course evaluation
 -   TA evaluation
 
+## Peer Review on drafts
+
+-   20 min
+
 ## Review
 
--   Course Review
--   Previous Expectation and Syllabus
--   About Statistics
+-   Final Project Structure 
